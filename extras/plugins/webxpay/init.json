@@ -1,0 +1,10 @@
+{
+    "name": "webxpay",
+    "version": "1.0.0",
+    "display_name": "WebXpay",
+    "description": "Payment with WebxPay",
+    "author": "Sasindu",
+    "category": "payment",
+    "has_installer": true,
+    "item_id": ""
+}
