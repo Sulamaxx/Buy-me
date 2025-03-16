@@ -333,11 +333,11 @@
 					@endif
 					
 					@if (userHasSuperAdminPermissions())
-					 <!--	<li class="sidebar-item">
+					 	<li class="sidebar-item">
 							<a href="{{ url('docs/api') }}" target="_blank" class="sidebar-link">
 								<i data-feather="book" class="feather-icon"></i> <span class="hide-menu">{{ trans('admin.api_docs') }}</span>
 							</a>
-						</li> -->
+						</li> 
 					@endif
 					
 				</ul>

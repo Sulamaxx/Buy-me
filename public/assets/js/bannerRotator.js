@@ -50,7 +50,7 @@ const BannerRotator = {
         this.currentIndex = (this.currentIndex + 1) % this.banners.length;
 
         // Schedule the next rotation
-        setTimeout(() => this.rotateBanner(), 8000);
+        setTimeout(() => this.rotateBanner(), 5000);
     },
 
     startRotation: function() {

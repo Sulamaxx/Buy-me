@@ -4,7 +4,6 @@ return [
     'post' => '{slug}-{hashableId}',
     'search' => 'search',
     'searchPostsByUserId' => 'users/{id}/ads',
-    'searchShopByUserId' => 'users/{id}/shop', //for shop
     'searchPostsByUsername' => 'profile/{username}',
     'searchPostsByTag' => 'tag/{tag}',
     'searchPostsByCity' => 'location/{city}/{id}',

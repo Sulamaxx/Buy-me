@@ -139,8 +139,6 @@
                         <?php
                         $chkval = data_get($post, 'category.id');
                         $prntval = ' / '.data_get($post, 'property_price_type');
-                        
-                      
                         if ($prntval==' / ')
                             {
                         if($chkval=='42')
@@ -176,7 +174,7 @@
                                 $prntval = " / per month";
                             }
                         }
-                       
+                        
                         ?>{{ $prntval }}</div>
 						</div>
 						<div class="col-12 m-0 p-0 d-flex justify-content-end">
