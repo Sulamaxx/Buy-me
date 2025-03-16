@@ -9,5 +9,3 @@ Disallow: /main.php
 Disallow: /index.php
 Disallow: /mix-manifest.json
 Disallow: /?display=
-
-Sitemap: https://buyme.lk/lk/sitemaps/sitemaps.xml

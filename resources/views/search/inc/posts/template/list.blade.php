@@ -69,7 +69,6 @@ function divideAndRoundUp($number) {
 				$locationUrl = \App\Helpers\UrlGen::city(data_get($post, 'city'), null, $cat);
 			@endphp
 			<?php
-			  echo "<script>console.log(JSON.parse('" . addslashes(json_encode($post)) . "'));</script>";
 //            print_r($post);
 //            exit();
             ?>
@@ -185,11 +184,11 @@ function divideAndRoundUp($number) {
                             }
                         else if($chkval=='38')
                             {
-                                $prntval = ".per acre"; //was perch
+                                $prntval = "per acre"; //was perch
                             }
                         else if($chkval=='44')
                             {
-                                $prntval = ".per perch";
+                                $prntval = "per perch";
                             }
                         else if($chkval=='45')
                             {

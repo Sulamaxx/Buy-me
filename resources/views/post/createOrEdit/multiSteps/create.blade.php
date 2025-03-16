@@ -255,7 +255,7 @@
 														  margin-right: 5px;  padding-right: 10px;
 														}
 													  </style>	
-												    <div id="pricehintdiv"  class="form-text text-muted" style="padding: 10px; font-weight: 800;"></div>
+												    <div id="pricehintdiv" class="form-text text-muted" style="padding: 10px; font-weight: 800;"></div>
 												@if (config('settings.single.price_mandatory') != '1')
 													<div id="priceHintText" class="form-text text-muted">{{ t('price_hint') }}</div>
 												@endif
@@ -1275,8 +1275,6 @@ function xmlhttpfunc()
             }
         $("#pricehintdiv").html(prntval);
 	}, 1000);
-	
- 
          
 });    
 

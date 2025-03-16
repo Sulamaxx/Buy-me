@@ -22,54 +22,48 @@
 @endsection
 
 @php
-	$post ??= [];
+	$postInput ??= [];
 	
 	$postTypes ??= [];
 	$countries ??= [];
-	
-	$postCatParentId = data_get($post, 'category.parent_id');
-	$postCatParentId = (empty($postCatParentId)) ? data_get($post, 'category.id', 0) : $postCatParentId;
 @endphp
 
 @section('content')
 	@includeFirst([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'])
 	<div class="main-container">
-    <style>
+	    <style>
         textarea {
             white-space: pre-wrap  !important; /* Preserves whitespace and line breaks within the textarea */
         }
     </style>
-    	<div class="container">
+		<div class="container">
 			<div class="row">
 				
 				@includeFirst([config('larapen.core.customizedViewPath') . 'post.inc.notification', 'post.inc.notification'])
-
+				
 				<div class="col-md-9 page-content">
 					<div class="inner-box category-content" style="overflow: visible;">
 						<h2 class="title-2">
-							<strong><i class="fas fa-edit"></i> {{ t('update_my_listing') }}</strong>
-							-&nbsp;<a href="{{ \App\Helpers\UrlGen::post($post) }}"
-							   class="" data-bs-placement="top"
-								data-bs-toggle="tooltip"
-								title="{!! data_get($post, 'title') !!}"
-							>{!! str(data_get($post, 'title'))->limit(45) !!}</a>
+							<strong><i class="far fa-edit"></i> {{ t('create_new_listing') }}</strong>
 						</h2>
 						
 						<div class="row">
-							<div class="col-12">
+							<div class="col-xl-12">
 								
-								<form class="form-horizontal" id="payableForm" method="POST" action="{{ url()->current() }}" enctype="multipart/form-data">
+								<form class="form-horizontal"
+								      id="payableForm"
+								      method="POST"
+								      action="{{ request()->fullUrl() }}"
+								      enctype="multipart/form-data"
+								>
 									{!! csrf_field() !!}
-									<input name="_method" type="hidden" value="PUT">
-									<input type="hidden" name="post_id" value="{{ data_get($post, 'id') }}">
+									@honeypot
 									<fieldset>
 									    
 									    {{-- city_id --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
 										<div id="cityBox" class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">
-												{{ t('city') }} <sup>*</sup>
-											</label>
+											<label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">{{ t('city') }} <sup>*</sup></label>
 											<div class="col-md-8">
 												<select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
 													<option value="0" @selected(empty(old('city_id')))>
@@ -78,7 +72,7 @@
 												</select>
 											</div>
 										</div>
-										
+
 										{{-- category_id --}}
 										<?php $categoryIdError = (isset($errors) && $errors->has('category_id')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
@@ -90,21 +84,34 @@
 													</a>
 												</div>
 											</div>
-											<input type="hidden" name="category_id" id="categoryId" value="{{ old('category_id', data_get($post, 'category.id')) }}">
-											<input type="hidden" name="category_type" id="categoryType" value="{{ old('category_type', data_get($post, 'category.type')) }}">
+											<input type="hidden"
+											       name="category_id"
+											       id="categoryId"
+											       value="{{ old('category_id', data_get($postInput, 'category_id', 0)) }}"
+											>
+											<input type="hidden"
+											       name="category_type"
+											       id="categoryType"
+											       value="{{ old('category_type', data_get($postInput, 'category_type')) }}"
+											>
 										</div>
 										
 										@if (config('settings.single.show_listing_type'))
 											{{-- post_type_id --}}
 											@php
 												$postTypeIdError = (isset($errors) && $errors->has('post_type_id')) ? ' is-invalid' : '';
-												$postTypeId = old('post_type_id', data_get($post, 'post_type_id'));
+												$postTypeId = old('post_type_id', data_get($postInput, 'post_type_id'));
+										
+									   
+                                                $priceTypeHintMsg1 = t('price_hint');
+                                                $priceTypeHintMsg2 = t('price_hint_wanted');
+
 											@endphp
 											<div id="postTypeBloc" class="row mb-3 required">
-												<label class="col-md-3 col-form-label{{ $postTypeIdError }}">{{ t('type') }} <sup>*</sup></label>
+												<label class="col-md-3 col-form-label">{{ t('type') }} <sup>*</sup></label>
 												<div class="col-md-8">
 													@foreach ($postTypes as $postType)
-														<div class="form-check form-check-inline">
+														<div class="form-check form-check-inline pt-2">
 															<input name="post_type_id"
 																   id="postTypeId-{{ data_get($postType, 'id') }}"
 																   value="{{ data_get($postType, 'id') }}"
@@ -129,8 +136,13 @@
 										<div class="row mb-3 required">
 											<label class="col-md-3 col-form-label{{ $titleError }}" for="title">{{ t('title') }} <sup>*</sup></label>
 											<div class="col-md-8">
-												<input id="title" name="title" placeholder="{{ t('listing_title') }}" class="form-control input-md{{ $titleError }}"
-													   type="text" value="{{ old('title', data_get($post, 'title')) }}">
+												<input id="title"
+												       name="title"
+												       placeholder="{{ t('listing_title') }}"
+												       class="form-control input-md{{ $titleError }}"
+													   type="text"
+													   value="{{ old('title', data_get($postInput, 'title')) }}"
+												>
 												<div class="form-text text-muted">{{ t('a_great_title_needs_at_least_60_characters') }}</div>
 											</div>
 										</div>
@@ -138,14 +150,12 @@
 										{{-- description --}}
 										@php
 											$descriptionError = (isset($errors) && $errors->has('description')) ? ' is-invalid' : '';
-											$postDescription = data_get($post, 'description');
+											$postDescription = data_get($postInput, 'description');
 											$descriptionErrorLabel = '';
 											$descriptionColClass = 'col-md-8';
 											if (config('settings.single.wysiwyg_editor') != 'none') {
 												$descriptionColClass = 'col-md-12';
 												$descriptionErrorLabel = $descriptionError;
-											} else {
-												$postDescription = strip_tags($postDescription);
 											}
 										@endphp
 										<div class="row mb-3 required">
@@ -153,20 +163,19 @@
 												{{ t('Description') }} <sup>*</sup>
 											</label>
 											<div class="{{ $descriptionColClass }}">
-											     <div id="charCountLabel">0/5000</div>
-												<textarea
-														class="form-control{{ $descriptionError }}"
-														id="description"
-														name="description"
+											    <div id="charCountLabel">0/5000</div>
+												<textarea class="form-control{{ $descriptionError }}"
+														  id="description"
+														  name="description"
 														  rows="8"
 														  maxlength="5000"
 														  style="height: 100px"
-														  oninput="adjustTextarea(this)"
+														  oninput="adjustTextarea(this);"
 												>{{ old('description', $postDescription) }}</textarea>
-												<div class="form-text text-muted">{{ t('describe_what_makes_your_listing_unique') }}</div>
-                                            </div>
+												<div class="form-text text-muted">{{ t('describe_what_makes_your_listing_unique') }}...</div>
+											</div>
 										</div>
-																				    <style>
+										    <style>
                                             #charCountLabel {
                                                 text-align: right;
                                                 font-size: 12px;
@@ -180,7 +189,7 @@
                                             }
                                           </style>
 										<script>
-										 function capitalizeTextOnBlur(textboxId) {
+										function capitalizeTextOnBlur(textboxId) {
                                                 var textbox = document.getElementById(textboxId);
                                                 
                                                 textbox.addEventListener('blur', function() {
@@ -189,7 +198,7 @@
                                                 });
                                             }
                                             capitalizeTextOnBlur('title');
-                                            function adjustTextarea(textarea) {
+                                        function adjustTextarea(textarea) {
                                                 // Set the maximum number of rows
                                                 const maxRows = 20;
                                             
@@ -218,10 +227,10 @@
 										@php
 											$priceError = (isset($errors) && $errors->has('price')) ? ' is-invalid' : '';
 											$currencySymbol = config('currency.symbol', 'X');
-											$price = old('price', data_get($post, 'price'));
+											$price = old('price', data_get($postInput, 'price'));
 											$price = \App\Helpers\Number::format($price, 2, '.', '');
 										@endphp
-										<div id="priceBloc" class="row mb-3 required">
+										<div id="priceBloc" class="row mb-3">
 											<label class="col-md-3 col-form-label{{ $priceError }}" for="price">{{ t('price') }}</label>
 											<div class="col-md-8">
 												<div class="input-group">
@@ -237,28 +246,53 @@
 													>
 													<span class="input-group-text">
 														<input id="negotiable" name="negotiable" type="checkbox"
-															   value="1" {{ (old('negotiable', data_get($post, 'negotiable'))=='1') ? 'checked="checked"' : '' }}>
-														&nbsp;<small>{{ t('negotiable') }}</small>
+															   value="1" @checked(old('negotiable', data_get($postInput, 'negotiable')) == '1')>&nbsp;
+														<small>{{ t('negotiable') }}</small>
 													</span>
 												</div>
-													  <style>
+                                                	 <style>
 														#pricehintdiv input[type="radio"] {
 														  margin-right: 5px;  padding-right: 10px;
 														}
 													  </style>	
 												    <div id="pricehintdiv" class="form-text text-muted" style="padding: 10px; font-weight: 800;"></div>
-					
 												@if (config('settings.single.price_mandatory') != '1')
-													<div class="form-text text-muted">{{ t('price_hint') }}</div>
+													<div id="priceHintText" class="form-text text-muted">{{ t('price_hint') }}</div>
 												@endif
 											</div>
 										</div>
 										
 										{{-- country_code --}}
-										<input id="countryCode" name="country_code"
-											   type="hidden"
-											   value="{{ data_get($post, 'country_code') ?? config('country.code') }}"
-										>
+										@php
+											$countryCodeError = (isset($errors) && $errors->has('country_code')) ? ' is-invalid' : '';
+											$countryCodeValue = (!empty(config('ipCountry.code'))) ? config('ipCountry.code') : 0;
+											$countryCodeValue = data_get($postInput, 'country_code', $countryCodeValue);
+											$countryCodeValueOld = old('country_code', $countryCodeValue);
+										@endphp
+										@if (empty(config('country.code')))
+											<div class="row mb-3 required">
+												<label class="col-md-3 col-form-label{{ $countryCodeError }}" for="country_code">
+													{{ t('your_country') }} <sup>*</sup>
+												</label>
+												<div class="col-md-8">
+													<select id="countryCode" name="country_code" class="form-control large-data-selecter{{ $countryCodeError }}">
+														<option value="0" data-admin-type="0" @selected(empty(old('country_code')))>
+															{{ t('select_a_country') }}
+														</option>
+														@foreach ($countries as $item)
+															<option value="{{ data_get($item, 'code') }}"
+																	data-admin-type="{{ data_get($item, 'admin_type') }}"
+																	@selected($countryCodeValueOld == data_get($item, 'code'))
+															>
+																{{ data_get($item, 'name') }}
+															</option>
+														@endforeach
+													</select>
+												</div>
+											</div>
+										@else
+											<input id="countryCode" name="country_code" type="hidden" value="{{ config('country.code') }}">
+										@endif
 										
 										@php
 											$adminType = config('country.admin_type', 0);
@@ -268,9 +302,7 @@
 												{{-- admin_code --}}
 												<?php $adminCodeError = (isset($errors) && $errors->has('admin_code')) ? ' is-invalid' : ''; ?>
 												<div id="locationBox" class="row mb-3 required">
-													<label class="col-md-3 col-form-label{{ $adminCodeError }}" for="admin_code">
-														{{ t('location') }} <sup>*</sup>
-													</label>
+													<label class="col-md-3 col-form-label{{ $adminCodeError }}" for="admin_code">{{ t('location') }} <sup>*</sup></label>
 													<div class="col-md-8">
 														<select id="adminCode" name="admin_code" class="form-control large-data-selecter{{ $adminCodeError }}">
 															<option value="0" @selected(empty(old('admin_code')))>
@@ -281,20 +313,10 @@
 												</div>
 											@endif
 										@else
-											@php
-												$adminType = (in_array($adminType, ['0', '1', '2'])) ? $adminType : 0;
-												$relAdminType = (in_array($adminType, ['1', '2'])) ? $adminType : 1;
-												$adminCode = data_get($post, 'city.subadmin' . $relAdminType . '_code', 0);
-												$adminCode = data_get($post, 'city.subAdmin' . $relAdminType . '.code', $adminCode);
-												$adminName = data_get($post, 'city.subAdmin' . $relAdminType . '.name');
-												$cityId = data_get($post, 'city.id', 0);
-												$cityName = data_get($post, 'city.name');
-												$fullCityName = !empty($adminName) ? $cityName . ', ' . $adminName : $cityName;
-											@endphp
 											<input type="hidden" id="selectedAdminType" name="selected_admin_type" value="{{ old('selected_admin_type', $adminType) }}">
-											<input type="hidden" id="selectedAdminCode" name="selected_admin_code" value="{{ old('selected_admin_code', $adminCode) }}">
-											<input type="hidden" id="selectedCityId" name="selected_city_id" value="{{ old('selected_city_id', $cityId) }}">
-											<input type="hidden" id="selectedCityName" name="selected_city_name" value="{{ old('selected_city_name', $fullCityName) }}">
+											<input type="hidden" id="selectedAdminCode" name="selected_admin_code" value="{{ old('selected_admin_code', 0) }}">
+											<input type="hidden" id="selectedCityId" name="selected_city_id" value="{{ old('selected_city_id', 0) }}">
+											<input type="hidden" id="selectedCityName" name="selected_city_name" value="{{ old('selected_city_name') }}">
 										@endif
 									
 
@@ -302,7 +324,7 @@
 										{{-- tags --}}
 										@php
 											$tagsError = (isset($errors) && $errors->has('tags.*')) ? ' is-invalid' : '';
-											$tags = old('tags', data_get($post, 'tags'));
+											$tags = old('tags', data_get($postInput, 'tags'));
 										@endphp
 										<div class="row mb-3">
 											<label class="col-md-3 col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
@@ -326,7 +348,7 @@
 										
 										{{-- is_permanent --}}
 										@if (config('settings.single.permanent_listings_enabled') == '3')
-											<input id="isPermanent" name="is_permanent" type="hidden" value="{{ old('is_permanent', data_get($post, 'is_permanent')) }}">
+											<input type="hidden" name="is_permanent" id="isPermanent" value="0">
 										@else
 											<?php $isPermanentError = (isset($errors) && $errors->has('is_permanent')) ? ' is-invalid' : ''; ?>
 											<div id="isPermanentBox" class="row mb-3 required hide">
@@ -336,7 +358,7 @@
 														<input id="isPermanent" name="is_permanent"
 															   class="form-check-input mt-1{{ $isPermanentError }}"
 															   value="1"
-															   type="checkbox" @checked(old('is_permanent', data_get($post, 'is_permanent')) == '1')
+															   type="checkbox" @checked(old('is_permanent', data_get($postInput, 'is_permanent')) == '1')
 														>
 														<label class="form-check-label mt-0" for="is_permanent">
 															{!! t('is_permanent_label') !!}
@@ -347,8 +369,8 @@
 												</div>
 											</div>
 										@endif
-
-
+										
+										
 										<div class="content-subheading">
 											<i class="fas fa-user"></i>
 											<strong>{{ t('seller_information') }}</strong>
@@ -357,24 +379,59 @@
 										
 										{{-- contact_name --}}
 										<?php $contactNameError = (isset($errors) && $errors->has('contact_name')) ? ' is-invalid' : ''; ?>
-										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $contactNameError }}" for="contact_name">
-												{{ t('your_name') }} <sup>*</sup>
-											</label>
-											<div class="col-md-9 col-lg-8 col-xl-6">
-												<div class="input-group">
-													<span class="input-group-text"><i class="far fa-user"></i></span>
-													<input id="contactName" name="contact_name"
-														   type="text"
-														   placeholder="{{ t('your_name') }}"
-														   class="form-control input-md{{ $contactNameError }}"
-														   value="{{ old('contact_name', data_get($post, 'contact_name')) }}"
-													>
+										@if (auth()->check())
+											<input id="contactName" name="contact_name" type="hidden" value="{{ auth()->user()->name }}">
+										@else
+											<div class="row mb-3 required">
+												<label class="col-md-3 col-form-label{{ $contactNameError }}" for="contact_name">
+													{{ t('your_name') }} <sup>*</sup>
+												</label>
+												<div class="col-md-9 col-lg-8 col-xl-6">
+													<div class="input-group">
+														<span class="input-group-text"><i class="far fa-user"></i></span>
+														<input id="contactName" name="contact_name"
+															   placeholder="{{ t('your_name') }}"
+															   class="form-control input-md{{ $contactNameError }}"
+															   type="text"
+															   value="{{ old('contact_name', data_get($postInput, 'contact_name')) }}"
+														>
+													</div>
 												</div>
 											</div>
-										</div>
+										@endif
 										
-
+										{{-- auth_field (as notification channel) --}}
+										@php
+											$authFields = getAuthFields(true);
+											$authFieldError = (isset($errors) && $errors->has('auth_field')) ? ' is-invalid' : '';
+											$usersCanChooseNotifyChannel = isUsersCanChooseNotifyChannel();
+											$authFieldValue = ($usersCanChooseNotifyChannel) ? (old('auth_field', getAuthField())) : getAuthField();
+										@endphp
+										@if ($usersCanChooseNotifyChannel)
+											<div class="row mb-3 required">
+												<label class="col-md-3 col-form-label" for="auth_field">{{ t('notifications_channel') }} <sup>*</sup></label>
+												<div class="col-md-9">
+													@foreach ($authFields as $iAuthField => $notificationType)
+														<div class="form-check form-check-inline pt-2">
+															<input name="auth_field"
+																   id="{{ $iAuthField }}AuthField"
+																   value="{{ $iAuthField }}"
+																   class="form-check-input auth-field-input{{ $authFieldError }}"
+																   type="radio" @checked($authFieldValue == $iAuthField)
+															>
+															<label class="form-check-label mb-0" for="{{ $iAuthField }}AuthField">
+																{{ $notificationType }}
+															</label>
+														</div>
+													@endforeach
+													<div class="form-text text-muted">
+														{{ t('notifications_channel_hint') }}
+													</div>
+												</div>
+											</div>
+										@else
+											<input id="{{ $authFieldValue }}AuthField" name="auth_field" type="hidden" value="{{ $authFieldValue }}">
+										@endif
 										
 										@php
 											$forceToDisplay = isBothAuthFieldsCanBeDisplayed() ? ' force-to-display' : '';
@@ -383,8 +440,10 @@
 										{{-- email --}}
 										@php
 											$emailError = (isset($errors) && $errors->has('email')) ? ' is-invalid' : '';
+											$emailValue = (auth()->check() && isset(auth()->user()->email))
+												? auth()->user()->email
+												: data_get($postInput, 'email');
 										@endphp
-										<?php  ?>
 										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
 											<label class="col-md-3 col-form-label{{ $emailError }}" for="email">{{ t('email') }}
 												@if (getAuthField() == 'email')
@@ -395,11 +454,11 @@
 												<div class="input-group">
 													<span class="input-group-text"><i class="far fa-envelope"></i></span>
 													<input id="email" name="email"
-														   type="text"
-                                                                                                                    {{ auth()->check() ? 'readonly' : '' }}
 														   class="form-control{{ $emailError }}"
 														   placeholder="{{ t('email_address') }}"
-														   value="{{ old('email', data_get($post, 'email')) }}"
+														   type="text"
+														   {{ auth()->check() ? 'readonly' : '' }}
+														   value="{{ old('email', $emailValue) }}"
 													>
 												</div>
 											</div>
@@ -408,21 +467,27 @@
 										{{-- phone --}}
 										@php
 											$phoneError = (isset($errors) && $errors->has('phone')) ? ' is-invalid' : '';
-									
-                                            $phoneValue = data_get($post, 'phone');
-											$phoneValue2 = data_get($post, 'phone2');
-											$phoneValue3 = data_get($post, 'phone3');
-											$phoneValue4 = data_get($post, 'phone4');
-											$phoneValue5 = data_get($post, 'phone5');
-                                            $phoneValue2hid = data_get($post, 'phone2');
-											$phoneValue3hid = data_get($post, 'phone3');
-											$phoneValue4hid = data_get($post, 'phone4');
-											$phoneValue5hid = data_get($post, 'phone5');
-                                        
-                                        
-											$phoneCountryValue = data_get($post, 'phone_country') ?? config('country.code');
-                                        
-                                            $phoneValue = phoneE164($phoneValue, $phoneCountryValue);
+											$phoneValue = data_get($postInput, 'phone');
+											$phoneValue2 = data_get($postInput, 'phone2');
+											$phoneValue3 = data_get($postInput, 'phone3');
+											$phoneValue4 = data_get($postInput, 'phone4');
+											$phoneValue5 = data_get($postInput, 'phone5');
+                                            $phoneValue2hid = data_get($postInput, 'phone2hid');
+											$phoneValue3hid = data_get($postInput, 'phone3hid');
+											$phoneValue4hid = data_get($postInput, 'phone4hid');
+											$phoneValue5hid = data_get($postInput, 'phone5hid');
+											$phoneCountryValue = data_get($postInput, 'phone_country', config('country.code'));
+											if (
+												auth()->check()
+												&& isset(auth()->user()->country_code)
+												&& !empty(auth()->user()->phone)
+												&& isset(auth()->user()->phone_country)
+												// && auth()->user()->country_code == config('country.code')
+											) {
+												$phoneValue = auth()->user()->phone;
+												$phoneCountryValue = auth()->user()->phone_country;
+											}
+											$phoneValue = phoneE164($phoneValue, $phoneCountryValue);
 											$phoneValueOld = phoneE164(old('phone', $phoneValue), old('phone_country', $phoneCountryValue));
 											$phoneValue2Old = phoneE164(old('phone2', $phoneValue2));
 											$phoneValue3Old = phoneE164(old('phone3', $phoneValue3));
@@ -432,7 +497,6 @@
                                             $phoneValue3Oldhid = phoneE164(old('phone3hid', $phoneValue3hid));
                                             $phoneValue4Oldhid = phoneE164(old('phone4hid', $phoneValue4hid));
                                             $phoneValue5Oldhid = phoneE164(old('phone5hid', $phoneValue5hid));
-
 										@endphp
 										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
 											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone">{{ t('phone_number') }}
@@ -444,21 +508,21 @@
 												<div class="input-group">
 													<input id="phone" name="phone"
 														   class="form-control input-md{{ $phoneError }}"
-														   type="text"
+														   type="tel"
 														   value="{{ $phoneValueOld }}"
-													>
+                                                           />
 													<span class="input-group-text iti-group-text">
 														<input id="phoneHidden" name="phone_hidden" type="checkbox"
-															   value="1" @checked(old('phone_hidden', data_get($post, 'phone_hidden'))=='1')>
-											             &nbsp;<small>{{ t('Hide') }}</small>&nbsp;&nbsp;&nbsp;<span>|<i class="fa fa-phone"></i>|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															   value="1" @checked(old('phone_hidden') == '1')>&nbsp;
+														<small>{{ t('Hide') }}</small>&nbsp;&nbsp;&nbsp;<span>|<i class="fa fa-phone"></i>|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <span onclick="myFunction('phn2')" style="cursor: pointer; width: 30px !important; height: 25px !important; background: #30A851; color: white; border-radius: 5px;">&nbsp;&nbsp;+&nbsp;&nbsp;</span>
 													</span>
 												</div>
 												<input name="phone_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
 											</div>
 										</div>
-										
-										    <div id="phn2" style="display: none" >
+                                        
+                                        <div id="phn2" style="display: none" >
                                         <div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
 											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone2">{{ t('phone_number2') }}
 												@if (getAuthField() == 'phone')
@@ -474,7 +538,7 @@
                                                         <input id="phone2" name="phone2"
 														   class="form-control input-md{{ $phoneError }}"
 														   type="tel"
-                                                           placeholder="700000000"
+                                                           placeholder="712345678"
                                                            value="{{ $phoneValue2Old }}" 
                                                            minlength="9" maxlength="9"
                                                                />
@@ -483,7 +547,7 @@
                                                     <span id="phn2_act" style="display: none;"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('2')" style=" cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>&nbsp;<span onclick="myFunction('phn3')" style="cursor: pointer; width: 30px; height: 25px; background: #30A851; border-radius: 5px;">+</span>
 													</span>
-                                                    <span  id="phn2_vfy"  class="input-group-text iti-group-text" style="display: none;   width: 100px !important; padding-top: 5px !important; padding-bottom: 0px !important; padding-left: 0.30rem;"><input type="text" size="6" id="phn2_verify" placeholder="6 digit code" name="phn2_verify" />&nbsp;&nbsp;<span id="phone2vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('2')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span></span>
+                                                    <span  id="phn2_vfy"  class="input-group-text iti-group-text" style="display: none; width: 100px !important; padding-top: 5px !important; padding-bottom: 0px !important; padding-left: 0.30rem;"><input type="text" size="6" id="phn2_verify" placeholder="6 digit code" name="phn2_verify" />&nbsp;&nbsp;<span id="phone2vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('2')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span></span>
 													
 												</div>
 												<input name="phone2_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
@@ -509,7 +573,7 @@
                                                         <input id="phone3" name="phone3"
 														   class="form-control input-md{{ $phoneError }}"
 														   type="tel"
-                                                           placeholder="700000000"
+                                                           placeholder="712345678"
                                                            value="{{ $phoneValue3Old }}"
                                                                minlength="9" maxlength="9"
                                                                />
@@ -518,7 +582,7 @@
                                                     <span id="phn3_act" style="display: none"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('3')" style="cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>&nbsp;<span onclick="myFunction('phn4')" style="cursor: pointer; width: 30px; height: 25px; background: #30A851; border-radius: 5px;">+</span>
 													</span>
-                                                    <span  id="phn3_vfy" class="input-group-text iti-group-text" style="display: none;  width: 100px !important;"><input type="text"  size="6" placeholder="6 digit code" id="phn3_verify" name="phn3_verify" />&nbsp;&nbsp;<span id="phone3vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('3')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span> </span>
+                                                    <span  id="phn3_vfy" class="input-group-text iti-group-text" style="display: none; width: 100px !important;"><input type="text"  size="6" placeholder="6 digit code" id="phn3_verify" name="phn3_verify" />&nbsp;&nbsp;<span id="phone3vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('3')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span> </span>
 													
 												</div>
 												<input name="phone3_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
@@ -544,7 +608,7 @@
                                                         <input id="phone4" name="phone4"
 														   class="form-control input-md{{ $phoneError }}"
 														   type="tel"
-                                                           placeholder="700000000"
+                                                           placeholder="712345678"
                                                            value="{{ $phoneValue4Old }}"
                                                                minlength="9" maxlength="9"
                                                                />
@@ -579,7 +643,7 @@
                                                         <input id="phone5" name="phone5"
 														   class="form-control input-md{{ $phoneError }}"
 														   type="tel"
-                                                           placeholder="700000000"
+                                                           placeholder="712345678"
                                                            value="{{ $phoneValue5Old }}" 
                                                                minlength="9" maxlength="9"
                                                             />
@@ -599,52 +663,92 @@
 										</div>
 										</div>
                                         
-									
-										{{-- auth_field (as notification channel) --}}
-										@php
-											$authFields = getAuthFields(true);
-											$authFieldError = (isset($errors) && $errors->has('auth_field')) ? ' is-invalid' : '';
-											$usersCanChooseNotifyChannel = isUsersCanChooseNotifyChannel();
-											$authFieldValue = data_get($post, 'auth_field') ?? getAuthField();
-											$authFieldValue = ($usersCanChooseNotifyChannel) ? (old('auth_field', $authFieldValue)) : $authFieldValue;
-										@endphp
-										@if ($usersCanChooseNotifyChannel)
-											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label" for="auth_field">{{ t('notifications_channel') }} <sup>*</sup></label>
-												<div class="col-md-9">
-													@foreach ($authFields as $iAuthField => $notificationType)
-														<div class="form-check form-check-inline pt-2">
-															<input name="auth_field"
-																   id="{{ $iAuthField }}AuthField"
-																   value="{{ $iAuthField }}"
-																   class="form-check-input auth-field-input{{ $authFieldError }}"
-																   type="radio" @checked($authFieldValue == $iAuthField)
-															>
-															<label class="form-check-label mb-0" for="{{ $iAuthField }}AuthField">
-																{{ $notificationType }}
-															</label>
+										@if (!auth()->check())
+											@if (in_array(config('settings.single.auto_registration'), [1, 2]))
+												{{-- auto_registration --}}
+												@if (config('settings.single.auto_registration') == 1)
+													<?php $autoRegistrationError = (isset($errors) && $errors->has('auto_registration')) ? ' is-invalid' : ''; ?>
+													<div class="row mb-3 required">
+														<label class="col-md-3 col-form-label"></label>
+														<div class="col-md-8">
+															<div class="form-check">
+																<input name="auto_registration" id="auto_registration"
+																	   class="form-check-input{{ $autoRegistrationError }}"
+																	   value="1"
+																	   type="checkbox"
+																	   required
+																	   checked="checked"
+																	   
+																disabled>
+																<label class="form-check-label" for="auto_registration">
+																	{!! t('I want to register by submitting this listing') !!}
+																</label>
+															</div>
+															<div class="form-text text-muted">{{ t('You will receive your authentication information by email') }}</div>
 														</div>
-													@endforeach
-													<div class="form-text text-muted">
-														{{ t('notifications_channel_hint') }}
+													</div>
+												@else
+													<input type="hidden" name="auto_registration" id="auto_registration" value="1">
+												@endif
+											@endif
+										@endif
+										
+										@include('layouts.inc.tools.captcha', ['colLeft' => 'col-md-3', 'colRight' => 'col-md-8'])
+										
+										@if (!auth()->check())
+											{{-- accept_terms --}}
+											@php
+												$acceptTermsError = (isset($errors) && $errors->has('accept_terms')) ? ' is-invalid' : '';
+												$acceptTerms = old('accept_terms', data_get($postInput, 'accept_terms'));
+											@endphp
+											<div class="row mb-3 required">
+												<label class="col-md-3 col-form-label"></label>
+												<div class="col-md-8">
+													<div class="form-check">
+														<input name="accept_terms" id="acceptTerms"
+															   class="form-check-input{{ $acceptTermsError }}"
+															   value="1"
+															   type="checkbox" @checked($acceptTerms == '1')
+														>
+														<label class="form-check-label" for="acceptTerms" style="font-weight: normal;">
+															{!! t('accept_terms_label', ['attributes' => getUrlPageByType('terms')]) !!}
+														</label>
 													</div>
 												</div>
 											</div>
-										@else
-											<input id="{{ $authFieldValue }}AuthField" name="auth_field" type="hidden" value="{{ $authFieldValue }}">
+											
+											{{-- accept_marketing_offers --}}
+											@php
+												$acceptMarketingOffersError = (isset($errors) && $errors->has('accept_marketing_offers')) ? ' is-invalid' : '';
+												$acceptMarketingOffers = old('accept_marketing_offers', data_get($postInput, 'accept_marketing_offers'));
+											@endphp
+											<div class="row mb-3 required">
+												<label class="col-md-3 col-form-label"></label>
+												<div class="col-md-8">
+													<div class="form-check">
+														<input name="accept_marketing_offers" id="acceptMarketingOffers"
+															   class="form-check-input{{ $acceptMarketingOffersError }}"
+															   value="1"
+															   type="checkbox" @checked($acceptMarketingOffers == '1')
+														>
+														<label class="form-check-label" for="acceptMarketingOffers" style="font-weight: normal;">
+															{!! t('accept_marketing_offers_label') !!}
+														</label>
+													</div>
+												</div>
+											</div>
 										@endif
 
 										{{-- Button --}}
 										<div class="row mb-3 pt-3">
 											<div class="col-md-12 text-center">
-												<a href="{{ \App\Helpers\UrlGen::post($post) }}" class="btn btn-default btn-lg">{{ t('Back') }}</a>
-												<button id="nextStepBtn" class="btn btn-primary btn-lg">{{ t('Update') }}</button>
+												<button id="nextStepBtn" class="btn btn-primary btn-lg">{{ t('Next') }}</button>
 											</div>
 										</div>
-
+										
 									</fieldset>
 								</form>
-								
+
 							</div>
 						</div>
 					</div>
@@ -658,15 +762,15 @@
 			</div>
 		</div>
 	</div>
+
 <script>
 const box = document.querySelector("[for='emailAuthField']");
 box.innerHTML = 'Email';
 </script>
-		   
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>  
-       function xmlhttpcond(xht)
+<script> 
+    function xmlhttpcond(xht)
 {
 	if (xht.readyState==4 && xht.status==200) {
 		return true;
@@ -701,9 +805,51 @@ function xmlhttpfunc()
         w.value = '';
         x.style.display = "none";
 }
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(window.location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
     
    $(document).ready(function() {
        
+       
+            // Store PHP values in JavaScript variables
+            const hint1 = @json($priceTypeHintMsg1);
+            const hint2 = @json($priceTypeHintMsg2);
+
+            // Function to check the selected radio button and display the appropriate hint
+            function updateHintMessage() {
+                if ($('#postTypeId-1').is(':checked')) {
+                    // Display hint for post_type_id = 1 or null/empty
+                    $('#priceHintText').html(hint1).show();
+                } else if ($('#postTypeId-2').is(':checked')) {
+                    // Display hint for post_type_id = 2
+                    $('#priceHintText').html(hint2).show();
+                }
+            }
+
+            // Run the function on load to show the correct hint
+            updateHintMessage();
+
+            // Bind change event to radio buttons
+            $('input[name="post_type_id"]').change(function() {
+                updateHintMessage();
+            });
+       
+            // set radio buttion for wanted as auto selected since user intented to put wanted ads
+            const wantedParam = getUrlParameter('wanted');
+            if (wantedParam === '1') {
+                $('#postTypeId-2').prop('checked', true); // Select the "Wanted" radio button
+
+                updateHintMessage();
+            }
+            
+
        $(document).on('click', '#phone2vf', function(e) {
            
            var phn2_verify= $('#phn2_verify').val();
@@ -775,11 +921,11 @@ function xmlhttpfunc()
             
                    
          }
-       else
-           {
-               $('#phn2_act').removeAttr('style');
-              document.getElementById("phn2_vfy").style.display = "none";   
-           }
+                   else
+                       {
+                          $('#phn2_act').removeAttr('style');
+                          document.getElementById("phn2_vfy").style.display = "none";   
+                       }
                }
 			});
        
@@ -954,7 +1100,6 @@ function xmlhttpfunc()
 //           val_ph2 = phn2_verify;
            if(phn2_verify.length == 6)
                {
-
                    
         xmlhttp1 = xmlhttpfunc();
 		xmlhttp1.onreadystatechange=function() 
@@ -1016,7 +1161,7 @@ function xmlhttpfunc()
                }
            else
                        {
-                         $('#phn5_act').removeAttr('style');
+                          $('#phn5_act').removeAttr('style');
                           document.getElementById("phn5_vfy").style.display = "none";   
                        }
                }
@@ -1080,27 +1225,15 @@ function xmlhttpfunc()
             document.getElementById("phn5").style.display = "none";
              document.getElementById("phn5_act").style.display = "none";
              document.getElementById("phn5_vfy").style.display = "block";
-       }
+       }  
        
-                
-                     setTimeout(function ()  {
-//        var chkval = $('.cat-link').attr("data-id");
-        var chkval = {{ old('category_id', data_get($post, 'category.id')) }};
-//                          alert(chkval);
+       setTimeout(function ()  {
+        var chkval = {{ old('category_id', data_get($postInput, 'category_id', 0)) }};
         var prntval = '';
-        var old_ptype = '{{data_get($post, 'property_price_type')}}';
-//                                alert(old_ptype);
+
         if(chkval=='42')
             {
-                if (old_ptype=='per day')
-                    {
-                        prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per day">per day <input type="radio" name="property_price_type" id="property_price_type2" value="per month">per month';
-                    }
-                else
-                    {
-                        prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per day">per day <input type="radio" checked name="property_price_type" id="property_price_type2" value="per month">per month';
-                    }
-                
+              prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per day">per day <input type="radio" checked name="property_price_type" id="property_price_type2" value="per month">per month';
             }
         else if(chkval=='140')
             {
@@ -1108,25 +1241,12 @@ function xmlhttpfunc()
             }
         else if(chkval=='38')
             {
-                if (old_ptype=='per perch')
-                    {
-                                        prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
-                    }
-                else
-                    {
-                                       prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
-                    }
+               prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre';
+                    
             }
         else if(chkval=='44')
             {
-                if (old_ptype=='per perch')
-                    {
-                        prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre';
-                    }
-                else
-                    {
-                        prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" checked name="property_price_type" id="property_price_type2" value="per acre">per acre';
-                    }
+                prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre';
             }
         else if(chkval=='45')
             {
@@ -1146,10 +1266,10 @@ function xmlhttpfunc()
             }
         $("#pricehintdiv").html(prntval);
 	}, 1000);
-       
-    
-}); 
+         
+});    
 </script>
+
 	@includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.category-modal', 'post.createOrEdit.inc.category-modal'])
 @endsection
 
@@ -1157,10 +1277,6 @@ function xmlhttpfunc()
 @endsection
 
 @section('after_scripts')
-	<script>
-		defaultAuthField = '{{ old('auth_field', $authFieldValue ?? getAuthField()) }}';
-		phoneCountry = '{{ old('phone_country', ($phoneCountryValue ?? '')) }}';
-	</script>
 @endsection
 
 @includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.form-assets', 'post.createOrEdit.inc.form-assets'])
