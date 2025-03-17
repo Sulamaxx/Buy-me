@@ -29,11 +29,12 @@ trait CheckInstallation
 			createTheInstalledFile(true);
 			$this->clearInstallationSession();
 		}
-		
+
 		// Check if the app is installed
-		return appIsInstalled();
+		// return appIsInstalled();
+		return true;
 	}
-	
+
 	/**
 	 * @return bool
 	 */
@@ -41,7 +42,7 @@ trait CheckInstallation
 	{
 		return !$this->isInstalled();
 	}
-	
+
 	/**
 	 * Check if installation is processing
 	 *
@@ -55,7 +56,7 @@ trait CheckInstallation
 			|| !empty(session('installFinished'))
 		);
 	}
-	
+
 	/**
 	 * @return bool
 	 */
@@ -63,9 +64,9 @@ trait CheckInstallation
 	{
 		return !$this->installationIsInProgress();
 	}
-	
+
 	// PRIVATE
-	
+
 	/**
 	 * Check if the installation is complete
 	 * If the session contains "installFinished" which is equal to 1, this means that the website has just been installed.
@@ -76,7 +77,7 @@ trait CheckInstallation
 	{
 		return (session('installFinished') == 1);
 	}
-	
+
 	/**
 	 * Clear the installation session
 	 * Remove the "installFinished" key from the session
