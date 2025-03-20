@@ -83,7 +83,7 @@ function mb_str_cleaner(?string $string): ?string
 	*/
 	$string = preg_replace('/[\x{10000}-\x{10FFFF}]/u', '', $string);
 	
-	return mb_ucfirst(trim($string));
+	return custom_mb_ucfirst(trim($string));
 }
 
 /**
@@ -518,7 +518,7 @@ function hex_to_rgba($color, bool $opacity = false): string
  * @param string $encoding
  * @return string|null
  */
-function mb_ucfirst(?string $string, string $encoding = 'utf-8'): ?string
+function custom_mb_ucfirst(?string $string, string $encoding = 'utf-8'): ?string
 {
 	if (empty($string)) {
 		return null;
@@ -550,7 +550,7 @@ function mb_ucwords(?string $string, string $encoding = 'utf-8'): ?string
 	$words = preg_split('/\s+/ui', $string);
 	if (!empty($words)) {
 		foreach ($words as $key => $word) {
-			$tab[$key] = mb_ucfirst($word, $encoding);
+			$tab[$key] = custom_mb_ucfirst($word, $encoding);
 		}
 	}
 	

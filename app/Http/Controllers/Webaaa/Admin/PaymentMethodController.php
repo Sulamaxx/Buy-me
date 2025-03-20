@@ -69,7 +69,7 @@ class PaymentMethodController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'countries',
-			'label'         => mb_ucfirst(trans('admin.countries')),
+			'label'         => custom_mb_ucfirst(trans('admin.countries')),
 			'type'          => 'model_function',
 			'function_name' => 'getCountriesHtml',
 		]);

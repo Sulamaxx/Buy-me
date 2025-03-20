@@ -57,7 +57,7 @@ class PictureController extends PanelController
 			[
 				'name'        => 'country',
 				'type'        => 'select2',
-				'label'       => mb_ucfirst(trans('admin.country')),
+				'label'       => custom_mb_ucfirst(trans('admin.country')),
 				'placeholder' => trans('admin.select'),
 			],
 			getCountries(),
@@ -133,7 +133,7 @@ class PictureController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'country_code',
-			'label'         => mb_ucfirst(trans('admin.country')),
+			'label'         => custom_mb_ucfirst(trans('admin.country')),
 			'type'          => 'model_function',
 			'function_name' => 'getCountryHtml',
 		]);

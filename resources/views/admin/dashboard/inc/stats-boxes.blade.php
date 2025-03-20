@@ -82,7 +82,7 @@
 							</h2>
 							<h6 class="text-white">
 								<a href="{{ admin_url('users') }}" class="text-white">
-								{{ mb_ucfirst(trans('admin.users')) }}
+								{{ custom_mb_ucfirst(trans('admin.users')) }}
 								</a>
 							</h6>
 						</div>

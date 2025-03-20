@@ -37,7 +37,7 @@ trait SubAdmin2Trait
 		
 		$out = '<a class="btn btn-xs btn-light" href="' . $url . '"' . $toolTip . '>';
 		$out .= '<i class="fa fa-eye"></i> ';
-		$out .= mb_ucfirst(trans('admin.cities'));
+		$out .= custom_mb_ucfirst(trans('admin.cities'));
 		$out .= '</a>';
 		
 		return $out;

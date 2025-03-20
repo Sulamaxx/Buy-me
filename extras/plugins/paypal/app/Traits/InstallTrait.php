@@ -16,7 +16,7 @@ trait InstallTrait
 		$paymentMethod = PaymentMethod::active()->where('name', 'paypal')->first();
 		if (!empty($paymentMethod)) {
 			$options[] = (object)[
-				'name'     => mb_ucfirst(trans('admin.settings')),
+				'name'     => custom_mb_ucfirst(trans('admin.settings')),
 				'url'      => admin_url('payment_methods/' . $paymentMethod->id . '/edit'),
 				'btnClass' => 'btn-info',
 			];

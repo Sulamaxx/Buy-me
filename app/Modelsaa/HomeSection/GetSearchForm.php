@@ -321,7 +321,7 @@ class GetSearchForm
 			foreach ($languages as $language) {
 				$titlesFields[] = [
 					'name'              => 'title_' . $language->abbr,
-					'label'             => mb_ucfirst(trans('admin.title')) . ' (' . $language->name . ')',
+					'label'             => custom_mb_ucfirst(trans('admin.title')) . ' (' . $language->name . ')',
 					'attributes'        => [
 						'placeholder' => t('homepage_title_text', [], 'global', $language->abbr),
 					],

@@ -356,8 +356,8 @@ class SingleSetting
 				'label'             => trans('admin.default_package_type_label'),
 				'type'              => 'select2_from_array',
 				'options'           => [
-					'promotion'    => mb_ucfirst(trans('admin.promotion')),
-					'subscription' => mb_ucfirst(trans('admin.subscription')),
+					'promotion'    => custom_mb_ucfirst(trans('admin.promotion')),
+					'subscription' => custom_mb_ucfirst(trans('admin.subscription')),
 				],
 				'hint'              => trans('admin.default_package_type_hint'),
 				'wrapperAttributes' => [

@@ -5,7 +5,7 @@
 		<div class="col-md-5 col-12 align-self-center">
 			<h3 class="mb-0">
 				<a href="{{ admin_url('languages') }}" class="btn btn-primary shadow">
-					<i class="fa fa-arrow-left"></i>&nbsp;{{ mb_ucfirst(trans('admin.languages')) }}
+					<i class="fa fa-arrow-left"></i>&nbsp;{{ custom_mb_ucfirst(trans('admin.languages')) }}
 				</a>&nbsp;
 				{{ trans('admin.translate') }} <span class="text-lowercase">{{ trans('admin.site_texts') }}</span>
 			</h3>

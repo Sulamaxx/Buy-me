@@ -46,7 +46,7 @@ class MetaTagController extends PanelController
 			[
 				'name'  => 'name',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Name')),
+				'label' => custom_mb_ucfirst(trans('admin.Name')),
 			],
 			false,
 			function ($value) {
@@ -98,7 +98,7 @@ class MetaTagController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'  => 'title',
-			'label' => mb_ucfirst(trans('admin.title')),
+			'label' => custom_mb_ucfirst(trans('admin.title')),
 		]);
 		$this->xPanel->addColumn([
 			'name'  => 'description',
@@ -139,10 +139,10 @@ class MetaTagController extends PanelController
 		
 		$this->xPanel->addField([
 			'name'       => 'title',
-			'label'      => mb_ucfirst(trans('admin.title')),
+			'label'      => custom_mb_ucfirst(trans('admin.title')),
 			'type'       => 'text',
 			'attributes' => [
-				'placeholder' => mb_ucfirst(trans('admin.title')),
+				'placeholder' => custom_mb_ucfirst(trans('admin.title')),
 			],
 			'hint'       => trans('admin.seo_title_hint'),
 		]);

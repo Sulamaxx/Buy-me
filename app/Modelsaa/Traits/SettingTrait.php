@@ -37,7 +37,7 @@ trait SettingTrait
 		
 		$out = '<a class="btn btn-xs btn-primary" href="' . $url . '"' . $tooltip . '>';
 		$out .= '<i class="fas fa-cog"></i> ';
-		$out .= mb_ucfirst(trans('admin.Configure'));
+		$out .= custom_mb_ucfirst(trans('admin.Configure'));
 		$out .= '</a>';
 		
 		return $out;

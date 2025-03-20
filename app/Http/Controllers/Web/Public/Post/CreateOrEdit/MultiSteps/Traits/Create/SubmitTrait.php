@@ -100,8 +100,6 @@ trait SubmitTrait
 				$request->session()->put('postId', $postId);
 			}
 			
-			// Clear Temporary Inputs & Files
-			$this->clearTemporaryInput();
 		} else {
 			flash($message)->error();
 			
@@ -175,6 +173,9 @@ trait SubmitTrait
 				flash($mailMessage)->error();
 			}
 		}
+
+		// Clear Temporary Inputs & Files
+		$this->clearTemporaryInput();
 		
 		return redirect()->to($nextUrl);
 	}

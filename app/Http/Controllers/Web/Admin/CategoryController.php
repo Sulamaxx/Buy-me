@@ -119,7 +119,7 @@ class CategoryController extends PanelController
 			[
 				'name'  => 'name',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Name')),
+				'label' => custom_mb_ucfirst(trans('admin.Name')),
 			],
 			false,
 			fn ($value) => $this->xPanel->addClause('where', 'name', 'LIKE', "%$value%")
@@ -129,7 +129,7 @@ class CategoryController extends PanelController
 			[
 				'name'  => 'catType',
 				'type'  => 'dropdown',
-				'label' => mb_ucfirst(trans('admin.type')),
+				'label' => custom_mb_ucfirst(trans('admin.type')),
 			],
 			[
 				'classified'  => 'Classified',
@@ -180,13 +180,13 @@ class CategoryController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'subcategories',
-			'label'         => mb_ucfirst(trans('admin.subcategories')),
+			'label'         => custom_mb_ucfirst(trans('admin.subcategories')),
 			'type'          => 'model_function',
 			'function_name' => 'subCategoriesButton',
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'fields',
-			'label'         => mb_ucfirst(trans('admin.custom fields')),
+			'label'         => custom_mb_ucfirst(trans('admin.custom fields')),
 			'type'          => 'model_function',
 			'function_name' => 'customFieldsButton',
 		]);
@@ -282,7 +282,7 @@ class CategoryController extends PanelController
 		
 		$this->xPanel->addField([
 			'name'  => 'type',
-			'label' => mb_ucfirst(trans('admin.type')),
+			'label' => custom_mb_ucfirst(trans('admin.type')),
 			'type'  => 'enum',
 			'hint'  => trans('admin.category_types_info'),
 		]);
