@@ -1,308 +1,401 @@
-[2025-03-20 05:39:05] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:40:00] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:40:37] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:41:44] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:46:19] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:46:20] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:46:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:47:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:48:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:49:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:50:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:51:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:52:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:53:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:54:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:55:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:56:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:57:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:58:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 05:59:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:00:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:01:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:02:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:03:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:04:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:05:42] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:06:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:07:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:08:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:09:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:10:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:11:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:12:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:13:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:14:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:15:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:16:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:17:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:18:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:19:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:20:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:21:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:22:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:23:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:24:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:25:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:26:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:27:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:28:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:29:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:30:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:31:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:32:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:33:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:34:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:35:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:36:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:37:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:38:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:39:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:40:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:41:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:42:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:43:40] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:44:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:45:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:46:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:47:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:48:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:49:42] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:50:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:51:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:52:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:53:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:54:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:55:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
-[2025-03-20 06:56:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
-[stacktrace]
-#0 {main}
-"} 
+[2025-03-20 21:13:24] local.INFO: log3  
+[2025-03-20 21:13:27] local.INFO: log1Buyme.lk - Verify your phone number. The verification code is: 675001. Verif. URL: http://127.0.0.1:8000/users/verify/phone/675001  
+[2025-03-20 21:13:27] local.INFO: 94711254581  
+[2025-03-20 21:17:02] local.INFO: log3  
+[2025-03-20 21:17:04] local.INFO: log1Buyme.lk - Verify your phone number. The verification code is: 862926. Verif. URL: http://127.0.0.1:8000/users/verify/phone/862926  
+[2025-03-20 21:17:04] local.INFO: 94711254581  
+[2025-03-20 21:17:05] local.INFO: GuzzleHttp\Exception\RequestException: cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://app.notify.lk/api/v1/send in F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:276
+Stack trace:
+#0 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(205): GuzzleHttp\Handler\CurlFactory::createRejection()
+#1 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(157): GuzzleHttp\Handler\CurlFactory::finishError()
+#2 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish()
+#3 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke()
+#4 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}()
+#5 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1256): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}()
+#6 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1222): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#7 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1208): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#8 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#9 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Middleware.php(38): GuzzleHttp\PrepareBodyMiddleware->__invoke()
+#10 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}()
+#11 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Middleware.php(63): GuzzleHttp\RedirectMiddleware->__invoke()
+#12 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}()
+#13 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke()
+#14 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(169): GuzzleHttp\Client->transfer()
+#15 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync()
+#16 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1053): GuzzleHttp\Client->request()
+#17 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(894): Illuminate\Http\Client\PendingRequest->sendRequest()
+#18 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\helpers.php(261): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#19 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(892): retry()
+#20 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(798): Illuminate\Http\Client\PendingRequest->send()
+#21 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\Factory.php(461): Illuminate\Http\Client\PendingRequest->post()
+#22 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Http\Client\Factory->__call()
+#23 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Notifications\NotifyChannel.php(39): Illuminate\Support\Facades\Facade::__callStatic()
+#24 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(148): App\Notifications\NotifyChannel->send()
+#25 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(106): Illuminate\Notifications\NotificationSender->sendToNotifiable()
+#26 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Notifications\NotificationSender->Illuminate\Notifications\{closure}()
+#27 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(101): Illuminate\Notifications\NotificationSender->withLocale()
+#28 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(54): Illuminate\Notifications\NotificationSender->sendNow()
+#29 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\SendQueuedNotifications.php(119): Illuminate\Notifications\ChannelManager->sendNow()
+#30 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Notifications\SendQueuedNotifications->handle()
+#31 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#32 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure()
+#33 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(35): Illuminate\Container\BoundMethod::callBoundMethod()
+#34 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\Container.php(662): Illuminate\Container\BoundMethod::call()
+#35 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call()
+#36 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}()
+#37 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then()
+#39 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(123): Illuminate\Bus\Dispatcher->dispatchNow()
+#40 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}()
+#41 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(122): Illuminate\Pipeline\Pipeline->then()
+#43 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware()
+#44 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(102): Illuminate\Queue\CallQueuedHandler->call()
+#45 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(43): Illuminate\Queue\Jobs\Job->fire()
+#46 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(254): Illuminate\Queue\SyncQueue->push()
+#47 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(230): Illuminate\Bus\Dispatcher->pushCommandToQueue()
+#48 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(77): Illuminate\Bus\Dispatcher->dispatchToQueue()
+#49 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(229): Illuminate\Bus\Dispatcher->dispatch()
+#50 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(76): Illuminate\Notifications\NotificationSender->queueNotification()
+#51 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(39): Illuminate\Notifications\NotificationSender->send()
+#52 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\RoutesNotifications.php(18): Illuminate\Notifications\ChannelManager->send()
+#53 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\Auth\Traits\PhoneVerificationTrait.php(62): App\Models\User->notify()
+#54 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\User\Register.php(101): App\Http\Controllers\Api\UserController->sendPhoneVerification()
+#55 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\UserController.php(88): App\Http\Controllers\Api\UserController->register()
+#56 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Api\UserController->store()
+#57 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction()
+#58 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch()
+#59 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#60 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#61 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#62 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\LastUserActivity.php(46): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#63 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\LastUserActivity->handle()
+#64 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\BannedUser.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#65 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\BannedUser->handle()
+#66 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\IsVerifiedUser.php(41): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#67 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\IsVerifiedUser->handle()
+#68 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\GetLocalization.php(56): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#69 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\GetLocalization->handle()
+#70 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\DemoRestriction.php(34): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#71 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\DemoRestriction->handle()
+#72 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RequirementsChecker.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#73 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RequirementsChecker->handle()
+#74 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#75 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#76 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php(122): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#77 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php(87): Illuminate\Routing\Middleware\ThrottleRequests->handleRequestUsingNamedLimiter()
+#78 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\ThrottleRequests->handle()
+#79 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#80 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#81 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#82 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(24): Illuminate\Pipeline\Pipeline->then()
+#83 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#84 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\VerifyAPIAccess.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#85 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\VerifyAPIAccess->handle()
+#86 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(100): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#87 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(43): App\Http\Middleware\Installed->handleApi()
+#88 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\Installed->handle()
+#89 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#90 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then()
+#91 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack()
+#92 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute()
+#93 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute()
+#94 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Routing\Router->dispatch()
+#95 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Helpers\Functions\api.php(254): Illuminate\Support\Facades\Facade::__callStatic()
+#96 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Helpers\Functions\api.php(162): laravelSubRequest()
+#97 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\Auth\RegisterController.php(83): makeApiRequest()
+#98 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Web\Public\Auth\RegisterController->register()
+#99 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction()
+#100 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch()
+#101 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#102 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#103 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#104 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\Auth\RegisterController.php(45): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#105 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(165): App\Http\Controllers\Web\Public\Auth\RegisterController->App\Http\Controllers\Web\Public\Auth\{closure}()
+#106 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\FrontController.php(66): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#107 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(165): App\Http\Controllers\Web\Public\FrontController->App\Http\Controllers\Web\Public\{closure}()
+#108 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\NoHttpCache.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#109 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\NoHttpCache->handle()
+#110 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RedirectIfAuthenticated.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#111 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RedirectIfAuthenticated->handle()
+#112 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(134): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#113 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(45): App\Http\Middleware\Installed->handleWeb()
+#114 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\Installed->handle()
+#115 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\barryvdh\laravel-debugbar\src\Middleware\InjectDebugbar.php(59): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#116 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Barryvdh\Debugbar\Middleware\InjectDebugbar->handle()
+#117 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\HtmlMinify.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#118 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\HtmlMinify->handle()
+#119 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\ResourceHints.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#120 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\ResourceHints->handle()
+#121 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\LazyLoading.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#122 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\LazyLoading->handle()
+#123 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\HttpsProtocol.php(42): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#124 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\HttpsProtocol->handle()
+#125 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\BannedUser.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#126 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\BannedUser->handle()
+#127 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\IsVerifiedUser.php(41): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#128 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\IsVerifiedUser->handle()
+#129 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\TipsMessages.php(98): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#130 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\TipsMessages->handle()
+#131 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetDefaultLocale.php(94): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#132 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetDefaultLocale->handle()
+#133 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetCountryLocale.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#134 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetCountryLocale->handle()
+#135 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetBrowserLocale.php(153): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#136 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetBrowserLocale->handle()
+#137 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\GetLocalization.php(56): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#138 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\GetLocalization->handle()
+#139 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\InputRequest.php(42): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#140 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\InputRequest->handle()
+#141 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\DemoRestriction.php(34): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#142 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\DemoRestriction->handle()
+#143 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\ReferrerChecker.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#144 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\ReferrerChecker->handle()
+#145 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RequirementsChecker.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#146 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RequirementsChecker->handle()
+#147 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#148 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#149 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#150 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\VerifyCsrfToken.php(62): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle()
+#151 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\VerifyCsrfToken->handle()
+#152 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#153 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle()
+#154 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#155 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest()
+#156 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\StartSessionExtended.php(35): Illuminate\Session\Middleware\StartSession->handle()
+#157 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\StartSessionExtended->handle()
+#158 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#159 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle()
+#160 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#161 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle()
+#162 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#163 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then()
+#164 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack()
+#165 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute()
+#166 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute()
+#167 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#168 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#169 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\barryvdh\laravel-debugbar\src\Middleware\InjectDebugbar.php(59): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#170 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Barryvdh\Debugbar\Middleware\InjectDebugbar->handle()
+#171 F:\Work\Sulochana\Buyme.lk\Buy-me\packages\larapen\honeypot\src\app\Http\Middleware\ProtectAgainstSpam.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#172 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Larapen\Honeypot\app\Http\Middleware\ProtectAgainstSpam->handle()
+#173 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#174 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#175 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#176 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#177 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#178 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#179 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#180 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle()
+#181 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\PreventRequestsDuringMaintenance.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#182 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#183 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#184 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle()
+#185 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#186 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle()
+#187 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#188 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#189 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#190 F:\Work\Sulochana\Buyme.lk\Buy-me\public\main.php(51): Illuminate\Foundation\Http\Kernel->handle()
+#191 F:\Work\Sulochana\Buyme.lk\Buy-me\public\index.php(68): require('...')
+#192 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\resources\server.php(16): require_once('...')
+#193 {main}  
+[2025-03-20 21:20:48] local.INFO: log3  
+[2025-03-20 21:20:50] local.INFO: log1Buyme.lk - Verify your phone number. The verification code is: 884881. Verif. URL: http://127.0.0.1:8000/users/verify/phone/884881  
+[2025-03-20 21:20:50] local.INFO: 94711254581  
+[2025-03-20 21:20:51] local.INFO: GuzzleHttp\Exception\RequestException: cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://app.notify.lk/api/v1/send in F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:276
+Stack trace:
+#0 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(205): GuzzleHttp\Handler\CurlFactory::createRejection()
+#1 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(157): GuzzleHttp\Handler\CurlFactory::finishError()
+#2 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish()
+#3 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke()
+#4 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}()
+#5 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1256): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}()
+#6 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1222): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#7 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1208): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#8 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#9 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Middleware.php(38): GuzzleHttp\PrepareBodyMiddleware->__invoke()
+#10 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}()
+#11 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Middleware.php(63): GuzzleHttp\RedirectMiddleware->__invoke()
+#12 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}()
+#13 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke()
+#14 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(169): GuzzleHttp\Client->transfer()
+#15 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync()
+#16 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(1053): GuzzleHttp\Client->request()
+#17 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(894): Illuminate\Http\Client\PendingRequest->sendRequest()
+#18 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\helpers.php(261): Illuminate\Http\Client\PendingRequest->Illuminate\Http\Client\{closure}()
+#19 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(892): retry()
+#20 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\PendingRequest.php(798): Illuminate\Http\Client\PendingRequest->send()
+#21 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Client\Factory.php(461): Illuminate\Http\Client\PendingRequest->post()
+#22 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Http\Client\Factory->__call()
+#23 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Notifications\NotifyChannel.php(39): Illuminate\Support\Facades\Facade::__callStatic()
+#24 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(148): App\Notifications\NotifyChannel->send()
+#25 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(106): Illuminate\Notifications\NotificationSender->sendToNotifiable()
+#26 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Notifications\NotificationSender->Illuminate\Notifications\{closure}()
+#27 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(101): Illuminate\Notifications\NotificationSender->withLocale()
+#28 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(54): Illuminate\Notifications\NotificationSender->sendNow()
+#29 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\SendQueuedNotifications.php(119): Illuminate\Notifications\ChannelManager->sendNow()
+#30 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Notifications\SendQueuedNotifications->handle()
+#31 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\Util.php(41): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#32 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(93): Illuminate\Container\Util::unwrapIfClosure()
+#33 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(35): Illuminate\Container\BoundMethod::callBoundMethod()
+#34 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Container\Container.php(662): Illuminate\Container\BoundMethod::call()
+#35 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(128): Illuminate\Container\Container->call()
+#36 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Bus\Dispatcher->Illuminate\Bus\{closure}()
+#37 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#38 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(132): Illuminate\Pipeline\Pipeline->then()
+#39 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(123): Illuminate\Bus\Dispatcher->dispatchNow()
+#40 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Queue\CallQueuedHandler->Illuminate\Queue\{closure}()
+#41 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#42 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(122): Illuminate\Pipeline\Pipeline->then()
+#43 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(70): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware()
+#44 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(102): Illuminate\Queue\CallQueuedHandler->call()
+#45 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(43): Illuminate\Queue\Jobs\Job->fire()
+#46 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(254): Illuminate\Queue\SyncQueue->push()
+#47 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(230): Illuminate\Bus\Dispatcher->pushCommandToQueue()
+#48 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(77): Illuminate\Bus\Dispatcher->dispatchToQueue()
+#49 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(229): Illuminate\Bus\Dispatcher->dispatch()
+#50 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(76): Illuminate\Notifications\NotificationSender->queueNotification()
+#51 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(39): Illuminate\Notifications\NotificationSender->send()
+#52 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Notifications\RoutesNotifications.php(18): Illuminate\Notifications\ChannelManager->send()
+#53 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\Auth\Traits\PhoneVerificationTrait.php(62): App\Models\User->notify()
+#54 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\User\Register.php(101): App\Http\Controllers\Api\UserController->sendPhoneVerification()
+#55 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Api\UserController.php(88): App\Http\Controllers\Api\UserController->register()
+#56 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Api\UserController->store()
+#57 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction()
+#58 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch()
+#59 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#60 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#61 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#62 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\LastUserActivity.php(46): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#63 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\LastUserActivity->handle()
+#64 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\BannedUser.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#65 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\BannedUser->handle()
+#66 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\IsVerifiedUser.php(41): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#67 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\IsVerifiedUser->handle()
+#68 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\GetLocalization.php(56): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#69 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\GetLocalization->handle()
+#70 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\DemoRestriction.php(34): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#71 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\DemoRestriction->handle()
+#72 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RequirementsChecker.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#73 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RequirementsChecker->handle()
+#74 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#75 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#76 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php(122): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#77 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php(87): Illuminate\Routing\Middleware\ThrottleRequests->handleRequestUsingNamedLimiter()
+#78 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\ThrottleRequests->handle()
+#79 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(25): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#80 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->Laravel\Sanctum\Http\Middleware\{closure}()
+#81 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#82 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php(24): Illuminate\Pipeline\Pipeline->then()
+#83 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful->handle()
+#84 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\VerifyAPIAccess.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#85 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\VerifyAPIAccess->handle()
+#86 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(100): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#87 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(43): App\Http\Middleware\Installed->handleApi()
+#88 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\Installed->handle()
+#89 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#90 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then()
+#91 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack()
+#92 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute()
+#93 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute()
+#94 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(355): Illuminate\Routing\Router->dispatch()
+#95 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Helpers\Functions\api.php(254): Illuminate\Support\Facades\Facade::__callStatic()
+#96 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Helpers\Functions\api.php(162): laravelSubRequest()
+#97 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\Auth\RegisterController.php(83): makeApiRequest()
+#98 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Web\Public\Auth\RegisterController->register()
+#99 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction()
+#100 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch()
+#101 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#102 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#103 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#104 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\Auth\RegisterController.php(45): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#105 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(165): App\Http\Controllers\Web\Public\Auth\RegisterController->App\Http\Controllers\Web\Public\Auth\{closure}()
+#106 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Controllers\Web\Public\FrontController.php(66): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#107 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(165): App\Http\Controllers\Web\Public\FrontController->App\Http\Controllers\Web\Public\{closure}()
+#108 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\NoHttpCache.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#109 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\NoHttpCache->handle()
+#110 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RedirectIfAuthenticated.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#111 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RedirectIfAuthenticated->handle()
+#112 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(134): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#113 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\Installed.php(45): App\Http\Middleware\Installed->handleWeb()
+#114 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\Installed->handle()
+#115 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\barryvdh\laravel-debugbar\src\Middleware\InjectDebugbar.php(59): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#116 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Barryvdh\Debugbar\Middleware\InjectDebugbar->handle()
+#117 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\HtmlMinify.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#118 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\HtmlMinify->handle()
+#119 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\ResourceHints.php(36): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#120 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\ResourceHints->handle()
+#121 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\LazyLoading.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#122 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\LazyLoading->handle()
+#123 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\HttpsProtocol.php(42): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#124 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\HttpsProtocol->handle()
+#125 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\BannedUser.php(48): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#126 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\BannedUser->handle()
+#127 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\IsVerifiedUser.php(41): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#128 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\IsVerifiedUser->handle()
+#129 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\TipsMessages.php(98): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#130 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\TipsMessages->handle()
+#131 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetDefaultLocale.php(94): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#132 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetDefaultLocale->handle()
+#133 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetCountryLocale.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#134 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetCountryLocale->handle()
+#135 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\SetBrowserLocale.php(153): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#136 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\SetBrowserLocale->handle()
+#137 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\GetLocalization.php(56): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#138 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\GetLocalization->handle()
+#139 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\InputRequest.php(42): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#140 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\InputRequest->handle()
+#141 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\DemoRestriction.php(34): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#142 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\DemoRestriction->handle()
+#143 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\ReferrerChecker.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#144 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\ReferrerChecker->handle()
+#145 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\RequirementsChecker.php(47): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#146 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\RequirementsChecker->handle()
+#147 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#148 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle()
+#149 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#150 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\VerifyCsrfToken.php(62): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle()
+#151 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\VerifyCsrfToken->handle()
+#152 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#153 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle()
+#154 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#155 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest()
+#156 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\StartSessionExtended.php(35): Illuminate\Session\Middleware\StartSession->handle()
+#157 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\StartSessionExtended->handle()
+#158 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#159 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle()
+#160 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#161 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle()
+#162 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#163 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then()
+#164 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack()
+#165 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute()
+#166 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute()
+#167 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch()
+#168 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}()
+#169 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\barryvdh\laravel-debugbar\src\Middleware\InjectDebugbar.php(59): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#170 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Barryvdh\Debugbar\Middleware\InjectDebugbar->handle()
+#171 F:\Work\Sulochana\Buyme.lk\Buy-me\packages\larapen\honeypot\src\app\Http\Middleware\ProtectAgainstSpam.php(23): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#172 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Larapen\Honeypot\app\Http\Middleware\ProtectAgainstSpam->handle()
+#173 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#174 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#175 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle()
+#176 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#177 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle()
+#178 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle()
+#179 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#180 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle()
+#181 F:\Work\Sulochana\Buyme.lk\Buy-me\app\Http\Middleware\PreventRequestsDuringMaintenance.php(116): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#182 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\PreventRequestsDuringMaintenance->handle()
+#183 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#184 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle()
+#185 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#186 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle()
+#187 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}()
+#188 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then()
+#189 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter()
+#190 F:\Work\Sulochana\Buyme.lk\Buy-me\public\main.php(51): Illuminate\Foundation\Http\Kernel->handle()
+#191 F:\Work\Sulochana\Buyme.lk\Buy-me\public\index.php(68): require('...')
+#192 F:\Work\Sulochana\Buyme.lk\Buy-me\vendor\laravel\framework\src\Illuminate\Foundation\resources\server.php(16): require_once('...')
+#193 {main}  

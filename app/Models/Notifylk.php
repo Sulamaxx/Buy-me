@@ -1,11 +1,10 @@
 <?php 
 namespace App\Models;
-class NotifyLk{
+abstract class NotifyLk{
     public function __construct()
     {
         
     }
 
-    public function Send($message)
+    abstract public function Send($message);
 }
-?>
