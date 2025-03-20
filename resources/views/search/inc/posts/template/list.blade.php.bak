@@ -184,7 +184,7 @@ function divideAndRoundUp($number) {
                             }
                         else if($chkval=='38')
                             {
-                                $prntval = "per acre"; //was perch
+                                $prntval = "per perch"; //was perch
                             }
                         else if($chkval=='44')
                             {

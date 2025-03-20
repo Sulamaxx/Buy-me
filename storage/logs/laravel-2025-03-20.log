@@ -286,3 +286,23 @@
 [stacktrace]
 #0 {main}
 "} 
+[2025-03-20 06:52:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
+[stacktrace]
+#0 {main}
+"} 
+[2025-03-20 06:53:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
+[stacktrace]
+#0 {main}
+"} 
+[2025-03-20 06:54:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
+[stacktrace]
+#0 {main}
+"} 
+[2025-03-20 06:55:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
+[stacktrace]
+#0 {main}
+"} 
+[2025-03-20 06:56:41] local.ERROR: syntax error, unexpected token "}", expecting ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \";\" or \"{\" at F:\\Work\\Sulochana\\Buyme.lk\\Buy-me\\app\\Models\\Notifylk.php:10)
+[stacktrace]
+#0 {main}
+"} 
