@@ -47,7 +47,7 @@ class GetTextArea
 		if ($languages->count() > 0) {
 			$txtFields = [];
 			foreach ($languages as $language) {
-				$titleLabel = mb_ucfirst(trans('admin.title')) . ' (' . $language->name . ')';
+				$titleLabel = custom_mb_ucfirst(trans('admin.title')) . ' (' . $language->name . ')';
 				$bodyLabel = trans('admin.body_label') . ' (' . $language->name . ')';
 				
 				$txtFields[] = [

@@ -22,7 +22,7 @@
 					<tr>
 						<th class="border-0">{{ trans('admin.ID') }}</th>
 						<th class="border-0">{{ trans('admin.Name') }}</th>
-						<th class="border-0">{{ mb_ucfirst(trans('admin.country')) }}</th>
+						<th class="border-0">{{ custom_mb_ucfirst(trans('admin.country')) }}</th>
 						<th class="border-0">{{ trans('admin.Status') }}</th>
 						<th class="border-0">{{ trans('admin.Date') }}</th>
 					</tr>

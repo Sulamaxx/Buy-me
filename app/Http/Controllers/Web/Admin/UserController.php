@@ -150,7 +150,7 @@ class UserController extends PanelController
 			[
 				'name'  => 'country',
 				'type'  => 'select2',
-				'label' => mb_ucfirst(trans('admin.country')),
+				'label' => custom_mb_ucfirst(trans('admin.country')),
 			],
 			getCountries(),
 			function ($value) {
@@ -317,13 +317,13 @@ class UserController extends PanelController
 		if ($isPhoneVerificationEnabled) {
 			$this->xPanel->addColumn([
 				'name'          => 'phone',
-				'label'         => mb_ucfirst(t('phone')),
+				'label'         => custom_mb_ucfirst(t('phone')),
 				'type'          => 'model_function',
 				'function_name' => 'getPhoneHtml',
 			]);
 		}
 		$this->xPanel->addColumn([
-			'label'         => mb_ucfirst(trans('admin.country')),
+			'label'         => custom_mb_ucfirst(trans('admin.country')),
 			'name'          => 'country_code',
 			'type'          => 'model_function',
 			'function_name' => 'getCountryHtml',
@@ -422,7 +422,7 @@ class UserController extends PanelController
 			],
 		], 'create');
 		$this->xPanel->addField([
-			'label'             => mb_ucfirst(trans('admin.country')),
+			'label'             => custom_mb_ucfirst(trans('admin.country')),
 			'name'              => 'country_code',
 			'model'             => 'App\Models\Country',
 			'entity'            => 'country',
@@ -501,7 +501,7 @@ class UserController extends PanelController
         }
         
         $this->xPanel->addField([
-                'label'       => mb_ucfirst("User Type"),
+                'label'       => custom_mb_ucfirst("User Type"),
                 'name'        => 'usr_type',
                 'type'        => 'select2_from_array',
                 'options'     => $ShopOwners,
@@ -618,7 +618,7 @@ class UserController extends PanelController
 						'number_columns'   => 3, //can be 1,2,3,4,6
 					],
 					'secondary' => [
-						'label'          => mb_ucfirst(trans('admin.permission_singular')),
+						'label'          => custom_mb_ucfirst(trans('admin.permission_singular')),
 						'name'           => 'permissions', // the method that defines the relationship in your Model
 						'entity'         => 'permissions', // the method that defines the relationship in your Model
 						'entity_primary' => 'roles', // the method that defines the relationship in your Model
@@ -728,7 +728,7 @@ class UserController extends PanelController
 			],
 		]);
 		$this->xPanel->addField([
-			'label'             => mb_ucfirst(trans('admin.country')),
+			'label'             => custom_mb_ucfirst(trans('admin.country')),
 			'name'              => 'country_code',
 			'model'             => 'App\Models\Country',
 			'entity'            => 'country',

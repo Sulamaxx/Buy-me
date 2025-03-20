@@ -44,7 +44,7 @@ trait FieldTrait
 			
 			$out .= '<a class="btn btn-xs btn-info" href="' . $url . '">';
 			$out .= '<i class="fa fa-cog"></i> ';
-			$out .= mb_ucfirst(trans('admin.options'));
+			$out .= custom_mb_ucfirst(trans('admin.options'));
 			$out .= '</a>';
 		}
 		

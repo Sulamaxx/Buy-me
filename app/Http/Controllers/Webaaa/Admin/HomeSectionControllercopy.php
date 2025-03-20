@@ -58,7 +58,7 @@ class HomeSectionController extends PanelController
 			[
 				'name'  => 'name',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Name')),
+				'label' => custom_mb_ucfirst(trans('admin.Name')),
 			],
 			false,
 			fn ($value) => $this->xPanel->addClause('where', 'name', 'LIKE', "%$value%")

@@ -49,7 +49,7 @@ class LanguageRequest extends Request
 		$abbr = $this->abbr;
 		
 		$input = [];
-		$input['name'] = (isset($languages[$abbr])) ? $languages[$abbr] : mb_ucfirst($abbr);
+		$input['name'] = (isset($languages[$abbr])) ? $languages[$abbr] : custom_mb_ucfirst($abbr);
 		if (empty($this->native)) {
 			$input['native'] = $input['name'];
 		}

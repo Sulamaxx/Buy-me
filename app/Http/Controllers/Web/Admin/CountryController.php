@@ -48,7 +48,7 @@ class CountryController extends PanelController
 			[
 				'name'  => 'name',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Name')),
+				'label' => custom_mb_ucfirst(trans('admin.Name')),
 			],
 			false,
 			function ($value) {
@@ -72,7 +72,7 @@ class CountryController extends PanelController
 			[
 				'name'  => 'country',
 				'type'  => 'select2',
-				'label' => mb_ucfirst(trans('admin.Name')) . ' (' . trans('admin.select') . ')',
+				'label' => custom_mb_ucfirst(trans('admin.Name')) . ' (' . trans('admin.select') . ')',
 			],
 			getCountries(true),
 			fn ($value) => $this->xPanel->addClause('where', 'code', '=', $value)

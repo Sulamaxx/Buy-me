@@ -49,7 +49,7 @@ class BlacklistController extends PanelController
 			[
 				'name'  => 'entryType',
 				'type'  => 'dropdown',
-				'label' => mb_ucfirst(trans('admin.type')),
+				'label' => custom_mb_ucfirst(trans('admin.type')),
 			],
 			[
 				'domain' => 'domain',
@@ -65,7 +65,7 @@ class BlacklistController extends PanelController
 			[
 				'name'  => 'entry',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Entry')),
+				'label' => custom_mb_ucfirst(trans('admin.Entry')),
 			],
 			false,
 			fn ($value) => $this->xPanel->addClause('where', 'entry', 'LIKE', "%$value%")
@@ -85,7 +85,7 @@ class BlacklistController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'  => 'type',
-			'label' => mb_ucfirst(trans('admin.type')),
+			'label' => custom_mb_ucfirst(trans('admin.type')),
 		]);
 		$this->xPanel->addColumn([
 			'name'  => 'entry',
@@ -95,7 +95,7 @@ class BlacklistController extends PanelController
 		// FIELDS
 		$this->xPanel->addField([
 			'name'  => 'type',
-			'label' => mb_ucfirst(trans('admin.type')),
+			'label' => custom_mb_ucfirst(trans('admin.type')),
 			'type'  => 'enum',
 		]);
 		$this->xPanel->addField([

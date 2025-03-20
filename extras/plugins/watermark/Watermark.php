@@ -119,7 +119,7 @@ class Watermark extends Payment
 		$setting = Setting::active()->where('key', 'watermark')->first();
 		if (!empty($setting)) {
 			$options[] = (object)[
-				'name'     => mb_ucfirst(trans('admin.settings')),
+				'name'     => custom_mb_ucfirst(trans('admin.settings')),
 				'url'      => admin_url('settings/' . $setting->id . '/edit'),
 				'btnClass' => 'btn-info',
 			];

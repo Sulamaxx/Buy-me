@@ -71,7 +71,7 @@ class RoleController extends PanelController
 		}
 		
 		$this->xPanel->addField([
-			'label'     => mb_ucfirst(trans('admin.permission_plural')),
+			'label'     => custom_mb_ucfirst(trans('admin.permission_plural')),
 			'type'      => 'checklist',
 			'name'      => 'permissions',
 			'entity'    => 'permissions',

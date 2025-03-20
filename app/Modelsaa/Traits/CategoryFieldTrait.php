@@ -53,7 +53,7 @@ trait CategoryFieldTrait
 				$optionUrl = admin_url('custom_fields/' . $this->field->id . '/options');
 				$out .= ' ';
 				$out .= '<span style="float:right;">';
-				$out .= '<a class="btn btn-xs btn-danger" href="' . $optionUrl . '"><i class="fa fa-cog"></i> ' . mb_ucfirst(trans('admin.options')) . '</a>';
+				$out .= '<a class="btn btn-xs btn-danger" href="' . $optionUrl . '"><i class="fa fa-cog"></i> ' . custom_mb_ucfirst(trans('admin.options')) . '</a>';
 				$out .= '</span>';
 			}
 		} else {

@@ -39,7 +39,7 @@
 							<th>{{ trans('admin.Name') }}</th>
 							<th>{{ trans('admin.Description') }}</th>
 							<th class="text-end">{{ trans('admin.Version') }}</th>
-							<th class="text-end">{{ mb_ucfirst(trans('admin.options')) }}</th>
+							<th class="text-end">{{ custom_mb_ucfirst(trans('admin.options')) }}</th>
 							<th class="text-end">{{ trans('admin.actions') }}</th>
 						</tr>
 						</thead>

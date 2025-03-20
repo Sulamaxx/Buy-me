@@ -88,7 +88,7 @@ trait MorrisTrait
 					);
 				})->count();
 			
-			$stats['posts'][$i]['y'] = mb_ucfirst(Date::format($dateObj, 'stats'));
+			$stats['posts'][$i]['y'] = custom_mb_ucfirst(Date::format($dateObj, 'stats'));
 			$stats['posts'][$i]['activated'] = $countActivatedPosts;
 			$stats['posts'][$i]['unactivated'] = $countUnactivatedPosts;
 		}
@@ -168,7 +168,7 @@ trait MorrisTrait
 					);
 				})->count();
 			
-			$stats['users'][$i]['y'] = mb_ucfirst(Date::format($dateObj, 'stats'));
+			$stats['users'][$i]['y'] = custom_mb_ucfirst(Date::format($dateObj, 'stats'));
 			$stats['users'][$i]['activated'] = $countActivatedUsers;
 			$stats['users'][$i]['unactivated'] = $countUnactivatedUsers;
 		}

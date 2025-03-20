@@ -592,7 +592,7 @@ class Post extends BaseModel implements Feedable
 	{
 		return Attribute::make(
 			get: function ($value) {
-				$value = mb_ucfirst($value);
+				$value = custom_mb_ucfirst($value);
 				$cleanedValue = RemoveFromString::contactInfo($value, false, true);
 				
 				if (!$this->relationLoaded('user')) {

@@ -25,8 +25,8 @@
 					</h3>
 					<div class="timeline-body p-b-0">
 						<div class="row">
-							<div class="col-md-6">{{ mb_ucfirst(trans('admin.from')) }}:</div>
-							<div class="col-md-6">{{ mb_ucfirst(trans('admin.to')) }}:</div>
+							<div class="col-md-6">{{ custom_mb_ucfirst(trans('admin.from')) }}:</div>
+							<div class="col-md-6">{{ custom_mb_ucfirst(trans('admin.to')) }}:</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">

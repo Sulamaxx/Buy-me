@@ -112,7 +112,7 @@ class PostController extends PanelController
 			[
 				'name'  => 'title',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.title')),
+				'label' => custom_mb_ucfirst(trans('admin.title')),
 			],
 			false,
 			function ($value) {
@@ -124,7 +124,7 @@ class PostController extends PanelController
 			[
 				'name'  => 'country',
 				'type'  => 'select2',
-				'label' => mb_ucfirst(trans('admin.country')),
+				'label' => custom_mb_ucfirst(trans('admin.country')),
 			],
 			getCountries(),
 			function ($value) {
@@ -136,7 +136,7 @@ class PostController extends PanelController
 			[
 				'name'  => 'city',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.city')),
+				'label' => custom_mb_ucfirst(trans('admin.city')),
 			],
 			false,
 			function ($value) {
@@ -265,7 +265,7 @@ class PostController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'title',
-			'label'         => mb_ucfirst(trans('admin.title')),
+			'label'         => custom_mb_ucfirst(trans('admin.title')),
 			'type'          => 'model_function',
 			'function_name' => 'getTitleHtml',
 		]);
@@ -283,14 +283,14 @@ class PostController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'city_id',
-			'label'         => mb_ucfirst(trans('admin.city')),
+			'label'         => custom_mb_ucfirst(trans('admin.city')),
 			'type'          => 'model_function',
 			'function_name' => 'getCityHtml',
 		]);
 		if (config('plugins.offlinepayment.installed')) {
 			$this->xPanel->addColumn([
 				'name'          => 'featured',
-				'label'         => mb_ucfirst(trans('offlinepayment::messages.featured')),
+				'label'         => custom_mb_ucfirst(trans('offlinepayment::messages.featured')),
 				'type'          => 'model_function',
 				'function_name' => 'getFeaturedHtml',
 			]);
@@ -322,7 +322,7 @@ class PostController extends PanelController
 		
 		// FIELDS
 		$this->xPanel->addField([
-			'label'       => mb_ucfirst(trans('admin.category')),
+			'label'       => custom_mb_ucfirst(trans('admin.category')),
 			'name'        => 'category_id',
 			'type'        => 'select2_from_array',
 			'options'     => Category::selectBoxTree(0),
@@ -330,10 +330,10 @@ class PostController extends PanelController
 		]);
 		$this->xPanel->addField([
 			'name'       => 'title',
-			'label'      => mb_ucfirst(trans('admin.title')),
+			'label'      => custom_mb_ucfirst(trans('admin.title')),
 			'type'       => 'text',
 			'attributes' => [
-				'placeholder' => mb_ucfirst(trans('admin.title')),
+				'placeholder' => custom_mb_ucfirst(trans('admin.title')),
 			],
 		]);
 		$wysiwygEditor = config('settings.single.wysiwyg_editor');
@@ -352,7 +352,7 @@ class PostController extends PanelController
 		]);
 		$this->xPanel->addField([
 			'name'              => 'price',
-			'label'             => mb_ucfirst(trans('admin.Price')),
+			'label'             => custom_mb_ucfirst(trans('admin.Price')),
 			'type'              => 'number',
 			'attributes'        => [
 				'min'         => 0,
@@ -373,7 +373,7 @@ class PostController extends PanelController
 			],
 		]);
 		$this->xPanel->addField([
-			'label'     => mb_ucfirst(trans('admin.pictures')),
+			'label'     => custom_mb_ucfirst(trans('admin.pictures')),
 			'name'      => 'pictures', // Entity method
 			'entity'    => 'pictures', // Entity method
 			'attribute' => 'filename',

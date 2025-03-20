@@ -24,7 +24,7 @@
 					<thead>
 					<tr>
 						<th class="border-0">{{ trans('admin.ID') }}</th>
-						<th class="border-0">{{ mb_ucfirst(trans('admin.title')) }}</th>
+						<th class="border-0">{{ custom_mb_ucfirst(trans('admin.title')) }}</th>
 						<?php /*?><th class="border-0">{{ mb_ucfirst(trans('admin.country')) }}</th><?php */?>
 						<th class="border-0">{{ trans('admin.Status') }}</th>
 						<th class="border-0">{{ trans('admin.Date') }}</th>

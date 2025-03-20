@@ -96,7 +96,7 @@ class PaymentController extends PanelController
 			[
 				'name'        => 'country',
 				'type'        => 'select2',
-				'label'       => mb_ucfirst(trans('admin.country')),
+				'label'       => custom_mb_ucfirst(trans('admin.country')),
 				'placeholder' => trans('admin.select'),
 			],
 			getCountries(),
@@ -113,7 +113,7 @@ class PaymentController extends PanelController
 			[
 				'name'  => 'payable_id',
 				'type'  => 'text',
-				'label' => $this->isPromoPackage ? trans('admin.Listing') : mb_ucfirst(trans('admin.user')),
+				'label' => $this->isPromoPackage ? trans('admin.Listing') : custom_mb_ucfirst(trans('admin.user')),
 			],
 			false,
 			function ($value) {
@@ -241,7 +241,7 @@ class PaymentController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'payable_id',
-			'label'         => $this->isPromoPackage ? trans('admin.Listing') : mb_ucfirst(trans('admin.user')),
+			'label'         => $this->isPromoPackage ? trans('admin.Listing') : custom_mb_ucfirst(trans('admin.user')),
 			'type'          => 'model_function',
 			'function_name' => 'getPayableTitleHtml',
 		]);

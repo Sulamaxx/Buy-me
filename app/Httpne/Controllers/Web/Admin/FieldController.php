@@ -49,7 +49,7 @@ class FieldController extends PanelController
 			[
 				'name'  => 'name',
 				'type'  => 'text',
-				'label' => mb_ucfirst(trans('admin.Name')),
+				'label' => custom_mb_ucfirst(trans('admin.Name')),
 			],
 			false,
 			fn ($value) => $this->xPanel->addClause('where', 'name', 'LIKE', "%$value%")
@@ -95,7 +95,7 @@ class FieldController extends PanelController
 		]);
 		$this->xPanel->addColumn([
 			'name'          => 'type',
-			'label'         => mb_ucfirst(trans('admin.type')),
+			'label'         => custom_mb_ucfirst(trans('admin.type')),
 			'type'          => 'model_function',
 			'function_name' => 'getTypeHtml',
 		]);

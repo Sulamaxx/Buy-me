@@ -375,7 +375,7 @@ class MemberShopController extends PanelController
         
         // FIELDS
         $this->xPanel->addField([
-                'label'       => mb_ucfirst("Member Name"),
+                'label'       => custom_mb_ucfirst("Member Name"),
                 'name'        => 'user_id',
                 'type'        => 'select2_from_array',
                 'options'     => $ShopOwners,

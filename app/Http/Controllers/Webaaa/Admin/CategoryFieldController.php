@@ -116,7 +116,7 @@ class CategoryFieldController extends PanelController
 		if ($this->parentEntity == 'categories') {
 			$this->xPanel->addColumn([
 				'name'          => 'field_id',
-				'label'         => mb_ucfirst(trans('admin.custom field')),
+				'label'         => custom_mb_ucfirst(trans('admin.custom field')),
 				'type'          => 'model_function',
 				'function_name' => 'getFieldHtml',
 			]);
@@ -151,7 +151,7 @@ class CategoryFieldController extends PanelController
 			], 'create');
 			$this->xPanel->addField([
 				'name'        => 'field_id',
-				'label'       => mb_ucfirst(trans('admin.Select a Custom field')),
+				'label'       => custom_mb_ucfirst(trans('admin.Select a Custom field')),
 				'type'        => 'select2_from_array',
 				'options'     => $this->fields($this->fieldId),
 				'allows_null' => false,

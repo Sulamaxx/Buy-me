@@ -71,7 +71,7 @@ trait PictureTrait
 			
 			$out .= '<a class="btn btn-xs btn-light" href="' . $url . '"' . $tooltip . '>';
 			$out .= '<i class="fa fa-edit"></i> ';
-			$out .= mb_ucfirst(trans('admin.Edit the listing'));
+			$out .= custom_mb_ucfirst(trans('admin.Edit the listing'));
 			$out .= '</a>';
 		}
 		

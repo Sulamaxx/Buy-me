@@ -60,8 +60,8 @@ class ReportController extends FrontController
 		$post = Post::findOrFail($postId);
 		
 		// Meta Tags
-		$title = t('Report for', ['title' => mb_ucfirst($post->title)]);
-		$description = t('Send a report for', ['title' => mb_ucfirst($post->title)]);
+		$title = t('Report for', ['title' => custom_mb_ucfirst($post->title)]);
+		$description = t('Send a report for', ['title' => custom_mb_ucfirst($post->title)]);
 		
 		MetaTag::set('title', $title);
 		MetaTag::set('description', strip_tags($description));
