@@ -27,6 +27,7 @@ use App\Http\Resources\EntityCollection;
 use App\Models\Post;
 use App\Models\PostType;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PostQueries
 {
@@ -95,7 +96,6 @@ class PostQueries
 		// Init. Builder
 		$this->posts = Post::query();
 		$this->postsTable = (new Post())->getTable();
-		
 		// Add Default Select Columns
 		$this->setSelect();
 		
@@ -166,9 +166,9 @@ class PostQueries
 				$count[0] = $total;
 			}
 		}
-		
 		// Wrap the listings for API calls
 		$postsCollection = new EntityCollection('PostController', $posts);
+		
 		$message = ($posts->count() <= 0) ? t('no_posts_found') : null;
 		$postsResult = $postsCollection->toResponse(request())->getData(true);
 		

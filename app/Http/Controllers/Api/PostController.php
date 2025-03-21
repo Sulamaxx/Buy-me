@@ -30,6 +30,7 @@ use App\Models\Post;
 use App\Models\Scopes\ReviewedScope;
 use App\Models\Scopes\VerifiedScope;
 use App\Notifications\PostDeleted;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use NotificationChannels\Twilio\TwilioChannel;
 

@@ -168,6 +168,8 @@
                     
                     //                        echo('<script>alert('.$prntval.');</script>');
                     //                        exit();
+
+
                     if ($prntval == '') {
                         if ($chkval == '42') {
                             $prntval = 'per month';
