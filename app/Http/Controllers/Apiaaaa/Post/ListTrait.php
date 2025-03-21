@@ -22,6 +22,7 @@ use App\Http\Resources\EntityCollection;
 use App\Models\Post;
 use App\Models\Scopes\ReviewedScope;
 use App\Models\Scopes\VerifiedScope;
+use Illuminate\Support\Facades\Log;
 
 trait ListTrait
 {

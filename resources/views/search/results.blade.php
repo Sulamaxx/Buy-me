@@ -19,6 +19,8 @@ $leftAdvertising ??= [];
 $rightAdvertising ??= [];
 	$apiResult ??= [];
 	$apiExtra ??= [];
+	
+	//print_r($post, true)
 	$count = (array)data_get($apiExtra, 'count');
 	$posts = (array)data_get($apiResult, 'data');
 	$totalPosts = (int)data_get($apiResult, 'meta.total', 0);

@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\Post\List\Search\CategoryTrait;
 use App\Http\Controllers\Api\Post\List\Search\LocationTrait;
 use App\Http\Controllers\Api\Post\List\Search\SidebarTrait;
 use App\Models\CategoryField;
+use Illuminate\Support\Facades\Log;
 use Larapen\LaravelDistance\Libraries\mysql\DistanceHelper;
 
 trait SearchTrait
@@ -80,6 +81,8 @@ trait SearchTrait
 			],
 		];
 		
+		
+
 		return apiResponse()->json($data);
 	}
 	

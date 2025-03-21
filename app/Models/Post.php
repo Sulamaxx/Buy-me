@@ -225,7 +225,7 @@ class Post extends BaseModel implements Feedable
 	{
 		return $this->belongsTo(PostType::class, 'post_type_id');
 	}
-	
+
 	public function category()
 	{
 		return $this->belongsTo(Category::class, 'category_id');

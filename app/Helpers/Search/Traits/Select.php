@@ -41,6 +41,7 @@ trait Select
 			'email_verified_at',
 			'phone_verified_at',
 			'reviewed_at',
+			'property_price_type',
 		];
 		if (isFromApi() && !doesRequestIsFromWebApp()) {
 			$select[] = $this->postsTable . '.description';

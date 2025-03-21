@@ -17,6 +17,7 @@
 namespace App\Http\Controllers\Web\Public\Search;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 
 class SearchController extends BaseController
@@ -51,7 +52,6 @@ class SearchController extends BaseController
 			'X-WEB-CONTROLLER' => class_basename(get_class($this)),
 		];
 		$data = makeApiRequest('get', $endpoint, $queryParams, $headers);
-		
 		$apiMessage = $this->handleHttpError($data);
 		$apiResult = data_get($data, 'result');
 		$apiExtra = data_get($data, 'extra');

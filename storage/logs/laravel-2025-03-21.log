@@ -1,0 +1,3492 @@
+[2025-03-21 14:42:47] local.INFO: data2 - per acre  
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 - per perch  
+[2025-03-21 14:42:49] local.INFO: data2 - per perch  
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:49] local.INFO: data2 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 22335
+    [country_code] => LK
+    [user_id] => 2595
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND TEST
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 10000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2025-03-21T05:02:48.000000Z
+    [phone_verified_at] => 2025-03-21T11:06:02.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2025-03-21T05:36:02.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2025-03-21T05:02:48.000000Z
+    [updated_at] => 2025-03-21T14:42:47.453352Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => per acre
+    [reference] => 22335
+    [slug] => land-test
+    [url] => http://127.0.0.1:8000/land-test-22335
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 21st, 2025 at 10:32">9 hours ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨10,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 0
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 2595
+            [name] => Romen
+            [username] => 
+            [updated_at] => 2025-03-21T05:12:05.000000Z
+            [original_updated_at] => 2025-03-21 05:12:05
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 21st, 2025 at 10:28">9 hours ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => romenhithesha2003.02.14@gmail.com
+            [phone] => 
+            [phone_national] => 
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 127.0.0.1
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2025-03-21T10:42:05.000000Z
+            [phone_verified_at] => 2025-03-21T10:42:05.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 0
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:49.882674Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => 
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 - per acre  
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 2900
+    [country_code] => LK
+    [user_id] => 58
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND FOR SALE IN THALAWATHUGODA - SAVI LANDS
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 1395000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-03-13T15:12:18.000000Z
+    [phone_verified_at] => 2025-01-26T00:13:30.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-03-13T15:12:18.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-03-13T15:03:57.000000Z
+    [updated_at] => 2025-03-21T14:42:49.701001Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 2900
+    [slug] => land-for-sale-in-thalawathugoda-savi-lands
+    [url] => http://127.0.0.1:8000/land-for-sale-in-thalawathugoda-savi-lands-2900
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 13th, 2024 at 20:33">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨1,395,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 1
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 58
+            [name] => SAVI LANDS
+            [username] => 
+            [updated_at] => 2024-02-06T13:54:57.000000Z
+            [original_updated_at] => 2024-02-06 13:54:57
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 6th, 2024 at 19:24">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => danushka@savis.lk
+            [phone] => +94777518787
+            [phone_national] => 077 751 8787
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.133.39
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-06T13:54:57.000000Z
+            [phone_verified_at] => 2024-02-06T13:54:57.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:49.951877Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 751 8787
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13929
+                    [post_id] => 2900
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/png
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 2888
+    [country_code] => LK
+    [user_id] => 58
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => 8 PERCH LAND FOR SALE IN THALAWATHUGODA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 1385000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-03-13T14:54:56.000000Z
+    [phone_verified_at] => 2025-01-21T19:43:15.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-03-13T14:54:56.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-03-13T14:44:55.000000Z
+    [updated_at] => 2025-03-21T14:42:49.716406Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 2888
+    [slug] => 8-perch-land-for-sale-in-thalawathugoda
+    [url] => http://127.0.0.1:8000/8-perch-land-for-sale-in-thalawathugoda-2888
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 13th, 2024 at 20:14">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨1,385,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 1
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 58
+            [name] => SAVI LANDS
+            [username] => 
+            [updated_at] => 2024-02-06T13:54:57.000000Z
+            [original_updated_at] => 2024-02-06 13:54:57
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 6th, 2024 at 19:24">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => danushka@savis.lk
+            [phone] => +94777518787
+            [phone_national] => 077 751 8787
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.133.39
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-06T13:54:57.000000Z
+            [phone_verified_at] => 2024-02-06T13:54:57.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:49.951877Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 751 8787
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13868
+                    [post_id] => 2888
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 2887
+    [country_code] => LK
+    [user_id] => 58
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND FOR SALE IN THALAWATHUGODA - NOTTING HILL
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 1395000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-03-13T14:54:19.000000Z
+    [phone_verified_at] => 2025-01-22T19:24:04.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-03-13T14:54:19.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-03-13T14:43:37.000000Z
+    [updated_at] => 2025-03-21T14:42:49.732294Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 2887
+    [slug] => land-for-sale-in-thalawathugoda-notting-hill
+    [url] => http://127.0.0.1:8000/land-for-sale-in-thalawathugoda-notting-hill-2887
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 13th, 2024 at 20:13">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨1,395,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 1
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 58
+            [name] => SAVI LANDS
+            [username] => 
+            [updated_at] => 2024-02-06T13:54:57.000000Z
+            [original_updated_at] => 2024-02-06 13:54:57
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 6th, 2024 at 19:24">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => danushka@savis.lk
+            [phone] => +94777518787
+            [phone_national] => 077 751 8787
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.133.39
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-06T13:54:57.000000Z
+            [phone_verified_at] => 2024-02-06T13:54:57.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:49.951877Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 751 8787
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13866
+                    [post_id] => 2887
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 2883
+    [country_code] => LK
+    [user_id] => 58
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => THE BEST LAND FOR SALE IN THALAWATHUGODA - NOTTING HILL
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 1395000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-03-13T14:50:44.000000Z
+    [phone_verified_at] => 2025-01-25T01:26:10.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-03-13T14:50:44.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-03-13T14:31:51.000000Z
+    [updated_at] => 2025-03-21T14:42:49.748510Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 2883
+    [slug] => the-best-land-for-sale-in-thalawathugoda-notting-hill
+    [url] => http://127.0.0.1:8000/the-best-land-for-sale-in-thalawathugoda-notting-hill-2883
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 13th, 2024 at 20:01">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨1,395,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 1
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 58
+            [name] => SAVI LANDS
+            [username] => 
+            [updated_at] => 2024-02-06T13:54:57.000000Z
+            [original_updated_at] => 2024-02-06 13:54:57
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 6th, 2024 at 19:24">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => danushka@savis.lk
+            [phone] => +94777518787
+            [phone_national] => 077 751 8787
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.133.39
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-06T13:54:57.000000Z
+            [phone_verified_at] => 2024-02-06T13:54:57.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:49.951877Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 751 8787
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13844
+                    [post_id] => 2883
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 21746
+    [country_code] => LK
+    [user_id] => 2551
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => VALUABLE 10 PERCH LAND WITH 3 SHOP FOR SALE IN COLOMBO KANDY ROAD
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 13500000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2025-01-19T15:40:34.000000Z
+    [phone_verified_at] => 2025-01-24T10:15:42.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2025-01-19T15:40:34.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2025-01-17T10:51:24.000000Z
+    [updated_at] => 2025-03-21T14:42:49.765365Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => per perch
+    [reference] => 21746
+    [slug] => valuable-10-perch-land-with-3-shop-for-sale-in-colombo-kandy-road
+    [url] => http://127.0.0.1:8000/valuable-10-perch-land-with-3-shop-for-sale-in-colombo-kandy-road-21746
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Jan 17th, 2025 at 16:21">2 months ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨13,500,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 5
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 2551
+            [name] => CHAMODYA
+            [username] => 
+            [updated_at] => 2025-01-17T16:48:11.000000Z
+            [original_updated_at] => 2025-01-17 16:48:11
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Jan 17th, 2025 at 15:56">2 months ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 1
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => Lakshithachamodya@gmail.com
+            [phone] => +94717357273
+            [phone_national] => 071 735 7273
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 124.43.79.181
+            [latest_update_ip] => 124.43.79.181
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2025-01-17T16:48:11.000000Z
+            [phone_verified_at] => 2025-01-17T16:48:11.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 0
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.027547Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 71 735 7273
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 60290
+                    [post_id] => 21746
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 60291
+                    [post_id] => 21746
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 60292
+                    [post_id] => 21746
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [id] => 60293
+                    [post_id] => 21746
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 3
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [id] => 60294
+                    [post_id] => 21746
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 4
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 - per perch  
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 8771
+    [country_code] => LK
+    [user_id] => 1595
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => VALUABLE LAND FOR SALE IN HOMAGAMA AT RANALA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 520000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-07-10T12:23:46.000000Z
+    [phone_verified_at] => 2025-01-25T20:06:14.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-07-10T12:23:46.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-07-10T12:12:45.000000Z
+    [updated_at] => 2025-03-21T14:42:49.782542Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => per perch
+    [reference] => 8771
+    [slug] => valuable-land-for-sale-in-homagama-at-ranala
+    [url] => http://127.0.0.1:8000/valuable-land-for-sale-in-homagama-at-ranala-8771
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Jul 10th, 2024 at 17:42">8 months ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨520,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 5
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 1595
+            [name] => Yashoda
+            [username] => 
+            [updated_at] => 2024-07-10T15:37:40.000000Z
+            [original_updated_at] => 2024-07-10 15:37:40
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Jul 10th, 2024 at 17:12">8 months ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => yashoda0419@gmail.com
+            [phone] => +94770389241
+            [phone_national] => 077 038 9241
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.131.61
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-07-10T15:37:40.000000Z
+            [phone_verified_at] => 2024-07-10T15:37:40.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.056865Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 038 9241
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 35403
+                    [post_id] => 8771
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 35404
+                    [post_id] => 8771
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 35405
+                    [post_id] => 8771
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [id] => 35406
+                    [post_id] => 8771
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 3
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [id] => 35407
+                    [post_id] => 8771
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 4
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 - per perch  
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 4665
+    [country_code] => LK
+    [user_id] => 696
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND FOR SALE IN ATTIDIYA, PARAKUM MAWATHA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 14500000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-04-24T11:43:49.000000Z
+    [phone_verified_at] => 2025-01-24T09:16:21.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-04-24T11:43:49.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-04-24T10:46:35.000000Z
+    [updated_at] => 2025-03-21T14:42:49.798901Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 4665
+    [slug] => land-for-sale-in-attidiya-parakum-mawatha
+    [url] => http://127.0.0.1:8000/land-for-sale-in-attidiya-parakum-mawatha-4665
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Apr 24th, 2024 at 16:16">10 months ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨14,500,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 2
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 696
+            [name] => Hashim Real Estate Pvt Ltd
+            [username] => 
+            [updated_at] => 2024-05-06T14:19:36.000000Z
+            [original_updated_at] => 2024-05-06 14:19:36
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 14th, 2024 at 14:53">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => hashimsproperty@gmail.com
+            [phone] => +94772879009
+            [phone_national] => 077 287 9009
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.133.145
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-05-06T14:19:36.000000Z
+            [phone_verified_at] => 2024-05-06T14:19:36.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.085909Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 287 9009
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 22187
+                    [post_id] => 4665
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 22188
+                    [post_id] => 4665
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 2383
+    [country_code] => LK
+    [user_id] => 585
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND FOR SALE IN COLOMBO NAWAGAMUWA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 1000000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-03-07T15:35:30.000000Z
+    [phone_verified_at] => 2025-01-26T02:03:56.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-03-07T15:35:30.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-03-07T15:10:25.000000Z
+    [updated_at] => 2025-03-21T14:42:49.815264Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 2383
+    [slug] => land-for-sale-in-colombo-nawagamuwa
+    [url] => http://127.0.0.1:8000/land-for-sale-in-colombo-nawagamuwa-2383
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 7th, 2024 at 20:40">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨1,000,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 6
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 585
+            [name] => Real Mart
+            [username] => 
+            [updated_at] => 2024-04-03T11:05:48.000000Z
+            [original_updated_at] => 2024-04-03 11:05:48
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Mar 4th, 2024 at 21:45">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 0
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => realmartsl@gmail.com
+            [phone] => +94772017763
+            [phone_national] => 077 201 7763
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.130.131
+            [latest_update_ip] => 2402:4000:b1c2:74ad:1:0:8fb7:e58a
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-04-03T11:05:48.000000Z
+            [phone_verified_at] => 2024-04-03T11:05:48.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 0
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.108487Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 201 7763
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 11197
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 11198
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 11199
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [id] => 11200
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 3
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [id] => 11201
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 4
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [id] => 11202
+                    [post_id] => 2383
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 5
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 1041
+    [country_code] => LK
+    [user_id] => 380
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => LAND FOR SALE IN NAWALA, KOSWATTA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 4000000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-02-20T12:48:52.000000Z
+    [phone_verified_at] => 2025-01-22T06:19:39.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-02-20T12:48:52.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-02-20T12:46:29.000000Z
+    [updated_at] => 2025-03-21T14:42:49.832223Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 1041
+    [slug] => land-for-sale-in-nawala-koswatta
+    [url] => http://127.0.0.1:8000/land-for-sale-in-nawala-koswatta-1041
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 20th, 2024 at 18:16">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨4,000,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 5
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 380
+            [name] => Anuja Perera
+            [username] => Anuja
+            [updated_at] => 2024-02-20T12:41:01.000000Z
+            [original_updated_at] => 2024-02-20 12:41:01
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 20th, 2024 at 18:10">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 1
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => anujaperera9@gmail.com
+            [phone] => +94722451499
+            [phone_national] => 072 245 1499
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.169.36
+            [latest_update_ip] => 112.134.169.36
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-20T12:41:01.000000Z
+            [phone_verified_at] => 2024-02-20T12:41:01.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 0
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.141278Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 72 245 1499
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 4707
+                    [post_id] => 1041
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 4708
+                    [post_id] => 1041
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 4709
+                    [post_id] => 1041
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [id] => 4710
+                    [post_id] => 1041
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 3
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [id] => 4711
+                    [post_id] => 1041
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 4
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 1005
+    [country_code] => LK
+    [user_id] => 317
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => 6.75PERCHES LAND WITH A HOUSE & 18.75 PERCHES BARE LAND
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 178500000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-02-20T09:54:06.000000Z
+    [phone_verified_at] => 2025-01-21T22:16:02.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-02-20T09:54:06.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-02-19T19:29:55.000000Z
+    [updated_at] => 2025-03-21T14:42:49.849687Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 1005
+    [slug] => 6.75perches-land-with-a-house-18.75-perches-bare-land
+    [url] => http://127.0.0.1:8000/6.75perches-land-with-a-house-18.75-perches-bare-land-1005
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 20th, 2024 at 00:59">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨178,500,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 1
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 317
+            [name] => Upali Wimalasisri
+            [username] => 
+            [updated_at] => 2024-02-18T12:56:19.000000Z
+            [original_updated_at] => 2024-02-18 12:56:19
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 18th, 2024 at 18:26">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => wimalasiri.upali44@gmail.com
+            [phone] => +94774585920
+            [phone_national] => 077 458 5920
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 2402:4000:b281:5c58:7d6a:9ad0:37a3:b7f0
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-18T12:56:19.000000Z
+            [phone_verified_at] => 2024-02-18T12:56:19.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.172374Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 77 458 5920
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 4509
+                    [post_id] => 1005
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
+[2025-03-21 14:42:51] local.INFO: listTest1 - Array
+(
+    [id] => 728
+    [country_code] => LK
+    [user_id] => 165
+    [payment_id] => 
+    [category_id] => 38
+    [post_type_id] => 1
+    [title] => GLORIOUS LAND FOR SALE IN BORALESGAMUWA
+    [description] => 
+    [tags] => Array
+        (
+        )
+
+    [price] => 2235000.00
+    [currency_code] => 
+    [negotiable] => 
+    [contact_name] => 
+    [auth_field] => 
+    [email] => 
+    [phone] => 
+    [phone2] => 
+    [phone3] => 
+    [phone4] => 
+    [phone5] => 
+    [phone_national] => 
+    [phone_country] => LK
+    [phone_hidden] => 
+    [address] => 
+    [city_id] => 54
+    [lat] => 
+    [lon] => 
+    [create_from_ip] => 
+    [latest_update_ip] => 
+    [visits] => 
+    [tmp_token] => 
+    [email_token] => 
+    [phone_token] => 
+    [email_verified_at] => 2024-02-16T12:04:17.000000Z
+    [phone_verified_at] => 2025-01-23T03:32:07.000000Z
+    [accept_terms] => 
+    [accept_marketing_offers] => 
+    [is_permanent] => 
+    [reviewed_at] => 2024-02-16T12:04:17.000000Z
+    [featured] => 0
+    [archived_at] => 
+    [archived_manually_at] => 
+    [deletion_mail_sent_at] => 
+    [fb_profile] => 
+    [partner] => 
+    [created_at] => 2024-02-16T11:26:24.000000Z
+    [updated_at] => 2025-03-21T14:42:49.866305Z
+    [updated_user_id] => 
+    [reviewed_user_id] => 
+    [property_price_type] => 
+    [reference] => 728
+    [slug] => glorious-land-for-sale-in-boralesgamuwa
+    [url] => http://127.0.0.1:8000/glorious-land-for-sale-in-boralesgamuwa-728
+    [phone_intl] => 
+    [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 16th, 2024 at 16:56">1 year ago</span>
+    [user_photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+    [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+    [price_label] => Price:
+    [price_formatted] => ₨2,235,000
+    [visits_formatted] => 0 view
+    [distance_info] => 
+    [count_pictures] => 4
+    [picture] => Array
+        (
+            [filename] => app/default/picture.jpg
+            [url] => Array
+                (
+                    [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                    [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id] => 165
+            [name] => ODILIYA RESIDENCIES
+            [username] => 
+            [updated_at] => 2024-02-12T16:43:32.000000Z
+            [original_updated_at] => 2024-02-12 16:43:32
+            [original_last_activity] => 
+            [created_at_formatted] => <span style="cursor: help;" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-content="Feb 12th, 2024 at 22:09">1 year ago</span>
+            [photo_url] => http://127.0.0.1:8000/storage/app/default/user.png
+            [p_is_online] => 
+            [country_flag_url] => http://127.0.0.1:8000/images/flags/16/lk.png
+            [country_code] => LK
+            [language_code] => en
+            [user_type_id] => 
+            [gender_id] => 
+            [photo] => 
+            [about] => 
+            [auth_field] => email
+            [email] => ivanthiodiliya@gmail.com
+            [phone] => +94714517777
+            [phone_national] => 071 451 7777
+            [phone_country] => lk
+            [phone_hidden] => 0
+            [disable_comments] => 0
+            [create_from_ip] => 112.134.128.5
+            [latest_update_ip] => 
+            [provider] => 
+            [provider_id] => 
+            [email_verified_at] => 2024-02-13T08:40:42.000000Z
+            [phone_verified_at] => 2024-02-13T08:40:42.000000Z
+            [accept_terms] => 1
+            [accept_marketing_offers] => 1
+            [time_zone] => 
+            [featured] => 0
+            [blocked] => 0
+            [closed] => 0
+            [last_activity] => 2025-03-21T14:42:50.192146Z
+            [member_shop] => 0
+            [usr_type] => 1
+            [phone_intl] => +94 71 451 7777
+        )
+
+    [category] => Array
+        (
+            [id] => 38
+            [parent_id] => 37
+            [name] => Lands For Sale
+            [slug] => lands-for-sale
+            [description] => <p>Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!</p>
+            [hide_description] => 0
+            [picture] => app/default/categories/fa-folder-default.png
+            [icon_class] => fas fa-tree
+            [seo_title] => Buy and Sell Lands in Sri Lanka - Best Land Deals
+            [seo_description] => Find the best deals on lands for sale in Sri Lanka on BuyMe.lk. Browse thousands of land listings, compare prices, and connect with sellers today. Buy and sell lands easily on BuyMe.lk!
+            [seo_keywords] => buy land Sri Lanka, sell land Sri Lanka, land for sale Sri Lanka, land ads Sri Lanka, best land deals Sri Lanka, real estate Sri Lanka, property for sale Sri Lanka, land classifieds Sri Lanka, land marketplace Sri Lanka, BuyMe.lk land, lands in Colombo, land Colombo
+            [lft] => 31
+            [rgt] => 32
+            [depth] => 1
+            [type] => classified
+            [is_for_permanent] => 0
+            [active] => 1
+            [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+            [parent] => Array
+                (
+                    [id] => 37
+                    [parent_id] => 
+                    [name] => Property
+                    [slug] => property
+                    [description] => <h4>Discover your dream property in Sri Lanka with BuyMe.lk!</h4><p> Explore a diverse range of real estate listings, including houses, apartments, land, and commercial properties. Whether you're looking for a cozy home in the suburbs, a luxurious apartment in the city, or prime land for development, BuyMe.lk offers an extensive selection to suit every lifestyle and budget. Start your search today and turn your real estate dreams into reality with BuyMe.lk!</p>
+<figure class="table">
+<table style="width: 100%; border-collapse: collapse;">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Buy Property in Sri Lanka</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../search?l=54&amp;c=37&amp;sc=38">Property for Sale or Rent in Colombo</a></li>
+<li style="text-align: center;"><a href="../../../search?l=49&amp;c=37&amp;sc=38">Property for Sale or Rent in Gampaha</a></li>
+<li style="text-align: center;"><a href="../../../search?l=39&amp;c=37&amp;sc=38">Property for Sale or Rent in Kalutara</a></li>
+<li style="text-align: center;"><a href="../../../search?l=27&amp;c=37&amp;sc=38">Property for Sale or Rent in Kurunegala</a></li>
+<li style="text-align: center;"><a href="../../../search?l=37&amp;c=37&amp;sc=38">Property for Sale or Rent in Kandy</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartments-for-sale">Apartments for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/lands-for-sale">Land for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/houses-for-sale">Houses for Sale in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-sale">Commercial Properties for Sale in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>Property Ads for Rent</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/apartment-rentals">Apartment Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/house-rentals">House Rentals in Sri Lanka</a></li>
+<li style="text-align: center;"><a href="../../../category/property/commercial-property-for-rent">Commercial Property Rentals in Sri Lanka</a></li>
+</ul>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>&nbsp;</strong></span></p>
+</td>
+<td>
+<p style="text-align: center;"><span style="color: #61523a;"><strong>New Projects for Sale</strong></span></p>
+<ul>
+<li style="text-align: center;"><a href="../../../category/property/new-projects">New Projects for Sale in Sri Lanka</a></li><a href="../../../category/property/new-projects">
+</a></ul><a href="../../../category/property/new-projects">
+</a></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<br><p><strong>More from our blogs</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-ultimate-guide-to-renting-an-apartment-in-colombo/">The Ultimate Guide to Renting an Apartment in Colombo</a></li><li><a href="https://buyme.lk/blog/property/everything-you-wanted-to-know-about-mega-citys">Everything You Wanted to Know About mega city</a></li><li><a href="https://buyme.lk/blog/guides/renovation-tips-to-increase-your-property-value">Renovation Tips to Increase Your Property Value</a></li></ul><p>&nbsp;</p><p><strong>Property Industry news</strong></p><ul><li><a href="https://buyme.lk/blog/property/the-groundworth-project">Groundworth launches St. Katherine Gardens project</a></li><li><a href="https://buyme.lk/blog/property/port-city-colombo-expected-to-be-an-international-financial-hub">Port city Colombo expected to be an international financial hub</a></li></ul>
+                    [hide_description] => 0
+                    [picture] => app/default/categories/fa-folder-default.png
+                    [icon_class] => fas fa-home
+                    [seo_title] => Find Your Perfect Property in Sri Lanka BuyMe.lk
+                    [seo_description] => Explore properties for sale and rent in Sri Lanka on BuyMe.lk. Find houses, apartments, land, and commercial spaces with detailed ads and competitive prices.
+                    [seo_keywords] => Buy property, buy property in sri lanka, buy property Sri Lanka,  real estate, houses for sale, apartments for rent, land for sale, commercial property, property listings, property ads, BuyMe.lk classifieds, property marketplace, real estate deals, room rent, property in sri lanka
+                    [lft] => 30
+                    [rgt] => 53
+                    [depth] => 0
+                    [type] => classified
+                    [is_for_permanent] => 0
+                    [active] => 1
+                    [picture_url] => http://127.0.0.1:8000/storage/app/default/categories/\thumb-100x100-fa-folder-default.png
+                    [parent] => 
+                )
+
+        )
+
+    [city] => Array
+        (
+            [id] => 54
+            [country_code] => LK
+            [name] => Colombo
+            [latitude] => 6.94
+            [longitude] => 79.85
+            [subadmin1_code] => LK.36
+            [subadmin2_code] => LK.36.11
+            [population] => 648034
+            [time_zone] => Asia/Colombo
+            [active] => 1
+            [posts_count] => 0
+        )
+
+    [payment] => 
+    [savedByLoggedUser] => Array
+        (
+        )
+
+    [pictures] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 3450
+                    [post_id] => 728
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 0
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => 3451
+                    [post_id] => 728
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 1
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [id] => 3452
+                    [post_id] => 728
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 2
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [id] => 3453
+                    [post_id] => 728
+                    [filename] => app/default/picture.jpg
+                    [mime_type] => image/jpeg
+                    [position] => 3
+                    [active] => 1
+                    [url] => Array
+                        (
+                            [full] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [small] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [medium] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                            [big] => http://127.0.0.1:8000/storage/app/default/picture.jpg
+                        )
+
+                )
+
+        )
+
+)
+  
+[2025-03-21 14:42:51] local.INFO: listTest2 - 38  
+[2025-03-21 14:42:51] local.INFO: listTest3 -   
