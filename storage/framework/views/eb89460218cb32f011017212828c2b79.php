@@ -1,27 +1,14 @@
-{{--
- * LaraClassifier - Classified Ads Web Application
- * Copyright (c) BeDigit. All Rights Reserved
- *
- * Website: https://laraclassifier.com
- * Author: BeDigit | https://bedigit.com
- *
- * LICENSE
- * -------
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license and with the inclusion
- * of the above copyright notice. If you Purchased from CodeCanyon,
- * Please read the full License from here - https://codecanyon.net/licenses/standard
---}}
-@extends('layouts.master')
 
-@section('wizard')
-	@includeFirst([
+
+
+<?php $__env->startSection('wizard'); ?>
+	<?php echo $__env->first([
 		config('larapen.core.customizedViewPath') . 'post.createOrEdit.multiSteps.inc.wizard',
 		'post.createOrEdit.multiSteps.inc.wizard'
-	])
-@endsection
+	], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@php
+<?php
 	$post ??= [];
 	
 	$postTypes ??= [];
@@ -29,10 +16,10 @@
 	
 	$postCatParentId = data_get($post, 'category.parent_id');
 	$postCatParentId = (empty($postCatParentId)) ? data_get($post, 'category.id', 0) : $postCatParentId;
-@endphp
+?>
 
-@section('content')
-	@includeFirst([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'])
+<?php $__env->startSection('content'); ?>
+	<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 	<div class="main-container">
     <style>
         textarea {
@@ -42,101 +29,105 @@
     	<div class="container">
 			<div class="row">
 				
-				@includeFirst([config('larapen.core.customizedViewPath') . 'post.inc.notification', 'post.inc.notification'])
+				<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'post.inc.notification', 'post.inc.notification'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 				<div class="col-md-9 page-content">
 					<div class="inner-box category-content" style="overflow: visible;">
 						<h2 class="title-2">
-							<strong><i class="fas fa-edit"></i> {{ t('update_my_listing') }}</strong>
-							-&nbsp;<a href="{{ \App\Helpers\UrlGen::post($post) }}"
+							<strong><i class="fas fa-edit"></i> <?php echo e(t('update_my_listing')); ?></strong>
+							-&nbsp;<a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>"
 							   class="" data-bs-placement="top"
 								data-bs-toggle="tooltip"
-								title="{!! data_get($post, 'title') !!}"
-							>{!! str(data_get($post, 'title'))->limit(45) !!}</a>
+								title="<?php echo data_get($post, 'title'); ?>"
+							><?php echo str(data_get($post, 'title'))->limit(45); ?></a>
 						</h2>
 						
 						<div class="row">
 							<div class="col-12">
 								
-								<form class="form-horizontal" id="payableForm" method="POST" action="{{ url()->current() }}" enctype="multipart/form-data">
-									{!! csrf_field() !!}
+								<form class="form-horizontal" id="payableForm" method="POST" action="<?php echo e(url()->current()); ?>" enctype="multipart/form-data">
+									<?php echo csrf_field(); ?>
+
 									<input name="_method" type="hidden" value="PUT">
-									<input type="hidden" name="post_id" value="{{ data_get($post, 'id') }}">
+									<input type="hidden" name="post_id" value="<?php echo e(data_get($post, 'id')); ?>">
 									<fieldset>
 									    
-									    {{-- city_id --}}
+									    
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
 										<div id="cityBox" class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">
-												{{ t('city') }} <sup>*</sup>
+											<label class="col-md-3 col-form-label<?php echo e($cityIdError); ?>" for="city_id">
+												<?php echo e(t('city')); ?> <sup>*</sup>
 											</label>
 											<div class="col-md-8">
-												<select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
-													<option value="0" @selected(empty(old('city_id')))>
-														{{ t('select_a_city') }}
+												<select id="cityId" name="city_id" class="form-control large-data-selecter<?php echo e($cityIdError); ?>">
+													<option value="0" <?php if(empty(old('city_id'))): echo 'selected'; endif; ?>>
+														<?php echo e(t('select_a_city')); ?>
+
 													</option>
 												</select>
 											</div>
 										</div>
 										
-										{{-- category_id --}}
+										
 										<?php $categoryIdError = (isset($errors) && $errors->has('category_id')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $categoryIdError }}">{{ t('category') }} <sup>*</sup></label>
+											<label class="col-md-3 col-form-label<?php echo e($categoryIdError); ?>"><?php echo e(t('category')); ?> <sup>*</sup></label>
 											<div class="col-md-8">
-												<div id="catsContainer" class="rounded{{ $categoryIdError }}">
+												<div id="catsContainer" class="rounded<?php echo e($categoryIdError); ?>">
 													<a href="#browseCategories" data-bs-toggle="modal" class="cat-link" data-id="0">
-														{{ t('select_a_category') }}
+														<?php echo e(t('select_a_category')); ?>
+
 													</a>
 												</div>
 											</div>
-											<input type="hidden" name="category_id" id="categoryId" value="{{ old('category_id', data_get($post, 'category.id')) }}">
-											<input type="hidden" name="category_type" id="categoryType" value="{{ old('category_type', data_get($post, 'category.type')) }}">
+											<input type="hidden" name="category_id" id="categoryId" value="<?php echo e(old('category_id', data_get($post, 'category.id'))); ?>">
+											<input type="hidden" name="category_type" id="categoryType" value="<?php echo e(old('category_type', data_get($post, 'category.type'))); ?>">
 										</div>
 										
-										@if (config('settings.single.show_listing_type'))
-											{{-- post_type_id --}}
-											@php
+										<?php if(config('settings.single.show_listing_type')): ?>
+											
+											<?php
 												$postTypeIdError = (isset($errors) && $errors->has('post_type_id')) ? ' is-invalid' : '';
 												$postTypeId = old('post_type_id', data_get($post, 'post_type_id'));
-											@endphp
+											?>
 											<div id="postTypeBloc" class="row mb-3 required">
-												<label class="col-md-3 col-form-label{{ $postTypeIdError }}">{{ t('type') }} <sup>*</sup></label>
+												<label class="col-md-3 col-form-label<?php echo e($postTypeIdError); ?>"><?php echo e(t('type')); ?> <sup>*</sup></label>
 												<div class="col-md-8">
-													@foreach ($postTypes as $postType)
+													<?php $__currentLoopData = $postTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $postType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 														<div class="form-check form-check-inline">
 															<input name="post_type_id"
-																   id="postTypeId-{{ data_get($postType, 'id') }}"
-																   value="{{ data_get($postType, 'id') }}"
+																   id="postTypeId-<?php echo e(data_get($postType, 'id')); ?>"
+																   value="<?php echo e(data_get($postType, 'id')); ?>"
 																   type="radio"
-																   class="form-check-input{{ $postTypeIdError }}" @checked($postTypeId == data_get($postType, 'id'))
+																   class="form-check-input<?php echo e($postTypeIdError); ?>" <?php if($postTypeId == data_get($postType, 'id')): echo 'checked'; endif; ?>
 															>
-															<label class="form-check-label mb-0" for="postTypeId-{{ data_get($postType, 'id') }}">
-																{{ data_get($postType, 'name') }}
+															<label class="form-check-label mb-0" for="postTypeId-<?php echo e(data_get($postType, 'id')); ?>">
+																<?php echo e(data_get($postType, 'name')); ?>
+
 															</label>
 														</div>
-													@endforeach
-													<div class="form-text text-muted">{{ t('post_type_hint') }}</div>
+													<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+													<div class="form-text text-muted"><?php echo e(t('post_type_hint')); ?></div>
 												</div>
 											</div>
-										@endif
+										<?php endif; ?>
 										
-										{{-- cfContainer --}}
+										
 										<div id="cfContainer"></div>
 
-										{{-- title --}}
+										
 										<?php $titleError = (isset($errors) && $errors->has('title')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $titleError }}" for="title">{{ t('title') }} <sup>*</sup></label>
+											<label class="col-md-3 col-form-label<?php echo e($titleError); ?>" for="title"><?php echo e(t('title')); ?> <sup>*</sup></label>
 											<div class="col-md-8">
-												<input id="title" name="title" placeholder="{{ t('listing_title') }}" class="form-control input-md{{ $titleError }}"
-													   type="text" value="{{ old('title', data_get($post, 'title')) }}">
-												<div class="form-text text-muted">{{ t('a_great_title_needs_at_least_60_characters') }}</div>
+												<input id="title" name="title" placeholder="<?php echo e(t('listing_title')); ?>" class="form-control input-md<?php echo e($titleError); ?>"
+													   type="text" value="<?php echo e(old('title', data_get($post, 'title'))); ?>">
+												<div class="form-text text-muted"><?php echo e(t('a_great_title_needs_at_least_60_characters')); ?></div>
 											</div>
 										</div>
 
-										{{-- description --}}
-										@php
+										
+										<?php
 											$descriptionError = (isset($errors) && $errors->has('description')) ? ' is-invalid' : '';
 											$postDescription = data_get($post, 'description');
 											$descriptionErrorLabel = '';
@@ -147,23 +138,23 @@
 											} else {
 												$postDescription = strip_tags($postDescription);
 											}
-										@endphp
+										?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $descriptionErrorLabel }}" for="description">
-												{{ t('Description') }} <sup>*</sup>
+											<label class="col-md-3 col-form-label<?php echo e($descriptionErrorLabel); ?>" for="description">
+												<?php echo e(t('Description')); ?> <sup>*</sup>
 											</label>
-											<div class="{{ $descriptionColClass }}">
+											<div class="<?php echo e($descriptionColClass); ?>">
 											     <div id="charCountLabel">0/5000</div>
 												<textarea
-														class="form-control{{ $descriptionError }}"
+														class="form-control<?php echo e($descriptionError); ?>"
 														id="description"
 														name="description"
 														  rows="8"
 														  maxlength="5000"
 														  style="height: 100px"
 														  oninput="adjustTextarea(this)"
-												>{{ old('description', $postDescription) }}</textarea>
-												<div class="form-text text-muted">{{ t('describe_what_makes_your_listing_unique') }}</div>
+												><?php echo e(old('description', $postDescription)); ?></textarea>
+												<div class="form-text text-muted"><?php echo e(t('describe_what_makes_your_listing_unique')); ?></div>
                                             </div>
 										</div>
 																				    <style>
@@ -214,31 +205,31 @@
                                             </script>
 
 
-										{{-- price --}}
-										@php
+										
+										<?php
 											$priceError = (isset($errors) && $errors->has('price')) ? ' is-invalid' : '';
 											$currencySymbol = config('currency.symbol', 'X');
 											$price = old('price', data_get($post, 'price'));
 											$price = \App\Helpers\Number::format($price, 2, '.', '');
-										@endphp
+										?>
 										<div id="priceBloc" class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $priceError }}" for="price">{{ t('price') }}</label>
+											<label class="col-md-3 col-form-label<?php echo e($priceError); ?>" for="price"><?php echo e(t('price')); ?></label>
 											<div class="col-md-8">
 												<div class="input-group">
-													<span class="input-group-text">{!! $currencySymbol !!}</span>
+													<span class="input-group-text"><?php echo $currencySymbol; ?></span>
 													<input id="price"
 														   name="price"
-														   class="form-control{{ $priceError }}"
-														   placeholder="{{ t('ei_price') }}"
+														   class="form-control<?php echo e($priceError); ?>"
+														   placeholder="<?php echo e(t('ei_price')); ?>"
 														   type="number"
 														   min="0"
-														   step="{{ getInputNumberStep((int)config('currency.decimal_places', 2)) }}"
-														   value="{!! $price !!}"
+														   step="<?php echo e(getInputNumberStep((int)config('currency.decimal_places', 2))); ?>"
+														   value="<?php echo $price; ?>"
 													>
 													<span class="input-group-text">
 														<input id="negotiable" name="negotiable" type="checkbox"
-															   value="1" {{ (old('negotiable', data_get($post, 'negotiable'))=='1') ? 'checked="checked"' : '' }}>
-														&nbsp;<small>{{ t('negotiable') }}</small>
+															   value="1" <?php echo e((old('negotiable', data_get($post, 'negotiable'))=='1') ? 'checked="checked"' : ''); ?>>
+														&nbsp;<small><?php echo e(t('negotiable')); ?></small>
 													</span>
 												</div>
 													  <style>
@@ -248,40 +239,41 @@
 													  </style>	
 												    <div id="pricehintdiv" class="form-text text-muted" style="padding: 10px; font-weight: 800;"></div>
 					
-												@if (config('settings.single.price_mandatory') != '1')
-													<div class="form-text text-muted">{{ t('price_hint') }}</div>
-												@endif
+												<?php if(config('settings.single.price_mandatory') != '1'): ?>
+													<div class="form-text text-muted"><?php echo e(t('price_hint')); ?></div>
+												<?php endif; ?>
 											</div>
 										</div>
 										
-										{{-- country_code --}}
+										
 										<input id="countryCode" name="country_code"
 											   type="hidden"
-											   value="{{ data_get($post, 'country_code') ?? config('country.code') }}"
+											   value="<?php echo e(data_get($post, 'country_code') ?? config('country.code')); ?>"
 										>
 										
-										@php
+										<?php
 											$adminType = config('country.admin_type', 0);
-										@endphp
-										@if (config('settings.single.city_selection') == 'select')
-											@if (in_array($adminType, ['1', '2']))
-												{{-- admin_code --}}
+										?>
+										<?php if(config('settings.single.city_selection') == 'select'): ?>
+											<?php if(in_array($adminType, ['1', '2'])): ?>
+												
 												<?php $adminCodeError = (isset($errors) && $errors->has('admin_code')) ? ' is-invalid' : ''; ?>
 												<div id="locationBox" class="row mb-3 required">
-													<label class="col-md-3 col-form-label{{ $adminCodeError }}" for="admin_code">
-														{{ t('location') }} <sup>*</sup>
+													<label class="col-md-3 col-form-label<?php echo e($adminCodeError); ?>" for="admin_code">
+														<?php echo e(t('location')); ?> <sup>*</sup>
 													</label>
 													<div class="col-md-8">
-														<select id="adminCode" name="admin_code" class="form-control large-data-selecter{{ $adminCodeError }}">
-															<option value="0" @selected(empty(old('admin_code')))>
-																{{ t('select_your_location') }}
+														<select id="adminCode" name="admin_code" class="form-control large-data-selecter<?php echo e($adminCodeError); ?>">
+															<option value="0" <?php if(empty(old('admin_code'))): echo 'selected'; endif; ?>>
+																<?php echo e(t('select_your_location')); ?>
+
 															</option>
 														</select>
 													</div>
 												</div>
-											@endif
-										@else
-											@php
+											<?php endif; ?>
+										<?php else: ?>
+											<?php
 												$adminType = (in_array($adminType, ['0', '1', '2'])) ? $adminType : 0;
 												$relAdminType = (in_array($adminType, ['1', '2'])) ? $adminType : 1;
 												$adminCode = data_get($post, 'city.subadmin' . $relAdminType . '_code', 0);
@@ -290,85 +282,87 @@
 												$cityId = data_get($post, 'city.id', 0);
 												$cityName = data_get($post, 'city.name');
 												$fullCityName = !empty($adminName) ? $cityName . ', ' . $adminName : $cityName;
-											@endphp
-											<input type="hidden" id="selectedAdminType" name="selected_admin_type" value="{{ old('selected_admin_type', $adminType) }}">
-											<input type="hidden" id="selectedAdminCode" name="selected_admin_code" value="{{ old('selected_admin_code', $adminCode) }}">
-											<input type="hidden" id="selectedCityId" name="selected_city_id" value="{{ old('selected_city_id', $cityId) }}">
-											<input type="hidden" id="selectedCityName" name="selected_city_name" value="{{ old('selected_city_name', $fullCityName) }}">
-										@endif
+											?>
+											<input type="hidden" id="selectedAdminType" name="selected_admin_type" value="<?php echo e(old('selected_admin_type', $adminType)); ?>">
+											<input type="hidden" id="selectedAdminCode" name="selected_admin_code" value="<?php echo e(old('selected_admin_code', $adminCode)); ?>">
+											<input type="hidden" id="selectedCityId" name="selected_city_id" value="<?php echo e(old('selected_city_id', $cityId)); ?>">
+											<input type="hidden" id="selectedCityName" name="selected_city_name" value="<?php echo e(old('selected_city_name', $fullCityName)); ?>">
+										<?php endif; ?>
 									
 
 										
-										{{-- tags --}}
-										@php
+										
+										<?php
 											$tagsError = (isset($errors) && $errors->has('tags.*')) ? ' is-invalid' : '';
 											$tags = old('tags', data_get($post, 'tags'));
-										@endphp
+										?>
 										<div class="row mb-3">
-											<label class="col-md-3 col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
+											<label class="col-md-3 col-form-label<?php echo e($tagsError); ?>" for="tags"><?php echo e(t('Tags')); ?></label>
 											<div class="col-md-8">
 												<select id="tags" name="tags[]" class="form-control tags-selecter" multiple="multiple">
-													@if (!empty($tags))
-														@foreach($tags as $iTag)
-															<option selected="selected">{{ $iTag }}</option>
-														@endforeach
-													@endif
+													<?php if(!empty($tags)): ?>
+														<?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $iTag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+															<option selected="selected"><?php echo e($iTag); ?></option>
+														<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+													<?php endif; ?>
 												</select>
 												<div class="form-text text-muted">
-													{!! t('tags_hint', [
+													<?php echo t('tags_hint', [
 															'limit' => (int)config('settings.single.tags_limit', 15),
 															'min'   => (int)config('settings.single.tags_min_length', 2),
 															'max'   => (int)config('settings.single.tags_max_length', 30)
-														]) !!}
+														]); ?>
+
 												</div>
 											</div>
 										</div>
 										
-										{{-- is_permanent --}}
-										@if (config('settings.single.permanent_listings_enabled') == '3')
-											<input id="isPermanent" name="is_permanent" type="hidden" value="{{ old('is_permanent', data_get($post, 'is_permanent')) }}">
-										@else
+										
+										<?php if(config('settings.single.permanent_listings_enabled') == '3'): ?>
+											<input id="isPermanent" name="is_permanent" type="hidden" value="<?php echo e(old('is_permanent', data_get($post, 'is_permanent'))); ?>">
+										<?php else: ?>
 											<?php $isPermanentError = (isset($errors) && $errors->has('is_permanent')) ? ' is-invalid' : ''; ?>
 											<div id="isPermanentBox" class="row mb-3 required hide">
 												<label class="col-md-3 col-form-label"></label>
 												<div class="col-md-8">
 													<div class="form-check">
 														<input id="isPermanent" name="is_permanent"
-															   class="form-check-input mt-1{{ $isPermanentError }}"
+															   class="form-check-input mt-1<?php echo e($isPermanentError); ?>"
 															   value="1"
-															   type="checkbox" @checked(old('is_permanent', data_get($post, 'is_permanent')) == '1')
+															   type="checkbox" <?php if(old('is_permanent', data_get($post, 'is_permanent')) == '1'): echo 'checked'; endif; ?>
 														>
 														<label class="form-check-label mt-0" for="is_permanent">
-															{!! t('is_permanent_label') !!}
+															<?php echo t('is_permanent_label'); ?>
+
 														</label>
 													</div>
-													<div class="form-text text-muted">{{ t('is_permanent_hint') }}</div>
+													<div class="form-text text-muted"><?php echo e(t('is_permanent_hint')); ?></div>
 													<div style="clear:both"></div>
 												</div>
 											</div>
-										@endif
+										<?php endif; ?>
 
 
 										<div class="content-subheading">
 											<i class="fas fa-user"></i>
-											<strong>{{ t('seller_information') }}</strong>
+											<strong><?php echo e(t('seller_information')); ?></strong>
 										</div>
 										
 										
-										{{-- contact_name --}}
+										
 										<?php $contactNameError = (isset($errors) && $errors->has('contact_name')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $contactNameError }}" for="contact_name">
-												{{ t('your_name') }} <sup>*</sup>
+											<label class="col-md-3 col-form-label<?php echo e($contactNameError); ?>" for="contact_name">
+												<?php echo e(t('your_name')); ?> <sup>*</sup>
 											</label>
 											<div class="col-md-9 col-lg-8 col-xl-6">
 												<div class="input-group">
 													<span class="input-group-text"><i class="far fa-user"></i></span>
 													<input id="contactName" name="contact_name"
 														   type="text"
-														   placeholder="{{ t('your_name') }}"
-														   class="form-control input-md{{ $contactNameError }}"
-														   value="{{ old('contact_name', data_get($post, 'contact_name')) }}"
+														   placeholder="<?php echo e(t('your_name')); ?>"
+														   class="form-control input-md<?php echo e($contactNameError); ?>"
+														   value="<?php echo e(old('contact_name', data_get($post, 'contact_name'))); ?>"
 													>
 												</div>
 											</div>
@@ -376,37 +370,39 @@
 										
 
 										
-										@php
+										<?php
 											$forceToDisplay = isBothAuthFieldsCanBeDisplayed() ? ' force-to-display' : '';
-										@endphp
+										?>
 										
-										{{-- email --}}
-										@php
+										
+										<?php
 											$emailError = (isset($errors) && $errors->has('email')) ? ' is-invalid' : '';
-										@endphp
+										?>
 										<?php  ?>
-										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $emailError }}" for="email">{{ t('email') }}
-												@if (getAuthField() == 'email')
+										<div class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($emailError); ?>" for="email"><?php echo e(t('email')); ?>
+
+												<?php if(getAuthField() == 'email'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
 											<div class="col-md-9 col-lg-8 col-xl-6">
 												<div class="input-group">
 													<span class="input-group-text"><i class="far fa-envelope"></i></span>
 													<input id="email" name="email"
 														   type="text"
-                                                                                                                    {{ auth()->check() ? 'readonly' : '' }}
-														   class="form-control{{ $emailError }}"
-														   placeholder="{{ t('email_address') }}"
-														   value="{{ old('email', data_get($post, 'email')) }}"
+                                                                                                                    <?php echo e(auth()->check() ? 'readonly' : ''); ?>
+
+														   class="form-control<?php echo e($emailError); ?>"
+														   placeholder="<?php echo e(t('email_address')); ?>"
+														   value="<?php echo e(old('email', data_get($post, 'email'))); ?>"
 													>
 												</div>
 											</div>
 										</div>
 										
-										{{-- phone --}}
-										@php
+										
+										<?php
 											$phoneError = (isset($errors) && $errors->has('phone')) ? ' is-invalid' : '';
 									
                                             $phoneValue = data_get($post, 'phone');
@@ -433,37 +429,39 @@
                                             $phoneValue4Oldhid = phoneE164(old('phone4hid', $phoneValue4hid));
                                             $phoneValue5Oldhid = phoneE164(old('phone5hid', $phoneValue5hid));
 
-										@endphp
-										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone">{{ t('phone_number') }}
-												@if (getAuthField() == 'phone')
+										?>
+										<div class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($phoneError); ?>" for="phone"><?php echo e(t('phone_number')); ?>
+
+												<?php if(getAuthField() == 'phone'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
 											<div class="col-md-9 col-lg-8 col-xl-6">
 												<div class="input-group">
 													<input id="phone" name="phone"
-														   class="form-control input-md{{ $phoneError }}"
+														   class="form-control input-md<?php echo e($phoneError); ?>"
 														   type="text"
-														   value="{{ $phoneValueOld }}"
+														   value="<?php echo e($phoneValueOld); ?>"
 													>
 													<span class="input-group-text iti-group-text">
 														<input id="phoneHidden" name="phone_hidden" type="checkbox"
-															   value="1" @checked(old('phone_hidden', data_get($post, 'phone_hidden'))=='1')>
-											             &nbsp;<small>{{ t('Hide') }}</small>&nbsp;&nbsp;&nbsp;<span>|<i class="fa fa-phone"></i>|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															   value="1" <?php if(old('phone_hidden', data_get($post, 'phone_hidden'))=='1'): echo 'checked'; endif; ?>>
+											             &nbsp;<small><?php echo e(t('Hide')); ?></small>&nbsp;&nbsp;&nbsp;<span>|<i class="fa fa-phone"></i>|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <span onclick="myFunction('phn2')" style="cursor: pointer; width: 30px !important; height: 25px !important; background: #30A851; color: white; border-radius: 5px;">&nbsp;&nbsp;+&nbsp;&nbsp;</span>
 													</span>
 												</div>
-												<input name="phone_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
+												<input name="phone_country" type="hidden" value="<?php echo e(old('phone_country', $phoneCountryValue)); ?>">
 											</div>
 										</div>
 										
 										    <div id="phn2" style="display: none" >
-                                        <div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone2">{{ t('phone_number2') }}
-												@if (getAuthField() == 'phone')
+                                        <div class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($phoneError); ?>" for="phone2"><?php echo e(t('phone_number2')); ?>
+
+												<?php if(getAuthField() == 'phone'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
                                             
 											<div class="col-md-9 col-lg-8 col-xl-6">
@@ -472,13 +470,13 @@
 													<span class="input-group-text iti-group-text" style="padding-top: 0px !important; padding-bottom: 0px !important;"><div class="iti__flag iti__lk"></div><div class="iti__selected-dial-code">+94</div></span>
                                                     <span class="input-group-text iti-group-text" style="width: 200px !important; padding-top: 0px !important; padding-bottom: 0px !important;">
                                                         <input id="phone2" name="phone2"
-														   class="form-control input-md{{ $phoneError }}"
+														   class="form-control input-md<?php echo e($phoneError); ?>"
 														   type="tel"
                                                            placeholder="700000000"
-                                                           value="{{ $phoneValue2Old }}" 
+                                                           value="<?php echo e($phoneValue2Old); ?>" 
                                                            minlength="9" maxlength="9"
                                                                />
-                                                        <input type="hidden" id="phone2hid" name="phone2hid"  value="{{ $phoneValue2Oldhid }}" minlength="9" />
+                                                        <input type="hidden" id="phone2hid" name="phone2hid"  value="<?php echo e($phoneValue2Oldhid); ?>" minlength="9" />
                                                     </span>
                                                     <span id="phn2_act" style="display: none;"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('2')" style=" cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>&nbsp;<span onclick="myFunction('phn3')" style="cursor: pointer; width: 30px; height: 25px; background: #30A851; border-radius: 5px;">+</span>
@@ -486,7 +484,7 @@
                                                     <span  id="phn2_vfy"  class="input-group-text iti-group-text" style="display: none;   width: 100px !important; padding-top: 5px !important; padding-bottom: 0px !important; padding-left: 0.30rem;"><input type="text" size="6" id="phn2_verify" placeholder="6 digit code" name="phn2_verify" />&nbsp;&nbsp;<span id="phone2vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('2')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span></span>
 													
 												</div>
-												<input name="phone2_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
+												<input name="phone2_country" type="hidden" value="<?php echo e(old('phone_country', $phoneCountryValue)); ?>">
 											</div>
                                             
                                             
@@ -494,11 +492,12 @@
 										</div>
                                         </div>
                                         <div id="phn3" style="display: none" > 
-                                        <div  class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone3">{{ t('phone_number3') }}
-												@if (getAuthField() == 'phone3')
+                                        <div  class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($phoneError); ?>" for="phone3"><?php echo e(t('phone_number3')); ?>
+
+												<?php if(getAuthField() == 'phone3'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
                                             
 											<div class="col-md-9 col-lg-8 col-xl-6">
@@ -507,13 +506,13 @@
 													<span class="input-group-text iti-group-text"><div class="iti__flag iti__lk"></div><div class="iti__selected-dial-code">+94</div></span>
                                                     <span class="input-group-text iti-group-text" style="width: 200px !important;">
                                                         <input id="phone3" name="phone3"
-														   class="form-control input-md{{ $phoneError }}"
+														   class="form-control input-md<?php echo e($phoneError); ?>"
 														   type="tel"
                                                            placeholder="700000000"
-                                                           value="{{ $phoneValue3Old }}"
+                                                           value="<?php echo e($phoneValue3Old); ?>"
                                                                minlength="9" maxlength="9"
                                                                />
-                                                        <input type="hidden" id="phone3hid" name="phone3hid"  value="{{ $phoneValue3Oldhid }}" />
+                                                        <input type="hidden" id="phone3hid" name="phone3hid"  value="<?php echo e($phoneValue3Oldhid); ?>" />
                                                     </span>
                                                     <span id="phn3_act" style="display: none"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('3')" style="cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>&nbsp;<span onclick="myFunction('phn4')" style="cursor: pointer; width: 30px; height: 25px; background: #30A851; border-radius: 5px;">+</span>
@@ -521,7 +520,7 @@
                                                     <span  id="phn3_vfy" class="input-group-text iti-group-text" style="display: none;  width: 100px !important;"><input type="text"  size="6" placeholder="6 digit code" id="phn3_verify" name="phn3_verify" />&nbsp;&nbsp;<span id="phone3vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('3')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span> </span>
 													
 												</div>
-												<input name="phone3_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
+												<input name="phone3_country" type="hidden" value="<?php echo e(old('phone_country', $phoneCountryValue)); ?>">
 											</div>
                                             
                                             
@@ -529,11 +528,12 @@
 										</div>
                                         </div>
                                         <div id="phn4" style="display: none" >
-                                        <div  class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone4">{{ t('phone_number4') }}
-												@if (getAuthField() == 'phone4')
+                                        <div  class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($phoneError); ?>" for="phone4"><?php echo e(t('phone_number4')); ?>
+
+												<?php if(getAuthField() == 'phone4'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
                                             
 											<div class="col-md-9 col-lg-8 col-xl-6">
@@ -542,13 +542,13 @@
 													<span class="input-group-text iti-group-text"><div class="iti__flag iti__lk"></div><div class="iti__selected-dial-code">+94</div></span>
                                                     <span class="input-group-text iti-group-text" style="width: 200px !important;">
                                                         <input id="phone4" name="phone4"
-														   class="form-control input-md{{ $phoneError }}"
+														   class="form-control input-md<?php echo e($phoneError); ?>"
 														   type="tel"
                                                            placeholder="700000000"
-                                                           value="{{ $phoneValue4Old }}"
+                                                           value="<?php echo e($phoneValue4Old); ?>"
                                                                minlength="9" maxlength="9"
                                                                />
-                                                        <input type="hidden" id="phone4hid" name="phone4hid"  value="{{ $phoneValue4Oldhid }}" />
+                                                        <input type="hidden" id="phone4hid" name="phone4hid"  value="<?php echo e($phoneValue4Oldhid); ?>" />
                                                     </span>
                                                     <span id="phn4_act" style="display: none"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('4')" style="cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>&nbsp;<span onclick="myFunction('phn5')" style="cursor: pointer; width: 30px; height: 25px; background: #30A851; border-radius: 5px;">+</span>
@@ -556,7 +556,7 @@
                                                     <span  id="phn4_vfy"  class="input-group-text iti-group-text" style="display: none; width: 100px !important;"><input type="text" size="6" placeholder="6 digit code" id="phn4_verify" name="phn4_verify" />&nbsp;&nbsp;<span id="phone4vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('4')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span></span>
 													
 												</div>
-												<input name="phone4_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
+												<input name="phone4_country" type="hidden" value="<?php echo e(old('phone_country', $phoneCountryValue)); ?>">
 											</div>
                                             
                                             
@@ -564,11 +564,12 @@
 										</div>
                                         </div>
                                         <div id="phn5" style="display: none"> 
-                                        <div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone5">{{ t('phone_number5') }}
-												@if (getAuthField() == 'phone5')
+                                        <div class="row mb-3 auth-field-item required<?php echo e($forceToDisplay); ?>">
+											<label class="col-md-3 col-form-label<?php echo e($phoneError); ?>" for="phone5"><?php echo e(t('phone_number5')); ?>
+
+												<?php if(getAuthField() == 'phone5'): ?>
 													<sup>*</sup>
-												@endif
+												<?php endif; ?>
 											</label>
                                             
 											<div class="col-md-9 col-lg-8 col-xl-6">
@@ -577,13 +578,13 @@
 													<span class="input-group-text iti-group-text"><div class="iti__flag iti__lk"></div><div class="iti__selected-dial-code">+94</div></span>
                                                     <span class="input-group-text iti-group-text" style="width: 200px !important;">
                                                         <input id="phone5" name="phone5"
-														   class="form-control input-md{{ $phoneError }}"
+														   class="form-control input-md<?php echo e($phoneError); ?>"
 														   type="tel"
                                                            placeholder="700000000"
-                                                           value="{{ $phoneValue5Old }}" 
+                                                           value="<?php echo e($phoneValue5Old); ?>" 
                                                                minlength="9" maxlength="9"
                                                             />
-                                                        <input type="hidden" id="phone5hid" name="phone5hid"  value="{{ $phoneValue5Oldhid }}" />
+                                                        <input type="hidden" id="phone5hid" name="phone5hid"  value="<?php echo e($phoneValue5Oldhid); ?>" />
                                                     </span>
                                                     <span id="phn5_act" style="display: none"  class="input-group-text iti-group-text">
 														&nbsp;&nbsp;<span onclick="myFunction2('5')" style="cursor: pointer; width: 30px !Important; height: 25px; background: #C94042; color: white; border-radius: 5px;">-</span>
@@ -591,7 +592,7 @@
                                                     <span  id="phn5_vfy"  class="input-group-text iti-group-text" style="display: none; width: 100px !important;"><input type="text" size="6" placeholder="6 digit code" id="phn5_verify" name="phn5_verify" />&nbsp;&nbsp;<span id="phone5vf" style="cursor: pointer; width: 40px; height: 25px; background: #30A851; border-radius: 5px; padding: 0.30rem;color:white;">OTP Verify</span>&nbsp;&nbsp;<span onclick="myFunction2('5')" style=" padding: 0.20rem; cursor: pointer; width: 30px !Important; height: 25px; color: #fff; background: #f34538; border-radius: 20px;">&nbsp;x&nbsp;</span></span>
 													
 												</div>
-												<input name="phone5_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
+												<input name="phone5_country" type="hidden" value="<?php echo e(old('phone_country', $phoneCountryValue)); ?>">
 											</div>
                                             
                                             
@@ -600,45 +601,47 @@
 										</div>
                                         
 									
-										{{-- auth_field (as notification channel) --}}
-										@php
+										
+										<?php
 											$authFields = getAuthFields(true);
 											$authFieldError = (isset($errors) && $errors->has('auth_field')) ? ' is-invalid' : '';
 											$usersCanChooseNotifyChannel = isUsersCanChooseNotifyChannel();
 											$authFieldValue = data_get($post, 'auth_field') ?? getAuthField();
 											$authFieldValue = ($usersCanChooseNotifyChannel) ? (old('auth_field', $authFieldValue)) : $authFieldValue;
-										@endphp
-										@if ($usersCanChooseNotifyChannel)
+										?>
+										<?php if($usersCanChooseNotifyChannel): ?>
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label" for="auth_field">{{ t('notifications_channel') }} <sup>*</sup></label>
+												<label class="col-md-3 col-form-label" for="auth_field"><?php echo e(t('notifications_channel')); ?> <sup>*</sup></label>
 												<div class="col-md-9">
-													@foreach ($authFields as $iAuthField => $notificationType)
+													<?php $__currentLoopData = $authFields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $iAuthField => $notificationType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 														<div class="form-check form-check-inline pt-2">
 															<input name="auth_field"
-																   id="{{ $iAuthField }}AuthField"
-																   value="{{ $iAuthField }}"
-																   class="form-check-input auth-field-input{{ $authFieldError }}"
-																   type="radio" @checked($authFieldValue == $iAuthField)
+																   id="<?php echo e($iAuthField); ?>AuthField"
+																   value="<?php echo e($iAuthField); ?>"
+																   class="form-check-input auth-field-input<?php echo e($authFieldError); ?>"
+																   type="radio" <?php if($authFieldValue == $iAuthField): echo 'checked'; endif; ?>
 															>
-															<label class="form-check-label mb-0" for="{{ $iAuthField }}AuthField">
-																{{ $notificationType }}
+															<label class="form-check-label mb-0" for="<?php echo e($iAuthField); ?>AuthField">
+																<?php echo e($notificationType); ?>
+
 															</label>
 														</div>
-													@endforeach
+													<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 													<div class="form-text text-muted">
-														{{ t('notifications_channel_hint') }}
+														<?php echo e(t('notifications_channel_hint')); ?>
+
 													</div>
 												</div>
 											</div>
-										@else
-											<input id="{{ $authFieldValue }}AuthField" name="auth_field" type="hidden" value="{{ $authFieldValue }}">
-										@endif
+										<?php else: ?>
+											<input id="<?php echo e($authFieldValue); ?>AuthField" name="auth_field" type="hidden" value="<?php echo e($authFieldValue); ?>">
+										<?php endif; ?>
 
-										{{-- Button --}}
+										
 										<div class="row mb-3 pt-3">
 											<div class="col-md-12 text-center">
-												<a href="{{ \App\Helpers\UrlGen::post($post) }}" class="btn btn-default btn-lg">{{ t('Back') }}</a>
-												<button id="nextStepBtn" class="btn btn-primary btn-lg">{{ t('Update') }}</button>
+												<a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>" class="btn btn-default btn-lg"><?php echo e(t('Back')); ?></a>
+												<button id="nextStepBtn" class="btn btn-primary btn-lg"><?php echo e(t('Update')); ?></button>
 											</div>
 										</div>
 
@@ -652,7 +655,7 @@
 				<!-- /.page-content -->
 
 				<div class="col-md-3 reg-sidebar">
-					@includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.right-sidebar', 'post.createOrEdit.inc.right-sidebar'])
+					<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.right-sidebar', 'post.createOrEdit.inc.right-sidebar'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 				</div>
 				
 			</div>
@@ -731,7 +734,7 @@ function xmlhttpfunc()
                     }
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/veryfyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2+"/"+phn2_verify,true);
 		xmlhttp1.send();
@@ -767,7 +770,7 @@ function xmlhttpfunc()
         $('#phn2_verify').focus();
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/notifyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2,true);
 		xmlhttp1.send();
@@ -815,7 +818,7 @@ function xmlhttpfunc()
                     }
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/veryfyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2+"/"+phn2_verify,true);
 		xmlhttp1.send();
@@ -850,7 +853,7 @@ function xmlhttpfunc()
         $('#phn3_verify').focus();
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/notifyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2,true);
 		xmlhttp1.send();
@@ -895,7 +898,7 @@ function xmlhttpfunc()
                     }
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/veryfyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2+"/"+phn2_verify,true);
 		xmlhttp1.send();
@@ -929,7 +932,7 @@ function xmlhttpfunc()
                 $('#phn2_verify').focus();
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/notifyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2,true);
 		xmlhttp1.send();
@@ -975,7 +978,7 @@ function xmlhttpfunc()
                     }
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/veryfyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2+"/"+phn2_verify,true);
 		xmlhttp1.send();
@@ -1009,7 +1012,7 @@ function xmlhttpfunc()
                 $('#phn5_verify').focus();
 			}
 		}
-        var ajaxlink = "{{ url('/') }}";
+        var ajaxlink = "<?php echo e(url('/')); ?>";
            ajaxlink+="/posts/notifyphone/";
 		xmlhttp1.open("GET",ajaxlink+val_ph2,true);
 		xmlhttp1.send();
@@ -1085,10 +1088,10 @@ function xmlhttpfunc()
                 
                      setTimeout(function ()  {
 //        var chkval = $('.cat-link').attr("data-id");
-        var chkval = {{ old('category_id', data_get($post, 'category.id')) }};
+        var chkval = <?php echo e(old('category_id', data_get($post, 'category.id'))); ?>;
 //                          alert(chkval);
         var prntval = '';
-        var old_ptype = '{{data_get($post, 'property_price_type')}}';
+        var old_ptype = '<?php echo e(data_get($post, 'property_price_type')); ?>';
 //                                alert(old_ptype);
         if(chkval=='42')
             {
@@ -1150,17 +1153,19 @@ function xmlhttpfunc()
     
 }); 
 </script>
-	@includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.category-modal', 'post.createOrEdit.inc.category-modal'])
-@endsection
+	<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.category-modal', 'post.createOrEdit.inc.category-modal'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@section('after_styles')
-@endsection
+<?php $__env->startSection('after_styles'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('after_scripts')
+<?php $__env->startSection('after_scripts'); ?>
 	<script>
-		defaultAuthField = '{{ old('auth_field', $authFieldValue ?? getAuthField()) }}';
-		phoneCountry = '{{ old('phone_country', ($phoneCountryValue ?? '')) }}';
+		defaultAuthField = '<?php echo e(old('auth_field', $authFieldValue ?? getAuthField())); ?>';
+		phoneCountry = '<?php echo e(old('phone_country', ($phoneCountryValue ?? ''))); ?>';
 	</script>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.form-assets', 'post.createOrEdit.inc.form-assets'])
+<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.form-assets', 'post.createOrEdit.inc.form-assets'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/post/createOrEdit/multiSteps/edit.blade.php ENDPATH**/ ?>
