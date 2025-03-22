@@ -1048,7 +1048,7 @@ function xmlhttpfunc()
              document.getElementById("phn3_vfy").style.display = "none";
            }
        else{
-            document.getElementById("phn3").style.display = "none";
+             document.getElementById("phn3").style.display = "none";
              document.getElementById("phn3_act").style.display = "none";
              document.getElementById("phn3_vfy").style.display = "block";
        }
