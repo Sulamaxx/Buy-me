@@ -1115,21 +1115,29 @@ function xmlhttpfunc()
                     {
                                         prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
                     }
-                else
+                else if(old_ptype=='per acre')
                     {
-                                       prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
+                                       prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" checked name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
                     }
+				else{
+					                   prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" checked name="property_price_type" id="property_price_type3" value="total price">Total Price';
+    
+				}
             }
         else if(chkval=='44')
             {
                 if (old_ptype=='per perch')
                     {
-                        prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre';
+                                        prntval = '<input type="radio" checked name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
                     }
-                else
+                else if(old_ptype=='per acre')
                     {
-                        prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" checked name="property_price_type" id="property_price_type2" value="per acre">per acre';
+                                       prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" checked name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" name="property_price_type" id="property_price_type3" value="total price">Total Price';
                     }
+				else{
+					                   prntval = '<input type="radio" name="property_price_type" id="property_price_type1" value="per perch">per perch <input type="radio" name="property_price_type" id="property_price_type2" value="per acre">per acre <input type="radio" checked name="property_price_type" id="property_price_type3" value="total price">Total Price';
+    
+				}
             }
         else if(chkval=='45')
             {
