@@ -29,7 +29,7 @@ $hideForm = data_get($sectionOptions, 'hide_form') ?? '0';
 $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 ?>
 @includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.spacer', 'home.inc.spacer'], ['hideOnMobile' => $hideOnMobile])
-<div class="container my-4">
+{{-- <div class="container my-4">
 <form id="search" name="search" action="{{ \App\Helpers\UrlGen::searchWithoutQuery() }}" method="GET">
 		<div class="row search-row animated fadeInUp">
 			
@@ -82,7 +82,7 @@ $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 			
 		</div>
 	</form>
-</div>
+</div> --}}
 
 <div class="container{{ $hideOnMobile }}">
 	<div class="col-xl-14 content-box layout-section">

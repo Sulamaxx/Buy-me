@@ -528,7 +528,10 @@
 	.skin .search-row .search-col:first-child .search-col-inner,
 	.skin .search-row .search-col .search-col-inner,
 	.skin .search-row .search-col .search-btn-border {
+		border: 0px;
 		border-color: <?php echo e($primaryBgColor); ?>;
+		border-radius: 0px !important;
+		background-color: #e5e5e5;
 	}
 	
 	.skin .p-price-tag {

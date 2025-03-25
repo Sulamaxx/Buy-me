@@ -9,7 +9,6 @@ $rightAdvertising ??= [];
 	
 	//print_r($post, true)
 	$count = (array)data_get($apiExtra, 'count');
-	//Log::info('Logapi1 - '.print_r($apiResult, true));
 	$posts = (array)data_get($apiResult, 'data');
 	$totalPosts = (int)data_get($apiResult, 'meta.total', 0);
 	$tags = (array)data_get($apiExtra, 'tags');
