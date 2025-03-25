@@ -29,60 +29,7 @@ $hideForm = data_get($sectionOptions, 'hide_form') ?? '0';
 $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 ?>
 <?php echo $__env->first([config('larapen.core.customizedViewPath') . 'home.inc.spacer', 'home.inc.spacer'], ['hideOnMobile' => $hideOnMobile], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<div class="container my-4">
-<form id="search" name="search" action="<?php echo e(\App\Helpers\UrlGen::searchWithoutQuery()); ?>" method="GET">
-		<div class="row search-row animated fadeInUp">
-			
-			<div class="col-md-5 col-sm-12 search-col relative mb-1 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
-				<div class="search-col-inner">
-					<i class="fas <?php echo e((config('lang.direction')=='rtl') ? 'fa-angle-double-left' : 'fa-angle-double-right'); ?> icon-append"></i>
-					<div class="search-col-input">
-						<input class="form-control has-icon" name="q" placeholder="<?php echo e(t('what')); ?>" type="text" value="">
-					</div>
-				</div>
-			</div>
-			
-			<input type="hidden" id="lSearch" name="l" value="">
-			
-			<div class="col-md-5 col-sm-12 search-col relative locationicon mb-1 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0 d-none d-md-block d-lg-block d-xl-block">
-				<div class="search-col-inner">
-					<i class="fas fa-map-marker-alt icon-append"></i>
-					<div class="search-col-input">
-						<?php if($displayStatesSearchTip): ?>
-							<input class="form-control locinput input-rel searchtag-input has-icon"
-									id="locSearch"
-									name="location"
-									placeholder="<?php echo e(t('where')); ?>"
-									type="text"
-									value=""
-									data-bs-placement="top"
-									data-bs-toggle="tooltipHover"
-									title="<?php echo e(t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name')); ?>"
-							>
-						<?php else: ?>
-							<input class="form-control locinput input-rel searchtag-input has-icon"
-									id="locSearch"
-									name="location"
-									placeholder="<?php echo e(t('where')); ?>"
-									type="text"
-									value=""
-							>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-2 col-sm-12 search-col">
-				<div class="search-btn-border bg-primary">
-					<button class="btn btn-primary btn-search btn-block btn-gradient" style="width: 100%;">
-						<i class="fas fa-search"></i> <strong><?php echo e(t('find')); ?></strong>
-					</button>
-				</div>
-			</div>
-			
-		</div>
-	</form>
-</div>
+
 
 <div class="container<?php echo e($hideOnMobile); ?>">
 	<div class="col-xl-14 content-box layout-section">

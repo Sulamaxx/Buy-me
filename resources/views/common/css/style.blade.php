@@ -12,8 +12,8 @@ if (!empty(config('settings.style.header_height'))) {
 }
 
 // Logo Sizes
-$logoWidth = strToDigit(config('settings.style.logo_width'), 216);
-$logoHeight = strToDigit(config('settings.style.logo_height'), 40);
+$logoWidth = strToDigit(config('settings.style.logo_width'), 108);
+$logoHeight = strToDigit(config('settings.style.logo_height'), 20);
 if (config('settings.style.logo_aspect_ratio')) {
 	if ($logoHeight <= $logoWidth) {
 		$logoWidth = 'auto';
@@ -121,6 +121,7 @@ if (config('settings.style.logo_aspect_ratio')) {
 	$padding = abs(($padding - ($defaultPadding / 2)) * 2);
 	$margin = abs(($margin - ($defaultMargin / 2)) * 2);
 	
+	$padding = $padding + 10;
 	// $wrapperPaddingTop + 4 for default margin/padding values
 	?>
 	#wrapper {
@@ -129,7 +130,7 @@ if (config('settings.style.logo_aspect_ratio')) {
 	
 	.navbar.navbar-site .navbar-identity .navbar-brand {
 		height: {{ $headerHeight }}px;
-		padding-top: {{ $padding }}px;
+		padding-top: {{ $padding + 10}}px;
 		padding-bottom: {{ $padding }}px;
 	}
 	
@@ -144,6 +145,11 @@ if (config('settings.style.logo_aspect_ratio')) {
 		.navbar-site.navbar .navbar-identity .navbar-toggler {
 			margin-top: {{ $padding }}px;
 		}
+		.navbar.navbar-site .navbar-identity .navbar-brand {
+		height: {{ $headerHeight }}px;
+		padding-top: {{ $padding }}px;
+		padding-bottom: {{ $padding }}px;
+	}
 	}
 	
 	@media (max-width: 479px) {

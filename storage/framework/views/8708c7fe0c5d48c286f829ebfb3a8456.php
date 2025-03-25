@@ -172,15 +172,12 @@
             <div class="col-sm-3 col-12 text-end price-box" style="white-space: nowrap;">
                 <div id="pricehintdiv" class="form-text text-muted">
                     <?php
-                    Log::info('listTest1 - '.print_r($post, true));
                     $chkval = data_get($post, 'category.id');
                     $prntval = data_get($post, 'property_price_type');
                     
                     //                        echo('<script>alert('.$prntval.');</script>');
                     //                        exit();
 
-                    Log::info('listTest2 - '.$chkval);
-                    Log::info('listTest3 - '.$prntval);
 
                     if ($prntval == '') {
                         if ($chkval == '42') {

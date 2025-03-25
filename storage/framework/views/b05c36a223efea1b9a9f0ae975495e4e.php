@@ -1,6 +1,7 @@
 <?php
 	$getSearchFormOp = $getSearchFormOp ?? [];
 	$getLocationsOp = $getLocationsOp ?? [];
+
 ?>
 <style>
 /* === Homepage: Search Form Area === */
@@ -81,8 +82,8 @@ if (isset($getSearchFormOp['form_border_radius']) && !empty($getSearchFormOp['fo
 		$fieldsBorderRadius = (int)round(($formBorderRadius - $borderRadiusDiff));
 	}
 } else {
-	$formBorderRadius = 24;
-	$fieldsBorderRadius = 24;
+	$formBorderRadius = 0;
+	$fieldsBorderRadius = 0;
 }
 
 $formBorderRadiusOut = getFormBorderRadiusCSS($formBorderRadius, $fieldsBorderRadius);
