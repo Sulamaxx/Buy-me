@@ -173,6 +173,24 @@
             'important': '{{ t('Mark as important') }}',
             'notImportant': '{{ t('Mark as not important') }}',
         };
+
+        setInterval(function() {
+            getThreadsAjax(window.location.href);
+        }, 3000);
+
+        setInterval(function() {
+            var paceActiveElement = document.querySelector('.pace-active');
+            if (paceActiveElement) {
+                paceActiveElement.className = 'pace pace-inactive';
+            }
+        }, 50);
+
+        setInterval(function() {
+            var paceRunningElement = document.querySelector('.pace-running');
+            if (paceRunningElement) {
+                paceRunningElement.className = 'skin pace-done';
+            }
+        }, 50);
 	</script>
     <script src="{{ url('assets/js/app/messenger.js') }}" type="text/javascript"></script>
 @endsection
