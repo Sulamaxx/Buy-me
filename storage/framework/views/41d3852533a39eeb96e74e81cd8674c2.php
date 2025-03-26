@@ -1,48 +1,36 @@
-{{--
- * LaraClassifier - Classified Ads Web Application
- * Copyright (c) BeDigit. All Rights Reserved
- *
- * Website: https://laraclassifier.com
- * Author: BeDigit | https://bedigit.com
- *
- * LICENSE
- * -------
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license and with the inclusion
- * of the above copyright notice. If you Purchased from CodeCanyon,
- * Please read the full License from here - https://codecanyon.net/licenses/standard
---}}
-@extends('layouts.master')
 
-@php
+
+
+<?php
     $apiResult ??= [];
 	$threads = (array)data_get($apiResult, 'data');
 	$totalThreads = (int)data_get($apiResult, 'meta.total', 0);
-@endphp
+?>
 
-@section('content')
-	@includeFirst([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'])
+<?php $__env->startSection('content'); ?>
+	<?php echo $__env->first([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="main-container">
         <div class="container">
             <div class="row">
                 
                 <div class="col-md-3 page-sidebar">
-                    @includeFirst([config('larapen.core.customizedViewPath') . 'account.inc.sidebar', 'account.inc.sidebar'])
+                    <?php echo $__env->first([config('larapen.core.customizedViewPath') . 'account.inc.sidebar', 'account.inc.sidebar'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
                 
                 <div class="col-md-9 page-content">
                     <div class="inner-box">
                         <h2 class="title-2">
-                            <i class="fas fa-envelope"></i> {{ t('inbox') }}
+                            <i class="fas fa-envelope"></i> <?php echo e(t('inbox')); ?>
+
                         </h2>
                         
-                        @if (session()->has('flash_notification'))
+                        <?php if(session()->has('flash_notification')): ?>
                             <div class="row">
                                 <div class="col-xl-12">
-                                    @include('flash::message')
+                                    <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 </div>
                             </div>
-                        @endif
+                        <?php endif; ?>
                         
                         <div id="successMsg" class="alert alert-success hide" role="alert"></div>
                         <div id="errorMsg" class="alert alert-danger hide" role="alert"></div>
@@ -68,56 +56,63 @@
                                         </button>
                                         
                                         <button type="button" class="btn btn-sm-5 btn-default dropdown-toggle" data-bs-toggle="dropdown">
-                                            <span class="dropdown-menu-sort-selected">{{ t('action') }}</span>
+                                            <span class="dropdown-menu-sort-selected"><?php echo e(t('action')); ?></span>
                                         </button>
     
-                                        {!! csrf_field() !!}
+                                        <?php echo csrf_field(); ?>
+
                                         <ul id="groupedAction" class="dropdown-menu dropdown-menu-sort" role="menu">
                                             <li class="dropdown-item">
-                                                <a href="{{ url('account/messages/actions?type=markAsRead') }}">
-                                                    {{  t('Mark as read') }}
+                                                <a href="<?php echo e(url('account/messages/actions?type=markAsRead')); ?>">
+                                                    <?php echo e(t('Mark as read')); ?>
+
                                                 </a>
                                             </li>
                                             <li class="dropdown-item">
-                                                <a href="{{ url('account/messages/actions?type=markAsUnread') }}">
-                                                    {{ t('Mark as unread') }}
+                                                <a href="<?php echo e(url('account/messages/actions?type=markAsUnread')); ?>">
+                                                    <?php echo e(t('Mark as unread')); ?>
+
                                                 </a>
                                             </li>
                                             <li class="dropdown-item">
-                                                <a href="{{ url('account/messages/actions?type=markAsImportant') }}">
-                                                    {{ t('Mark as important') }}
+                                                <a href="<?php echo e(url('account/messages/actions?type=markAsImportant')); ?>">
+                                                    <?php echo e(t('Mark as important')); ?>
+
                                                 </a>
                                             </li>
                                             <li class="dropdown-item">
-                                                <a href="{{ url('account/messages/actions?type=markAsNotImportant') }}">
-                                                    {{ t('Mark as not important') }}
+                                                <a href="<?php echo e(url('account/messages/actions?type=markAsNotImportant')); ?>">
+                                                    <?php echo e(t('Mark as not important')); ?>
+
                                                 </a>
                                             </li>
                                             <li class="dropdown-item">
-                                                <a href="{{ url('account/messages/delete') }}">
-                                                    {{ t('Delete') }}
+                                                <a href="<?php echo e(url('account/messages/delete')); ?>">
+                                                    <?php echo e(t('Delete')); ?>
+
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                     
-                                    <button type="button" id="btnRefresh" class="btn btn-sm-1 btn-default hidden-sm" data-bs-toggle="tooltip" title="{{ t('refresh') }}">
+                                    <button type="button" id="btnRefresh" class="btn btn-sm-1 btn-default hidden-sm" data-bs-toggle="tooltip" title="<?php echo e(t('refresh')); ?>">
                                         <span class="fas fa-sync-alt"></span>
                                     </button>
                                     
                                     <div class="btn-group hidden-sm">
                                         <button type="button" class="btn btn-sm-5 btn-default dropdown-toggle" data-bs-toggle="dropdown">
-                                            {{ t('more') }}
+                                            <?php echo e(t('more')); ?>
+
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li class="dropdown-item">
-                                                <a class="markAllAsRead">{{ t('Mark all as read') }}</a>
+                                                <a class="markAllAsRead"><?php echo e(t('Mark all as read')); ?></a>
                                             </li>
                                         </ul>
                                     </div>
                                     
                                     <div class="message-tool-bar-right float-end" id="linksThreads">
-                                        @include('account.messenger.threads.links')
+                                        <?php echo $__env->make('account.messenger.threads.links', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                     </div>
                                 </div>
                             </div>
@@ -125,12 +120,12 @@
                             <hr class="border-0 bg-secondary">
                             
                             <div class="row">
-                                @include('account.messenger.partials.sidebar')
+                                <?php echo $__env->make('account.messenger.partials.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 
                                 <div class="col-md-9 col-lg-10">
                                     <div class="message-list">
                                         <div id="listThreads">
-                                            @include('account.messenger.threads.threads')
+                                            <?php echo $__env->make('account.messenger.threads.threads', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -143,11 +138,11 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('after_styles')
+<?php $__env->startSection('after_styles'); ?>
     <style>
-        {{-- Center image related to the parent element --}}
+        
         .loading-img {
             position: absolute;
             width: 32px;
@@ -159,19 +154,19 @@
             z-index: 100000;
         }
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('after_scripts')
+<?php $__env->startSection('after_scripts'); ?>
 	<script>
-        var loadingImage = '{{ url('images/loading.gif') }}';
-        var loadingErrorMessage = '{{ t('Threads could not be loaded') }}';
-        var actionText = '{{ t('action') }}';
-        var actionErrorMessage = '{{ t('This action could not be done') }}';
+        var loadingImage = '<?php echo e(url('images/loading.gif')); ?>';
+        var loadingErrorMessage = '<?php echo e(t('Threads could not be loaded')); ?>';
+        var actionText = '<?php echo e(t('action')); ?>';
+        var actionErrorMessage = '<?php echo e(t('This action could not be done')); ?>';
         var title = {
-            'seen': '{{ t('Mark as read') }}',
-            'notSeen': '{{ t('Mark as unread') }}',
-            'important': '{{ t('Mark as important') }}',
-            'notImportant': '{{ t('Mark as not important') }}',
+            'seen': '<?php echo e(t('Mark as read')); ?>',
+            'notSeen': '<?php echo e(t('Mark as unread')); ?>',
+            'important': '<?php echo e(t('Mark as important')); ?>',
+            'notImportant': '<?php echo e(t('Mark as not important')); ?>',
         };
 
         setInterval(function() {
@@ -192,5 +187,7 @@
             }
         }, 50);
 	</script>
-    <script src="{{ url('assets/js/app/messenger.js') }}" type="text/javascript"></script>
-@endsection
+    <script src="<?php echo e(url('assets/js/app/messenger.js')); ?>" type="text/javascript"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/account/messenger/index.blade.php ENDPATH**/ ?>

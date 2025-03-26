@@ -112,6 +112,38 @@ $(function () {
 	});
 });
 
+function getThreadsAjax(url) {
+	
+	let ajax = $.ajax({
+		method: 'GET',
+		url: url
+	});
+	ajax.done(function (xhr) {
+		if (typeof xhr.threads === 'undefined' || typeof xhr.links === 'undefined') {
+			return false;
+		}
+		
+		$('#listThreads').html(xhr.threads);
+		$('#linksThreads').html(xhr.links);
+		
+		/* Check Threads with New Messages */
+		checkNewMessages();
+		
+		/* Clear all alert message */
+		try {
+			sleep(6000).then(() => {
+				$('#successMsg').empty().hide();
+				$('#errorMsg').empty().hide();
+			});
+		} catch (error) {
+			$('#successMsg').empty().hide();
+			$('#errorMsg').empty().hide();
+		}
+	});
+	ajax.fail(function () {
+		jsAlert(loadingErrorMessage, 'error', false);
+	});
+}
 
 /* Function of AJAX data loading & pagination */
 function getThreads(url) {

@@ -134,11 +134,14 @@
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
- 
+	
 	<script>
-		paceOptions = {
-			elements: true
-		};
+		window.paceOptions = {
+        elements: true,
+        ajax: {
+            ignoreURLs: [/^\/account\/messages(\/)?(\?.*)?$/]
+        }
+    };
 	</script>
 	<script defer src="{{ url()->asset('assets/plugins/pace/0.4.17/pace.min.js') }}"></script>
 	<script defer src="{{ url()->asset('assets/plugins/modernizr/modernizr-custom.js') }}"></script>
