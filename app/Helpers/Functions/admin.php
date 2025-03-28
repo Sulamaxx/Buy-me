@@ -16,6 +16,7 @@
 
 use App\Helpers\Arr;
 use App\Helpers\UrlGen;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @param string|null $path
@@ -23,9 +24,12 @@ use App\Helpers\UrlGen;
  */
 function admin_uri(?string $path = ''): string
 {
+	Log::info('up:'.$path);
 	$path = str_replace(url(config('larapen.admin.route', 'admin')), '', $path);
 	$path = ltrim($path, '/');
 	
+    Log::info($path);
+
 	if (!empty($path)) {
 		$path = config('larapen.admin.route', 'admin') . '/' . $path;
 	} else {
@@ -41,6 +45,7 @@ function admin_uri(?string $path = ''): string
  */
 function admin_url(?string $path = ''): string
 {
+	Log::info('admin_url:'.$path);
 	return url(admin_uri($path));
 }
 

@@ -101,6 +101,14 @@
 										</a>
 									</li>
 								<?php endif; ?>
+								<?php if(userHasSuperAdminPermissions()): ?>
+                                   <li class="sidebar-item">
+                                        <a href="<?php echo e(admin_url('coupon_codes')); ?>" class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                       <span class="hide-menu">Coupon Codes</span>
+                                       </a>
+                                   </li>
+                                <?php endif; ?>
 							</ul>
 						</li>
 					<?php endif; ?>
