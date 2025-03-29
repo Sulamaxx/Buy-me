@@ -66,7 +66,7 @@
 						</div>
 						
 						<div class="card-body">
-							<form id="tokenForm" role="form" method="POST" action="{{ url(getRequestPath('.*/verify/phone')) }}">
+							<form id="tokenForm" role="form" method="POST" action="{{ url(getRequestPath('.*/verify/.*')) }}">
 								{!! csrf_field() !!}
 								@honeypot
 								
@@ -109,14 +109,22 @@
  <script>
  $(document).ready(function () {
  $("#tokenBtn").click(function (event) {
- event.preventDefault(); 
+ 
+	var formAction = $("#tokenForm").attr('action');
+	
+	if(formAction.includes('phone')){
+		event.preventDefault(); 
 
- var token = $("#code").val();
- var formAction = $("#tokenForm").attr('action');
- var newAction = formAction + '?code=' + encodeURIComponent(token);
+        var token = $("#code").val();
+        var newAction = formAction + '?code=' + encodeURIComponent(token);
 
- $("#tokenForm").attr('action', newAction);
- $("#tokenForm").submit();
+        $("#tokenForm").attr('action', newAction); 
+        $("#tokenForm").submit();
+	}else{
+		$("#tokenForm").submit();
+ 	    return false;
+	}
+	
 });
 });
 </script>
