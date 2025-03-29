@@ -17,6 +17,7 @@
 namespace App\Http\Controllers\Web\Public\Auth\Traits;
 
 use App\Helpers\UrlGen;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 trait VerificationTrait
@@ -32,13 +33,14 @@ trait VerificationTrait
 	 */
 	public function verification($field, string $token = null)
 	{
+
+		
 		$entitySlug = request()->segment(1);
 		
 		// Token doesn't exist
 		if (empty($token)) {
 			return $this->getVerificationForm($entitySlug, $field);
 		}
-		
 		// Add required data in the request for API
 		request()->merge(['entitySlug' => $entitySlug]);
 		
@@ -46,20 +48,19 @@ trait VerificationTrait
 		// Call API endpoint
 		$endpoint = '/' . $entitySlug . '/verify/' . $field . '/' . $token;
 		$data = makeApiRequest('get', $endpoint, request()->all());
-		
 		// Parsing the API response
 		$message = !empty(data_get($data, 'message')) ? data_get($data, 'message') : 'Unknown Error.';
 		
+
 		// HTTP Error Found
 		if (!data_get($data, 'isSuccessful')) {
 			flash($message)->error();
-			
 			return $this->getVerificationForm($entitySlug, $field);
 		}
 		
 		// Get the Entity Object (User or Post model's entry)
 		$entityObject = data_get($data, 'result');
-		
+         
 		// Check the request status
 		if (data_get($data, 'success')) {
 			flash($message)->success();
@@ -72,6 +73,9 @@ trait VerificationTrait
 		}
 		
 		$nextUrl = url('/?from=verification');
+		if($field=='phone' && $entitySlug == 'users'){
+			$nextUrl = url('account');
+		}
 		
 		// Remove Notification Trigger
 		if (session()->has('emailOrPhoneChanged')) {
@@ -83,11 +87,10 @@ trait VerificationTrait
 		if (session()->has('phoneVerificationSent')) {
 			session()->forget('phoneVerificationSent');
 		}
-		
+
 		// users
 		if ($entitySlug == 'users') {
 			$user = $entityObject;
-			
 			if (data_get($data, 'extra.authToken') && data_get($user, 'id')) {
 				// Auto logged in the User
 				if (auth()->loginUsingId(data_get($user, 'id'))) {
@@ -138,7 +141,6 @@ trait VerificationTrait
 				session()->forget('passwordNextUrl');
 			}
 		}
-		
 		return redirect()->to($nextUrl);
 	}
 	
@@ -163,7 +165,6 @@ trait VerificationTrait
 			if (request()->filled('code')) {
 				$token = request()->query('code');
 				$nextUrl = $entitySlug . '/verify/' . $field . '/' . $token;
-				
 				return redirect()->to($nextUrl);
 			}
 		}

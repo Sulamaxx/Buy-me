@@ -52,7 +52,7 @@ trait Register
 		
 		if ($request->filled('email') || $request->filled('phone')) {
 			$user->email_verified_at = now();
-			$user->phone_verified_at = now();
+			$user->phone_verified_at = null;
 			
 			// Email verification key generation
 			if ($emailVerificationRequired) {

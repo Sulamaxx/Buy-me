@@ -18,6 +18,7 @@ use App\Helpers\Arr;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Prologue\Alerts\Facades\Alert;
 
