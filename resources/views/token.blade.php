@@ -66,32 +66,33 @@
 						</div>
 						
 						<div class="card-body">
-							<form id="tokenForm" role="form" method="POST" action="{{ url(getRequestPath('.*/verify/.*')) }}">
+							<form id="tokenForm" role="form" method="POST" action="{{ url(getRequestPath('.*/verify/phone')) }}">
 								{!! csrf_field() !!}
 								@honeypot
+								
 								
 								{{-- code --}}
 								<?php $codeError = (isset($errors) && $errors->has('code')) ? ' is-invalid' : ''; ?>
 								<div class="mb-3">
-									<label for="code" class="col-form-label">{{ getTokenLabel() }}:</label>
-									<div class="input-group">
-										<span class="input-group-text">
-											<i class="bi bi-envelope-exclamation"></i>
-										</span>
-										<input id="code" name="code"
-											   type="text"
-											   placeholder="{{ t('Enter the validation code') }}"
-											   class="form-control{{ $codeError }}"
-											   value="{{ old('code') }}"
-											   autocomplete="one-time-code"
-										>
-									</div>
+								<label for="code" class="col-form-label">{{ getTokenLabel() }}:</label>
+								<div class="input-group">
+								 <span class="input-group-text">
+								  <i class="bi bi-envelope-exclamation"></i>
+								 </span>
+								<input id="code" name="code"
+								type="text"
+								placeholder="{{ t('Enter the validation code') }}"
+								class="form-control{{ $codeError }}"
+								value="{{ old('code') }}"
+								autocomplete="one-time-code"
+								>
 								</div>
+								 </div>
 								
 								<div class="mb-3">
-									<button id="tokenBtn" type="submit" class="btn btn-primary btn-lg btn-block">{{ t('submit') }}</button>
+								<button id="tokenBtn" type="submit" class="btn btn-primary btn-lg btn-block">{{ t('submit') }}</button>
 								</div>
-							</form>
+								</form>
 						</div>
 						
 						<div class="card-footer text-center">
@@ -105,12 +106,19 @@
 @endsection
 
 @section('after_scripts')
-	<script>
-		$(document).ready(function () {
-			$("#tokenBtn").click(function () {
-				$("#tokenForm").submit();
-				return false;
-			});
-		});
-	</script>
+ <script>
+ $(document).ready(function () {
+ $("#tokenBtn").click(function (event) {
+ event.preventDefault(); 
+
+ var token = $("#code").val();
+ var formAction = $("#tokenForm").attr('action');
+ var newAction = formAction + '?code=' + encodeURIComponent(token);
+
+ $("#tokenForm").attr('action', newAction);
+ $("#tokenForm").submit();
+});
+});
+</script>
 @endsection
+
