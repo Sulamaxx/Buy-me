@@ -41,7 +41,6 @@
 
                 <div class="col-md-12 page-content">
                     <div class="inner-box">
-
                         <h2 class="title-2">
                             <strong>
                                 @if (!empty($selectedPackage))
@@ -52,12 +51,11 @@
                             </strong>
                         </h2>
 
-                        <div class="row">
-                            <div class="col-sm-12">
+                        <div class="row"> {{-- This row will contain your two columns --}}
+                            <div class="col-md-6"> {{-- Left side for packages --}}
                                 <form class="form" id="payableForm" method="POST" action="{{ url()->current() }}">
                                     {!! csrf_field() !!}
                                     <fieldset>
-
                                         @if (!empty($selectedPackage))
                                             @includeFirst([
                                                 config('larapen.core.customizedViewPath') . 'payment.packages.selected',
@@ -69,33 +67,54 @@
                                                 'payment.packages'
                                             ])
                                         @endif
-
-                                        <div class="mb-3">
-                                            <label for="coupon_code" class="form-label">Coupon Code</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="coupon_code" name="coupon_code" placeholder="Enter your coupon code">
-                                                <button class="btn btn-outline-secondary" type="button" id="apply_coupon">Apply</button>
-                                            </div>
-                                            <div id="coupon_message" class="form-text text-success"></div>
-                                            <div id="coupon_error" class="form-text text-danger"></div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-12 text-center mt-4">
-                                                <a href="{{ url('posts/create/photos') }}" class="btn btn-default btn-lg">
-                                                    {{ t('Previous') }}
-                                                </a>
-                                                <button id="submitPayableForm" class="btn btn-success btn-lg submitPayableForm"> {{ t('Pay') }} </button>
-                                            </div>
-                                        </div>
-
                                     </fieldset>
                                 </form>
+                            </div>
+                            <div class="col-md-6"> {{-- Right side --}}
+                                <div class="well pb-0" style="padding-top: 10px">
+                                    @includeFirst([
+                                        config('larapen.core.customizedViewPath') . 'payment.payment-methods',
+                                        'payment.payment-methods'
+                                    ])
+                                    @includeFirst([
+                                        config('larapen.core.customizedViewPath') . 'payment.payment-methods.plugins',
+                                        'payment.payment-methods.plugins'
+                                    ])
+                                    <div id="selected-packages-list" style="margin-top: 10px;border-top: 1px solid #ddd; padding-top: 10px;"></div>
+                                    <p class="mb-0" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #ddd; padding-top: 10px;">
+                                        <strong>
+                                            <span>{{ t('Payable Amount') }}:</span>
+                                        </strong>
+                                        <strong>
+                                            <span>
+                                                <span class="price-currency amount-currency currency-in-left" style="display: none;"></span>
+                                                <span class="payable-amount">0</span>
+                                                <span class="price-currency amount-currency currency-in-right" style="display: none;"></span>
+                                            </span>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div class="mb-3" style="padding-top: 20px">
+                
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="coupon_code" name="coupon_code" placeholder="Enter your coupon code">
+                                        <button class="btn btn-outline-secondary" type="button" id="apply_coupon">Apply</button>
+                                    </div>
+                                    <div id="coupon_message" class="form-text text-success"></div>
+                                    <div id="coupon_error" class="form-text text-danger"></div>
+                                </div>
+                            
+                                <div class="text-center mt-8" style="margin-top: 40px">
+                                    <a href="{{ url('posts/create/photos') }}" class="btn btn-default btn-lg">
+                                        {{ t('Previous') }}
+                                    </a>
+                                    <button id="submitPayableForm" class="btn btn-success btn-lg submitPayableForm"> {{ t('Pay') }} </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -120,64 +139,88 @@
             var paymentIsActive = {{ $paymentIsActive ?? 0 }};
             var isCreationFormPage = true;
             var forceDisplayPaymentMethods = {{ !empty($selectedPackage) ? 'true' : 'false' }};
-            $(document).ready(function ()
-            {
-                let selectedPackageEl = $('input[name=package_id]:checked');
+            $(document).ready(function () {
+                let packageCheckboxes = $('input[name="package_id[]"]');
                 let paymentMethodEl = $('#paymentMethodId');
+                let payableAmountContainer = $('.payable-amount');
+                let amountCurrencyLeft = $('.amount-currency.currency-in-left');
+                let amountCurrencyRight = $('.amount-currency.currency-in-right');
 
-            //  document.getElementById('Paid').click();
+                // Function to update the total payable amount and display selected packages
+                function updatePayableAmount() {
+                    let totalAmount = 0;
+                    let selectedPackagesInfo = [];
+                    let currencySymbol = '';
+                    let currencyInLeft = false;
 
-                /* Get the selected package ID & info */
-                var selectedPackage;
+                    packageCheckboxes.filter(':checked').each(function () {
+                        let price = parseFloat($(this).data('price'));
+                        let name = $(this).data('name');
+                        let symbol = $(this).data('currencysymbol');
+                        let inLeft = $(this).data('currencyinleft') === 1;
 
-                if (selectedPackageEl.length > 0) {
-                    selectedPackage = selectedPackageEl.val();
-                } else {
-                    if (hasQueryParameter('package')) {
-                        let urlWithoutPackage = removeURLParameter('package');
-                        redirect(urlWithoutPackage);
+                        if (!isNaN(price)) {
+                            totalAmount += price;
+                        }
+                        selectedPackagesInfo.push({ name: name, price: price, symbol: symbol, inLeft: inLeft });
+                        currencySymbol = symbol;
+                        currencyInLeft = inLeft;
+                    });
+
+                    payableAmountContainer.text(totalAmount.toFixed(2));
+
+                    if (currencySymbol) {
+                        if (currencyInLeft) {
+                            amountCurrencyLeft.text(currencySymbol).show();
+                            amountCurrencyRight.hide();
+                        } else {
+                            amountCurrencyRight.text(currencySymbol).show();
+                            amountCurrencyLeft.hide();
+                        }
+                    } else {
+                        amountCurrencyLeft.hide();
+                        amountCurrencyRight.hide();
                     }
+
+                     let selectedPackagesList = $('#selected-packages-list');
+                     selectedPackagesList.empty();
+                     selectedPackagesInfo.forEach(pkg => {
+                      selectedPackagesList.append(`<p style="display: flex; justify-content: space-between; align-items: center;"><strong><span>${pkg.name}: </span></strong><strong><span>${pkg.symbol} ${pkg.price.toFixed(2)}</span></strong></p>`);
+                     });
+
+                    showPaymentMethods(totalAmount, forceDisplayPaymentMethods);
+                    let selectedPaymentMethod = paymentMethodEl.find('option:selected').data('name');
+                    showPaymentSubmitButton(currentPackagePrice, totalAmount, paymentIsActive, selectedPaymentMethod, isCreationFormPage);
                 }
 
-                /* Show price & Payment Methods */
-                var packagePrice = getPackagePrice(selectedPackage);
-                var packageCurrencySymbol = selectedPackageEl.data('currencysymbol');
-                var packageCurrencyInLeft = selectedPackageEl.data('currencyinleft');
-                var paymentMethod = paymentMethodEl.find('option:selected').data('name');
-                showPaymentMethods(packagePrice, forceDisplayPaymentMethods);
-                showAmount(packagePrice, packageCurrencySymbol, packageCurrencyInLeft);
-                showPaymentSubmitButton(currentPackagePrice, packagePrice, paymentIsActive, paymentMethod, isCreationFormPage);
+                // Initial call to set the amount if any package is pre-selected
+                updatePayableAmount();
 
-                /* Select a Package */
-                $('.package-selection').click(function () {
-                    selectedPackage = $(this).val();
-                    packagePrice = getPackagePrice(selectedPackage);
-                    packageCurrencySymbol = $(this).data('currencysymbol');
-                    packageCurrencyInLeft = $(this).data('currencyinleft');
-                    showPaymentMethods(packagePrice);
-                    showAmount(packagePrice, packageCurrencySymbol, packageCurrencyInLeft);
-                    showPaymentSubmitButton(currentPackagePrice, packagePrice, paymentIsActive, paymentMethod, isCreationFormPage);
-                    $("#paymentMethodId").val('5').change(); //make offline payment method autoselect
+                // Listen for changes on the package checkboxes
+                packageCheckboxes.on('change', function () {
+                    updatePayableAmount();
                 });
 
-                /* Select a Payment Method */
+                // Listen for changes on the payment method (though it might not directly affect the total)
                 paymentMethodEl.on('change', function () {
-                    paymentMethod = $(this).find('option:selected').data('name');
-                    showPaymentSubmitButton(currentPackagePrice, packagePrice, paymentIsActive, paymentMethod, isCreationFormPage);
+                    let selectedPaymentMethod = $(this).find('option:selected').data('name');
+                    let currentTotalAmount = parseFloat(payableAmountContainer.text());
+                    showPaymentSubmitButton(currentPackagePrice, currentTotalAmount, paymentIsActive, selectedPaymentMethod, isCreationFormPage);
                 });
 
                 /* Form Default Submission */
                 $('#submitPayableForm').on('click', function (e) {
                     e.preventDefault();
 
-                    if (packagePrice <= 0) {
+                    let currentTotalAmount = parseFloat(payableAmountContainer.text());
+                    if (currentTotalAmount <= 0) {
                         $('#payableForm').submit();
                     }
 
                     return false;
                 });
 
-                if(<?php echo($post_type_id);?>=='2')
+                @if(isset($post_type_id) && $post_type_id == 2)
                 {
                     //disable other packages else wrong selection or abuse may happen to bypass paid ads to free
                     document.getElementById('packageId-15').disabled = true;
@@ -201,6 +244,7 @@
                     var get= document.getElementById('packageId-19');
                     get.click();
                 }
+                @endif
             });
 
         @endif
@@ -208,8 +252,7 @@
         /* Show or Hide the Payment Submit Button */
         /* NOTE: Prevent Package's Downgrading */
         /* Hide the 'Skip' button if Package price > 0 */
-        function showPaymentSubmitButton(currentPackagePrice, packagePrice, paymentIsActive, paymentMethod, isCreationFormPage = true)
-        {
+        function showPaymentSubmitButton(currentPackagePrice, packagePrice, paymentIsActive, paymentMethod, isCreationFormPage = true) {
             let submitBtn = $('#submitPayableForm');
             let submitBtnLabel = {
                 'pay': '{{ t('Pay') }}',
@@ -220,7 +263,7 @@
             if (packagePrice > 0) {
                 submitBtn.html(submitBtnLabel.pay).show();
                 skipBtn.hide();
-    //          $("#paymentMethodId").val('5').change(); //make offline payment method autoselect - disabled due to JS error
+                //          $("#paymentMethodId").val('5').change(); //make offline payment method autoselect - disabled due to JS error
 
                 if (currentPackagePrice > packagePrice) {
                     submitBtn.hide().html(submitBtnLabel.submit);
@@ -240,52 +283,46 @@
         }
 
         $(document).ready(function() {
-    var couponCodes = {
-        'SUMMER20': 0.20,
-        'WELCOME10': 0.10,
-        'FREEPACKAGE': 1.00
-    };
+            var couponCodes = {
+                'SUMMER20': 0.20,
+                'WELCOME10': 0.10,
+                'FREEPACKAGE': 1.00
+            };
 
-    $('#apply_coupon').on('click', function() {
-        var couponCode = $('#coupon_code').val().toUpperCase();
-        var payableAmountElement = $('.payable-amount');
-        var currentPrice;
+            $('#apply_coupon').on('click', function() {
+                var couponCode = $('#coupon_code').val().toUpperCase();
+                var payableAmountElement = $('.payable-amount');
+                var currentPrice = parseFloat(payableAmountElement.text());
 
-        $('#coupon_message').text('');
-        $('#coupon_error').text('');
+                $('#coupon_message').text('');
+                $('#coupon_error').text('');
 
-        if (payableAmountElement.length > 0) {
-            currentPrice = parseFloat(payableAmountElement.text().replace(/[^0-9.]/g, '')); 
-            if (isNaN(currentPrice)) {
-                $('#coupon_error').text('Error: Could not read the current price.');
-                return;
-            }
-        } else {
-            $('#coupon_error').text('Error: Could not find the payable amount element.');
-            return;
-        }
+                if (isNaN(currentPrice)) {
+                    $('#coupon_error').text('Error: Could not read the current price.');
+                    return;
+                }
 
-        var discountPercentage = couponCodes[couponCode];
-        var discountAmount = 0;
-        var discountedPrice = currentPrice;
+                var discountPercentage = couponCodes[couponCode];
+                var discountAmount = 0;
+                var discountedPrice = currentPrice;
 
-        if (couponCode in couponCodes) {
-            if (discountPercentage > 0) {
-                discountAmount = currentPrice * discountPercentage;
-                discountedPrice = currentPrice - discountAmount;
-                $('#coupon_message').text('Coupon code applied! You saved ' + (discountPercentage * 100) + '%');
-            } else if (discountPercentage === 1.00) {
-                discountedPrice = 0;
-                $('#coupon_message').text('Coupon code applied! This package is now free.');
-            }
+                if (couponCode in couponCodes) {
+                    if (discountPercentage > 0) {
+                        discountAmount = currentPrice * discountPercentage;
+                        discountedPrice = currentPrice - discountAmount;
+                        $('#coupon_message').text('Coupon code applied! You saved ' + (discountPercentage * 100) + '%');
+                    } else if (discountPercentage === 1.00) {
+                        discountedPrice = 0;
+                        $('#coupon_message').text('Coupon code applied! This package is now free.');
+                    }
 
-            payableAmountElement.text(discountedPrice.toFixed(2));
-        } else if (couponCode) {
-            $('#coupon_error').text('Invalid coupon code.');
-        } else {
-            $('#coupon_error').text('Please enter a coupon code.');
-        }
-    });
-});
+                    payableAmountElement.text(discountedPrice.toFixed(2));
+                } else if (couponCode) {
+                    $('#coupon_error').text('Invalid coupon code.');
+                } else {
+                    $('#coupon_error').text('Please enter a coupon code.');
+                }
+            });
+        });
     </script>
 @endsection
