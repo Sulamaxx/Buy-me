@@ -2,7 +2,7 @@
 	$paymentMethods ??= collect();
 	$payment ??= [];
 @endphp
-<div class="row mb-3 mb-0">
+<div class="row mb-3 mb-0" style="margin-left: 1px">
 	@php
 		$paymentMethodIdError = (isset($errors) && $errors->has('payment_method_id')) ? ' is-invalid' : '';
 	@endphp
