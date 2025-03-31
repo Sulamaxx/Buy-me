@@ -141,6 +141,8 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		PanelRoutes::resource('settings', SettingController::class);
 		PanelRoutes::resource('users', UserController::class);
 		
+		Route::get('coupon_codes', 'App\Http\Controllers\Web\Admin\CouponCodesController@index')->name('admin.coupon_codes.index');
+
 		// Others
 		Route::get('account', [UserController::class, 'account']);
 		Route::post('ajax/{table}/{field}', [InlineRequestController::class, 'make'])
