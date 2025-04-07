@@ -49,6 +49,9 @@
         ['id' => 3, 'name' => 'Chicago'],
         ['id' => 4, 'name' => 'Colombo'],
     ]);
+
+    $cats = App\Models\Category::where('parent_id', null)->get();
+                   
 ?>
 
 <div class="header">
@@ -140,24 +143,18 @@
                         </div>
                         <div class="filter-section">
                             <h5>Categories</h5>
+                            <div class="category-options">
                             <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <label>
-                                <input type="checkbox" name="c" value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
+                            <label class="category-item">
+                                <input type="radio" name="c" value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
 
-                            </label><br>
+                            </label>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
                         </div>
                         <div class="filter-section">
                             <h5>Location</h5>
-                            <input type="text" id="locationFilter" class="form-control mb-2" placeholder="Filter locations...">
-                            <div id="locationList">
-                                <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <label class="location-item">
-                                        <input type="checkbox" name="location" value="<?php echo e($city['name']); ?>"> <?php echo e($city['name']); ?>
-
-                                    </label><br>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </div>
+                            <input type="text" id="locationFilter" name="location" class="form-control mb-2" placeholder="Filter locations...">
                         </div>
                     </div>
                 </form>
@@ -342,6 +339,14 @@
         .navbar-desktop {
             justify-content: end;
         }
+        .category-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; 
+        }
+        .category-item {
+            margin-right: 0; 
+        }
     }
     @media (min-width: 1024px) {
         .margin-l-null {
@@ -389,5 +394,12 @@
     label {
         display: block;
         margin: 5px 0;
+    }
+    .category-item {
+        display: block;
+        margin: 5px 0; 
+    }
+    .category-item input[type="radio"] {
+        margin-right: 5px;
     }
 </style><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/layouts/inc/header.blade.php ENDPATH**/ ?>
