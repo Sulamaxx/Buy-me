@@ -21,7 +21,45 @@ if (!empty(data_get($sectionOptions, 'body_' . config('app.locale')))) {
 }
 
 $hideOnMobile = (data_get($sectionOptions, 'hide_on_mobile') == '1') ? ' hidden-sm' : '';
+
+$recommend = [
+    [
+        'id' => 1,
+        'title' => 'Exclusive Deals',
+        'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+        'description' => 'Tailored offers based on your interests.',
+    ],
+    [
+        'id' => 2,
+        'title' => 'Best Value Items',
+        'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+        'description' => 'Discover deals curated just for you.',
+    ],
+    [
+        'id' => 3,
+        'title' => 'Handpicked Offers',
+        'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+        'description' => 'A selection of ads we think you\'ll love.',
+    ],
+];
+
+    $firstWidget = [];
+    $firstWidgetType = 'dummy3';
+
+    // Set widget data with fetched 
+    $firstWidget['posts'] = $recommend;
+    $firstWidget['totalPosts'] = count($recommend);
+    $firstWidget['title'] = 'Recommend For You';
+
 ?>
+
+@includeFirst([
+    config('larapen.core.customizedViewPath') . 'search.inc.posts.widget.' . $firstWidgetType,
+    'search.inc.posts.widget.' . $firstWidgetType
+],
+    ['widget' => $firstWidget, 'sectionOptions' => $sectionOptions]
+)
+<div class="d-none">
 @if (!empty($textTitle) || !empty($textBody))
 	@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.spacer', 'home.inc.spacer'], ['hideOnMobile' => $hideOnMobile])
 	<div class="container{{ $hideOnMobile }}">
@@ -37,3 +75,4 @@ $hideOnMobile = (data_get($sectionOptions, 'hide_on_mobile') == '1') ? ' hidden-
 		</div>
 	</div>
 @endif
+</div>

@@ -20,6 +20,7 @@ use App\Helpers\Files\Upload;
 use App\Models\CategoryField;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 trait SubmitTrait
 {
@@ -118,18 +119,21 @@ trait SubmitTrait
 			// Check if the payment process has been triggered
 			// NOTE: Payment bypass email or phone verification
 			// ===| Make|send payment (if needed) |==============
-			
+
+            Log::info('pckageIds - '.print_r($request->package_id,true));
 			$postObj = $this->retrievePayableModel($request, $postId);
-			abort_if(empty($postObj), 404, t('post_not_found'));
+            abort_if(empty($postObj), 404, t('post_not_found'));
 			
 			$payResult = $this->isPaymentRequested($request, $postObj);
-			if (data_get($payResult, 'success')) {
+            if (data_get($payResult, 'success')) {
                 
                 $authUser = auth()->user();
-                
-            DB::table('post_payment_log')->insert(['post_id' => $postId, 'payment_method' => $request->payment_method_id, 'package_id' => $request->package_id, 'c_or_e' => "C", 'user_id' => $authUser->id, 'date_time' => now()]);
-                
-				return $this->sendPayment($request, $postObj);
+                foreach($request->package_id as $pckageId){
+                    DB::table('post_payment_log')->insert(['post_id' => $postId, 'payment_method' => $request->payment_method_id, 'package_id' => $pckageId, 'c_or_e' => "C", 'user_id' => $authUser->id, 'date_time' => now()]);
+                }
+                //Log::info('$request--'.print_r($request,true));
+                //Log::info('$postObj--'.print_r($postObj,true));
+            	return $this->sendPayment($request, $postObj);
 			}
 			if (data_get($payResult, 'failure')) {
 				flash(data_get($payResult, 'message'))->error();
@@ -179,4 +183,165 @@ trait SubmitTrait
 		
 		return redirect()->to($nextUrl);
 	}
+
+	private function storeInputDataInDatabasePayment(Request $request)
+{
+	$postInput = (array)$request->session()->get('postInput');
+    $paymentInputs = (array)$request->session()->get('paymentInput'); 
+
+	$inputArray = $postInput;
+
+    // Process each payment input individually
+    if (!empty($paymentInputs)) {
+        foreach ($paymentInputs as $index => $paymentInput) {
+            // Merge the current payment input into the request
+            $request->merge($paymentInput);
+
+            // Process the single package's input array
+            $singleInputArray = array_merge($inputArray, $paymentInput);
+
+            // Set pictures if they exist
+            if (!empty($singleInputArray['pictures'])) {
+                $request->files->set('pictures', $singleInputArray['pictures']);
+            }
+
+            // Call API endpoint for this package
+            $endpoint = '/posts';
+            $data = makeApiRequest('post', $endpoint, $singleInputArray, [], true);
+
+            // Parsing the API response
+            $message = !empty(data_get($data, 'message')) ? data_get($data, 'message') : 'Unknown Error.';
+
+            // HTTP Error Found
+            if (!data_get($data, 'isSuccessful')) {
+                flash($message)->error();
+
+                if (data_get($data, 'extra.previousUrl')) {
+                    return redirect()->to(data_get($data, 'extra.previousUrl'))->withInput($request->except('pictures'));
+                } else {
+                    return redirect()->back()->withInput($request->except('pictures'));
+                }
+            }
+
+            // Get the listing ID for this package
+            $postId = data_get($data, 'result.id');
+
+            // Notification Message
+            if (data_get($data, 'success')) {
+                session()->put('message', $message);
+
+                // Save the listing's ID in session (for the first package or update as needed)
+                if (!empty($postId) && $index === 0) {
+                    $request->session()->put('postId', $postId);
+                }
+
+            } else {
+                flash($message)->error();
+                return redirect()->back()->withInput($request->except('pictures'));
+            }
+
+            // Get Listing Resource
+            $post = data_get($data, 'result');
+            abort_if(empty($post), 404, t('post_not_found'));
+
+            // Payment Processing for this package
+            if (!empty($paymentInput)) {
+                $postObj = $this->retrievePayableModel($request, $postId);
+                abort_if(empty($postObj), 404, t('post_not_found'));
+
+                $payResult = $this->isPaymentRequested($request, $postObj);
+                if (data_get($payResult, 'success')) {
+                    $authUser = auth()->user();
+
+                    // Insert payment log for this package
+                    DB::table('post_payment_log')->insert([
+                        'post_id' => $postId,
+                        'payment_method' => $paymentInput['payment_method_id'],
+                        'package_id' => $paymentInput['package_id'],
+                        'c_or_e' => "C",
+                        'user_id' => $authUser->id,
+                        'date_time' => now(),
+                    ]);
+
+                    return $this->sendPayment($request, $postObj);
+                }
+                if (data_get($payResult, 'failure')) {
+                    flash(data_get($payResult, 'message'))->error();
+                }
+            }
+        }
+    } else {
+        // No payment inputs, process as a single request
+        $inputArray = array_merge($inputArray, $paymentInputs);
+        if (!empty($inputArray['pictures'])) {
+            $request->files->set('pictures', $inputArray['pictures']);
+        }
+
+        $endpoint = '/posts';
+        $data = makeApiRequest('post', $endpoint, $inputArray, [], true);
+
+        // Parsing the API response
+        $message = !empty(data_get($data, 'message')) ? data_get($data, 'message') : 'Unknown Error.';
+
+        if (!data_get($data, 'isSuccessful')) {
+            flash($message)->error();
+
+            if (data_get($data, 'extra.previousUrl')) {
+                return redirect()->to(data_get($data, 'extra.previousUrl'))->withInput($request->except('pictures'));
+            } else {
+                return redirect()->back()->withInput($request->except('pictures'));
+            }
+        }
+
+        $postId = data_get($data, 'result.id');
+
+        if (data_get($data, 'success')) {
+            session()->put('message', $message);
+            if (!empty($postId)) {
+                $request->session()->put('postId', $postId);
+            }
+        } else {
+            flash($message)->error();
+            return redirect()->back()->withInput($request->except('pictures'));
+        }
+
+        $post = data_get($data, 'result');
+        abort_if(empty($post), 404, t('post_not_found'));
+    }
+
+    // Handle verification and next steps
+    $nextUrl = url('posts/create/finish');
+    if (
+        data_get($data, 'extra.sendEmailVerification.emailVerificationSent')
+        || data_get($data, 'extra.sendPhoneVerification.phoneVerificationSent')
+    ) {
+        session()->put('itemNextUrl', $nextUrl);
+
+        if (data_get($data, 'extra.sendEmailVerification.emailVerificationSent')) {
+            session()->put('emailVerificationSent', true);
+            $this->showReSendVerificationEmailLink($post, 'posts');
+        }
+
+        if (data_get($data, 'extra.sendPhoneVerification.phoneVerificationSent')) {
+            session()->put('phoneVerificationSent', true);
+            $this->showReSendVerificationSmsLink($post, 'posts');
+            $nextUrl = url('posts/verify/phone/');
+        }
+    }
+
+    // Mail Notification
+    if (data_get($data, 'extra.mail.message')) {
+        $mailMessage = data_get($data, 'extra.mail.message');
+        if (data_get($data, 'extra.mail.success')) {
+            flash($mailMessage)->success();
+        } else {
+            flash($mailMessage)->error();
+        }
+    }
+
+    // Clear Temporary Inputs & Files
+    $this->clearTemporaryInput();
+
+    return redirect()->to($nextUrl);
+}
 }

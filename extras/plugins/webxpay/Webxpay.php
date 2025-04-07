@@ -9,7 +9,7 @@ use extras\plugins\webxpay\app\Traits\InstallTrait;
 use Illuminate\Http\Request;
 use App\Helpers\Payment;
 use App\Models\Package;
-
+use Illuminate\Support\Facades\Log;
 
 class Webxpay extends Payment
 {
@@ -49,6 +49,48 @@ class Webxpay extends Payment
 		}
 		// Get the amount
 		$amount = Number::toFloat($package->price);
+		$custom_fields = base64_encode($package->id.'|'.$payable->id);
+		$referenceId = md5($payable->id . $package->id . $package->type . uniqid('', true));
+		$plaintext = $referenceId.'|'.floor($amount);
+		openssl_public_encrypt($plaintext, $encrypt, $publickey);
+		$payment = base64_encode($encrypt);
+		$user=auth()->user();
+		return view('payment::payment',['user'=>$user,'custom_fields'=>$custom_fields,'secret_key'=>$secret_key,'payment'=>$payment,'url'=>$url]);
+
+	}
+
+	public static function sendPaymentPost(Request $request, Post $payable, array $resData = [])
+	{
+		// Set the right URLs
+		parent::setRightUrls($resData);
+		
+		// Get the Package
+		$package = null;
+        $totalAmount=0;
+		foreach($request->input('package_id') as $pid){
+			$package=Package::find($pid);
+			$totalAmount=$totalAmount+$package->price;
+		}
+
+		// Don't make a payment if 'price' = 0 or null
+		if (empty($package) || $totalAmount <= 0) {
+			Log::info('Log111');
+			return redirect()->to(parent::$uri['previousUrl'] . '?error=package')->withInput();
+		}
+		// Don't make payment if selected Package is not compatible with payable (Post|User)
+		if (!parent::isPayableCompatibleWithPackage($payable, $package)) {
+			Log::info('Log222');
+			return redirect()->to(parent::$uri['previousUrl'] . '?error=packageType')->withInput();
+		}
+		$publickey=config('payment.webxpay.public_key');
+		$secret_key=config('payment.webxpay.secret_key');
+		$sandbox=config('payment.webxpay.sandbox');
+		$url="https://webxpay.com/index.php?route=checkout/billing";
+		if($sandbox === true){
+			$url="https://stagingxpay.info/index.php?route=checkout/billing"; 
+		}
+		// Get the amount
+		$amount = Number::toFloat($totalAmount);
 		$custom_fields = base64_encode($package->id.'|'.$payable->id);
 		$referenceId = md5($payable->id . $package->id . $package->type . uniqid('', true));
 		$plaintext = $referenceId.'|'.floor($amount);

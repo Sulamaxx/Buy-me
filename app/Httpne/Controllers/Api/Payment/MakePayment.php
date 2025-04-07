@@ -25,6 +25,7 @@ use App\Models\Scopes\ReviewedScope;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Log;
 
 trait MakePayment
 {
@@ -40,6 +41,9 @@ trait MakePayment
 	 */
 	public function sendPayment(Request $request, Post|User $payable)
 	{
+
+        Log::info('sendPayment');
+        Log::info('sendpayable - '.print_r($payable,true));
 		// Get the payable full name with namespace
 		$payableType = get_class($payable);
 		
@@ -83,7 +87,14 @@ trait MakePayment
 					// try {
 						
 						// Send the Payment
-						return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
+						Log::info('plugin --'.$plugin->class);
+						if($isPromoting){
+							
+							return call_user_func($plugin->class . '::sendPaymentPost', $request, $payable, $resData);
+						}else{
+							return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
+							
+						}
 						
 					// } catch (\Throwable $e) {
 					// 	$resData['extra']['payment']['message'] = $e->getMessage();

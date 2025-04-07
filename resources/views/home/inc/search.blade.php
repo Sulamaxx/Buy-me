@@ -35,7 +35,7 @@
 
    @endsection
 
-	<div class="container">
+	<div class="container d-none">
 	<div id="carouselHome" class="carousel slide slider" data-ride="carousel" data-interval="2000" data-pause="false">
 	<div class="carousel-indicators">
 	    @if(isset($slider))

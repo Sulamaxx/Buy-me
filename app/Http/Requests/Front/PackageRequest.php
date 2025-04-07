@@ -19,6 +19,7 @@ namespace App\Http\Requests\Front;
 use App\Http\Requests\Request;
 use App\Models\Package;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Log;
 
 class PackageRequest extends Request
 {
@@ -45,9 +46,13 @@ class PackageRequest extends Request
 			
 			// Require 'payment_method_id' if the Package 'price' > 0
 			if ($this->filled('package_id')) {
-				$package = Package::find($this->input('package_id'));
-				if (!empty($package) && $package->price > 0) {
-					$rules['payment_method_id'] = ['required', 'not_in:0'];
+				$packageIds=$this->input('package_id');
+				foreach($packageIds as $packageId){
+					$package = Package::find($packageId);
+					//Log::info('package - '.print_r($package));
+					if (!empty($package) && $package->price > 0) {
+						$rules['payment_method_id'] = ['required', 'not_in:0'];
+					}
 				}
 			}
 		}

@@ -9,47 +9,82 @@ const BannerRotator = {
 
     rotateBanner: function() {
         const bannerContainer = document.getElementById("bannerContainer");
-
+    
         if (!this.banners.length) {
             console.error("No banners added to rotate.");
             return;
         }
-
+    
         const currentBanner = this.banners[this.currentIndex];
-
-        // Check if the banner should display on mobile based on each banner's `isMobileShow`
+    
         if (this.shouldDisplayBanner(currentBanner)) {
-            // Clear previous content and create a new image element
+            bannerContainer.innerHTML = ""; // Clear previous content
+    
+            // Create the image element
             const imgElement = document.createElement("img");
             imgElement.src = currentBanner.url;
             imgElement.alt = currentBanner.name || "Banner Description";
             imgElement.style.display = 'block';
-
-            // Make the banner clickable only if a valid link is provided
+    
+            // Create the button element
+            const button = document.createElement('a');
+            button.textContent = 'Check it out';
+            button.href = currentBanner.link || '#'; // Use the banner's link, or '#' if no link
+            button.className = 'btn btn-block border-null check-it-out-button';
+            button.style.boxSizing = 'inherit';
+            button.style.touchAction = 'manipulation';
+        button.style.outline = '0';
+        button.style.textDecoration = 'none';
+        button.style.cursor = 'pointer';
+        button.style.whiteSpace = 'nowrap';
+        button.style.verticalAlign = 'middle';
+        button.style.userSelect = 'none';
+        button.style.transition = 'all .2s ease-in-out';
+        button.style.display = 'block';
+        button.style.borderRadius = '0px !important';
+        button.style.width = '200px';
+        button.style.margin = '0 auto';
+        button.style.fontFamily = '"Roboto", Helvetica, Arial, sans-serif';
+        button.style.fontWeight = 'bold';
+        button.style.textTransform = 'none';
+        button.style.textAlign = 'center';
+        button.style.backgroundRepeat = 'repeat-x';
+        button.style.backgroundColor = '#fff447';
+        button.style.border = '1px solid #f6d80f';
+        button.style.boxShadow = '0 1px 1px 0 #aaa';
+        button.style.lineHeight = '17px';
+        button.style.backgroundImage = 'linear-gradient(to bottom, #FE9000 0,#FE9000 100%)';
+        button.style.borderColor = '#FE9000';
+        button.style.position = 'absolute'; 
+        button.style.bottom = '10px';    
+        button.style.left = '10px';   
+        button.style.zIndex = '10';      
+        button.style.padding = '5px 3.75px !important'; 
+        button.style.fontSize = '0.9em'; 
+        button.style.color = '#000000 !important'; 
+    
+            // Make the image a link if a valid link is provided (image click opens link)
             if (currentBanner.link && currentBanner.link !== '#' && currentBanner.link.trim() !== '') {
+                imgElement.style.cursor = "pointer";
                 imgElement.addEventListener("click", function() {
                     window.open(currentBanner.link, "_blank");
                 });
-                imgElement.style.cursor = "pointer"; // Indicate that it's clickable
             } else {
-                imgElement.style.cursor = "default"; // Indicate non-clickable
+                imgElement.style.cursor = "default";
             }
-
+    
             imgElement.onerror = function() {
                 console.error("Error loading banner image:", imgElement.src);
             };
-
-            bannerContainer.innerHTML = "";
+    
+            bannerContainer.style.position = 'relative'; // Make the container positioned
             bannerContainer.appendChild(imgElement);
+            bannerContainer.appendChild(button); // Append the button after the image
         } else {
-            // Clear the banner container if this banner's `isMobileShow` is 0 on mobile
             bannerContainer.innerHTML = "";
         }
-
-        // Move to the next banner
+    
         this.currentIndex = (this.currentIndex + 1) % this.banners.length;
-
-        // Schedule the next rotation
         setTimeout(() => this.rotateBanner(), 5000);
     },
 
