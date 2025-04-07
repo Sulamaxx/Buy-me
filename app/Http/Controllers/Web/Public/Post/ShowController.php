@@ -21,24 +21,26 @@ use App\Http\Controllers\Web\Public\Post\Traits\CatBreadcrumbTrait;
 use App\Http\Controllers\Web\Public\Post\Traits\ReviewsPlugin;
 use App\Models\Package;
 use App\Http\Controllers\Web\Public\FrontController;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 use Illuminate\Support\Facades\DB;
 
 class ShowController extends FrontController
 {
 	use CatBreadcrumbTrait, ReviewsPlugin;
-	
+
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->middleware(function ($request, $next) {
 			$this->commonQueries();
-			
+
 			return $next($request);
 		});
 	}
-	
+
 	/**
 	 * @return void
 	 */
@@ -47,11 +49,11 @@ class ShowController extends FrontController
 		// Count Packages
 		$countPackages = Package::applyCurrency()->count();
 		view()->share('countPackages', $countPackages);
-		
+
 		// Count Payment Methods
 		view()->share('countPaymentMethods', $this->countPaymentMethods);
 	}
-	
+
 	/**
 	 * Show the Post's Details.
 	 *
@@ -63,44 +65,44 @@ class ShowController extends FrontController
 	{
 		// Get and Check the Controller's Method Parameters
 		$parameters = request()->route()->parameters();
-		
+
 		// Check if the Listing's ID key exists
 		$idKey = array_key_exists('hashableId', $parameters) ? 'hashableId' : 'id';
 		$idKeyDoesNotExist = (
 			empty($parameters[$idKey])
 			|| (!isHashedId($parameters[$idKey]) && !is_numeric($parameters[$idKey]))
 		);
-		
+
 		// Show 404 error if the Listing's ID key cannot be found
 		abort_if($idKeyDoesNotExist, 404);
-		
+
 		// Set the Parameters
 		$postId = $parameters[$idKey];
 		$slug = $parameters['slug'] ?? null;
-		
+
 		// Forcing redirection 301 for hashed (or non-hashed) ID to update links in search engine indexes
 		if (config('settings.seo.listing_hashed_id_seo_redirection')) {
 			if (config('settings.seo.listing_hashed_id_enabled') && !isHashedId($postId) && is_numeric($postId)) {
 				// Don't lose important notification, so we need to persist your flash data for the request (the redirect request)
 				request()->session()->reflash();
-				
+
 				$uri = UrlGen::postPathBasic(hashId($postId), $slug);
-				
+
 				return redirect()->to($uri, 301)->withHeaders(config('larapen.core.noCacheHeaders'));
 			}
 			if (!config('settings.seo.listing_hashed_id_enabled') && isHashedId($postId) && !is_numeric($postId)) {
 				// Don't lose important notification, so we need to persist your flash data for the request (the redirect request)
 				request()->session()->reflash();
-				
+
 				$uri = UrlGen::postPathBasic(hashId($postId, true), $slug);
-				
+
 				return redirect()->to($uri, 301)->withHeaders(config('larapen.core.noCacheHeaders'));
 			}
 		}
-		
+
 		// Decode Hashed ID
 		$postId = hashId($postId, true) ?? $postId;
-		
+
 		// Call API endpoint
 		$endpoint = '/posts/' . $postId;
 		$queryParams = [
@@ -112,60 +114,67 @@ class ShowController extends FrontController
 		$queryParams = array_merge(request()->all(), $queryParams);
 		$headers = session()->has('postIsVisited') ? ['X-VISITED-BY-SAME-SESSION' => $postId] : [];
 		$data = makeApiRequest('get', $endpoint, $queryParams, $headers);
-		
+
 		$message = $this->handleHttpError($data);
 		$post = data_get($data, 'result');
+
+		// mark post view at and by
+		$post->view_at = Carbon::now();
+		if (Auth::user()) {
+			$post->view_by = Auth::user()->id;
+		}
+		$post->save();
+
 		$customFields = data_get($data, 'extra.fieldsValues');
-		
+
 		// Listing isn't found
 		abort_if(empty($post), 404, $message ?? t('post_not_found'));
-		
+
 		session()->put('postIsVisited', $postId);
-		
+
 		// Get post's pictures
-		$pictures = (array)data_get($post, 'pictures');
-		
+		$pictures = (array) data_get($post, 'pictures');
+
 		// Get possible post's registered Author (User)
 		$user = data_get($post, 'user');
-        // shop code start
-        $userId = $user['id']; 
-        $userShop = DB::table('member_shop')->select('*')->where('user_id',$userId)->get();
-//        dd($user);
-        $userName = DB::table('users')->select('name','created_at','usr_type')->where('id',$userId)->get();
-        $usertypeid = $userName[0]->usr_type;
-//        $usertypeid = $user['usr_type'];
-        $UsrType ='';  
-        if($usertypeid>1)
-        {
-            $usertypedata = DB::table('usr_types')->select('usr_type')->where('id',$usertypeid)->get();
-            $UsrType = $usertypedata[0]->usr_type;
-        }
-        // shop code end
-        
-        
-        
+		// shop code start
+		$userId = $user['id'];
+		$userShop = DB::table('member_shop')->select('*')->where('user_id', $userId)->get();
+		//        dd($user);
+		$userName = DB::table('users')->select('name', 'created_at', 'usr_type')->where('id', $userId)->get();
+		$usertypeid = $userName[0]->usr_type;
+		//        $usertypeid = $user['usr_type'];
+		$UsrType = '';
+		if ($usertypeid > 1) {
+			$usertypedata = DB::table('usr_types')->select('usr_type')->where('id', $usertypeid)->get();
+			$UsrType = $usertypedata[0]->usr_type;
+		}
+		// shop code end
+
+
+
 		// Get post's user decision about comments activation
 		$commentsAreDisabledByUser = (data_get($user, 'disable_comments') == 1);
-		
+
 		// Category Breadcrumb
 		$catBreadcrumb = $this->getCatBreadcrumb(data_get($post, 'category'), 1);
-		
+
 		// GET SIMILAR POSTS
 		$widgetSimilarPosts = $this->similarPosts(data_get($post, 'id'));
-		
+
 		$isFromPostDetails = currentRouteActionContains('Post\ShowController');
-		
+
 		// Meta Tags
 		[$title, $description, $keywords] = getMetaTag('listingDetails');
 		$title = str_replace('{ad.title}', data_get($post, 'title'), $title);
 		$title = str_replace('{location.name}', data_get($post, 'city.name'), $title);
 		$description = str_replace('{ad.description}', str(str_strip(strip_tags(data_get($post, 'description'))))->limit(200), $description);
 		$keywords = str_replace('{ad.tags}', str_replace(',', ', ', @implode(',', data_get($post, 'tags'))), $keywords);
-		
+
 		$title = removeUnmatchedPatterns($title);
 		$description = removeUnmatchedPatterns($description);
 		$keywords = removeUnmatchedPatterns($keywords);
-		
+
 		// Fallback
 		if (empty($title)) {
 			$title = data_get($post, 'title') . ', ' . data_get($post, 'city.name');
@@ -173,11 +182,11 @@ class ShowController extends FrontController
 		if (empty($description)) {
 			$description = str(str_strip(strip_tags(data_get($post, 'description'))))->limit(200);
 		}
-		
+
 		MetaTag::set('title', $title);
 		MetaTag::set('description', $description);
 		MetaTag::set('keywords', $keywords);
-		
+
 		// Open Graph
 		$this->og->title($title)->description($description)->type('article');
 		if (!empty($pictures)) {
@@ -186,19 +195,19 @@ class ShowController extends FrontController
 			}
 			foreach ($pictures as $picture) {
 				$this->og->image(imgUrl(data_get($picture, 'filename'), 'big'), [
-					'width'  => (int)config('settings.seo.og_image_width', 1200),
-					'height' => (int)config('settings.seo.og_image_height', 630),
+					'width' => (int) config('settings.seo.og_image_width', 1200),
+					'height' => (int) config('settings.seo.og_image_height', 630),
 				]);
 			}
 		}
 		view()->share('og', $this->og);
-		
+
 		// Reviews Plugin Data
 		if (config('plugins.reviews.installed')) {
 			$reviewsApiResult = $this->getReviews(data_get($post, 'id'));
 			view()->share('reviewsApiResult', $reviewsApiResult);
 		}
-		
+
 		return appView(
 			'post.show.index',
 			compact(
@@ -215,7 +224,7 @@ class ShowController extends FrontController
 			)
 		);
 	}
-	
+
 	/**
 	 * @param $postId
 	 * @return array|null
@@ -227,14 +236,14 @@ class ShowController extends FrontController
 		$totalPosts = 0;
 		$widgetSimilarPosts = null;
 		$message = null;
-		
+
 		// GET SIMILAR POSTS
 		if (in_array(config('settings.single.similar_listings'), ['1', '2'])) {
 			// Call API endpoint
 			$endpoint = '/posts';
 			$queryParams = [
-				'op'       => 'similar',
-				'postId'   => $postId,
+				'op' => 'similar',
+				'postId' => $postId,
 				'distance' => 50, // km OR miles
 			];
 			$queryParams = array_merge(request()->all(), $queryParams);
@@ -242,121 +251,118 @@ class ShowController extends FrontController
 				'X-WEB-CONTROLLER' => class_basename(get_class($this)),
 			];
 			$data = makeApiRequest('get', $endpoint, $queryParams, $headers);
-			
+
 			$message = data_get($data, 'message');
 			$posts = data_get($data, 'result.data');
 			$totalPosts = data_get($data, 'extra.count.0');
 			$post = data_get($data, 'extra.preSearch.post');
 		}
-		
+
 		if (config('settings.single.similar_listings') == '1') {
 			// Featured Area Data
 			$widgetSimilarPosts = [
-				'title'      => t('Similar Listings'),
-				'link'       => UrlGen::category(data_get($post, 'category')),
-				'posts'      => $posts,
+				'title' => t('Similar Listings'),
+				'link' => UrlGen::category(data_get($post, 'category')),
+				'posts' => $posts,
 				'totalPosts' => $totalPosts,
-				'message'    => $message,
+				'message' => $message,
 			];
 			$widgetSimilarPosts = ($totalPosts > 0) ? $widgetSimilarPosts : null;
 		} else if (config('settings.single.similar_listings') == '2') {
 			$distance = 50; // km OR miles
-			
+
 			// Featured Area Data
 			$widgetSimilarPosts = [
-				'title'      => t('more_listings_at_x_distance_around_city', [
+				'title' => t('more_listings_at_x_distance_around_city', [
 					'distance' => $distance,
-					'unit'     => getDistanceUnit(config('country.code')),
-					'city'     => data_get($post, 'city.name'),
+					'unit' => getDistanceUnit(config('country.code')),
+					'city' => data_get($post, 'city.name'),
 				]),
-				'link'       => UrlGen::city(data_get($post, 'city')),
-				'posts'      => $posts,
+				'link' => UrlGen::city(data_get($post, 'city')),
+				'posts' => $posts,
 				'totalPosts' => $totalPosts,
-				'message'    => $message,
+				'message' => $message,
 			];
 			$widgetSimilarPosts = ($totalPosts > 0) ? $widgetSimilarPosts : null;
 		}
-		
+
 		return $widgetSimilarPosts;
 	}
-    
-    public function wantednb($ite)
-    {
-        $cdate = date("Y-m-d H:i:s");
-        $posts = DB::table('posts')
-            ->join('categories AS sc', 'posts.category_id', '=', 'sc.id')
-            ->join('categories AS mc', 'sc.parent_id', '=', 'mc.id')
-            ->join('cities', 'posts.city_id', '=', 'cities.id')
-            ->leftJoin('pictures', 'posts.id', '=', 'pictures.post_id')  //fix to get image as optional
+
+	public function wantednb($ite)
+	{
+		$cdate = date("Y-m-d H:i:s");
+		$posts = DB::table('posts')
+			->join('categories AS sc', 'posts.category_id', '=', 'sc.id')
+			->join('categories AS mc', 'sc.parent_id', '=', 'mc.id')
+			->join('cities', 'posts.city_id', '=', 'cities.id')
+			->leftJoin('pictures', 'posts.id', '=', 'pictures.post_id')  //fix to get image as optional
 //            ->join('payments', 'posts.id', '=', 'payments.payable_id')
-            ->select('posts.id','posts.title','posts.reviewed_at','pictures.filename','mc.name AS mcat','sc.name AS scat','cities.name AS cnme')->where('post_type_id',2)->whereNotNull('reviewed_at')->get();
-        //->where('payments.period_end','>',$cdate)
-        
-//        echo('Heshan');
+			->select('posts.id', 'posts.title', 'posts.reviewed_at', 'pictures.filename', 'mc.name AS mcat', 'sc.name AS scat', 'cities.name AS cnme')->where('post_type_id', 2)->whereNotNull('reviewed_at')->get();
+		//->where('payments.period_end','>',$cdate)
+
+		//        echo('Heshan');
 //        exit();
-        $adcount = count($posts)-1;
-        if($ite>$adcount || count($posts)==0)
-        {
-            echo(0);
-        }
-        else
-        {
-            $datarow = $posts[$ite];
-            $adtitle = str_replace("/","",trim($datarow->title));
-            $adurl = str_replace(" ","-",$adtitle).'-'.$datarow->id;
-            
-            
-            $starttimestamp = strtotime($datarow->reviewed_at);
-            $endtimestamp = strtotime($cdate);
-            $difference = abs($endtimestamp - $starttimestamp); // Difference in seconds
-            $differencetxt = "";
+		$adcount = count($posts) - 1;
+		if ($ite > $adcount || count($posts) == 0) {
+			echo (0);
+		} else {
+			$datarow = $posts[$ite];
+			$adtitle = str_replace("/", "", trim($datarow->title));
+			$adurl = str_replace(" ", "-", $adtitle) . '-' . $datarow->id;
 
-		// Handle different time ranges
-		if ($difference < 60) { 
-		    // Less than a minute
-		    $differencetxt = "just now";
-		} elseif ($difference < 3600) { 
-		    // Less than an hour, convert to minutes
-		    $minutes = round($difference / 60);
-		    $differencetxt = $minutes . " minute(s) ago";
-		} elseif ($difference < 86400) { 
-		    // Less than a day, convert to hours
-		    $hours = round($difference / 3600);
-		    $differencetxt = $hours . " hour(s) ago";
-		} elseif ($difference < 604800) { 
-		    // Less than a week, convert to days
-		    $days = round($difference / 86400);
-		    $differencetxt = $days . " day(s) ago";
-		} elseif ($difference < 2419200) { 
-		    // Less than a month, convert to weeks
-		    $weeks = round($difference / 604800);
-		    $differencetxt = $weeks . " week(s) ago";
-		} else { 
-		    // More than a month, convert to months
-		    $months = round($difference / 2419200); // 1 month = ~30 days
-		    $differencetxt = $months . " month(s) ago";
-		}
 
-            
-            
-            if(round($difference/24)<=120)
-            echo('<a href="'.$adurl.'">');
-       if ($datarow->filename) {
-            echo('<img src="storage/'.$datarow->filename.'" alt="Wanted" class="notice-image">');
-        } else {
-            echo('<img src="public/images/picture.jpg" alt="No Image" class="notice-image">'); // You can use a placeholder image here
-        }
+			$starttimestamp = strtotime($datarow->reviewed_at);
+			$endtimestamp = strtotime($cdate);
+			$difference = abs($endtimestamp - $starttimestamp); // Difference in seconds
+			$differencetxt = "";
 
-               echo('</a>
+			// Handle different time ranges
+			if ($difference < 60) {
+				// Less than a minute
+				$differencetxt = "just now";
+			} elseif ($difference < 3600) {
+				// Less than an hour, convert to minutes
+				$minutes = round($difference / 60);
+				$differencetxt = $minutes . " minute(s) ago";
+			} elseif ($difference < 86400) {
+				// Less than a day, convert to hours
+				$hours = round($difference / 3600);
+				$differencetxt = $hours . " hour(s) ago";
+			} elseif ($difference < 604800) {
+				// Less than a week, convert to days
+				$days = round($difference / 86400);
+				$differencetxt = $days . " day(s) ago";
+			} elseif ($difference < 2419200) {
+				// Less than a month, convert to weeks
+				$weeks = round($difference / 604800);
+				$differencetxt = $weeks . " week(s) ago";
+			} else {
+				// More than a month, convert to months
+				$months = round($difference / 2419200); // 1 month = ~30 days
+				$differencetxt = $months . " month(s) ago";
+			}
+
+
+
+			if (round($difference / 24) <= 120)
+				echo ('<a href="' . $adurl . '">');
+			if ($datarow->filename) {
+				echo ('<img src="storage/' . $datarow->filename . '" alt="Wanted" class="notice-image">');
+			} else {
+				echo ('<img src="public/images/picture.jpg" alt="No Image" class="notice-image">'); // You can use a placeholder image here
+			}
+
+			echo ('</a>
                 <div class="notice-content">
-                    <a href="'.$adurl.'">
-                    <h2><b>'.$datarow->title.'</b></h2>
-                    <p class="time-info"><i class="fas fa-clock"></i> '.$differencetxt.'  <br><i class="fas fa-folder"></i> <font class="greenfont">'.json_decode($datarow->mcat)->en.'</font> » <font class="greenfont">'.json_decode($datarow->scat)->en.'</font> <br><i class="fas fa-map-marker"></i> <font class="greenfont">'.json_decode($datarow->cnme)->en.'</font></p></a><br><br>                   
+                    <a href="' . $adurl . '">
+                    <h2><b>' . $datarow->title . '</b></h2>
+                    <p class="time-info"><i class="fas fa-clock"></i> ' . $differencetxt . '  <br><i class="fas fa-folder"></i> <font class="greenfont">' . json_decode($datarow->mcat)->en . '</font> » <font class="greenfont">' . json_decode($datarow->scat)->en . '</font> <br><i class="fas fa-map-marker"></i> <font class="greenfont">' . json_decode($datarow->cnme)->en . '</font></p></a><br><br>                   
                 </div>');
-            
-            
-        }
-    }
-    
-    
+
+
+		}
+	}
+
+
 }
