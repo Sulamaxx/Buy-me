@@ -49,6 +49,9 @@
         ['id' => 3, 'name' => 'Chicago'],
         ['id' => 4, 'name' => 'Colombo'],
     ]);
+
+    $cats = App\Models\Category::where('parent_id', null)->get();
+                   
 @endphp
 
 <div class="header">
@@ -139,22 +142,17 @@
                         </div>
                         <div class="filter-section">
                             <h5>Categories</h5>
+                            <div class="category-options">
                             @foreach ($cats as $cat)
-                            <label>
-                                <input type="checkbox" name="c" value="{{ $cat['id'] }}"> {{ $cat['name'] }}
-                            </label><br>
+                            <label class="category-item">
+                                <input type="radio" name="c" value="{{ $cat['id'] }}"> {{ $cat['name'] }}
+                            </label>
                             @endforeach
+                            </div>
                         </div>
                         <div class="filter-section">
                             <h5>Location</h5>
-                            <input type="text" id="locationFilter" class="form-control mb-2" placeholder="Filter locations...">
-                            <div id="locationList">
-                                @foreach ($cities as $city)
-                                    <label class="location-item">
-                                        <input type="checkbox" name="location" value="{{ $city['name'] }}"> {{ $city['name'] }}
-                                    </label><br>
-                                @endforeach
-                            </div>
+                            <input type="text" id="locationFilter" name="location" class="form-control mb-2" placeholder="Filter locations...">
                         </div>
                     </div>
                 </form>
@@ -334,6 +332,14 @@
         .navbar-desktop {
             justify-content: end;
         }
+        .category-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; 
+        }
+        .category-item {
+            margin-right: 0; 
+        }
     }
     @media (min-width: 1024px) {
         .margin-l-null {
@@ -381,5 +387,12 @@
     label {
         display: block;
         margin: 5px 0;
+    }
+    .category-item {
+        display: block;
+        margin: 5px 0; 
+    }
+    .category-item input[type="radio"] {
+        margin-right: 5px;
     }
 </style>
