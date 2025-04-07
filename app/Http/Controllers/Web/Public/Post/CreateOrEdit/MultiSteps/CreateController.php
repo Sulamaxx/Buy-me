@@ -35,6 +35,7 @@ use App\Models\CategoryField;
 use App\Models\Post;
 use App\Models\Scopes\VerifiedScope;
 use App\Http\Controllers\Web\Public\FrontController;
+use App\Models\Package;
 use App\Models\Scopes\ReviewedScope;
 use App\Observers\Traits\PictureTrait;
 use Illuminate\Http\Request;
@@ -42,6 +43,7 @@ use Larapen\LaravelMetaTags\Facades\MetaTag;
 use App\Notifications\PhoneVerification;
 use App\Notifications\NotifyChannelforpost;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CreateController extends FrontController
 {
@@ -463,12 +465,58 @@ class CreateController extends FrontController
 				return redirect()->to($backUrl);
 			}
 		}
-		
+		//Log::info('validated- '.print_r($request->validated()));
 		$request->session()->put('paymentInput', $request->validated());
 		
 		return $this->storeInputDataInDatabase($request);
 	}
 	
+	/* public function postPaymentStep(PackageRequest $request)
+	{
+		if ($this->step($request) < 2) {
+			if (config('settings.single.picture_mandatory')) {
+				$backUrl = url($this->baseUrl . '/photos');
+				$backUrl = qsUrl($backUrl, request()->only(['package']), null, false);
+	
+				return redirect()->to($backUrl);
+			}
+		}
+	
+		// Get validated data
+		$validatedData = $request->validated();
+		$packageIds = $validatedData['package_id'] ?? [];
+	
+		// Array to store payment inputs for all packages
+		$allPaymentInputs = [];
+	
+		// Process each package ID individually
+		foreach ($packageIds as $packageId) {
+			// Temporarily set the request to process a single package
+			$request->merge(['package_id' => $packageId]);
+	
+			// Re-validate the request with the single package ID
+			$singleValidatedData = (new PackageRequest())->validate($request);
+	
+			// Store the single package's validated data
+			$package = Package::find($packageId);
+			Log::info('packagedetails - '.print_r($package));
+			$singlePaymentInput = [
+				'package_id' => $packageId,
+				'payment_method_id' => $singleValidatedData['payment_method_id'] ?? null,
+				'price' => $package->price,
+			];
+	
+			// Add to the array of payment inputs
+			$allPaymentInputs[] = $singlePaymentInput;
+		}
+	
+		// Store all payment inputs in the session
+		$request->session()->put('paymentInput', $allPaymentInputs);
+	
+		// Process the storage for all packages
+		return $this->storeInputDataInDatabase($request);
+	} */
+
 	/**
 	 * End of the steps (Confirmation)
 	 *

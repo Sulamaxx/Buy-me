@@ -27,6 +27,7 @@ $headerSubTitle = (!empty($headerSubTitle)) ? replaceGlobalPatterns($headerSubTi
 $parallax = data_get($sectionOptions, 'parallax') ?? '0';
 $hideForm = data_get($sectionOptions, 'hide_form') ?? '0';
 $displayStatesSearchTip = config('settings.list.display_states_search_tip');
+$topAdvertising ??= [];
 ?>
 @includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.spacer', 'home.inc.spacer'], ['hideOnMobile' => $hideOnMobile])
 {{-- <div class="container my-4">
@@ -85,18 +86,18 @@ $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 </div> --}}
 
 <div class="container{{ $hideOnMobile }}">
-	<div class="col-xl-14 content-box layout-section">
-		<div class="row row-featured row-featured-category">
-			<div class="col-xl-14 box-title no-border">
-				<div class="inner">
+	<div class="col-xl-14 content-box layout-section" style="background-color: transparent;border-radius: 0%">
+		<div class="row row-featured row-featured-category" style="margin-inline: 0px">
+			{{-- <div class="col-xl-14 box-title no-border">
+				{{-- <div class="inner">
 					<h2>
 					 <!--	<span class="title-3">{{ t('Browse by') }} </span> -->
 						<a href="{{ \App\Helpers\UrlGen::sitemap() }}" class="sell-your-item">
 					 <!--		{{ t('View more') }} <i class="fas fa-bars"></i>  -->
 						</a>
 					</h2>
-				</div>
-			</div>
+				</div> 
+			</div> --}}
 			
 			@if ($catDisplayType == 'c_picture_list')
 				<!-- all category display #001 
@@ -108,10 +109,25 @@ $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 			   
 <style>
     .custom-col-lg {
-        width: 14.285714% !important; /* 7 items per row for large screens */
+        width: 11.111111% !important; /* 7 items per row for large screens */
     }
         .f-category {
-    	padding: 10px 10px 10px !important;
+    	padding: 5px 5px 5px !important;
+		background-color:transparent;
+    }
+
+	.white-box {
+        background-color: white;
+		border-radius: 0%;
+    }
+
+	.see-all-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #see-all-box {
+        height: 100%;
     }
     
     @media (max-width: 767.98px) {
@@ -126,21 +142,56 @@ $displayStatesSearchTip = config('settings.list.display_states_search_tip');
  
 </style>
            
-				@if (!empty($categories))
-					@foreach($categories as $key => $cat)
-						  <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category">
-							<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
-								<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}">
-								<h4><BR>
-									{{ data_get($cat, 'name') }}
-									@if (config('settings.list.count_categories_listings'))
-										&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
-									@endif
-								</h4>
-							</a>
-						</div>
-					@endforeach
+@php
+// Split categories into first 8 and the rest
+$firstEight = array_slice($categories, 0, 8);
+$remaining = array_slice($categories, 8);
+@endphp
+
+<!-- Display the first 8 categories -->
+@foreach($firstEight as $cat)
+<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" style="border: none">
+	<div class="white-box">
+		<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
+			<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}">
+			<h4 style="font-size: small; color: #666666"><br>
+				{{ data_get($cat, 'name') }}
+				@if (config('settings.list.count_categories_listings'))
+					&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
 				@endif
+			</h4>
+		</a>
+	</div>
+</div>
+@endforeach
+
+@if (!empty($remaining))
+<!-- Display "See All" box as the 9th item -->
+<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-all-box" style="border: none">
+	<div class="white-box" style="height:19.42vh">
+		<a href="#" id="see-all-link">
+			<img src="/images/categories/see-all.png" class="img-fluid" alt="See All" style="height: max-content">
+		</a>
+	</div>
+</div>
+
+<!-- Display remaining categories, hidden initially -->
+@foreach($remaining as $cat)
+	<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category hidden-category" style="border: none; display: none;">
+		<div class="white-box">
+			<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
+				<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}">
+				<h4 style="font-size: small; color: #666666"><br>
+					{{ data_get($cat, 'name') }}
+					@if (config('settings.list.count_categories_listings'))
+						&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
+					@endif
+				</h4>
+			</a>
+		</div>
+	</div>
+@endforeach
+@endif
 				
 			@elseif ($catDisplayType == 'c_bigIcon_list')
 				
@@ -272,4 +323,21 @@ $displayStatesSearchTip = config('settings.list.display_states_search_tip');
 			var maxSubCats = {{ $maxSubCats }};
 		</script>
 	@endif
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var seeAllLink = document.getElementById('see-all-link');
+            if (seeAllLink) {
+                seeAllLink.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent the link from navigating
+                    // Hide the "See All" box
+                    document.getElementById('see-all-box').style.display = 'none';
+                    // Show all hidden categories
+                    var hiddenCats = document.querySelectorAll('.hidden-category');
+                    hiddenCats.forEach(function(cat) {
+                        cat.style.display = 'block';
+                    });
+                });
+            }
+        });
+    </script>
 @endsection

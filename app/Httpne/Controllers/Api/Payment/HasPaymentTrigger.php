@@ -20,6 +20,7 @@ use App\Models\Package;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 trait HasPaymentTrigger
 {
@@ -34,6 +35,9 @@ trait HasPaymentTrigger
 	 */
 	protected function isPaymentRequested(Request $request, Post|User|null $payable): array
 	{
+
+		Log::info('reqPayable - '.print_r($payable,true));
+
 		$result = [
 			'success' => false,
 			'failure' => false,
@@ -66,22 +70,31 @@ trait HasPaymentTrigger
 		}
 		
 		// Check if the selected package exists and is not a basic package
-		$package = Package::query()
-			->when($isPromoting, fn ($query) => $query->promotion())
-			->when($isSubscripting, fn ($query) => $query->subscription())
-			->where('id', $request->input('package_id'))
-			->first();
+		$package=null;
+foreach($request->input('package_id') as $pckId){
+	$package = Package::query()
+	->when($isPromoting, fn ($query) => $query->promotion())
+	->when($isSubscripting, fn ($query) => $query->subscription())
+	->where('id', $pckId)
+	->first();
+
+	if(is_numeric($package->price) && $package->price > 0){
+		$isNotBasicPackage = (is_numeric($package->price) && $package->price > 0);
+		
+		$result['success'] = $isNotBasicPackage;
+		$result['message'] = null;
+		
+		return $result;
+	}
+	
+}
+
 		if (empty($package)) {
 			$result['failure'] = true;
 			$result['message'] = t('package_not_found');
 			
 			return $result;
 		}
-		
-		$isNotBasicPackage = (is_numeric($package->price) && $package->price > 0);
-		
-		$result['success'] = $isNotBasicPackage;
-		$result['message'] = null;
 		
 		return $result;
 	}

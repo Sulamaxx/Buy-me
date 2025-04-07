@@ -84,7 +84,15 @@ trait MakePayment
 						
 						// Send the Payment
 						// return $plugin->class::{'sendPayment'}($request, $payable, $resData);
-						return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
+						//return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
+
+						if($isPromoting){
+							
+							return call_user_func($plugin->class . '::sendPaymentPost', $request, $payable, $resData);
+						}else{
+							return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
+							
+						}
 						
 					} catch (\Throwable $e) {
 						$resData['extra']['payment']['message'] = $e->getMessage();

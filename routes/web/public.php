@@ -54,12 +54,16 @@ use App\Http\Controllers\Web\Public\Search\UserController;
 use App\Http\Controllers\Web\Public\SitemapController;
 use App\Http\Controllers\Web\Public\SitemapsController;
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\Web\Public\StorageController;
 
 // Select Language
 Route::namespace('Locale')
 	->group(function ($router) {
 		Route::get('locale/{code}', [LocaleController::class, 'setLocale']);
 	});
+
+
+// Route::get('/storage/logo/{filename}', [StorageController::class, 'getLogo'])->name('get.storage.logo');
 
 // FILES
 Route::controller(FileController::class)

@@ -1,535 +1,150 @@
 @php
-	$sectionOptions = $getStatsOp ?? [];
-	$sectionData ??= [];
-	$stats = (array)data_get($sectionData, 'count');
-	
-	$iconPosts = $sectionOptions['icon_count_listings'] ?? 'fas fa-bullhorn';
-	$iconUsers = $sectionOptions['icon_count_users'] ?? 'fas fa-users';
-	$iconLocations = $sectionOptions['icon_count_locations'] ?? 'far fa-map';
-	$prefixPosts = $sectionOptions['prefix_count_listings'] ?? '';
-	$suffixPosts = $sectionOptions['suffix_count_listings'] ?? '';
-	$prefixUsers = $sectionOptions['prefix_count_users'] ?? '';
-	$suffixUsers = $sectionOptions['suffix_count_users'] ?? '';
-	$prefixLocations = $sectionOptions['prefix_count_locations'] ?? '';
-	$suffixLocations = $sectionOptions['suffix_count_locations'] ?? '';
-	$disableCounterUp = $sectionOptions['disable_counter_up'] ?? false;
-	$counterUpDelay = $sectionOptions['counter_up_delay'] ?? 10;
-	$counterUpTime = $sectionOptions['counter_up_time'] ?? 2000;
-	$hideOnMobile = (data_get($sectionOptions, 'hide_on_mobile') == '1') ? ' hidden-sm' : '';
+    use Illuminate\Support\Facades\Http;
+
+$wantedPosts = [
+    [
+        'id' => 1,
+        'title' => 'Wanted: Used Laptop in Good Condition',
+        'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+        'category' => ['name' => 'Electronics'],
+        'city' => ['name' => 'Colombo'],
+        'price_formatted' => 'LKR 50,000',
+        'created_at' => '2025-04-01T10:00:00Z',
+    ],
+    [
+        'id' => 2,
+        'title' => 'Wanted: Mountain Bike',
+        'picture' => ['filename' => 'https://example.com/images/bike.jpg'],
+        'category' => ['name' => 'Sports'],
+        'city' => ['name' => 'Kandy'],
+        'price_formatted' => 'LKR 15,000',
+        'created_at' => '2025-04-01T09:30:00Z',
+    ],
+    [
+        'id' => 3,
+        'title' => 'Wanted: Graphic Design Books',
+        'picture' => ['filename' => 'https://example.com/images/books.jpg'],
+        'category' => ['name' => 'Books'],
+        'city' => ['name' => 'Galle'],
+        'price_formatted' => 'LKR 5,000',
+        'created_at' => '2025-04-01T09:00:00Z',
+    ],
+];
+
+    // Set section options (similar to $getStatsOp)
+    $sectionOptions = $getStatsOp ?? [];
+
+    
+
+    // Prepare widget data
+    $sectionData ??= [];
+    $widget = []; 
+    $widgetType = 'dummy2';
+
+    // Set widget data with fetched wanted posts
+    $widget['posts'] = $wantedPosts;
+    $widget['totalPosts'] = count($wantedPosts);
+    $widget['title'] = 'Wanted Ads';
+    $widget['link_text'] = 'See All Wanted Ads';
+    $widget['link'] = url('/posts/wanted'); // Adjust the link to point to a "wanted" ads page
 @endphp
 
-@includeFirst([config('larapen.core.customizedViewPath') . 'home.inc.spacer', 'home.inc.spacer'], ['hideOnMobile' => $hideOnMobile])
+@includeFirst([
+    config('larapen.core.customizedViewPath') . 'search.inc.posts.widget.' . $widgetType,
+    'search.inc.posts.widget.' . $widgetType
+],
+    ['widget' => $widget, 'sectionOptions' => $sectionOptions]
+)
 
-<section class="call-to-action text-white text-center" id="foo" style="background-color: #fff;">
-     
-    <style>
+@php
 
-.container123 {
-    display: flex;
-    background-color: #fff;
-    border-radius: 10px;
-/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-    max-width: 1000px;
-/*    overflow: hidden;*/
-     margin-left: 5%;
-     margin-right: 5%;
-}
+$topPosts = [
+        [
+            'id' => 1,
+            'title' => 'Wanted: Used Laptop in Good Condition',
+            'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+            'category' => ['name' => 'Electronics'],
+            'city' => ['name' => 'Colombo'],
+            'price_formatted' => 'LKR 50,000',
+            'created_at' => '2025-04-01T10:00:00Z',
+        ],
+        [
+            'id' => 2,
+            'title' => 'Wanted: Mountain Bike',
+            'picture' => ['filename' => 'https://example.com/images/bike.jpg'],
+            'category' => ['name' => 'Sports'],
+            'city' => ['name' => 'Kandy'],
+            'price_formatted' => 'LKR 15,000',
+            'created_at' => '2025-04-01T09:30:00Z',
+        ],
+        [
+            'id' => 3,
+            'title' => 'Wanted: Graphic Design Books',
+            'picture' => ['filename' => 'https://example.com/images/books.jpg'],
+            'category' => ['name' => 'Books'],
+            'city' => ['name' => 'Galle'],
+            'price_formatted' => 'LKR 5,000',
+            'created_at' => '2025-04-01T09:00:00Z',
+        ],
+        [
+            'id' => 4,
+            'title' => 'Wanted: Second-Hand Camera',
+            'picture' => ['filename' => 'https://example.com/images/camera.jpg'],
+            'category' => ['name' => 'Photography'],
+            'city' => ['name' => 'Negombo'],
+            'price_formatted' => 'LKR 30,000',
+            'created_at' => '2025-04-01T08:30:00Z',
+        ],
+        [
+            'id' => 5,
+            'title' => 'Wanted: Vintage Vinyl Records',
+            'picture' => ['filename' => 'https://example.com/images/records.jpg'],
+            'category' => ['name' => 'Music'],
+            'city' => ['name' => 'Jaffna'],
+            'price_formatted' => 'LKR 10,000',
+            'created_at' => '2025-04-01T08:00:00Z',
+        ],
+		[
+            'id' => 6,
+            'title' => 'Wanted: Used Laptop in Good Condition',
+            'picture' => ['filename' => 'https://example.com/images/laptop.jpg'],
+            'category' => ['name' => 'Electronics'],
+            'city' => ['name' => 'Colombo'],
+            'price_formatted' => 'LKR 50,000',
+            'created_at' => '2025-04-01T10:00:00Z',
+        ],
+        [
+            'id' => 7,
+            'title' => 'Wanted: Mountain Bike',
+            'picture' => ['filename' => 'https://example.com/images/bike.jpg'],
+            'category' => ['name' => 'Sports'],
+            'city' => ['name' => 'Kandy'],
+            'price_formatted' => 'LKR 15,000',
+            'created_at' => '2025-04-01T09:30:00Z',
+        ],
+        [
+            'id' => 8,
+            'title' => 'Wanted: Graphic Design Books',
+            'picture' => ['filename' => 'https://example.com/images/books.jpg'],
+            'category' => ['name' => 'Books'],
+            'city' => ['name' => 'Galle'],
+            'price_formatted' => 'LKR 5,000',
+            'created_at' => '2025-04-01T09:00:00Z',
+        ],
+    ];
 
-          
-.notice-board {
-/*    width: 75%;*/
-    padding: 5px;
-/*    border-right: 1px solid #ddd;*/
-}
-
-.notice-board h1 {
-    color: #33a532;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 33px;
-}
-        
-.greenfont{
-    color: #33a532;
-}
-
-.notice-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.notice-image {
-    width: 200px;
-    border-radius: 5px;
-    object-fit: contain;
-    padding-bottom: 30px;
-}
-
-.notice-content h2 {
-    font-size: 18px;
-    color: #333;
-    text-align: left;
-}
-
-.time-info {
-    font-size: 16px;
-    color: gray;
-    margin-top: 5px;
-    text-align: left;
-}
-
-.category {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-}
-
-.advertise-btn {
-    background-color: #fcb546;
-    color: white;
-    margin-right: 40px;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-     cursor: pointer; 
-    font-weight: bold;
-    float: right;
-    font-size: 13px;
-}
-
-.advertise-btn:hover {
-    background-color: #ffa500;
-}
-
-/* Ad section styles */
-.ad-section123 {
-/*    width: 25%;*/
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-/*    background-color: #fff7e6;*/
-   
-}
-
-.ad-content123 {
-    text-align: center;
-}
-
-.ad-icon123 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    background-image: url('https://buyme.lk/public/images/search_ad.png');
-    background-size: cover; /* Ensure the image covers the entire element */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    width: 70px; /* Set width for the element */
-    height: 70px; /* Set height for the element */
-}
-
-.ad-content123 h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.ad-content123 p {
-    font-size: 10px;
-    color: #555;
-    line-height: 1.6;
-}
-
-.ad-content123 a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.ad-content123 a:hover {
-    text-decoration: underline;
-}
-        
-.ad-icon-container {
-/*    text-align: center;*/
-}
-
-/* Circle background */
-.ad-circle {
-    width: 120px;
-    height: 120px;
-    background-color: #fcb546;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-/*    position: relative;*/
-    margin-bottom: 10px;
-}
-
-/* Megaphone structure */
-.megaphone {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Handle of the megaphone */
-.handle {
-    width: 10px;
-    height: 25px;
-    background-color: black;
-    border-radius: 2px;
-}
-
-/* Cone of the megaphone */
-.cone {
-    width: 50px;
-    height: 30px;
-    background-color: white;
-    clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);
-    position: relative;
-}
-
-/* 'AD' text inside the cone */
-.ad-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    font-weight: bold;
-    color: #007bff;
-}
-
-/* Caption under the icon */
-.ad-text-caption {
-    font-size: 14px;
-    color: #333;
-    margin-top: 5px;
-}
-.sup-ad {
-            background: #8B8B8B;
-            color: #000000;
-            font-size: 13pt;
-
-    
-}
-.sup-advert{
-            background:  ;
-            color: #128305;
-            font-size: 13pt;
-            text-align: center;
-} 
-
-.rainbow {
-/*
-  width: 400px;
-  height: 300px;
-*/
-  border-radius: 10px;
-/*  padding: 2rem;*/
-  margin: auto;
-
-  display: grid;
-  place-content: center;
-  text-align: center;
-
-  font-size: 1.5em;
-
-  --border-size: 0.6rem;
-  border: var(--border-size) dotted transparent;
-        
-/*  background: linear-gradient(60deg, green, orange, green, orange, green, orange, green, orange);*/
-        
-        
-  background-image: linear-gradient(
-      to right,
-      rgb(255 255 255 / var(--opacity)),
-      rgb(255 255 255 / var(--opacity))
-    ),
-    conic-gradient(
-      from var(--angle),
-      green 0deg 45deg,
-      orange 45deg 90deg,
-      green 90deg 135deg,
-      orange 135deg 180deg,
-      green 180deg 225deg,
-      orange 225deg 270deg,
-      green 270deg 315deg,
-      orange 315deg 360deg
-    );
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-}
-
-@property --opacity {
-  syntax: "<number>";
-  initial-value: 1.0;
-  inherits: false;
-}
-
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes opacityChange {
-  to {
-    --opacity: 100;
-  }
-}
-
-@keyframes rotate {
-  to {
-    --angle: 360deg;
-  }
-}
-
-.rainbow {
-  animation: rotate 4s linear infinite;
-}
-
-@media (max-width: 768px) {
-	.notice-card {
-	 display: inline-block;
-	}
-    .notice-content h2 {
-        font-size: 14px; /* Decrease the font size for smaller screens */
-    }
-    
-    .notice-board h1 {
-        font-size: 28px; /* Adjust heading size for mobile screens */
-    }
-    
-    .time-info {
-    font-size: 14px;
- 
-   }
- 
-}
-
-    
-    </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- 
-    <center>
-    <div class="container123 row">
-        <div  class="rainbow col-xl-8 col-md-12 col-sm-12">
-            <div class="notice-board">
-                <h1>BuyMe Wanted Notice Board</h1>
-                <div id="wanted-card" class="notice-card">
-                    <a href="posts/create/?wanted=1">
-                    <div><img src="public/images/wanted_thumbnail.png" alt="BuyMe wanted ad notice board" class="notice-image"></div>
-                    </a>
-                    <div class="notice-content">
-                        <a href="posts/create/?wanted=1">
-                        <h2><b>BuyMe Wanted Advertisements</b></h2>
-                        <p class="time-info"><i class="fas fa-clock"></i> 1 hour ago <br><i class="fas fa-folder"></i> <font class="greenfont">Category</font> / <font class="greenfont">Subcategory</font> <br><i class="fas fa-map-marker"></i> <font class="greenfont">Location</font></p></a><br><br>     
-                    </div>   
-                </div>
-                <!-- <a href="posts/create">
-                <span class="advertise-btn">Advertise now</span>
-                 </a> -->
-            </div>
-        </div>
-        
-
-        <div class="ad-section123 col-xl-4 col-md-12 col-sm-12">
-            <div class="ad-content123">
-                <center>
-                <div class="ad-icon-container">
-        <div class="ad-circle">
-            <div class="ad-icon123">
-                 
-                <sup class="sup-ad"> </sup></div>
-        </div>
-    </div>
-                    
-                <h3><b>{{ t('did_not_find') }}</b></h3>
-                <h4 class="sup-advert">
-                    {{ t('increase_chances') }}
-               </h4>
-                     <a href="posts/create/?wanted=1">
-               
-                <span class="btn btn-block btn-border btn-listing">{{ t('click_to_advertise') }}</span>
-                <BR>
-                    <BR>
-                 </a>
-               
-                </center>
-            </div>
-        </div>
-
-
-    </div>
-</center>
-</section>
-
-<!-- <section class="showcase">
-    <div class="container-fluid p-0">
-      <div class="d-flex no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img"  ></div>
-        <div class="col-lg-6 order-lg-1 showcase-text">
-		  <h1 class="mb-2" style="font-weight: bold;">Why Choose Us?</h1>
-          <p class="mb-1">Embark on your selling journey with BUYME.LK in just a few simple steps. Create your seller account to unlock a world of opportunities, list your properties and vehicles effortlessly, and engage with potential buyers. Join us in making selling as easy as 1-2-3. Ready to get started? Create your seller account now and witness the buyme.lk advantage firsthand!</p>
-        </div>
-      </div>
-      </div>
-    </div>
-</section> -->
-
-<!-- <div class="container{{ $hideOnMobile }}">
-	<div class="page-info page-info-lite rounded">
-		<div class="text-center section-promo">
-			<div class="row">
-				
-				<div class="col-sm-4 col-12">
-					<div class="iconbox-wrap">
-						<div class="iconbox">
-							<div class="iconbox-wrap-icon">
-								<i class="{{ $iconPosts }}"></i>
-							</div>
-							<div class="iconbox-wrap-content">
-								<h5>
-									@if (!empty($prefixPosts))<span>{{ $prefixPosts }}</span>@endif
-									<span class="counter">{{ (int)data_get($stats, 'posts') }}</span>
-									@if (!empty($suffixPosts))<span>{{ $suffixPosts }}</span>@endif
-								</h5>
-								<div class="iconbox-wrap-text">{{ t('classified_ads') }}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-sm-4 col-12">
-					<div class="iconbox-wrap">
-						<div class="iconbox">
-							<div class="iconbox-wrap-icon">
-								<i class="{{ $iconUsers }}"></i>
-							</div>
-							<div class="iconbox-wrap-content">
-								<h5>
-									@if (!empty($prefixUsers))<span>{{ $prefixUsers }}</span>@endif
-									<span class="counter">{{ (int)data_get($stats, 'users') }}</span>
-									@if (!empty($suffixUsers))<span>{{ $suffixUsers }}</span>@endif
-								</h5>
-								<div class="iconbox-wrap-text">{{ t('Trusted Sellers') }}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-sm-4 col-12">
-					<div class="iconbox-wrap">
-						<div class="iconbox">
-							<div class="iconbox-wrap-icon">
-								<i class="{{ $iconLocations }}"></i>
-							</div>
-							<div class="iconbox-wrap-content">
-								<h5>
-									@if (!empty($prefixLocations))<span>{{ $prefixLocations }}</span>@endif
-									<span class="counter">{{ (int)data_get($stats, 'locations') }}</span>
-									@if (!empty($suffixLocations))<span>{{ $suffixLocations }}</span>@endif
-								</h5>
-								<div class="iconbox-wrap-text">{{ t('locations') }}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-	
-			</div>
-		</div>
-	</div>
-</div> -->
-
-
-
-
-
-<script> 
-    var iii = 0;
-    
-    setTimeout(function(){
-        $.ajax({
-               type:'GET',
-               url:'wantedads/'+iii,
-               success:function(data) {
-                   if(data==0)
-                   {
-                        iii = 0;
-                        $.ajax({
-                        type:'GET',
-                        url:'wantedads/'+iii,
-                        success:function(data) {
-                            if(data!=0)
-                            {
-//                                alert(data);
-                                document.getElementById('wanted-card').innerHTML=data;
-                                iii++;
-                            }
-                            }
-                        });   
-                   }
-                   else
-                   {
-//                       alert(data);
-                       document.getElementById('wanted-card').innerHTML=data;
-                       iii++; 
-                   }
-                  
-               }
-            });
-    }, 500);
-    
-     
-    {
-        setInterval(function(){
-            $.ajax({
-               type:'GET',
-               url:'wantedads/'+iii,
-               success:function(data) {
-                   if(data==0)
-                   {
-                        iii = 0;
-                        $.ajax({
-                        type:'GET',
-                        url:'wantedads/'+iii,
-                        success:function(data) {
-                            if(data!=0)
-                            {
-//                                alert(data);
-                                document.getElementById('wanted-card').innerHTML=data;
-                                iii++;
-                            }
-                            }
-                        });   
-                   }
-                   else
-                   {
-//                       alert(data);
-                       document.getElementById('wanted-card').innerHTML=data;
-                       iii++; 
-                   }
-                  
-               }
-            });
-        }, 10000);
-    }
-	 </script>
-
-@section('after_scripts')
-	@parent
-	@if (!isset($disableCounterUp) || !$disableCounterUp)
-		<script>
-			//const counterUp = window.counterUp.default;
-		//	const counterEl = document.querySelector('.counter');
-		//	counterUp(counterEl, {
-		//		duration: {{ $counterUpTime }},
-		//		delay: {{ $counterUpDelay }}
-		//	});
-		</script>
-	@endif
-@endsection
+	$sectionData ??= [];
+	$widget = (array)data_get($sectionData, 'premium');
+	//$widget = (array)data_get($sectionData, 'latest');
+	$widgetType = 'dummy'; 
+	$widget['posts'] = $topPosts;
+    $widget['totalPosts'] = count($topPosts);
+	$widget['title'] = 'Recently Viewed Ads';
+	$widget['link_text'] = 'See All Recently Viewed Ads';
+@endphp
+@includeFirst([
+    config('larapen.core.customizedViewPath') . 'search.inc.posts.widget.' . $widgetType,
+    'search.inc.posts.widget.' . $widgetType
+],
+    ['widget' => $widget, 'sectionOptions' => $sectionOptions]
+)

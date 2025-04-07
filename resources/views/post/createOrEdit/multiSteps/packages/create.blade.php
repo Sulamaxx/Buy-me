@@ -67,9 +67,8 @@
                                                 'payment.packages'
                                             ])
                                         @endif
-                                    </fieldset>
-                                </form>
-                            </div>
+                                    
+                                </div>
                             <div class="col-md-6"> {{-- Right side --}}
                                 <div class="well pb-0" style="padding-top: 10px">
                                     @includeFirst([
@@ -111,6 +110,8 @@
                                     <button id="submitPayableForm" class="btn btn-success btn-lg submitPayableForm"> {{ t('Pay') }} </button>
                                 </div>
                             </div>
+                        </fieldset>
+                    </form>
                         </div>
                     </div>
                 </div>
