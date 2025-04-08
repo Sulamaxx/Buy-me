@@ -21,6 +21,7 @@ use App\Http\Controllers\Web\Public\Post\Traits\CatBreadcrumbTrait;
 use App\Http\Controllers\Web\Public\Post\Traits\ReviewsPlugin;
 use App\Models\Package;
 use App\Http\Controllers\Web\Public\FrontController;
+use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
@@ -119,11 +120,12 @@ class ShowController extends FrontController
 		$post = data_get($data, 'result');
 
 		// mark post view at and by
-		$post->view_at = Carbon::now();
+		$post_data = Post::where('id', data_get($post, 'id'))->first();
+		$post_data->view_at = Carbon::now();
 		if (Auth::user()) {
-			$post->view_by = Auth::user()->id;
+			$post_data->view_by = Auth::user()->id;
 		}
-		$post->save();
+		$post_data->save();
 
 		$customFields = data_get($data, 'extra.fieldsValues');
 
