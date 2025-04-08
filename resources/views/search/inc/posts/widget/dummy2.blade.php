@@ -1,6 +1,7 @@
 @php
     $widget ??= [];
-    $posts = (array) data_get($widget, 'posts');
+    $posts = data_get($widget, 'posts');
+    // $posts = (array) data_get($widget, 'posts');
     $totalPosts = (int) data_get($widget, 'totalPosts', 0);
 
     $sectionOptions ??= [];
