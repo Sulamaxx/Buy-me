@@ -33,6 +33,7 @@ use App\Http\Controllers\Web\Admin\GenderController;
 use App\Http\Controllers\Web\Admin\MemberShopController; //shop code 1
 //use App\Http\Controllers\Web\Admin\BannerController; //banner code 1
 use App\Http\Controllers\Web\Admin\CatCombinationsController; //cat combinations code 1
+use App\Http\Controllers\Web\Admin\CouponsCodeController;
 use App\Http\Controllers\Web\Admin\HomeSectionController;
 use App\Http\Controllers\Web\Admin\InlineRequestController;
 use App\Http\Controllers\Web\Admin\LanguageController;
@@ -55,24 +56,26 @@ use App\Http\Controllers\Web\Admin\SubAdmin2Controller;
 use App\Http\Controllers\Web\Admin\SystemController;
 use App\Http\Controllers\Web\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\Admin\CouponCodesController;
 
 // Auth
-Route::namespace('Auth')
+Route::
+		namespace('Auth')
 	->group(function ($router) {
 		// Authentication Routes...
 		Route::controller(LoginController::class)
 			->group(function ($router) {
-				Route::get('login', 'showLoginForm')->name('admin.showLoginForm');
-				Route::post('login', 'login')->name('admin.login');
-				Route::get('logout', 'logout')->name('admin.logout');
-			});
-		
+			Route::get('login', 'showLoginForm')->name('admin.showLoginForm');
+			Route::post('login', 'login')->name('admin.login');
+			Route::get('logout', 'logout')->name('admin.logout');
+		});
+
 		// Password Reset Routes...
 		Route::controller(ForgotPasswordController::class)
 			->group(function ($router) {
-				Route::get('password/reset', 'showLinkRequestForm')->name('admin.password.request');
-				Route::post('password/email', 'sendResetLinkEmail')->name('admin.password.email');
-			});
+			Route::get('password/reset', 'showLinkRequestForm')->name('admin.password.request');
+			Route::post('password/email', 'sendResetLinkEmail')->name('admin.password.email');
+		});
 	});
 
 // Admin Panel Area
@@ -81,10 +84,10 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		// Dashboard
 		Route::controller(DashboardController::class)
 			->group(function ($router) {
-				Route::get('dashboard', 'dashboard');
-				Route::get('/', 'redirect');
-			});
-		
+			Route::get('dashboard', 'dashboard');
+			Route::get('/', 'redirect');
+		});
+
 		// Extra (must be called before CRUD)
 		Route::get('homepage/{action}', [HomeSectionController::class, 'reset'])->where('action', 'reset_(.*)');
 		Route::controller(LanguageController::class)
@@ -100,7 +103,7 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		Route::get('permissions/create_default_entries', [PermissionController::class, 'createDefaultEntries']);
 		Route::get('blacklists/add', [BlacklistController::class, 'banUser']);
 		Route::get('categories/rebuild-nested-set-nodes', [CategoryController::class, 'rebuildNestedSetNodes']);
-		
+
 		// Panel's Default Routes
 		PanelRoutes::resource('advertisings', AdvertisingController::class);
 		PanelRoutes::resource('blacklists', BlacklistController::class);
@@ -116,9 +119,9 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		PanelRoutes::resource('custom_fields/{cfId}/options', FieldOptionController::class);
 		PanelRoutes::resource('custom_fields/{cfId}/categories', CategoryFieldController::class);
 		PanelRoutes::resource('genders', GenderController::class);
-        PanelRoutes::resource('member_shops', MemberShopController::class); //shop code 2
-        //PanelRoutes::resource('banners', BannerController::class); //banner code 2
-        PanelRoutes::resource('packagescs', CatCombinationsController::class); //cat combinations code 2
+		PanelRoutes::resource('member_shops', MemberShopController::class); //shop code 2
+		//PanelRoutes::resource('banners', BannerController::class); //banner code 2
+		PanelRoutes::resource('packagescs', CatCombinationsController::class); //cat combinations code 2
 		PanelRoutes::resource('homepage', HomeSectionController::class);
 		PanelRoutes::resource('admins1/{admin1Code}/cities', CityController::class);
 		PanelRoutes::resource('admins1/{admin1Code}/admins2', SubAdmin2Controller::class);
@@ -140,9 +143,31 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		PanelRoutes::resource('roles', RoleController::class);
 		PanelRoutes::resource('settings', SettingController::class);
 		PanelRoutes::resource('users', UserController::class);
-		
-		Route::get('coupon_codes', 'App\Http\Controllers\Web\Admin\CouponCodesController@index')->name('admin.coupon_codes.index');
 
+		Route::get('coupon_codes', 'App\Http\Controllers\Web\Admin\CouponCodesController@index')->name('admin.coupon_codes.index');
+		// Show single coupon details
+		Route::get('/coupons/{id}', [CouponsCodeController::class, 'show'])->name('coupons.show');
+
+		// Store new coupon
+		Route::post('/coupons', [CouponsCodeController::class, 'store'])->name('coupons.store');
+
+		// Update coupon
+		Route::put('/coupons/{id}', [CouponsCodeController::class, 'update'])->name('coupons.update');
+
+		// Change coupon status
+		Route::patch('/coupons/{id}/status', [CouponsCodeController::class, 'changeStatus'])->name('coupons.changeStatus');
+
+		// Toggle coupon active status
+		Route::patch('/coupons/{id}/toggle-active', [CouponsCodeController::class, 'toggleActive'])->name('coupons.toggleActive');
+
+		// Update coupon utilized status
+		Route::patch('/coupons/{id}/utilized-status', [CouponsCodeController::class, 'updateUtilizedStatus'])->name('coupons.updateUtilizedStatus');
+
+		// Delete coupon
+		Route::delete('/coupons/{id}', [CouponsCodeController::class, 'destroy'])->name('coupons.destroy');
+
+		// Get coupon by code (API route)
+		Route::get('/coupons/by-code', [CouponsCodeController::class, 'getCouponByCode'])->name('coupons.getByCode');
 		// Others
 		Route::get('account', [UserController::class, 'account']);
 		Route::post('ajax/{table}/{field}', [InlineRequestController::class, 'make'])
@@ -152,58 +177,58 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		//slider
 		Route::controller(HomeSectionController::class)
 			->group(function ($router) {
-				Route::get('sliders', 'getHomeSilederData');
-				Route::get('sliders/create', 'getHomeSilederCreate')->name('sliders.get');
-				Route::get('sliders/edit/{id}', 'getHomeSilederEdit')->name('sliders.editget');
-				Route::post('sliders/create', 'postHomeSilederCreate')->name('sliders.create');
-				Route::post('sliders/edit', 'putHomeSilederCreate')->name('sliders.edit');
-				// Route::get('backups/download', 'download');
-				Route::get('sliders/delete/{id}', 'delete');
-				Route::get('sliders/active/{id}/{val}', 'active');
+			Route::get('sliders', 'getHomeSilederData');
+			Route::get('sliders/create', 'getHomeSilederCreate')->name('sliders.get');
+			Route::get('sliders/edit/{id}', 'getHomeSilederEdit')->name('sliders.editget');
+			Route::post('sliders/create', 'postHomeSilederCreate')->name('sliders.create');
+			Route::post('sliders/edit', 'putHomeSilederCreate')->name('sliders.edit');
+			// Route::get('backups/download', 'download');
+			Route::get('sliders/delete/{id}', 'delete');
+			Route::get('sliders/active/{id}/{val}', 'active');
 		});
-		
+
 		// Backup
 		Route::controller(BackupController::class)
 			->group(function ($router) {
-				Route::get('backups', 'index');
-				Route::put('backups/create', 'create');
-				Route::get('backups/download', 'download');
-				Route::delete('backups/delete', 'delete');
-			});
-		
+			Route::get('backups', 'index');
+			Route::put('backups/create', 'create');
+			Route::get('backups/download', 'download');
+			Route::delete('backups/delete', 'delete');
+		});
+
 		// Actions
 		Route::controller(ActionController::class)
 			->group(function ($router) {
-				Route::get('actions/clear_cache', 'clearCache');
-				Route::get('actions/clear_images_thumbnails', 'clearImagesThumbnails');
-				Route::get('actions/maintenance/{mode}', 'maintenance')->where('mode', 'down|up');
-			});
-		
+			Route::get('actions/clear_cache', 'clearCache');
+			Route::get('actions/clear_images_thumbnails', 'clearImagesThumbnails');
+			Route::get('actions/maintenance/{mode}', 'maintenance')->where('mode', 'down|up');
+		});
+
 		// Re-send Email or Phone verification message
 		Route::controller(UserController::class)
 			->group(function ($router) {
-				$router->pattern('id', '[0-9]+');
-				Route::get('users/{id}/verify/resend/email', 'reSendEmailVerification');
-				Route::get('users/{id}/verify/resend/sms', 'reSendPhoneVerification');
-			});
+			$router->pattern('id', '[0-9]+');
+			Route::get('users/{id}/verify/resend/email', 'reSendEmailVerification');
+			Route::get('users/{id}/verify/resend/sms', 'reSendPhoneVerification');
+		});
 		Route::controller(PostController::class)
 			->group(function ($router) {
 				$router->pattern('id', '[0-9]+');
 				Route::get('posts/{id}/verify/resend/email', 'reSendEmailVerification');
 				Route::get('posts/{id}/verify/resend/sms', 'reSendPhoneVerification');
 			});
-		
+
 		// Plugins
 		Route::controller(PluginController::class)
 			->group(function ($router) {
-				$router->pattern('plugin', '.+');
-				Route::get('plugins', 'index');
-				Route::post('plugins/{plugin}/install/code', 'installWithCode');
-				Route::get('plugins/{plugin}/install', 'installWithoutCode');
-				Route::get('plugins/{plugin}/uninstall', 'uninstall');
-				Route::get('plugins/{plugin}/delete', 'delete');
-			});
-		
+			$router->pattern('plugin', '.+');
+			Route::get('plugins', 'index');
+			Route::post('plugins/{plugin}/install/code', 'installWithCode');
+			Route::get('plugins/{plugin}/install', 'installWithoutCode');
+			Route::get('plugins/{plugin}/uninstall', 'uninstall');
+			Route::get('plugins/{plugin}/delete', 'delete');
+		});
+
 		// System Info
 		Route::get('system', [SystemController::class, 'systemInfo']);
 	});
