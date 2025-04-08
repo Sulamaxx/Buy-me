@@ -35,55 +35,57 @@
             <div class="col-xl-12" style="background-color: transparent">
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 g-2 g-md-3"
                     style="background-color: transparent">
-                    @foreach ($posts as $key => $post)
-                        <div class="col">
-                            <div class="card" style="border-radius: 0%;min-height: 275px">
-                                @if (data_get($post, 'picture.filename'))
-                                    <div style="position: relative; overflow: hidden; height: 150px;">
-                                        <a href="{{ \App\Helpers\UrlGen::post($post) }}">
-                                            @php
-                                                echo imgTag('app/default/picture.jpg', 'medium', [
-                                                    'class' => 'card-img-top',
-                                                    'alt' => data_get($post, 'title'),
-                                                ]);
-                                            @endphp
-                                        </a>
-                                    </div>
-                                @endif
-                                <div class="card-body"
-                                    style="display: flex; flex-direction: column; min-height: 180px;">
-                                    <h5 class="card-title" style="font-size: 1rem; margin-bottom: 5px;font-weight:bold">
-                                        <a href="{{ \App\Helpers\UrlGen::post($post) }}" style="color: #666666;">
-                                            {{ str(data_get($post, 'title'))->limit(50) }}
-                                        </a>
-                                    </h5>
-                                    <div>
+                    @if (count($posts) > 0)
+                        @foreach ($posts as $key => $post)
+                            <div class="col">
+                                <div class="card" style="border-radius: 0%;min-height: 275px">
+                                    @if (data_get($post, 'picture.filename'))
+                                        <div style="position: relative; overflow: hidden; height: 150px;">
+                                            <a href="{{ \App\Helpers\UrlGen::post($post) }}">
+                                                @php
+                                                    echo imgTag('app/default/picture.jpg', 'medium', [
+                                                        'class' => 'card-img-top',
+                                                        'alt' => data_get($post, 'title'),
+                                                    ]);
+                                                @endphp
+                                            </a>
+                                        </div>
+                                    @endif
+                                    <div class="card-body"
+                                        style="display: flex; flex-direction: column; min-height: 180px;">
+                                        <h5 class="card-title"
+                                            style="font-size: 1rem; margin-bottom: 5px;font-weight:bold">
+                                            <a href="{{ \App\Helpers\UrlGen::post($post) }}" style="color: #666666;">
+                                                {{ str(data_get($post, 'title'))->limit(50) }}
+                                            </a>
+                                        </h5>
+                                        <div>
+                                            <p class="card-text"
+                                                style="font-size: 0.8rem; color: #52AB4A; margin-bottom: 3px;">
+                                                <i class="fas fa-folder"></i> {{ data_get($post, 'category.name') }}
+                                                @if (data_get($post, 'city.name'))
+                                                    <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i>
+                                                    {{ data_get($post, 'city.name') }}
+                                                @endif
+                                            </p>
+                                            <p class="card-text"
+                                                style="font-size: 0.9rem; color: #52AB4A; margin-bottom: 5px;font-weight:bold">
+                                                {!! data_get($post, 'price_formatted') !!}
+                                            </p>
+                                        </div>
                                         <p class="card-text"
-                                            style="font-size: 0.8rem; color: #52AB4A; margin-bottom: 3px;">
-                                            <i class="fas fa-folder"></i> {{ data_get($post, 'category.name') }}
-                                            @if (data_get($post, 'city.name'))
-                                                <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i>
-                                                {{ data_get($post, 'city.name') }}
-                                            @endif
-                                        </p>
-                                        <p class="card-text"
-                                            style="font-size: 0.9rem; color: #52AB4A; margin-bottom: 5px;font-weight:bold">
-                                            {!! data_get($post, 'price_formatted') !!}
+                                            style="font-size: 0.7rem; color: #999; text-align: right; margin-top: auto; margin-bottom: 0;">
+                                            <i class="far fa-clock"></i>
+                                            {{ \Carbon\Carbon::parse(data_get($post, 'created_at'))->diffForHumans() }}
                                         </p>
                                     </div>
-                                    <p class="card-text"
-                                        style="font-size: 0.7rem; color: #999; text-align: right; margin-top: auto; margin-bottom: 0;">
-                                        <i class="far fa-clock"></i>
-                                        {{ \Carbon\Carbon::parse(data_get($post, 'created_at'))->diffForHumans() }}
-                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-
