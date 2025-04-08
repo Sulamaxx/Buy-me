@@ -60,6 +60,7 @@
 @php
 
     $recently_view = App\Models\Post::with('category', 'city', 'pictures')
+        ->whereNotNull('view_at') // Ensure view_at is not null
         ->orderBy('view_at', 'desc')
         ->limit(20)
         ->get();
