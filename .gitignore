@@ -3,3 +3,4 @@
 vendor.zip
 .env
 /storage/logs
+/storage
