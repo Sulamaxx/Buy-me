@@ -50,6 +50,7 @@
     </div>
 
     <!-- Shared Edit Modal -->
+    <!-- Shared Edit Modal -->
     <div class="modal fade" id="editCouponModal" tabindex="-1" aria-labelledby="editCouponModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -62,23 +63,31 @@
                         <input type="hidden" id="edit_id">
                         <div class="mb-3">
                             <label for="edit_name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="edit_name">
+                            <input type="text" class="form-control" id="edit_name" placeholder="Enter coupon name"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="edit_coupon_code" class="form-label">Coupon Code</label>
-                            <input type="text" class="form-control" id="edit_coupon_code">
+                            <input type="text" class="form-control" id="edit_coupon_code" placeholder="Enter coupon code"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="edit_coupon_value" class="form-label">Coupon Value</label>
-                            <input type="text" class="form-control" id="edit_coupon_value">
+                            <input type="text" class="form-control" id="edit_coupon_value"
+                                placeholder="Enter coupon value" required>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_valid_from" class="form-label">Valid From</label>
-                            <input type="datetime-local" class="form-control" id="edit_valid_from">
+                            <label for="edit_value_type" class="form-label">Value Type</label>
+                            <div class="input-group">
+                                <select id="edit_value_type" class="form-select">
+                                    <option value="percentage">Percentage</option>
+                                    <option value="fixed">Fixed</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_valid_until" class="form-label">Valid Until</label>
-                            <input type="datetime-local" class="form-control" id="edit_valid_until">
+                            <label for="edit_valid_period" class="form-label">Valid Until</label>
+                            <input class="form-control" type="date" id="edit_valid_period" required>
                         </div>
                         <div class="mb-3">
                             <label for="edit_is_active" class="form-label">Is Active</label>
@@ -89,7 +98,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="edit_status" class="form-label">Status</label>
-                            <input type="text" class="form-control" id="edit_status">
+                            <input type="text" class="form-control" id="edit_status" placeholder="Enter coupon status"
+                                required>
                         </div>
                     </form>
                 </div>
@@ -100,6 +110,7 @@
             </div>
         </div>
     </div>
+
 
 
     <div class="modal fade" id="addCouponModal" tabindex="-1" aria-labelledby="addCouponModalLabel" aria-hidden="true">
@@ -217,18 +228,17 @@
                 });
             });
 
-            // Load coupon data into modal
-            $('.edit-coupon-btn').on('click', function() {
+            $(document).on('click', '.edit-coupon-btn', function() {
                 const id = $(this).data('coupon-id');
                 let url = "{{ route('admin.coupons.show', ':id') }}".replace(':id', id);
                 $.get(url, function(res) {
+                    console.log(res);
                     $('#edit_id').val(res.id);
                     $('#edit_name').val(res.name);
-                    $('#edit_coupon_code').val(res.coupon_code);
-                    $('#edit_coupon_value').val(res.coupon_value.replace('%', ''));
-                    $('#edit_valid_from').val(res.valid_from ? res.valid_from.replace(' ', 'T') :
-                        '');
-                    $('#edit_valid_until').val(res.valid_until ? res.valid_until.replace(' ', 'T') :
+                    $('#edit_coupon_code').val(res.code);
+                    $('#edit_coupon_value').val(res.value);
+                    $('#edit_value_type').val(res.value_type);
+                    $('#edit_valid_period').val(res.created_at ? res.created_at.replace(' ', 'T') :
                         '');
                     $('#edit_is_active').val(res.is_active ? 1 : 0);
                     $('#edit_status').val(res.status);
@@ -258,16 +268,18 @@
                     data: data,
                     success: function(response) {
                         $('#editCouponModal').modal('hide');
-                        location.reload(); // Or update DOM dynamically
+                        showAlert('Coupon updated successfully!', 'success');
+                        loadCoupons();
                     },
                     error: function(err) {
+
                         alert('Failed to update coupon');
                     }
                 });
             });
 
             // Delete Coupon
-            $('.delete-coupon-btn').on('click', function() {
+            $(document).on('click', '.delete-coupon-btn', function() {
                 const id = $(this).data('coupon-id');
 
                 if (confirm('Are you sure you want to delete this coupon?')) {
@@ -280,6 +292,8 @@
                             _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function() {
+                            showAlert('Coupon deleted successfully!', 'success');
+                            // loadCoupons();
                             $(`#coupon-row-${id}`).remove();
                         },
                         error: function() {
@@ -289,13 +303,13 @@
                 }
             });
 
+
             function loadCoupons() {
                 $.ajax({
                     url: "{{ route('admin.coupons.json') }}",
                     method: 'GET',
                     success: function(response) {
                         let rows = '';
-
                         response.data.forEach(function(coupon) {
                             const validFrom = coupon.valid_period ? moment(coupon.valid_period)
                                 .format('YYYY-MM-DD HH:mm') : '-';
@@ -312,12 +326,12 @@
                         <td class="coupon-value">${coupon.value ?? '-'}</td>
                         <td>${validFrom}</td>
                         <td class="coupon-utilized">
-                            ${coupon.utilized ? '<span class="badge bg-success">yes</span>' : '<span class="badge bg-secondary">no</span>'}
+                            ${coupon.utilized=="yes" ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-secondary">No</span>'}
                         </td>
                         <td class="coupon-utilized-at">${utilizedAt}</td>
                         <td class="coupon-utilized-by">${coupon.user?.id ?? '-'}</td>
                         <td class="coupon-is-active">
-                            ${coupon.is_active ? '<span class="badge bg-success">active</span>' : '<span class="badge bg-danger">inactive</span>'}
+                            ${coupon.is_active ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>'}
                         </td>
                         <td class="coupon-status">${coupon.status ?? '-'}</td>
                         <td class="coupon-created-at">${createdAt}</td>
