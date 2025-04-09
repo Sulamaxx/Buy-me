@@ -42,8 +42,8 @@ trait MakePayment
 	public function sendPayment(Request $request, Post|User $payable)
 	{
 
-        Log::info('sendPayment');
-        Log::info('sendpayable - '.print_r($payable,true));
+        // Log::info('sendPayment');
+        // Log::info('sendpayable - '.print_r($payable,true));
 		// Get the payable full name with namespace
 		$payableType = get_class($payable);
 		
@@ -87,7 +87,7 @@ trait MakePayment
 					// try {
 						
 						// Send the Payment
-						Log::info('plugin --'.$plugin->class);
+						// Log::info('plugin --'.$plugin->class);
 						if($isPromoting){
 							
 							return call_user_func($plugin->class . '::sendPaymentPost', $request, $payable, $resData);

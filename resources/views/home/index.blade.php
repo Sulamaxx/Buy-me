@@ -97,7 +97,7 @@
 		@if (!empty($sections))
 
 		    @php
-             Log::info('sections - '.print_r($sections,true));
+            //  Log::info('sections - '.print_r($sections,true));
             @endphp
 			@foreach($sections as $section)
 			    
