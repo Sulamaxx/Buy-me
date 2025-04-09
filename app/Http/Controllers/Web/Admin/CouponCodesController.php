@@ -14,34 +14,41 @@ class CouponCodesController extends PanelController
 {
 
     public function __construct()
-	{
-		$this->middleware('admin');
-		
-		parent::__construct();
-		
-	}
+    {
+        $this->middleware('admin');
+
+        parent::__construct();
+
+    }
 
     //
     public function index()
     {
-        Log::info('controller');
-        return view('admin.coupon_codes.index'); 
+        return view('admin.coupon_codes.index');
     }
 
     public function redirect()
-	{
-		// The '/admin' route is not to be used as a page, because it breaks the menu's active state.
-		return redirect(admin_uri('coupon_codes'));
-	}
+    {
+        // The '/admin' route is not to be used as a page, because it breaks the menu's active state.
+        return redirect(admin_uri('coupon_codes'));
+    }
 
     // Show single coupon details
     public function showCoupon($id)
     {
         $coupon = Coupon::findOrFail($id);
-        return view('coupons.show', compact('coupon'));
+        return response()->json($coupon);
     }
 
- 
+    public function getAllCoupons()
+    {
+        $coupons = Coupon::with('user')->latest()->get();
+
+        return response()->json([
+            'data' => $coupons
+        ]);
+    }
+
     // Store new coupon
     public function store(Request $request)
     {
@@ -59,20 +66,22 @@ class CouponCodesController extends PanelController
         $coupon->value = $request->value;
         $coupon->value_type = $request->value_type;
         $coupon->valid_period = $request->valid_period;
-
-        // Optional values - set default
-        $coupon->status = 'active'; // or your desired default
-        $coupon->utilized = 'no';   // default usage status
+        $coupon->status = 'active';
+        $coupon->utilized = 'no';
         $coupon->utilized_date = null;
         $coupon->is_active = true;
         $coupon->user_id = null;
 
         $coupon->save();
 
-        return redirect()->route('coupons.index')->with('success', 'Coupon created successfully.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Coupon created successfully.',
+            'data' => $coupon
+        ]);
+
     }
 
-  
     // Update coupon
     public function update(Request $request, $id)
     {
@@ -133,7 +142,6 @@ class CouponCodesController extends PanelController
         return redirect()->route('coupons.index')->with('success', 'Coupon deleted successfully.');
     }
 
-
     public function getCouponByCode(Request $request)
     {
         // Validate the coupon code input
@@ -168,10 +176,10 @@ class CouponCodesController extends PanelController
     {
         $couponCode = $request->input('coupon_code');
         $coupon = Coupon::where('code', $couponCode)
-                        ->where('is_active', true)
-                        ->where('utilized', 'no')
-                        ->first();
-                        //->where('valid_period', '>=', now())
+            ->where('is_active', true)
+            ->where('utilized', 'no')
+            ->first();
+        //->where('valid_period', '>=', now())
 
         if ($coupon) {
             $discount = $coupon->value_type === 'percentage' ? $coupon->value / 100 : $coupon->value;
@@ -188,6 +196,5 @@ class CouponCodesController extends PanelController
             'message' => 'Invalid or expired coupon code.'
         ]);
     }
-
 
 }
