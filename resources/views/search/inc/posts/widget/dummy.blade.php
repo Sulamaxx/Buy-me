@@ -39,25 +39,25 @@
                         @foreach ($posts as $key => $post)
                             <div class="col">
                                 <div class="card" style="border-radius: 0%;min-height: 275px">
-                                    @if (data_get($post, 'picture.filename'))
-                                        <div style="position: relative; overflow: hidden; height: 150px;">
+                                    <div style="position: relative; overflow: hidden; height: 150px;">
+                                        @if (count($post->pictures) > 0)
                                             <a href="{{ \App\Helpers\UrlGen::post($post) }}">
-                                                {{-- @php
-                                                    echo imgTag('app/default/picture.jpg', 'medium', [
-                                                        'class' => 'card-img-top',
-                                                        'alt' => data_get($post, 'title'),
-                                                    ]);
-                                                @endphp --}}
                                                 @php
-                                                    Log::info('picture - ' . data_get($post, 'picture.filename'));
-                                                    echo imgTag(data_get($post, 'picture.filename'), 'medium', [
+                                                    echo imgTag($post->pictures[0]->filename, 'medium', [
                                                         'class' => 'card-img-top',
                                                         'alt' => data_get($post, 'title'),
                                                     ]);
                                                 @endphp
                                             </a>
-                                        </div>
-                                    @endif
+                                        @else
+                                            @php
+                                                echo imgTag('app/default/picture.jpg', 'medium', [
+                                                    'class' => 'card-img-top',
+                                                    'alt' => data_get($post, 'title'),
+                                                ]);
+                                            @endphp
+                                        @endif
+                                    </div>
                                     <div class="card-body"
                                         style="display: flex; flex-direction: column; min-height: 180px;">
                                         <h5 class="card-title"
