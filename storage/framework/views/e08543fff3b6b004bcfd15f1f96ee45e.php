@@ -298,16 +298,20 @@
 
         // Send AJAX request
         $.ajax({
-            url: '<?php echo e(url('/validate-coupon')); ?>',
+            url: "<?php echo e(route('coupons.getByCode')); ?>",
             method: 'POST',
             data: {
-                coupon_code: couponCode,
+                code: couponCode,
                 _token: '<?php echo e(csrf_token()); ?>' // CSRF token for Laravel
             },
             success: function(response) {
                 if (response.success) {
+
                     var discount = response.discount;
                     var valueType = response.value_type;
+                    
+                    console.log(discount+' '+valueType);
+                    
                     var discountAmount = valueType === 'percentage' ? currentPrice * discount : discount;
                     var discountedPrice = currentPrice - discountAmount;
 

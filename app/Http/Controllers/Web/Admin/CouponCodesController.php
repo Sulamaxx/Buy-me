@@ -141,16 +141,27 @@ class CouponCodesController extends PanelController
             'code' => 'required|string|exists:coupons,code', // Ensure the code exists in the database
         ]);
 
-        // Retrieve the coupon by code
-        $coupon = Coupon::where('code', $request->code)->first();
+        $couponCode = $request->input('code');
+        $coupon = Coupon::where('code', $couponCode)
+                        ->where('is_active', true)
+                        ->where('utilized', 'no')
+                        ->first();
+                        //->where('valid_period', '>=', now())
 
-        // If the coupon doesn't exist, return a 404 response
-        if (!$coupon) {
-            return response()->json(['message' => 'Coupon not found.'], 404);
+        if ($coupon) {
+            $discount = $coupon->value_type === 'percentage' ? $coupon->value / 100 : $coupon->value;
+            //$discount = $coupon->value;
+            return response()->json([
+                'success' => true,
+                'discount' => $discount,
+                'value_type' => $coupon->value_type
+            ]);
         }
 
-        // Return the coupon details as a JSON response
-        return response()->json($coupon, 200);
+        return response()->json([
+            'success' => false,
+            'message' => 'Invalid or expired coupon code.'
+        ]);
     }
 
     public function validateCoupon(Request $request)

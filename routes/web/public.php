@@ -14,7 +14,7 @@
  * Please read the full License from here - https://codecanyon.net/licenses/standard
  */
 
-use App\Http\Controllers\Web\Admin\CouponCodesController;
+
 use App\Http\Controllers\Web\Public\Account\CloseController;
 use App\Http\Controllers\Web\Public\Account\EditController as AccountEditController;
 use App\Http\Controllers\Web\Public\Account\MessagesController;
@@ -33,6 +33,7 @@ use App\Http\Controllers\Web\Public\Auth\RegisterController;
 use App\Http\Controllers\Web\Public\Auth\ResetPasswordController;
 use App\Http\Controllers\Web\Public\Auth\SocialController;
 use App\Http\Controllers\Web\Public\CountriesController;
+use App\Http\Controllers\Web\Public\CouponCodesController;
 use App\Http\Controllers\Web\Public\FileController;
 use App\Http\Controllers\Web\Public\HomeController;
 use App\Http\Controllers\Web\Public\Locale\LocaleController;
@@ -56,6 +57,9 @@ use App\Http\Controllers\Web\Public\SitemapController;
 use App\Http\Controllers\Web\Public\SitemapsController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Web\Public\StorageController;
+
+
+Route::post('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
 
 // Select Language
 Route::namespace('Locale')
@@ -170,7 +174,8 @@ Route::namespace('Auth')
 		Route::get(dynamicRoute('routes.logout'), [LoginController::class, 'logout']);
 	});
 
-Route::post('/validate-coupon', [CouponCodesController::class, 'validateCoupon'])->name('validate.coupon');
+//Route::post('/validate-coupon', [CouponCodesController::class, 'validateCoupon'])->name('validate.coupon');
+
 
 // POSTS
 Route::namespace('Post')
@@ -293,7 +298,7 @@ Route::namespace('Post')
 							});
 					});
 			});
-		
+	    //Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode']);
 		// Post's Details
 		Route::get(dynamicRoute('routes.post'), [ShowController::class, 'index']);
         Route::get('wantedads/{ite}', [ShowController::class, 'wantednb']);
