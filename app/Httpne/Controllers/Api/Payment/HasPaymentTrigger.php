@@ -36,7 +36,7 @@ trait HasPaymentTrigger
 	protected function isPaymentRequested(Request $request, Post|User|null $payable): array
 	{
 
-		Log::info('reqPayable - '.print_r($payable,true));
+		//Log::info('reqPayable - '.print_r($payable,true));
 
 		$result = [
 			'success' => false,

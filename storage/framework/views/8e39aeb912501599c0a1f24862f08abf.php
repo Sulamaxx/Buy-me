@@ -37,10 +37,25 @@
                     style="background-color: transparent">
                     <?php if(count($posts) > 0): ?>
                         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php
+                                \Log::info(
+                                    '.................................................................................................',
+                                );
+                                \Log::info($post);
+                            ?>
                             <div class="col">
                                 <div class="card" style="border-radius: 0%;min-height: 275px">
-                                    <?php if(data_get($post, 'picture.filename')): ?>
-                                        <div style="position: relative; overflow: hidden; height: 150px;">
+                                    <div style="position: relative; overflow: hidden; height: 250px;">
+                                        <?php if(count($post->pictures) > 0): ?>
+                                            <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
+                                                <?php
+                                                    echo imgTag($post->pictures[0]->filename, 'medium', [
+                                                        'class' => 'card-img-top',
+                                                        'alt' => data_get($post, 'title'),
+                                                    ]);
+                                                ?>
+                                            </a>
+                                        <?php else: ?>
                                             <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
                                                 <?php
                                                     echo imgTag('app/default/picture.jpg', 'medium', [
@@ -49,8 +64,8 @@
                                                     ]);
                                                 ?>
                                             </a>
-                                        </div>
-                                    <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
                                     <div class="card-body"
                                         style="display: flex; flex-direction: column; min-height: 180px;">
                                         <h5 class="card-title"

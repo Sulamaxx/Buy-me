@@ -284,11 +284,6 @@
         }
 
         $(document).ready(function() {
-            var couponCodes = {
-                'SUMMER20': 0.20,
-                'WELCOME10': 0.10,
-                'FREEPACKAGE': 1.00
-            };
 
             $('#apply_coupon').on('click', function() {
         var couponCode = $('#coupon_code').val().toUpperCase();
