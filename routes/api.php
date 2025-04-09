@@ -46,6 +46,7 @@ use App\Http\Controllers\Api\ThreadController;
 use App\Http\Controllers\Api\ThreadMessageController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UserTypeController;
+use App\Http\Controllers\Web\Admin\CouponCodesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -121,6 +122,7 @@ Route::prefix('postTypes')
 		Route::get('/', 'index')->name('postTypes.index');
 		Route::get('{id}', 'show')->name('postTypes.show');
 	});
+//Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
 
 // reportTypes
 Route::prefix('reportTypes')
