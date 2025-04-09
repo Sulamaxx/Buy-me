@@ -14,6 +14,7 @@
  * Please read the full License from here - https://codecanyon.net/licenses/standard
  */
 
+use App\Http\Controllers\Web\Admin\CouponCodesController;
 use App\Http\Controllers\Web\Public\Account\CloseController;
 use App\Http\Controllers\Web\Public\Account\EditController as AccountEditController;
 use App\Http\Controllers\Web\Public\Account\MessagesController;
@@ -169,6 +170,7 @@ Route::namespace('Auth')
 		Route::get(dynamicRoute('routes.logout'), [LoginController::class, 'logout']);
 	});
 
+Route::post('/validate-coupon', [CouponCodesController::class, 'validateCoupon'])->name('validate.coupon');
 
 // POSTS
 Route::namespace('Post')
