@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\Admin\Panel\PanelController;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
@@ -32,21 +34,8 @@ class CouponCodesController extends PanelController
 		return redirect(admin_uri('coupon_codes'));
 	}
 
-
-
-    <?php
-
-namespace App\Http\Controllers\Web;
-
-use App\Http\Controllers\Controller;
-use App\Models\Coupon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-class CouponsCodeController extends Controller
-{
     // Show single coupon details
-    public function show($id)
+    public function showCoupon($id)
     {
         $coupon = Coupon::findOrFail($id);
         return view('coupons.show', compact('coupon'));
@@ -134,7 +123,7 @@ class CouponsCodeController extends Controller
         return redirect()->route('coupons.index')->with('success', 'Coupon utilization status updated successfully.');
     }
 
-    public function destroy($id)
+    public function destroyCoupon($id)
     {
         $coupon = Coupon::findOrFail($id); // Find the coupon by ID
 
@@ -164,16 +153,30 @@ class CouponsCodeController extends Controller
         return response()->json($coupon, 200);
     }
 
+    public function validateCoupon(Request $request)
+    {
+        $couponCode = $request->input('coupon_code');
+        $coupon = Coupon::where('code', $couponCode)
+                        ->where('is_active', true)
+                        ->where('utilized', 'no')
+                        ->first();
+                        //->where('valid_period', '>=', now())
 
-}
+        if ($coupon) {
+            $discount = $coupon->value_type === 'percentage' ? $coupon->value / 100 : $coupon->value;
+            //$discount = $coupon->value;
+            return response()->json([
+                'success' => true,
+                'discount' => $discount,
+                'value_type' => $coupon->value_type
+            ]);
+        }
 
-
-
-
-
-
-
-
+        return response()->json([
+            'success' => false,
+            'message' => 'Invalid or expired coupon code.'
+        ]);
+    }
 
 
 }

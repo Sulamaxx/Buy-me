@@ -282,39 +282,49 @@
             };
 
             $('#apply_coupon').on('click', function() {
-                var couponCode = $('#coupon_code').val().toUpperCase();
-                var payableAmountElement = $('.payable-amount');
-                var currentPrice = parseFloat(payableAmountElement.text());
+        var couponCode = $('#coupon_code').val().toUpperCase();
+        var payableAmountElement = $('.payable-amount');
+        var currentPrice = parseFloat(payableAmountElement.text());
 
-                $('#coupon_message').text('');
-                $('#coupon_error').text('');
+        // Clear previous messages
+        $('#coupon_message').text('');
+        $('#coupon_error').text('');
 
-                if (isNaN(currentPrice)) {
-                    $('#coupon_error').text('Error: Could not read the current price.');
-                    return;
-                }
+        // Validate current price
+        if (isNaN(currentPrice)) {
+            $('#coupon_error').text('Error: Could not read the current price.');
+            return;
+        }
 
-                var discountPercentage = couponCodes[couponCode];
-                var discountAmount = 0;
-                var discountedPrice = currentPrice;
+        // Send AJAX request
+        $.ajax({
+            url: '<?php echo e(url('/validate-coupon')); ?>',
+            method: 'POST',
+            data: {
+                coupon_code: couponCode,
+                _token: '<?php echo e(csrf_token()); ?>' // CSRF token for Laravel
+            },
+            success: function(response) {
+                if (response.success) {
+                    var discount = response.discount;
+                    var valueType = response.value_type;
+                    var discountAmount = valueType === 'percentage' ? currentPrice * discount : discount;
+                    var discountedPrice = currentPrice - discountAmount;
 
-                if (couponCode in couponCodes) {
-                    if (discountPercentage > 0) {
-                        discountAmount = currentPrice * discountPercentage;
-                        discountedPrice = currentPrice - discountAmount;
-                        $('#coupon_message').text('Coupon code applied! You saved ' + (discountPercentage * 100) + '%');
-                    } else if (discountPercentage === 1.00) {
-                        discountedPrice = 0;
-                        $('#coupon_message').text('Coupon code applied! This package is now free.');
-                    }
-
+                    // Update UI
                     payableAmountElement.text(discountedPrice.toFixed(2));
-                } else if (couponCode) {
-                    $('#coupon_error').text('Invalid coupon code.');
+                    $('#discounted_amount').val(discountedPrice.toFixed(2));
+                    $('#coupon_message').text('Coupon applied! You saved ' + 
+                        (valueType === 'percentage' ? (discount * 100) + '%' : '$' + discountAmount.toFixed(2)));
                 } else {
-                    $('#coupon_error').text('Please enter a coupon code.');
+                    $('#coupon_error').text(response.message);
                 }
-            });
+            },
+            error: function() {
+                $('#coupon_error').text('An error occurred while validating the coupon.');
+            }
+        });
+    });
         });
     </script>
 <?php $__env->stopSection(); ?>

@@ -35,7 +35,7 @@
                                     <div style="position: relative; overflow: hidden; height: 150px;">
                                         <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
                                             <?php
-                                
+                                            Log::info('picture - '.data_get($post, 'picture.filename'));
                                                 echo imgTag(data_get($post, 'picture.filename'), 'medium', [
                                                     'class' => 'card-img-top',
                                                     'alt' => data_get($post, 'title')
