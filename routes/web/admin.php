@@ -146,28 +146,31 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 
 		Route::get('coupon_codes', 'App\Http\Controllers\Web\Admin\CouponCodesController@index')->name('admin.coupon_codes.index');
 		// Show single coupon details
-		Route::get('/coupons/{id}', [CouponCodesController::class, 'showCoupon'])->name('coupons.show');
+		Route::get('/coupons/{id}', [CouponCodesController::class, 'showCoupon'])->name('admin.coupons.show');
+
+		Route::get('/coupons-json', [CouponCodesController::class, 'getAllCoupons'])->name('admin.coupons.json');
+
 
 		// Store new coupon
-		Route::post('/coupons', [CouponCodesController::class, 'store'])->name('coupons.store');
+		Route::post('/coupons', [CouponCodesController::class, 'store'])->name('admin.coupons.store');
 
 		// Update coupon
-		Route::put('/coupons/{id}', [CouponCodesController::class, 'update'])->name('coupons.update');
+		Route::put('/coupons/{id}', [CouponCodesController::class, 'update'])->name('admin.coupons.update');
 
 		// Change coupon status
-		Route::patch('/coupons/{id}/status', [CouponCodesController::class, 'changeStatus'])->name('coupons.changeStatus');
+		Route::patch('/coupons/{id}/status', [CouponCodesController::class, 'changeStatus'])->name('admin.coupons.changeStatus');
 
 		// Toggle coupon active status
-		Route::patch('/coupons/{id}/toggle-active', [CouponCodesController::class, 'toggleActive'])->name('coupons.toggleActive');
+		Route::patch('/coupons/{id}/toggle-active', [CouponCodesController::class, 'toggleActive'])->name('admin.coupons.toggleActive');
 
 		// Update coupon utilized status
-		Route::patch('/coupons/{id}/utilized-status', [CouponCodesController::class, 'updateUtilizedStatus'])->name('coupons.updateUtilizedStatus');
+		Route::patch('/coupons/{id}/utilized-status', [CouponCodesController::class, 'updateUtilizedStatus'])->name('admin.coupons.updateUtilizedStatus');
 
 		// Delete coupon
-		Route::delete('/coupons/{id}', [CouponCodesController::class, 'destroyCoupon'])->name('coupons.destroy');
+		Route::delete('/coupons/{id}', [CouponCodesController::class, 'destroyCoupon'])->name('admin.coupons.destroy');
 
 		// Get coupon by code (API route)
-		Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
+		Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('admin.coupons.getByCode');
 		// Others
 		Route::get('account', [UserController::class, 'account']);
 		Route::post('ajax/{table}/{field}', [InlineRequestController::class, 'make'])
