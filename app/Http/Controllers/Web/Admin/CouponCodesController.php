@@ -57,7 +57,7 @@ class CouponCodesController extends PanelController
             'value' => 'required|numeric',
             'value_type' => 'required',
             'name' => 'required',
-            'valid_period' => 'required|date',
+            'valid_period' => 'required|date|after:today',
         ]);
 
         $coupon = new Coupon();
@@ -86,6 +86,13 @@ class CouponCodesController extends PanelController
     public function update(Request $request, $id)
     {
         $coupon = Coupon::findOrFail($id);
+        $request->validate([
+            'code' => 'required|unique:coupons,code',
+            'value' => 'required|numeric',
+            'value_type' => 'required',
+            'name' => 'required',
+            'valid_period' => 'required|date|after:today',
+        ]);
         $coupon->update($request->all());
 
         return response()->json([
@@ -137,7 +144,7 @@ class CouponCodesController extends PanelController
         $coupon->utilized = $request->utilized;
         $coupon->user_id = Auth::user()->id;
         $coupon->utilized_date = now(); // Set date only if 'utilized' is 'yes'
-        $coupon->is_active = 0; 
+        $coupon->is_active = 0;
 
         // Save the updated coupon
         $coupon->save();

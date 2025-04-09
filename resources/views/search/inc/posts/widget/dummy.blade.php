@@ -42,8 +42,15 @@
                                     @if (data_get($post, 'picture.filename'))
                                         <div style="position: relative; overflow: hidden; height: 150px;">
                                             <a href="{{ \App\Helpers\UrlGen::post($post) }}">
-                                                @php
+                                                {{-- @php
                                                     echo imgTag('app/default/picture.jpg', 'medium', [
+                                                        'class' => 'card-img-top',
+                                                        'alt' => data_get($post, 'title'),
+                                                    ]);
+                                                @endphp --}}
+                                                @php
+                                                    Log::info('picture - ' . data_get($post, 'picture.filename'));
+                                                    echo imgTag(data_get($post, 'picture.filename'), 'medium', [
                                                         'class' => 'card-img-top',
                                                         'alt' => data_get($post, 'title'),
                                                     ]);

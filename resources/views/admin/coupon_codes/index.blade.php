@@ -238,8 +238,7 @@
                     $('#edit_coupon_code').val(res.code);
                     $('#edit_coupon_value').val(res.value);
                     $('#edit_value_type').val(res.value_type);
-                    $('#edit_valid_period').val(res.created_at ? res.created_at.replace(' ', 'T') :
-                        '');
+                    $('#edit_valid_period').val(res.created_at ? res.created_at.split('T')[0] : '');
                     $('#edit_is_active').val(res.is_active ? 1 : 0);
                     $('#edit_status').val(res.status);
 
@@ -252,10 +251,10 @@
                 const id = $('#edit_id').val();
                 const data = {
                     name: $('#edit_name').val(),
-                    coupon_code: $('#edit_coupon_code').val(),
-                    coupon_value: $('#edit_coupon_value').val(),
-                    valid_from: $('#edit_valid_from').val(),
-                    valid_until: $('#edit_valid_until').val(),
+                    code: $('#edit_coupon_code').val(),
+                    value: $('#edit_coupon_value').val(),
+                    value_type: $('#edit_value_type').val(),
+                    valid_period: $('#edit_valid_period').val(),
                     is_active: $('#edit_is_active').val(),
                     status: $('#edit_status').val(),
                     _method: 'PUT',
