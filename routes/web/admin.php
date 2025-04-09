@@ -78,7 +78,7 @@ Route::
 		});
 	});
 
-	//Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
+//Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
 
 // Admin Panel Area
 Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
@@ -171,12 +171,6 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		// Delete coupon
 		Route::delete('/coupons/{id}', [CouponCodesController::class, 'destroyCoupon'])->name('admin.coupons.destroy');
 
-		// Get coupon by code (API route)
-<<<<<<< HEAD
-		//Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('coupons.getByCode');
-=======
-		Route::get('/coupons/by-code', [CouponCodesController::class, 'getCouponByCode'])->name('admin.coupons.getByCode');
->>>>>>> 643ce840a466ca620ee349d22667324d198c9313
 		// Others
 		Route::get('account', [UserController::class, 'account']);
 		Route::post('ajax/{table}/{field}', [InlineRequestController::class, 'make'])
