@@ -23,15 +23,27 @@ if (!empty(data_get($sectionOptions, 'body_' . config('app.locale')))) {
 $hideOnMobile = data_get($sectionOptions, 'hide_on_mobile') == '1' ? ' hidden-sm' : '';
 
 if (Auth::user()) {
-    $recommend = App\Models\Post::with('category', 'city', 'pictures')
-    ->where('view_by',Auth::user()->id)
+    $recommend = App\Models\Post::with('pictures')
+        ->where('view_by', Auth::user()->id)
         ->whereNotNull('view_at') // Ensure view_at is not null
         ->orderBy('view_at', 'desc')
-        ->limit(20)
-        ->get();
+        ->get()
+        ->groupBy('category_id')
+        ->take(3) // Group posts by category_id
+        ->map(function ($posts) {
+            // For each group, take only 4 posts and order them by view_at
+            $category = $posts->first()->category; // Get the category details (name and description)
+
+            return [
+                'category' => $category, // Include category name and description
+                'posts' => $posts->take(4), // Limit to the first 4 posts, ordered by view_at
+            ];
+        });
 } else {
     $recommend = [];
 }
+
+// Log::info($recommend);
 
 // $recommend = [
 //     [
@@ -53,7 +65,6 @@ if (Auth::user()) {
 //         'description' => 'A selection of ads we think you\'ll love.',
 //     ],
 // ];
-
 
 $firstWidget = [];
 $firstWidgetType = 'dummy3';

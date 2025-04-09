@@ -37,12 +37,7 @@
                     style="background-color: transparent">
                     @if (count($posts) > 0)
                         @foreach ($posts as $key => $post)
-                            @php
-                                \Log::info(
-                                    '.................................................................................................',
-                                );
-                                \Log::info($post);
-                            @endphp
+
                             <div class="col">
                                 <div class="card" style="border-radius: 0%;min-height: 275px">
                                     <div style="position: relative; overflow: hidden; height: 250px;">

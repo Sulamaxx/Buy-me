@@ -139,7 +139,7 @@ class BackupController extends Controller
 			$output = Artisan::output();
 			
 			// Log the results
-			Log::info("Backup -- new backup started from admin interface \r\n" . $output);
+			// Log::info("Backup -- new backup started from admin interface \r\n" . $output);
 			
 			// Get the right error message related to the mysqldump
 			$outputLines = preg_split("|\n|ui", $output);
