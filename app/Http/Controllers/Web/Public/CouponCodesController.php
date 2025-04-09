@@ -19,9 +19,9 @@ class CouponCodesController extends FrontController
         $couponCode = $request->input('code');
         $coupon = Coupon::where('code', $couponCode)
                         ->where('is_active', true)
+                        ->where('valid_period', '>=', now())
                         ->where('utilized', 'no')
                         ->first();
-                        //->where('valid_period', '>=', now())
 
         if ($coupon) {
             $discount = $coupon->value_type === 'percentage' ? $coupon->value / 100 : $coupon->value;
