@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\Admin\Panel\PanelController;
 use App\Models\Coupon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -44,6 +45,16 @@ class CouponCodesController extends PanelController
     {
         $coupons = Coupon::with('user')->latest()->get();
 
+        foreach ($coupons as $data) {
+            // Parse the valid_period and compare to today's date
+            if (Carbon::parse($data->valid_period)->lt(Carbon::today())) {
+                $data['status'] = 'Expired';
+                $data['is_active '] = 0;
+                $data->save();
+            }
+        }
+
+        $coupons = Coupon::with('user')->latest()->get();
         return response()->json([
             'data' => $coupons
         ]);
