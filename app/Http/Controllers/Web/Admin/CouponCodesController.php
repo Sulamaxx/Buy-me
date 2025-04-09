@@ -135,8 +135,9 @@ class CouponCodesController extends PanelController
 
         // Update the utilized status and utilized date
         $coupon->utilized = $request->utilized;
-        $coupon->utilized = Auth::user()->id;
+        $coupon->user_id = Auth::user()->id;
         $coupon->utilized_date = now(); // Set date only if 'utilized' is 'yes'
+        $coupon->is_active = 0; 
 
         // Save the updated coupon
         $coupon->save();
