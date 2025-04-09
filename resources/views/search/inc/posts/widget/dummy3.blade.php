@@ -47,9 +47,7 @@
                                                             ]);
                                                         @endphp --}}
                                                         @php
-                                                            Log::info(
-                                                                'picture - ' . data_get($post, 'picture.filename'),
-                                                            );
+                                                
                                                             echo imgTag(data_get($post, 'picture.filename'), 'medium', [
                                                                 'class' => 'card-img-top',
                                                                 'alt' => data_get($post, 'title'),
