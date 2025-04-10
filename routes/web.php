@@ -14,6 +14,7 @@
  * Please read the full License from here - https://codecanyon.net/licenses/standard
  */
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,14 +29,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 // install
-Route::namespace('Install')->group(__DIR__ . '/web/install.php');
+Route::
+		namespace('Install')->group(__DIR__ . '/web/install.php');
+
+Route::get('/migrate', function () {
+	// Run migrations
+	Artisan::call('migrate', [
+		'--force' => true // force mode avoids confirmation prompts
+	]);
+
+	return "Migration completed.";
+});
 
 Route::middleware(['installed'])
 	->group(function () {
 		// admin
 		$prefix = config('larapen.admin.route', 'admin');
 		Route::namespace('Admin')->prefix($prefix)->group(__DIR__ . '/web/admin.php');
-		
+
 		// public
 		Route::namespace('Public')->group(__DIR__ . '/web/public.php');
 	});
