@@ -40,7 +40,7 @@
 
                             <div class="col">
                                 <div class="card" style="border-radius: 0%;min-height: 275px">
-                                    <div style="position: relative; overflow: hidden; height: 250px;">
+                                    <div style="position: relative; overflow: hidden;height: 150px;">
                                         @if (count($post->pictures) > 0)
                                             <a href="{{ \App\Helpers\UrlGen::post($post) }}">
                                                 @php
