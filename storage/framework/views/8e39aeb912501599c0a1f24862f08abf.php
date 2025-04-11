@@ -37,12 +37,7 @@
                     style="background-color: transparent">
                     <?php if(count($posts) > 0): ?>
                         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php
-                                \Log::info(
-                                    '.................................................................................................',
-                                );
-                                \Log::info($post);
-                            ?>
+
                             <div class="col">
                                 <div class="card" style="border-radius: 0%;min-height: 275px">
                                     <div style="position: relative; overflow: hidden; height: 250px;">
