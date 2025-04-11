@@ -304,15 +304,45 @@
 <div class="container search-container d-md-none" style="width: 100vw;padding:0%;margin:0%">
     <form id="search" name="search" action="{{ \App\Helpers\UrlGen::searchWithoutQuery() }}" method="GET">
         <div class="row search-row animated fadeInUp border-null">
-            <div class="col-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
+            <div class="col-5 col-xl-8 col-lg-8 col-md-8 col-sm-8 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
                 <div class="search-col-inner">
                     <div class="search-col-input" style="margin-left: 0px; width: 100%;">
                         <input class="form-control font-size-d" name="q" placeholder="{{ t('what') }}"
-                            type="text" value="" style="border-radius:0% !important;">
+                            type="text" value="" style="border-radius:0% !important;padding-right:0% !important;font-size:13px">
                     </div>
                 </div>
             </div>
             <input type="hidden" id="lSearch2" name="l" value="">
+
+            <div class="col-3 col-md-5 col-sm-12 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0  d-md-none">
+				<div class="search-col-inner">
+					<div class="search-col-input" style="margin-left: 0px; width: 100%;">
+						@if ($displayStatesSearchTip)
+							<input class="form-control font-size-d"
+									id="locSearch"
+									name="location"
+                                    style="border-radius:0% !important;font-size:13px"
+									placeholder="{{ t('where') }}"
+									type="text"
+									value=""
+									data-bs-placement="top"
+									data-bs-toggle="tooltipHover"
+									title="{{ t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name') }}"
+							>
+						@else
+							<input class="form-control font-size-d"
+									id="locSearch"
+									name="location"
+                                    style="border-radius:0% !important;font-size:13px"
+									placeholder="{{ t('where') }}"
+									type="text"
+									value=""
+							>
+						@endif
+					</div>
+				</div>
+			</div>
+
             <div class="col-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 search-col"">
                 <div class="search-btn-border">
 
@@ -357,11 +387,11 @@
                     @endforeach
                 </div>
             </div>
-            <div class="filter-section">
+            {{-- <div class="filter-section">
                 <h5>Location</h5>
                 <input type="text" id="locationFilter2" name="location" class="form-control mb-2"
                     placeholder="Filter locations...">
-            </div>
+            </div> --}}
         </div>
     </form>
 </div>
