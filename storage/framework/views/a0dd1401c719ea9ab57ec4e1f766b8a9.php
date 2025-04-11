@@ -1,6 +1,6 @@
 <?php
     $firstWidget ??= [];
-    $firstPosts = (array) data_get($firstWidget, 'posts');
+    $firstPosts = data_get($firstWidget, 'posts');
     $firstTotalPosts = (int) data_get($firstWidget, 'totalPosts', 0);
 
     $sectionOptions ??= [];
@@ -24,46 +24,64 @@
                     </h2>
                 </div>
             </div>
+            
 
-            <div class="col-xl-12" style="background-color: transparent">
+            <div class="col-xl-12" style="background-color: transparent; padding: 0 1rem;">
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 g-2 g-md-3"
-                    style="background-color: transparent">
+                    style="background-color: transparent;">
                     <?php if(count($firstPosts) > 0): ?>
-                        <?php $__currentLoopData = $firstPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $firstPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category_id => $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col">
-                                <div class="card" style="border-radius: 0%;min-height: auto;">
+                                <div class="card"
+                                    style="border-radius: 10px; min-height: auto; padding: 1rem; display: flex; flex-direction: column;">
                                     <div class="four-image-container"
-                                        style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); border-radius: 0%;">
-                                        <?php for($i = 0; $i < 4; $i++): ?>
-                                            <?php if(data_get($post, 'picture.filename')): ?>
-                                                <div class="image-quadrant"
-                                                    style="position: relative; overflow: hidden;">
+                                        style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 1rem; border-radius: 10px; overflow: hidden;">
+                                        <?php $__currentLoopData = $group['posts']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <div class="image-quadrant" style="position: relative; overflow: hidden;">
+                                                <?php if(count($post->pictures) > 0): ?>
                                                     <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
-                                                        
                                                         <?php
-                                                
-                                                            echo imgTag(data_get($post, 'picture.filename'), 'medium', [
+                                                            echo imgTag($post->pictures[0]->filename, 'medium', [
                                                                 'class' => 'card-img-top',
                                                                 'alt' => data_get($post, 'title'),
                                                             ]);
                                                         ?>
+                                                        <h6 class="card-title"
+                                                            style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
+                                                            <?php echo e(str($post->title)->limit(50)); ?>
+
+                                                        </h6>
                                                     </a>
-                                                </div>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
+                                                <?php else: ?>
+                                                    <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
+                                                        <?php
+                                                            echo imgTag('app/default/picture.jpg', 'small', [
+                                                                'class' => 'card-img-top',
+                                                                'alt' => data_get($post, 'title'),
+                                                            ]);
+                                                        ?>
+                                                        <h6 class="card-title"
+                                                            style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
+                                                            <?php echo e(str($post->title)->limit(50)); ?>
+
+                                                        </h6>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </div>
-                                    <div class="card-body" style="padding: 1rem;">
+                                    <div class="card-body" style="padding: 1rem; flex-grow: 1;">
                                         <h5 class="card-title"
-                                            style="font-size: 1.5rem; margin-bottom: 0.05rem;font-weight:bold; text-align: left;">
-                                            <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>" style="color: #000000;">
-                                                <?php echo e(str(data_get($post, 'title'))->limit(50)); ?>
+                                            style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-align: left; color: #333;">
+                                            <a href="" style="color: #000000;">
+                                                <?php echo e(str($group['category']->name)->limit(50)); ?>
 
                                             </a>
                                         </h5>
-                                        <?php if(data_get($post, 'description')): ?>
+                                        <?php if($group['category']->description): ?>
                                             <p class="card-text"
-                                                style="font-size: 1.1rem; color: #555; text-align: left; margin-bottom: 1rem;margin-top: 0rem;font-weight:bold">
-                                                <?php echo e(str(data_get($post, 'description'))->limit(240)); ?>
+                                                style="font-size: 1rem; color: #555; text-align: left; margin-bottom: 1rem; font-weight: bold;">
+                                                <?php echo e(\Illuminate\Support\Str::limit(strip_tags($group['category']->description), 240)); ?>
 
                                             </p>
                                         <?php endif; ?>
@@ -75,15 +93,10 @@
                 </div>
             </div>
 
+
         </div>
     </div>
 </div>
 
-<style>
-    .image-quadrant a {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-</style>
+
 <?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/search/inc/posts/widget/dummy3.blade.php ENDPATH**/ ?>
