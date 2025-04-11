@@ -124,7 +124,7 @@
                         @if (config('settings.social_link.twitter_url'))
                             <li class="list-inline-item">
                                 <a href="{{ config('settings.social_link.twitter_url') }}">
-                                    <img src="/images/social/x.png" alt="Twitter" class="social-icon">
+                                    <img src="/images/social/x.png" alt="X" class="social-icon">
                                 </a>
                             </li>
                         @endif
