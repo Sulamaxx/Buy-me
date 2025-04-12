@@ -109,7 +109,7 @@ $remaining = array_slice($categories, 8);
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-all-box" style="border: none">
 	<div class="white-box" style="height:19.42vh">
 		<a href="#" id="see-all-link">
-			<img src="/images/categories/see-all.png" class="img-fluid" alt="See All" style="height: max-content">
+			<img src="/images/categories/see-all.jpg" class="img-fluid" alt="See All" style="height: max-content">
 		</a>
 	</div>
 </div>
@@ -131,6 +131,17 @@ $remaining = array_slice($categories, 8);
 		</div>
 	</div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+<!-- Display "See All" box as the 9th item -->
+<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
+	<div class="white-box" style="height:19.42vh">
+		<a href="#" id="see-less-link">
+			<img src="/images/categories/see-less.jpg" class="img-fluid" alt="See All" style="height: max-content">
+		</a>
+	</div>
+</div>
+
 <?php endif; ?>
 				
 			<?php elseif($catDisplayType == 'c_bigIcon_list'): ?>
@@ -280,6 +291,22 @@ $remaining = array_slice($categories, 8);
                     hiddenCats.forEach(function(cat) {
                         cat.style.display = 'block';
                     });
+					document.getElementById('see-less-box').style.display = 'block';
+                });
+            }
+			var seeLessLink = document.getElementById('see-less-link');
+            if (seeLessLink) {
+                seeLessLink.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent the link from navigating
+                    // Hide the "See All" box
+                    document.getElementById('see-less-box').style.display = 'none';
+
+                    // Show all hidden categories
+                    var hiddenCats = document.querySelectorAll('.hidden-category');
+                    hiddenCats.forEach(function(cat) {
+						cat.style.display = 'none';
+                    });
+					document.getElementById('see-all-box').style.display = 'block';
                 });
             }
         });
