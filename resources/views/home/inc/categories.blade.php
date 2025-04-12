@@ -153,8 +153,8 @@ $remaining = array_slice($categories, 8);
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" style="border: none">
 	<div class="white-box">
 		<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
-			<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}">
-			<h4 style="font-size: small; color: #666666"><br>
+			<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}" style="height: max-content">
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
 				{{ data_get($cat, 'name') }}
 				@if (config('settings.list.count_categories_listings'))
 					&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
@@ -168,9 +168,12 @@ $remaining = array_slice($categories, 8);
 @if (!empty($remaining))
 <!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-all-box" style="border: none">
-	<div class="white-box" style="height:19.42vh">
+	<div class="white-box" >
 		<a href="#" id="see-all-link">
 			<img src="/images/categories/see-all.jpg" class="img-fluid" alt="See All" style="height: max-content">
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+				See All
+			</h4>
 		</a>
 	</div>
 </div>
@@ -180,8 +183,8 @@ $remaining = array_slice($categories, 8);
 	<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category hidden-category" style="border: none; display: none;">
 		<div class="white-box">
 			<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
-				<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}">
-				<h4 style="font-size: small; color: #666666"><br>
+				<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}"style="height: max-content">
+				<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
 					{{ data_get($cat, 'name') }}
 					@if (config('settings.list.count_categories_listings'))
 						&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
@@ -195,9 +198,12 @@ $remaining = array_slice($categories, 8);
 
 <!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
-	<div class="white-box" style="height:19.42vh">
+	<div class="white-box" >
 		<a href="#" id="see-less-link">
-			<img src="/images/categories/see-less.jpg" class="img-fluid" alt="See All" style="height: max-content">
+			<img src="/images/categories/see-less.jpg" class="img-fluid" alt="See Less" style="height: max-content">
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+				See Less
+			</h4>
 		</a>
 	</div>
 </div>

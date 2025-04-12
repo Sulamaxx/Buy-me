@@ -111,10 +111,10 @@
                                                                 'alt' => data_get($post, 'title'),
                                                             ]);
                                                         @endphp
-                                                        <h6 class="card-title"
+                                                        {{-- <h6 class="card-title"
                                                             style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
                                                             {{ str($post->title)->limit(50) }}
-                                                        </h6>
+                                                        </h6> --}}
                                                     </a>
                                                 @else
                                                     <a href="{{ \App\Helpers\UrlGen::post($post) }}">
@@ -124,10 +124,10 @@
                                                                 'alt' => data_get($post, 'title'),
                                                             ]);
                                                         @endphp
-                                                        <h6 class="card-title"
+                                                        {{-- <h6 class="card-title"
                                                             style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
                                                             {{ str($post->title)->limit(50) }}
-                                                        </h6>
+                                                        </h6> --}}
                                                     </a>
                                                 @endif
                                             </div>
@@ -140,12 +140,12 @@
                                                 {{ str($group['category']->name)->limit(50) }}
                                             </a>
                                         </h5>
-                                        @if ($group['category']->description)
+                                        {{-- @if ($group['category']->description)
                                             <p class="card-text"
                                                 style="font-size: 1rem; color: #555; text-align: left; margin-bottom: 1rem; font-weight: bold;">
                                                 {{ \Illuminate\Support\Str::limit(strip_tags($group['category']->description), 240) }}
                                             </p>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                             </div>

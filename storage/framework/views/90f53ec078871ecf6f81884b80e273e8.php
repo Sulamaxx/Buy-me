@@ -107,7 +107,7 @@ $remaining = array_slice($categories, 8);
 <?php if(!empty($remaining)): ?>
 <!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-all-box" style="border: none">
-	<div class="white-box" style="height:19.42vh">
+	<div class="white-box" style="height:17.4vh">
 		<a href="#" id="see-all-link">
 			<img src="/images/categories/see-all.jpg" class="img-fluid" alt="See All" style="height: max-content">
 		</a>
@@ -135,7 +135,7 @@ $remaining = array_slice($categories, 8);
 
 <!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
-	<div class="white-box" style="height:19.42vh">
+	<div class="white-box" style="height:17.4vhvh">
 		<a href="#" id="see-less-link">
 			<img src="/images/categories/see-less.jpg" class="img-fluid" alt="See All" style="height: max-content">
 		</a>
