@@ -27,7 +27,7 @@ const BannerRotator = {
             imgElement.style.display = 'block';
     
             // Create the button element
-            const button = document.createElement('a');
+            /* const button = document.createElement('a');
             button.textContent = 'Check it out';
             button.href = currentBanner.link || '#'; // Use the banner's link, or '#' if no link
             button.className = 'btn btn-block border-null check-it-out-button';
@@ -61,7 +61,7 @@ const BannerRotator = {
         button.style.zIndex = '10';      
         button.style.padding = '5px 3.75px !important'; 
         button.style.fontSize = '0.9em'; 
-        button.style.color = '#000000 !important'; 
+        button.style.color = '#000000 !important';  */
     
             // Make the image a link if a valid link is provided (image click opens link)
             if (currentBanner.link && currentBanner.link !== '#' && currentBanner.link.trim() !== '') {
@@ -79,7 +79,7 @@ const BannerRotator = {
     
             bannerContainer.style.position = 'relative'; // Make the container positioned
             bannerContainer.appendChild(imgElement);
-            bannerContainer.appendChild(button); // Append the button after the image
+            //bannerContainer.appendChild(button); // Append the button after the image
         } else {
             bannerContainer.innerHTML = "";
         }
