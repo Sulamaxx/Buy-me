@@ -122,9 +122,7 @@ class ShowController extends FrontController
 		// mark post view at and by
 		$post_data = Post::where('id', data_get($post, 'id'))->first();
 		$post_data->view_at = Carbon::now();
-		if (Auth::user()) {
-			$post_data->view_by = Auth::user()->id;
-		}
+		$post_data->view_by = $ipAddress = $ip = request()->header('X-Forwarded-For') ?? request()->ip();
 		$post_data->save();
 
 		$customFields = data_get($data, 'extra.fieldsValues');
