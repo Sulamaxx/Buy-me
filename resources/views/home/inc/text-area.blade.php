@@ -22,53 +22,49 @@ if (!empty(data_get($sectionOptions, 'body_' . config('app.locale')))) {
 
 $hideOnMobile = data_get($sectionOptions, 'hide_on_mobile') == '1' ? ' hidden-sm' : '';
 
-if (Auth::user()) {
-    // $recommend = App\Models\Post::with('pictures')
-    //     ->where('view_by', Auth::user()->id)
-    //     ->whereNotNull('view_at') // Ensure view_at is not null
-    //     ->orderBy('view_at', 'desc')
-    //     ->get()
-    //     ->groupBy('category_id')
-    //     ->take(3) // Group posts by category_id
-    //     ->map(function ($posts) {
-    //         // For each group, take only 4 posts and order them by view_at
-    //         $category = $posts->first()->category; // Get the category details (name and description)
+// $recommend = App\Models\Post::with('pictures')
+//     ->where('view_by', Auth::user()->id)
+//     ->whereNotNull('view_at') // Ensure view_at is not null
+//     ->orderBy('view_at', 'desc')
+//     ->get()
+//     ->groupBy('category_id')
+//     ->take(3) // Group posts by category_id
+//     ->map(function ($posts) {
+//         // For each group, take only 4 posts and order them by view_at
+//         $category = $posts->first()->category; // Get the category details (name and description)
 
-    //         return [
-    //             'category' => $category, // Include category name and description
-    //             'posts' => $posts->take(4), // Limit to the first 4 posts, ordered by view_at
-    //         ];
-    //     });
+//         return [
+//             'category' => $category, // Include category name and description
+//             'posts' => $posts->take(4), // Limit to the first 4 posts, ordered by view_at
+//         ];
+//     });
 
-    $categoryIds = App\Models\Post::with('pictures')
-        ->where('view_by', Auth::user()->id)
-        ->whereNotNull('view_at')
-        ->orderBy('view_at', 'desc')
-        ->get()
-        ->groupBy('category_id')
-        ->take(3)
-        ->map(function ($posts) {
-            return $posts->first()->category_id;
-        })
-        ->values();
+$categoryIds = App\Models\Post::with('pictures')
+    ->where('view_by', request()->header('X-Forwarded-For') ?? request()->ip())
+    ->whereNotNull('view_at')
+    ->orderBy('view_at', 'desc')
+    ->get()
+    ->groupBy('category_id')
+    ->take(3)
+    ->map(function ($posts) {
+        return $posts->first()->category_id;
+    })
+    ->values();
 
-    $recommend = collect($categoryIds)->map(function ($categoryId) {
-        $category = App\Models\Category::find($categoryId); // Get the category details
+$recommend = collect($categoryIds)->map(function ($categoryId) {
+    $category = App\Models\Category::find($categoryId); // Get the category details
 
-        $posts = App\Models\Post::with('pictures')
-            ->where('category_id', $categoryId)
-            ->orderBy('created_at', 'desc') // Order by latest posts
-            ->take(4)
-            ->get();
+    $posts = App\Models\Post::with('pictures')
+        ->where('category_id', $categoryId)
+        ->orderBy('created_at', 'desc') // Order by latest posts
+        ->take(4)
+        ->get();
 
-        return [
-            'category' => $category,
-            'posts' => $posts,
-        ];
-    });
-} else {
-    $recommend = [];
-}
+    return [
+        'category' => $category,
+        'posts' => $posts,
+    ];
+});
 
 // Log::info($recommend);
 
