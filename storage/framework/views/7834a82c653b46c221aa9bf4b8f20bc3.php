@@ -147,7 +147,7 @@
     $widget['posts'] = $recently_view;
     $widget['totalPosts'] = count($recently_view);
     $widget['title'] = 'Recently Viewed Ads';
-    $widget['link_text'] = 'See All Recently Viewed Ads';
+    $widget['link_text'] = 'See All Ads';
 ?>
 <?php echo $__env->first(
     [

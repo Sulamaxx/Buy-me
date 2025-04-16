@@ -10,7 +10,7 @@
     $isFromHome ??= false;
 @endphp
 
-
+@if ($firstTotalPosts!=0)
 <div class="container{{ $isFromHome ? '' : ' my-3' }}{{ $hideOnMobile }}">
     <div class="col-xl-12 content-box layout-section" style="background-color: transparent">
         <div class="row row-featured">
@@ -164,5 +164,6 @@
         display: block;
         width: 100%;
         height: 100%;
-    }
+        }
 </style> --}}
+@endif
