@@ -63,7 +63,7 @@
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </div>
                                     <div class="card-body" style="padding: 1rem; flex-grow: 1;">
-                                        <h5 class="card-title"
+                                        <h5 class="card-title card-title-size"
                                             style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-align: left; color: #333;">
                                             <a href="" style="color: #000000;">
                                                 <?php echo e(str($group['category']->name)->limit(50)); ?>
@@ -84,6 +84,15 @@
     </div>
 </div>
 
-
+<style>
+    /* .image-quadrant a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        } */
+        .card-title-size{
+            
+        }
+</style>
 <?php endif; ?>
 <?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/search/inc/posts/widget/dummy3.blade.php ENDPATH**/ ?>
