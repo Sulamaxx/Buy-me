@@ -10,7 +10,7 @@
 	$isFromHome ??= false;
 @endphp
 
-
+@if (!empty($posts))
 <div class="container{{ $isFromHome ? '' : ' my-3' }}{{ $hideOnMobile }}">
     <div class="col-xl-12 content-box layout-section" style="background-color: transparent">
         <div class="row row-featured">
@@ -74,3 +74,4 @@
         </div>
     </div>
 </div>
+@endif

@@ -10,7 +10,7 @@
 	$isFromHome ??= false;
 ?>
 
-
+<?php if(!empty($posts)): ?>
 <div class="container<?php echo e($isFromHome ? '' : ' my-3'); ?><?php echo e($hideOnMobile); ?>">
     <div class="col-xl-12 content-box layout-section" style="background-color: transparent">
         <div class="row row-featured">
@@ -78,4 +78,5 @@
 
         </div>
     </div>
-</div><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/search/inc/posts/widget/home.blade.php ENDPATH**/ ?>
+</div>
+<?php endif; ?><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/search/inc/posts/widget/home.blade.php ENDPATH**/ ?>
