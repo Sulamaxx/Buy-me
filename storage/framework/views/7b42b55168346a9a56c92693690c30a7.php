@@ -23,19 +23,26 @@
                 </div>
                 <div class="col-md-9">
                     <ul class="list-inline text-right">
-                        <li class="list-inline-item"><a href="#" class="footer-link">Stay Safe</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">FAQ</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Anti-Scam</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Terms</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Privacy</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Blog</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Contact Us</a></li>
+                        <?php if(isset($pages) && $pages->count() > 0): ?>
+									<?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										<li class="list-inline-item">
+											<?php
+												$linkTarget = '';
+												if ($page->target_blank == 1) {
+													$linkTarget = 'target="_blank"';
+												}
+											?>
+											<?php if(!empty($page->external_link)): ?>
+												<a href="<?php echo $page->external_link; ?>" rel="nofollow" <?php echo $linkTarget; ?> class="footer-link"> <?php echo e($page->name); ?> </a>
+											<?php else: ?>
+												<a href="<?php echo e(\App\Helpers\UrlGen::page($page)); ?>" <?php echo $linkTarget; ?> class="footer-link"> <?php echo e($page->name); ?> </a>
+											<?php endif; ?>
+										</li>
+                                        <?php if(!$loop->last): ?>
+                                        <li class="list-inline-item">|</li>
+                                        <?php endif; ?>
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+								<?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -76,9 +83,7 @@
                             <?php endif; ?>
                         </ul>
                     <?php endif; ?>
-                    <a href="tel:0112356356" class="btn btn-orange">
-                        <img src="/images/social/phone.png" alt="Phone">
-                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -97,20 +102,27 @@
             </div>
             <div class="text-center">
                 <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">Stay Safe</a></li>
-                    <li><a href="#" class="footer-link">FAQ</a></li>
-                    <li><a href="#" class="footer-link">Anti-Scam</a></li>
-                    <li><a href="#" class="footer-link">Terms</a></li>
-                    <li><a href="#" class="footer-link">Privacy</a></li>
-                    <li><a href="#" class="footer-link">Blog</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    <?php if(isset($pages) && $pages->count() > 0): ?>
+									<?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										<li>
+											<?php
+												$linkTarget = '';
+												if ($page->target_blank == 1) {
+													$linkTarget = 'target="_blank"';
+												}
+											?>
+											<?php if(!empty($page->external_link)): ?>
+												<a href="<?php echo $page->external_link; ?>" rel="nofollow" <?php echo $linkTarget; ?> class="footer-link"> <?php echo e($page->name); ?> </a>
+											<?php else: ?>
+												<a href="<?php echo e(\App\Helpers\UrlGen::page($page)); ?>" <?php echo $linkTarget; ?> class="footer-link"> <?php echo e($page->name); ?> </a>
+											<?php endif; ?>
+										</li>
+                                
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+					<?php endif; ?>
                 </ul>
             </div>
-            <div class="text-center">
-                <a href="tel:0112356356" class="btn btn-orange">
-                    <img src="/images/social/phone.png" alt="Phone">
-                </a>
-            </div>
+            
             <div class="text-center">
                 <?php if($socialLinksAreEnabled): ?>
                     <ul class="list-inline">

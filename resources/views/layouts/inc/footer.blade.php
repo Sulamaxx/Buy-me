@@ -23,19 +23,26 @@
                 </div>
                 <div class="col-md-9">
                     <ul class="list-inline text-right">
-                        <li class="list-inline-item"><a href="#" class="footer-link">Stay Safe</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">FAQ</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Anti-Scam</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Terms</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Privacy</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Blog</a></li>
-                        <li class="list-inline-item">|</li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Contact Us</a></li>
+                        @if (isset($pages) && $pages->count() > 0)
+									@foreach($pages as $page)
+										<li class="list-inline-item">
+											<?php
+												$linkTarget = '';
+												if ($page->target_blank == 1) {
+													$linkTarget = 'target="_blank"';
+												}
+											?>
+											@if (!empty($page->external_link))
+												<a href="{!! $page->external_link !!}" rel="nofollow" {!! $linkTarget !!} class="footer-link"> {{ $page->name }} </a>
+											@else
+												<a href="{{ \App\Helpers\UrlGen::page($page) }}" {!! $linkTarget !!} class="footer-link"> {{ $page->name }} </a>
+											@endif
+										</li>
+                                        @if (!$loop->last)
+                                        <li class="list-inline-item">|</li>
+                                        @endif
+									@endforeach
+								@endif
                     </ul>
                 </div>
             </div>
@@ -76,9 +83,9 @@
                             @endif
                         </ul>
                     @endif
-                    <a href="tel:0112356356" class="btn btn-orange">
+                    {{-- <a href="tel:0112356356" class="btn btn-orange">
                         <img src="/images/social/phone.png" alt="Phone">
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
@@ -97,20 +104,31 @@
             </div>
             <div class="text-center">
                 <ul class="list-unstyled">
-                    <li><a href="#" class="footer-link">Stay Safe</a></li>
-                    <li><a href="#" class="footer-link">FAQ</a></li>
-                    <li><a href="#" class="footer-link">Anti-Scam</a></li>
-                    <li><a href="#" class="footer-link">Terms</a></li>
-                    <li><a href="#" class="footer-link">Privacy</a></li>
-                    <li><a href="#" class="footer-link">Blog</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    @if (isset($pages) && $pages->count() > 0)
+									@foreach($pages as $page)
+										<li>
+											<?php
+												$linkTarget = '';
+												if ($page->target_blank == 1) {
+													$linkTarget = 'target="_blank"';
+												}
+											?>
+											@if (!empty($page->external_link))
+												<a href="{!! $page->external_link !!}" rel="nofollow" {!! $linkTarget !!} class="footer-link"> {{ $page->name }} </a>
+											@else
+												<a href="{{ \App\Helpers\UrlGen::page($page) }}" {!! $linkTarget !!} class="footer-link"> {{ $page->name }} </a>
+											@endif
+										</li>
+                                
+									@endforeach
+					@endif
                 </ul>
             </div>
-            <div class="text-center">
+            {{-- <div class="text-center">
                 <a href="tel:0112356356" class="btn btn-orange">
                     <img src="/images/social/phone.png" alt="Phone">
                 </a>
-            </div>
+            </div> --}}
             <div class="text-center">
                 @if ($socialLinksAreEnabled)
                     <ul class="list-inline">
