@@ -100,7 +100,7 @@
                 </div>
             </div>
       {{--   max-width: 30.75vw --}}
-            <div class="container search-container d-none d-md-block margin-l-null" style="max-width: 30.75vw; margin-left: 5vw;">
+            <div class="container search-container d-none d-md-block margin-l-null width-search-xl" style="max-width: 30.75vw; margin-left: 5vw;">
                 <form id="search" name="search" action="{{ \App\Helpers\UrlGen::searchWithoutQuery() }}" method="GET">
                     <div class="row search-row animated fadeInUp border-null">
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 search-col relative mb-1 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
@@ -461,6 +461,18 @@
         .font-size-d {
             font-size: 13px !important;
         }
+        .filter-panel {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 15px;
+        padding-top: 15px !important;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top:25px;
+    }
     }
     @media (min-width: 1440px) {
         .margin-l-null {
@@ -469,6 +481,39 @@
         .font-size-d {
             font-size: 16px !important;
         }
+        .filter-panel {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 15px;
+        padding-top: 15px !important;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top:25px;
+    }
+    }
+
+    @media (min-width: 2560px) {
+        .width-search-xl {
+            max-width:15.75vw !important;
+        }
+        .margin-l-null {
+            margin-left: 0vw !important;
+        }
+        .filter-panel {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 15px;
+        padding-top: 15px !important;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top:25px;
+    }
     }
     .filter-panel {
         position: absolute;
