@@ -46,11 +46,7 @@
                                                                 'alt' => data_get($post, 'title'),
                                                             ]);
                                                         ?>
-                                                        <h6 class="card-title"
-                                                            style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
-                                                            <?php echo e(str($post->title)->limit(50)); ?>
-
-                                                        </h6>
+                                                        
                                                     </a>
                                                 <?php else: ?>
                                                     <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
@@ -60,11 +56,7 @@
                                                                 'alt' => data_get($post, 'title'),
                                                             ]);
                                                         ?>
-                                                        <h6 class="card-title"
-                                                            style="font-size: 0.9rem; margin-bottom: 0.05rem; font-weight: bold; text-align: center; ">
-                                                            <?php echo e(str($post->title)->limit(50)); ?>
-
-                                                        </h6>
+                                                        
                                                     </a>
                                                 <?php endif; ?>
                                             </div>
@@ -78,13 +70,7 @@
 
                                             </a>
                                         </h5>
-                                        <?php if($group['category']->description): ?>
-                                            <p class="card-text"
-                                                style="font-size: 1rem; color: #555; text-align: left; margin-bottom: 1rem; font-weight: bold;">
-                                                <?php echo e(\Illuminate\Support\Str::limit(strip_tags($group['category']->description), 240)); ?>
-
-                                            </p>
-                                        <?php endif; ?>
+                                        
                                     </div>
                                 </div>
                             </div>
