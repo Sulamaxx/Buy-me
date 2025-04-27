@@ -11,7 +11,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-    <div class="main-container main-container-mobile" id="homepage">
+    <div class="main-container " id="homepage" style>
 
         <?php if(session()->has('flash_notification')): ?>
             <?php echo $__env->first([config('larapen.core.customizedViewPath') . 'common.spacer', 'common.spacer'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -88,9 +88,6 @@
         }
 
         @media (min-width: 1440px) {
-            .margin-l-null {
-                margin-left: 2.5vw !important;
-            }
 
             .font-size-d {
                 font-size: 16px !important;

@@ -16,7 +16,7 @@
         <div class="row row-featured">
             <div class="col-xl-12 box-title" style="background-color: transparent !important">
                 <div class="inner" style="background-color: transparent">
-                    <h2 style="display: flex; align-items: center;">
+                    <h2 style="display: flex; align-items: center;padding-left:0px;">
                         <span class="title-3" style="font-weight: bold">Recomended For You</span>
                         <div
                             style="width: 30px; height: 2px; background-color: #52AB4A; margin-left: 5px;margin-top:13px">
@@ -24,19 +24,19 @@
                     </h2>
                 </div>
             </div>
-            
 
             <div class="col-xl-12" style="background-color: transparent; padding: 0 1rem;">
                 <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 g-2 g-md-3"
-                    style="background-color: transparent;">
-                    <?php if(count($firstPosts) > 0): ?>
+                    style="background-color: transparent;margin-right: -0.25vw;">
+                    <?php if(count($firstPosts) > 0): ?> 
                         <?php $__currentLoopData = $firstPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category_id => $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col">
+                            
+                            <div class="col lazy-load-item">
                                 <div class="card"
                                     style="border-radius: 10px; min-height: auto; padding: 1rem; display: flex; flex-direction: column;">
                                     <div class="four-image-container"
                                         style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 1rem; border-radius: 10px; overflow: hidden;">
-                                        <?php $__currentLoopData = $group['posts']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php $__currentLoopData = $group['posts']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                                             <div class="image-quadrant" style="position: relative; overflow: hidden;">
                                                 <?php if(count($post->pictures) > 0): ?>
                                                     <a href="<?php echo e(\App\Helpers\UrlGen::post($post)); ?>">
@@ -44,6 +44,8 @@
                                                             echo imgTag($post->pictures[0]->filename, 'medium', [
                                                                 'class' => 'card-img-top',
                                                                 'alt' => data_get($post, 'title'),
+                                                                'loading' => 'lazy',
+                                                                'style'=>'object-fit: none;'
                                                             ]);
                                                         ?>
                                                         
@@ -54,6 +56,8 @@
                                                             echo imgTag('app/default/picture.jpg', 'small', [
                                                                 'class' => 'card-img-top',
                                                                 'alt' => data_get($post, 'title'),
+                                                                'loading' => 'lazy',
+                                                                'style'=>'object-fit: none;'
                                                             ]);
                                                         ?>
                                                         
@@ -64,8 +68,8 @@
                                     </div>
                                     <div class="card-body" style="padding: 1rem; flex-grow: 1;">
                                         <h5 class="card-title card-title-size"
-                                            style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-align: left; color: #333;">
-                                            <a href="" style="color: #000000;">
+                                            style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-align: left; color: #333333;">
+                                            <a href="" style="color: #333333;">
                                                 <?php echo e(str($group['category']->name)->limit(50)); ?>
 
                                             </a>
@@ -91,8 +95,44 @@
         height: 100%;
         } */
         .card-title-size{
-            
+
         }
+        @media (max-width: 767px) {
+        .card-title-size {
+            font-size: 1.2rem !important;
+        }
+        }
+        .lazy-load-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.lazy-load-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lazyLoadItems = document.querySelectorAll('.lazy-load-item');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.2 
+        });
+
+        lazyLoadItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
 <?php endif; ?>
 <?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/search/inc/posts/widget/dummy3.blade.php ENDPATH**/ ?>

@@ -80,9 +80,12 @@
                                                 : (($package->price == 0 && !old('package_id')) ? ' checked' : '');
                         ?>
                         <div class="form-check">
+                            <?php
+                            if($package->id == 19 || $package->id == 15 || $package->id == 1){
+                            ?>
                             <input class="form-check-input package-selection<?php echo e($packageIdError); ?>"
                                    style="cursor: pointer;"
-                                   type="checkbox"
+                                   type="radio"
                                    name="package_id[]"
                                    id="packageId-<?php echo e($package->id); ?>"
                                    value="<?php echo e($package->id); ?>"
@@ -93,6 +96,26 @@
                                    <?php echo e($packageCheckedAttr); ?> <?php echo e($packageDisabledAttr); ?>
 
                             >
+                            <?php    
+                            }else{
+?>
+                            <input class="form-check-input package-selection<?php echo e($packageIdError); ?>"
+                            style="cursor: pointer;"
+                            type="checkbox"
+                            name="package_id[]"
+                            id="packageId-<?php echo e($package->id); ?>"
+                            value="<?php echo e($package->id); ?>"
+                            data-name="<?php echo e($package->name); ?>"
+                            data-price="<?php echo e($package->price); ?>"
+                            data-currencysymbol="<?php echo e($package->currency->symbol); ?>"
+                            data-currencyinleft="<?php echo e($package->currency->in_left); ?>"
+                            <?php echo e($packageCheckedAttr); ?> <?php echo e($packageDisabledAttr); ?>
+
+                     >
+
+<?php
+                            }
+                            ?>
                             <label class="form-check-label mb-0<?php echo e($packageIdError); ?>">
                                 <strong class=""
                                         data-bs-placement="right"

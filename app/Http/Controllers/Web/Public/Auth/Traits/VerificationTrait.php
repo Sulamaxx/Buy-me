@@ -73,9 +73,9 @@ trait VerificationTrait
 		}
 		
 		$nextUrl = url('/?from=verification');
-		if($field=='phone' && $entitySlug == 'users'){
+		/* if($field=='phone' && $entitySlug == 'users'){
 			$nextUrl = url('account');
-		}
+		} */
 		
 		// Remove Notification Trigger
 		if (session()->has('emailOrPhoneChanged')) {
@@ -90,17 +90,25 @@ trait VerificationTrait
 
 		// users
 		if ($entitySlug == 'users') {
+			
+			/* if($field=='phone'){
+				$nextUrl = url('account');
+			} */ 
 			$user = $entityObject;
 			if (data_get($data, 'extra.authToken') && data_get($user, 'id')) {
+
 				// Auto logged in the User
 				if (auth()->loginUsingId(data_get($user, 'id'))) {
 					session()->put('authToken', data_get($data, 'extra.authToken'));
 					$nextUrl = url('account');
+					
 				} else {
 					if (session()->has('userNextUrl')) {
 						$nextUrl = session('userNextUrl');
+					
 					} else {
 						$nextUrl = UrlGen::login();
+						
 					}
 				}
 			}
@@ -118,11 +126,14 @@ trait VerificationTrait
 			// Get Listing creation next URL
 			if (session()->has('itemNextUrl')) {
 				$nextUrl = session('itemNextUrl');
+			
 				if (str_contains($nextUrl, 'create') && !session()->has('postId')) {
 					$nextUrl = UrlGen::postUri($post);
+				
 				}
 			} else {
 				$nextUrl = UrlGen::postUri($post);
+			
 			}
 			
 			// Remove Next URL session
@@ -141,6 +152,7 @@ trait VerificationTrait
 				session()->forget('passwordNextUrl');
 			}
 		}
+		
 		return redirect()->to($nextUrl);
 	}
 	

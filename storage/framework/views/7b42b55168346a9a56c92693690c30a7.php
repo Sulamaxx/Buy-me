@@ -7,21 +7,22 @@
     );
 ?>
 <footer class="main-footer">
-    <div class="footer-content" style="background-color: #dcdcdc;border-top:none">
+    <div class="footer-content" style="background-color: #222222;border-top:none">
         <!-- Desktop View -->
         <div class="container d-none d-sm-block d-md-block d-lg-block">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <a href="<?php echo e(url('/')); ?>" class="navbar-brand logo logo-title">
                         <img src="<?php echo e(config('settings.app.logo_url')); ?>"
                              alt="<?php echo e(strtolower(config('settings.app.name'))); ?>"
                              class="main-logo footer-main-logo"
                              data-bs-placement="bottom"
                              data-bs-toggle="tooltip"
+                             loading="lazy"
                         />
                     </a>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <ul class="list-inline text-right">
                         <?php if(isset($pages) && $pages->count() > 0): ?>
 									<?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -47,8 +48,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6" style="margin-left: -20px; margin-top:10px">
-                    <p class="copy-info">© <?php echo e(date('Y')); ?> <?php echo e(config('settings.app.name')); ?>. <?php echo e(t('all_rights_reserved')); ?>.</p>
+                <div class="col-md-6" style="margin-left: 0px; margin-top:10px">
+                    <p class="copy-info" style="color: #dcdcdc">© <?php echo e(date('Y')); ?> <?php echo e(config('settings.app.name')); ?>. <?php echo e(t('all_rights_reserved')); ?>.</p>
                 </div>
                 <div class="col-md-6 text-right">
                     <?php if($socialLinksAreEnabled): ?>
@@ -56,28 +57,28 @@
                             <?php if(config('settings.social_link.facebook_page_url')): ?>
                                 <li class="list-inline-item">
                                     <a href="<?php echo e(config('settings.social_link.facebook_page_url')); ?>">
-                                        <img src="/images/social/facebook.png" alt="Facebook" class="social-icon">
+                                        <img src="/images/social/facebook.png" alt="Facebook" class="social-icon" loading="lazy">
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if(config('settings.social_link.twitter_url')): ?>
                                 <li class="list-inline-item">
                                     <a href="<?php echo e(config('settings.social_link.twitter_url')); ?>">
-                                        <img src="/images/social/x.png" alt="X" class="social-icon">
+                                        <img src="/images/social/x.png" alt="X" class="social-icon" loading="lazy">
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if(config('settings.social_link.youtube_url')): ?>
                                 <li class="list-inline-item">
                                     <a href="<?php echo e(config('settings.social_link.youtube_url')); ?>">
-                                        <img src="/images/social/youtube.png" alt="YouTube" class="social-icon">
+                                        <img src="/images/social/youtube.png" alt="YouTube" class="social-icon" loading="lazy">
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if(config('settings.social_link.instagram_url')): ?>
-                                <li class="list-inline-item">
+                                <li class="list-inline-item" style="padding-right: 0px">
                                     <a href="<?php echo e(config('settings.social_link.instagram_url')); ?>">
-                                        <img src="/images/social/instagram.png" alt="Instagram" class="social-icon">
+                                        <img src="/images/social/instagram.png" alt="Instagram" class="social-icon" loading="lazy">
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -97,6 +98,7 @@
                          class="main-logo footer-main-logo"
                          data-bs-placement="bottom"
                          data-bs-toggle="tooltip"
+                         loading="lazy"
                     />
                 </a>
             </div>
@@ -129,28 +131,28 @@
                         <?php if(config('settings.social_link.facebook_page_url')): ?>
                             <li class="list-inline-item">
                                 <a href="<?php echo e(config('settings.social_link.facebook_page_url')); ?>">
-                                    <img src="/images/social/facebook.png" alt="Facebook" class="social-icon">
+                                    <img src="/images/social/facebook.png" alt="Facebook" class="social-icon" loading="lazy">
                                 </a>
                             </li>
                         <?php endif; ?>
                         <?php if(config('settings.social_link.twitter_url')): ?>
                             <li class="list-inline-item">
                                 <a href="<?php echo e(config('settings.social_link.twitter_url')); ?>">
-                                    <img src="/images/social/x.png" alt="X" class="social-icon">
+                                    <img src="/images/social/x.png" alt="X" class="social-icon" loading="lazy">
                                 </a>
                             </li>
                         <?php endif; ?>
                         <?php if(config('settings.social_link.youtube_url')): ?>
                             <li class="list-inline-item">
                                 <a href="<?php echo e(config('settings.social_link.youtube_url')); ?>">
-                                    <img src="/images/social/youtube.png" alt="YouTube" class="social-icon">
+                                    <img src="/images/social/youtube.png" alt="YouTube" class="social-icon" loading="lazy">
                                 </a>
                             </li>
                         <?php endif; ?>
                         <?php if(config('settings.social_link.instagram_url')): ?>
                             <li class="list-inline-item">
                                 <a href="<?php echo e(config('settings.social_link.instagram_url')); ?>">
-                                    <img src="/images/social/instagram.png" alt="Instagram" class="social-icon">
+                                    <img src="/images/social/instagram.png" alt="Instagram" class="social-icon" loading="lazy">
                                 </a>
                             </li>
                         <?php endif; ?>
@@ -158,7 +160,7 @@
                 <?php endif; ?>
             </div>
             <div class="text-center">
-                <p class="copy-info">© <?php echo e(date('Y')); ?> <?php echo e(config('settings.app.name')); ?>. <?php echo e(t('all_rights_reserved')); ?>.</p>
+                <p class="copy-info" style="color: #dcdcdc">© <?php echo e(date('Y')); ?> <?php echo e(config('settings.app.name')); ?>. <?php echo e(t('all_rights_reserved')); ?>.</p>
             </div>
         </div>
     </div>
@@ -176,7 +178,7 @@
         color: white;
     } */
     .footer-link {
-        color: black !important;
+        color: #dcdcdc !important;
         text-decoration: none;
     }
     .footer-link:hover {

@@ -2513,6 +2513,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	/* border-radius: 7px; */
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;
+	z-index:9999 !important;
 }
 
 .autocomplete-suggestions .autocomplete-suggestion {
@@ -2935,7 +2936,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 }
 
 .row-featured .box-title h2 {
-	padding-left: 16px;
+	padding-left: 0px;
 }
 
 .no-bg {

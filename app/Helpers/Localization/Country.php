@@ -436,15 +436,19 @@ class Country
 	public function getCountryFromURIPath(): Collection
 	{
 		$country = collect();
-		
-		$countryCode = getCountryCodeFromPath();
-		if (!empty($countryCode)) {
-			if ($this->isAvailableCountry($countryCode)) {
-				$country = self::getCountryInfo($countryCode);
-			}
-		}
-		
-		return $country;
+    
+    $countryCode = getCountryCodeFromPath();
+    if (is_array($countryCode)) {
+        $countryCode = $countryCode[0] ?? null; // Adjust based on the array structure
+    }
+    
+    if (!empty($countryCode)) {
+        if ($this->isAvailableCountry($countryCode)) {
+            $country = self::getCountryInfo($countryCode);
+        }
+    }
+    
+    return $country;
 	}
 	
 	/**
@@ -453,37 +457,41 @@ class Country
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function getCountryFromCity(): Collection
-	{
-		$countryCode = null;
-		$cityId = null;
-		
-		if (str_contains(currentRouteAction(), 'Search\CityController')) {
-			if (!config('settings.seo.multi_country_urls')) {
-				$cityId = request()->segment(3);
-			} else {
-				$cityId = request()->segment(4);
-			}
-		}
-		if (str_contains(currentRouteAction(), 'Search\SearchController')) {
-			if (request()->filled('l')) {
-				$cityId = request()->query('l');
-			}
-		}
-		
-		if (!empty($cityId)) {
-			$city = cache()->remember('city.' . $cityId, self::$cacheExpiration, function () use ($cityId) {
-				return City::find($cityId);
-			});
-			if (!empty($city)) {
-				$countryCode = $city->country_code;
-				if ($this->isAvailableCountry($countryCode)) {
-					return self::getCountryInfo($countryCode);
-				}
-			}
-		}
-		
-		return collect();
-	}
+{
+    $countryCode = null;
+    $cityId = null;
+    
+    if (str_contains(currentRouteAction(), 'Search\CityController')) {
+        if (!config('settings.seo.multi_country_urls')) {
+            $cityId = request()->segment(3);
+        } else {
+            $cityId = request()->segment(4);
+        }
+    }
+    if (str_contains(currentRouteAction(), 'Search\SearchController')) {
+        if (request()->filled('l')) {
+            $cityId = request()->query('l');
+            // If $cityId is an array (due to l[]), take the first value
+            if (is_array($cityId)) {
+                $cityId = $cityId[0] ?? null;
+            }
+        }
+    }
+    
+    if (!empty($cityId)) {
+        $city = cache()->remember('city.' . $cityId, self::$cacheExpiration, function () use ($cityId) {
+            return City::find($cityId);
+        });
+        if (!empty($city)) {
+            $countryCode = $city->country_code;
+            if ($this->isAvailableCountry($countryCode)) {
+                return self::getCountryInfo($countryCode);
+            }
+        }
+    }
+    
+    return collect();
+}
 	
 	/**
 	 * Get Country for Bots if not found

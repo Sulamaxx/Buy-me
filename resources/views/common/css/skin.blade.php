@@ -530,7 +530,7 @@
 	.skin .search-row .search-col .search-btn-border {
 		border: 0px;
 		border-color: {{ $primaryBgColor }};
-		border-radius: 0px !important;
+		border-radius: 0px 7.5px 7.5px 0px !important;
 		background-color: #e5e5e5;
 	}
 	

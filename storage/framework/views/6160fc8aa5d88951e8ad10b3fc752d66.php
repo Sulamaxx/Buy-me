@@ -32,25 +32,37 @@
         $addListingAttr = '';
     }
 
-    // Sample categories and cities (replace with your actual data)
-    $cats = collect([
-        ['id' => 1, 'name' => 'Electronics', 'children' => [
-            ['id' => 11, 'name' => 'Phones'],
-            ['id' => 12, 'name' => 'Laptops'],
-        ]],
-        ['id' => 2, 'name' => 'Vehicles', 'children' => [
-            ['id' => 21, 'name' => 'Cars'],
-            ['id' => 22, 'name' => 'Bikes'],
-        ]],
-    ]);
-    $cities = collect([
-        ['id' => 1, 'name' => 'New York'],
-        ['id' => 2, 'name' => 'Los Angeles'],
-        ['id' => 3, 'name' => 'Chicago'],
-        ['id' => 4, 'name' => 'Colombo'],
-    ]);
 
     $cats = App\Models\Category::where('parent_id', null)->get();
+
+
+    $city ??= null;
+	
+	$keywords = request()->query('q');
+	$keywords = (is_string($keywords)) ? $keywords : null;
+	$keywords = rawurldecode($keywords);
+
+	// Location
+	$qLocationId = 0;
+	if (!empty($city)) {
+		$qLocationId = data_get($city, 'id') ?? 0;
+		$qLocation = data_get($city, 'name');
+	} else {
+		$qLocationId = request()->query('l');
+		$qLocation = request()->query('location');
+		
+		$qLocationId = (is_numeric($qLocationId)) ? $qLocationId : null;
+		$qLocation = (is_string($qLocation)) ? $qLocation : null;
+	
+	}
+
+    $minPrice = request()->query('minPrice');
+
+    $maxPrice = request()->query('maxPrice');
+
+    $qCategory = request()->query('c');
+
+    $cities = App\Models\City::all();
                    
 ?>
 
@@ -66,6 +78,7 @@
                          data-bs-placement="bottom"
                          data-bs-toggle="tooltip"
                          title="<?php echo $logoLabel; ?>"
+                         loading="lazy"
                     />
                 </a>
 
@@ -81,38 +94,52 @@
                         <button class="flag-menu country-flag btn btn-default me-2"
                                 data-bs-toggle="modal"
                                 data-bs-target="#selectCountry">
-                            <img src="<?php echo e($countryFlag24Url); ?>" alt="<?php echo e($countryName); ?>" style="float: left;">
+                            <img src="<?php echo e($countryFlag24Url); ?>" alt="<?php echo e($countryName); ?>" style="float: left;" loading="lazy">
                             <span class="caret d-none"></span>
                         </button>
                     <?php endif; ?>
                     <button class="navbar-toggler -toggler"
-                            style="color: white; margin-bottom: 2.5px"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarsDefault"
-                            aria-controls="navbarsDefault"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" style="color: white">
-                            <title><?php echo e(t('Menu')); ?></title>
-                            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
-                        </svg>
-                    </button>
+                    style="color: white; margin-bottom: 2.5px;margin-top: 35px;"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarsDefault"
+                    aria-controls="navbarsDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+            
+               
+                <span class="menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" style="color: white">
+                        <title><?php echo e(t('Menu')); ?></title>
+                        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+                    </svg>
+                </span>
+            
+               
+                <span class="close-icon">
+                     
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" style="color: white">
+                      <title><?php echo e(t('Close')); ?></title> 
+                      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M7 7 L23 23 M7 23 L23 7"></path>
+                    </svg>
+                </span>
+            
+            </button>
                 </div>
             </div>
       
-            <div class="container search-container d-none d-md-block margin-l-null width-search-xl" style="max-width: 30.75vw; margin-left: 5vw;">
+            <div class="container search-container d-none d-md-block margin-l-null width-search-xl" style="max-width: 30.75vw; margin-left: 1.5vw;">
                 <form id="search" name="search" action="<?php echo e(\App\Helpers\UrlGen::searchWithoutQuery()); ?>" method="GET">
                     <div class="row search-row animated fadeInUp border-null">
-                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 search-col relative mb-1 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
-                            <div class="search-col-inner">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 search-col relative mb-1 mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
+                            <div class="search-col-inner" style="border-radius: 7.5px 0px 0px 7.5px !important;">
                                 <div class="search-col-input" style="margin-left: 0px; width: 100%;">
-                                    <input class="form-control font-size-d" name="q" placeholder="<?php echo e(t('what')); ?>" type="text" value="" style="border-radius:0% !important;">
+                                    <input class="form-control font-size-d" name="q" placeholder="<?php echo e(t('what')); ?>" type="text" value="<?php echo e($keywords); ?>" style="border-radius: 7.5px 0px 0px 7.5px !important;">
                                 </div>
                             </div>
                         </div>
                         <input type="hidden" id="lSearch" name="l" value="">
-                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 search-col" style="border-left: 1px solid black;">
+                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 search-col" style="border-left: 1px solid black;">
                             <div class="search-btn-border">
         
                                 <button class="btn btn-primary btn-search" style="width: 100%; border-radius: 0px !important; background-color: #e5e5e5 !important; padding: 0px;">
@@ -122,9 +149,9 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 search-col" style="border-left: 1px solid black;">
+                        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 search-col" style="border-left: 1px solid black;">
                             <div class="search-btn-border">
-                                <button type="button" id="toggleFilter" class="btn btn-primary btn-search" style="width: 100%; border-radius: 0px !important; background-color: #e5e5e5 !important; padding: 0px;">
+                                <button type="button" id="toggleFilter" class="btn btn-primary btn-search" style="width: 100%; border-radius: 0px 7.5px 7.5px 0px !important; background-color: #e5e5e5 !important; padding: 0px;">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" style="width: 1.5em; height: 1.5em;">
                                         <path d="M3 6h18v2H3V6zm4 4h10v2H7v-2zm4 4h6v2h-6v-2z"/>
                                     </svg>
@@ -138,15 +165,17 @@
                     <div id="filterPanel" class="filter-panel" style="display: none;">
                         <div class="filter-section">
                             <h5>Price Range</h5>
-                            <input type="number" name="minPrice" placeholder="Min Price" class="form-control mb-2">
-                            <input type="number" name="maxPrice" placeholder="Max Price" class="form-control">
+                            <input type="number" name="minPrice" placeholder="Min Price" class="form-control mb-2" value="<?php echo e($minPrice); ?>">
+                            <input type="number" name="maxPrice" placeholder="Max Price" class="form-control" value="<?php echo e($maxPrice); ?>">
                         </div>
                         <div class="filter-section">
                             <h5>Categories</h5>
                             <div class="category-options">
                             <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <label class="category-item">
-                                <input type="radio" name="c" value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
+                                <input type="checkbox" name="c[]" value="<?php echo e($cat['id']); ?>"
+                                    <?php echo e(in_array($cat['id'], request()->query('c', [])) ? 'checked' : ''); ?>>
+                                <?php echo e($cat['name']); ?>
 
                             </label>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -154,8 +183,25 @@
                         </div>
                         <div class="filter-section">
                             <h5>Location</h5>
-                            <input type="text" id="locationFilter" name="location" class="form-control mb-2" placeholder="Filter locations...">
+                            <select id="locationSelect" name="l[]" multiple placeholder="Select locations...">
+                                <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($city->id); ?>"
+                                        <?php echo e(in_array($city->id, request()->query('l', [])) ? 'selected' : ''); ?>>
+                                        <?php echo e($city->name); ?>
+
+                                    </option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
                         </div>
+                        <div class="filter-section">
+                            <button class="btn btn-primary btn-search submit-button" style="width: 12.5%; border-radius: 7.5px !important; background-color: #FE9000 !important; padding: 0px;color:black !important;text-shadow: none !important;border:none;height:auto;padding-block:3px;">
+                                Submit
+                            </button>
+                            <button type="button" id="toggleFilterClose" class="btn btn-primary btn-search submit-button" style="width: 12.5%; border-radius: 7.5px !important; background-color: #FE9000 !important; padding: 0px;color:black !important;text-shadow: none !important;border:none;height:auto;padding-block:3px;">
+                                Close
+                            </button>
+                        </div>
+                        
                     </div>
                 </form>
             </div>
@@ -163,9 +209,9 @@
             <div class="navbar-collapse collapse navbar-desktop" id="navbarsDefault">
                 <ul class="nav navbar-nav me-md-auto navbar-left d-md-none d-sm-block d-block" style="margin-inline: 0px !important">
                     <div class="btn-group btn-group-xs" style="padding: 0px;">
-                        <button type="button" id="btn-en-lang-mobile" class="btn-primary me-1" onclick="navigateTo('/locale/en')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">English</button>
-                        <button type="button" id="btn-si-lang-mobile" class="btn-primary me-1" onclick="navigateTo('/locale/si_LK')" style="background-color: transparent; border-color: transparent; border-left: 1px solid #666; border-right: 1px solid #666; padding: 0 5px;">සිංහල</button>
-                        <button type="button" id="btn-ta-lang-mobile" class="btn-primary" onclick="navigateTo('/locale/ta_LK')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">தமிழ்</button>
+                        <button type="button" id="btn-en-lang-mobile" class="btn-primary me-1" onclick="navigateTo('/locale/en')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">A</button>
+                        <button type="button" id="btn-si-lang-mobile" class="btn-primary me-1" onclick="navigateTo('/locale/si_LK')" style="background-color: transparent; border-color: transparent; border-left: 1px solid #666; border-right: 1px solid #666; padding: 0 5px;">අ</button>
+                        <button type="button" id="btn-ta-lang-mobile" class="btn-primary" onclick="navigateTo('/locale/ta_LK')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">அ</button>
                     </div>
                     <?php if($showCountryFlagNextLogo && !empty($countryFlag32Url)): ?>
                         <li class="flag-menu country-flag d-md-none d-sm-block d-block nav-item"
@@ -175,12 +221,12 @@
                         >
                             <?php if($multiCountryIsEnabled): ?>
                                 <a class="nav-link p-0" data-bs-toggle="modal" data-bs-target="#selectCountry">
-                                    <img class="flag-icon mt-1" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>">
+                                    <img class="flag-icon mt-1" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>" loading="lazy">
                                     <span class="caret d-lg-block d-md-none d-sm-none d-none float-end mt-3 mx-1"></span>
                                 </a>
                             <?php else: ?>
                                 <a class="p-0" style="cursor: default;">
-                                    <img class="flag-icon" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>">
+                                    <img class="flag-icon" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>" loading="lazy">
                                 </a>
                             <?php endif; ?>
                         </li>
@@ -188,12 +234,13 @@
                 </ul>
 
                 <ul class="nav navbar-nav ms-auto navbar-right" style="margin-inline: 0px !important">
+                    <li><a href="<?php echo e(\App\Helpers\UrlGen::searchWithoutQuery()); ?>" class="nav-link" style="color: white"><i class=""></i> <?php echo e(t('Browse Listings')); ?></a></li>
                     <li><a href="<?php echo e(\App\Helpers\UrlGen::sitemap()); ?>" class="nav-link" style="color: white"><i class=""></i> <?php echo e(t('all_categories')); ?></a></li>
                     <li class="nav-item d-none d-md-block" style="margin-inline: 0px !important; margin-left: 10px; margin-block: auto;">
                         <div class="btn-group btn-group-xs" style="padding: 0px;">
-                            <button type="button" id="btn-en-lang-desktop" class="btn-primary me-1" onclick="navigateTo('/locale/en')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">English</button>
-                            <button type="button" id="btn-si-lang-desktop" class="btn-primary me-1" onclick="navigateTo('/locale/si_LK')" style="background-color: transparent; border-color: transparent; border-left: 1px solid #666; border-right: 1px solid #666; padding: 0 5px;">සිංහල</button>
-                            <button type="button" id="btn-ta-lang-desktop" class="btn-primary" onclick="navigateTo('/locale/ta_LK')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">தமிழ்</button>
+                            <button type="button" id="btn-en-lang-desktop" class="btn-primary me-1" onclick="navigateTo('/locale/en')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">A</button>
+                            <button type="button" id="btn-si-lang-desktop" class="btn-primary me-1" onclick="navigateTo('/locale/si_LK')" style="background-color: transparent; border-color: transparent; border-left: 1px solid #666; border-right: 1px solid #666; padding: 0 5px;">අ</button>
+                            <button type="button" id="btn-ta-lang-desktop" class="btn-primary" onclick="navigateTo('/locale/ta_LK')" style="background-color: transparent; border-color: transparent; padding: 0 2.5px;">அ</button>
                         </div>
                     </li>
                     <?php if($showCountryFlagNextLogo && !empty($countryFlag32Url)): ?>
@@ -205,12 +252,12 @@
                         >
                             <?php if($multiCountryIsEnabled): ?>
                                 <a class="nav-link p-0" data-bs-toggle="modal" data-bs-target="#selectCountry">
-                                    <img class="flag-icon mt-1" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>">
+                                    <img class="flag-icon mt-1" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>" loading="lazy">
                                     <span class="caret d-lg-block d-md-none d-sm-none d-none float-end mt-3 mx-1"></span>
                                 </a>
                             <?php else: ?>
                                 <a class="p-0" style="cursor: default;">
-                                    <img class="flag-icon" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>">
+                                    <img class="flag-icon" src="<?php echo e($countryFlag32Url); ?>" alt="<?php echo e($countryName); ?>" loading="lazy">
                                 </a>
                             <?php endif; ?>
                         </li>
@@ -311,46 +358,38 @@
 <div class="container search-container d-md-none" style="width: 100vw;padding:0%;margin:0%">
     <form id="search" name="search" action="<?php echo e(\App\Helpers\UrlGen::searchWithoutQuery()); ?>" method="GET">
         <div class="row search-row animated fadeInUp border-null">
-            <div class="col-5 col-xl-8 col-lg-8 col-md-8 col-sm-8 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
+            <div class="col-6 col-xl-8 col-lg-8 col-md-8 col-sm-8 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0">
                 <div class="search-col-inner">
                     <div class="search-col-input" style="margin-left: 0px; width: 100%;">
-                        <input class="form-control font-size-d" name="q" placeholder="<?php echo e(t('what')); ?>"
+                        <input class="form-control font-size-d" value="<?php echo e($keywords); ?>" name="q" placeholder="<?php echo e(t('what')); ?>"
                             type="text" value="" style="border-radius:0% !important;padding-right:0% !important;font-size:13px">
                     </div>
                 </div>
             </div>
             <input type="hidden" id="lSearch2" name="l" value="">
 
-            <div class="col-3 col-md-5 col-sm-12 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0  d-md-none">
-				<div class="search-col-inner">
-					<div class="search-col-input" style="margin-left: 0px; width: 100%;">
-						<?php if($displayStatesSearchTip): ?>
-							<input class="form-control font-size-d"
-									id="locSearch"
-									name="location"
-                                    style="border-radius:0% !important;font-size:13px"
-									placeholder="<?php echo e(t('where')); ?>"
-									type="text"
-									value=""
-									data-bs-placement="top"
-									data-bs-toggle="tooltipHover"
-									title="<?php echo e(t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name')); ?>"
-							>
-						<?php else: ?>
-							<input class="form-control font-size-d"
-									id="locSearch"
-									name="location"
-                                    style="border-radius:0% !important;font-size:13px"
-									placeholder="<?php echo e(t('where')); ?>"
-									type="text"
-									value=""
-							>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
+            <div class="col-4 col-md-5 col-sm-12 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0 d-md-none">
+                <div class="search-col-inner">
+                    <div class="search-col-input" style="margin-left: 0px; width: 100%;"
+     <?php if($displayStatesSearchTip): ?>
+         data-bs-placement="top"
+         data-bs-toggle="tooltipHover"
+         title="<?php echo e(t('Enter a city name OR a state name with the prefix', ['prefix' => t('area')]) . t('State Name')); ?>"
+     <?php endif; ?>>
+    <select class="form-control font-size-d" id="locSearch" name="l[]" multiple placeholder="<?php echo e(t('where')); ?>" style="border-radius:0% !important;padding-right:0% !important;font-size:13px">
+        <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value="<?php echo e($city->id); ?>"
+                <?php echo e(in_array($city->id, request()->query('l', [])) ? 'selected' : ''); ?>>
+                <?php echo e($city->name); ?>
 
-            <div class="col-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 search-col"">
+            </option>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </select>
+</div>
+                </div>
+            </div>
+
+            <div class="col-1 col-xl-2 col-lg-2 col-md-2 col-sm-2 search-col"">
                 <div class="search-btn-border">
 
                     <button class="btn btn-primary btn-search"
@@ -363,10 +402,10 @@
                     </button>
                 </div>
             </div>
-            <div class="col-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 search-col"">
+            <div class="col-1 col-xl-2 col-lg-2 col-md-2 col-sm-2 search-col"">
                 <div class="search-btn-border">
                     <button type="button" id="toggleFilter2" class="btn btn-primary btn-search"
-                        style="width: 100%; border-radius: 0px !important; background-color: #e5e5e5 !important; padding: 0px;">
+                        style="width: 100%; border-radius: 0px 7.5px 7.5px 0px !important; background-color: #e5e5e5 !important; padding: 0px;">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"
                             style="width: 1.5em; height: 1.5em;">
                             <path d="M3 6h18v2H3V6zm4 4h10v2H7v-2zm4 4h6v2h-6v-2z" />
@@ -381,26 +420,37 @@
         <div id="filterPanel2" class="filter-panel d-md-none" style="display: none">
             <div class="filter-section">
                 <h5>Price Range</h5>
-                <input type="number" name="minPrice" placeholder="Min Price" class="form-control mb-2">
-                <input type="number" name="maxPrice" placeholder="Max Price" class="form-control">
+                <input type="number" name="minPrice" placeholder="Min Price" class="form-control mb-2" value="<?php echo e($minPrice); ?>">
+                <input type="number" name="maxPrice" placeholder="Max Price" class="form-control" value="<?php echo e($maxPrice); ?>">
             </div>
             <div class="filter-section">
                 <h5>Categories</h5>
                 <div class="category-options">
                     <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <label class="category-item">
-                            <input type="radio" name="c" value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
+                            <input type="radio" name="c" <?php echo e(($qCategory == $cat['id']) ? 'checked' : ''); ?> value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
 
                         </label>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
+            <div class="filter-section">
+                            <button class="btn btn-primary btn-search submit-button" style="width: 25%; border-radius: 7.5px !important; background-color: #FE9000 !important; padding: 0px;color:black !important;text-shadow: none !important;border:none;height:auto;padding-block:3px;">
+                                Submit
+                            </button>
+                            <button type="button" id="toggleFilterClose2" class="btn btn-primary btn-search submit-button" style="width: 25%; border-radius: 7.5px !important; background-color: #FE9000 !important; padding: 0px;color:black !important;text-shadow: none !important;border:none;height:auto;padding-block:3px;">
+                                Close
+                            </button>
+                        </div>
             
         </div>
     </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
 <script>
     function navigateTo(url) {
         window.location.href = url;
@@ -409,6 +459,10 @@
     $(document).ready(function() {
         // Toggle filter panel
         $('#toggleFilter').click(function() {
+            $('#filterPanel').slideToggle(300);
+        });
+
+        $('#toggleFilterClose').click(function() {
             $('#filterPanel').slideToggle(300);
         });
 
@@ -428,6 +482,10 @@
             $('#filterPanel2').slideToggle(300);
         });
 
+         $('#toggleFilterClose2').click(function() {
+            $('#filterPanel2').slideToggle(300);
+        });
+
         // Filter locations dynamically
         $('#locationFilter2').on('input', function() {
             let filter = $(this).val().toLowerCase();
@@ -440,9 +498,132 @@
             }
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        new TomSelect('#locationSelect', {
+            plugins: ['remove_button'],
+            maxItems: null,
+            valueField: 'id',
+            labelField: 'name',
+            searchField: ['name'],
+            placeholder: 'Select locations...',
+            render: {
+                option: function(item, escape) {
+                    return `<div>${escape(item.name)}</div>`;
+                },
+                item: function(item, escape) {
+                    return `<div>${escape(item.name)}</div>`;
+                }
+            }
+        });
+
+        new TomSelect('#locSearch', {
+        plugins: ['remove_button'],
+        maxItems: null,
+        valueField: 'id',
+        labelField: 'name',
+        searchField: ['name'],
+        placeholder: '<?php echo e(t('where')); ?>',
+        /* load: function(query, callback) {
+            fetch(`/api/cities?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    callback(data);
+                })
+                .catch(() => {
+                    callback();
+                });
+        }, */
+        render: {
+            option: function(item, escape) {
+                return `<div>${escape(item.name)}</div>`;
+            },
+            item: function(item, escape) {
+                return `<div>${escape(item.name)}</div>`;
+            }
+        }
+    });
+
+    });
+
+    
+
 </script>
 
 <style>
+
+@media (max-width: 767px) {
+    #locSearch + .ts-wrapper .ts-control {
+        display: flex;
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+        min-height: 45px;
+        max-height: 45px; 
+        align-items: center; 
+        padding: 0px;
+        padding-left: 3px;
+        border-radius: 0px !important;
+        font-size: 13px;
+        border: none !important;
+    }
+
+    #locSearch + .ts-wrapper .ts-control > .item {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 5px; 
+        white-space: nowrap;
+        flex-shrink: 0; 
+    }
+
+    #locSearch + .ts-wrapper .ts-control > .item .remove {
+        margin-left: 5px;
+    }
+
+   
+    #locSearch + .ts-wrapper .ts-control::-webkit-scrollbar {
+        display: none;
+    }
+    #locSearch + .ts-wrapper .ts-control {
+        -ms-overflow-style: none;
+        scrollbar-width: none; 
+    }
+
+    .ts-wrapper{
+        padding: 0px !important;
+        z-index: 999999 !important;
+    }
+
+    .ts-dropdown{
+        margin-top:0px !important;
+        border: none !important;
+        border-radius: 0px !important;
+        z-index: 999999 !important; 
+    }
+
+    
+.search-container {
+    position: relative;
+    z-index: 9000; 
+}
+
+.search-col.relative {
+    position: relative;
+    z-index: 9010; 
+}
+
+.search-col-inner {
+    position: relative;
+    z-index: 9020; 
+}
+
+.search-col-input {
+    position: relative;
+    z-index: 9030; 
+}
+
+}
+
     @media (min-width: 768px) {
         .navbar-desktop {
             justify-content: end;
@@ -455,10 +636,16 @@
         .category-item {
             margin-right: 0; 
         }
+        
     }
     @media (min-width: 1024px) {
+
+        .width-search-xl {
+            max-width:314.88px !important;
+        }
+
         .margin-l-null {
-            margin-left: 0% !important;
+            margin-left: 1.5% !important;
             padding-left: 0px;
             padding-right: 0px;
         }
@@ -467,56 +654,63 @@
         }
         .filter-panel {
         position: absolute;
-        left: 0;
-        width: 100%;
+        left: 13% !important;
+        width: 74% !important;
         background: white;
         border: 1px solid #ddd;
         padding: 15px;
         padding-top: 15px !important;
         z-index: 1000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-top:25px;
+        margin-top:19px;
     }
     }
     @media (min-width: 1440px) {
+
+        .width-search-xl {
+            max-width:442.8px !important;
+        }
         .margin-l-null {
-            margin-left: 2.5vw !important;
+            margin-left: 1.5vw !important;
         }
         .font-size-d {
             font-size: 16px !important;
         }
         .filter-panel {
         position: absolute;
-        left: 0;
-        width: 100%;
+        left: 13% !important;
+        width: 74% !important;
         background: white;
         border: 1px solid #ddd;
         padding: 15px;
         padding-top: 15px !important;
         z-index: 1000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-top:25px;
+        margin-top:19px;
     }
     }
 
     @media (min-width: 2560px) {
         .width-search-xl {
-            max-width:15.75vw !important;
+            max-width:401.6px !important;
         }
         .margin-l-null {
             margin-left: 0vw !important;
         }
         .filter-panel {
         position: absolute;
-        left: 0;
-        width: 100%;
+        left: 13% !important;
+        width: 74% !important;
         background: white;
         border: 1px solid #ddd;
         padding: 15px;
         padding-top: 15px !important;
         z-index: 1000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-top:25px;
+        margin-top:19px;
+    }
+    .submit-button{
+        width:6.25% !important;
     }
     }
     .filter-panel {
@@ -554,4 +748,56 @@
     .category-item input[type="radio"] {
         margin-right: 5px;
     }
+
+    .navbar-toggler .menu-icon,
+    .navbar-toggler .close-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        /* Optional: Set a fixed size for the span if needed, e.g., width: 30px; height: 30px; */
+    }
+
+    
+    .navbar-toggler .close-icon {
+        display: none;
+    }
+
+    
+    .navbar-toggler[aria-expanded="true"] .menu-icon {
+        display: none;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .close-icon {
+        display: inline-flex; 
+    }
+
+    .category-options {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    .category-item {
+        display: block;
+        margin: 5px 0;
+    }
+    .category-item input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    .ts-wrapper {
+        width: 100%;
+    }
+    .ts-control {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 0.375rem 0.75rem;
+        min-height: 38px;
+    }
+    .ts-control input {
+        border: none !important;
+    }
+    .ts-dropdown {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        z-index: 1000;
+    }
+
 </style><?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/layouts/inc/header.blade.php ENDPATH**/ ?>
