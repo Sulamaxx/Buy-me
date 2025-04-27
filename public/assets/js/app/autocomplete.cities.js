@@ -45,7 +45,7 @@ $(document).ready(function () {
 		noResultsText = '<div class="p-2">' + noResultsText + '</div>';
 		
 		$('input#locSearch').devbridgeAutocomplete({
-			zIndex: 1492,
+			zIndex: 2000,
 			maxHeight: 320,
 			serviceUrl: siteUrl + '/ajax/countries/' + strToLower(countryCode) + '/cities/autocomplete',
 			type: 'post',

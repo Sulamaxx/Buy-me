@@ -46,7 +46,7 @@
     $widget['totalPosts'] = count($wanted_posts);
     $widget['title'] = 'Wanted Ads';
     $widget['link_text'] = 'See All Wanted Ads';
-    $widget['link'] = url('/posts/wanted'); // Adjust the link to point to a "wanted" ads page
+    $widget['link'] = url('/search'); 
 @endphp
 
 @includeFirst(
@@ -62,7 +62,7 @@
     $recently_view = App\Models\Post::with('category', 'city', 'pictures')
         ->whereNotNull('view_at') // Ensure view_at is not null
         ->orderBy('view_at', 'desc')
-        ->limit(20)
+        ->limit(12)
         ->get();
 
     // $topPosts = [

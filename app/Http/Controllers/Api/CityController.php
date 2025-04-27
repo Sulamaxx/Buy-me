@@ -19,6 +19,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\City;
 use App\Http\Resources\EntityCollection;
 use App\Http\Resources\CityResource;
+use Illuminate\Http\Request;
 
 /**
  * @group Countries

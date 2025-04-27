@@ -80,9 +80,12 @@
                                                 : (($package->price == 0 && !old('package_id')) ? ' checked' : '');
                         @endphp
                         <div class="form-check">
+                            <?php
+                            if($package->id == 19 || $package->id == 15 || $package->id == 1){
+                            ?>
                             <input class="form-check-input package-selection{{ $packageIdError }}"
                                    style="cursor: pointer;"
-                                   type="checkbox"
+                                   type="radio"
                                    name="package_id[]"
                                    id="packageId-{{ $package->id }}"
                                    value="{{ $package->id }}"
@@ -92,6 +95,25 @@
                                    data-currencyinleft="{{ $package->currency->in_left }}"
                                    {{ $packageCheckedAttr }} {{ $packageDisabledAttr }}
                             >
+                            <?php    
+                            }else{
+?>
+                            <input class="form-check-input package-selection{{ $packageIdError }}"
+                            style="cursor: pointer;"
+                            type="checkbox"
+                            name="package_id[]"
+                            id="packageId-{{ $package->id }}"
+                            value="{{ $package->id }}"
+                            data-name="{{ $package->name }}"
+                            data-price="{{ $package->price }}"
+                            data-currencysymbol="{{ $package->currency->symbol }}"
+                            data-currencyinleft="{{ $package->currency->in_left }}"
+                            {{ $packageCheckedAttr }} {{ $packageDisabledAttr }}
+                     >
+
+<?php
+                            }
+                            ?>
                             <label class="form-check-label mb-0{{ $packageIdError }}">
                                 <strong class=""
                                         data-bs-placement="right"

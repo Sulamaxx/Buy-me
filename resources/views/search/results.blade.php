@@ -31,10 +31,10 @@ $rightAdvertising ??= [];
 	$displayModes ??= [];
 @endphp
 
-@section('search')
+{{-- @section('search')
 	@parent
 	@includeFirst([config('larapen.core.customizedViewPath') . 'search.inc.form', 'search.inc.form'])
-@endsection
+@endsection --}}
 
 @section('content')
 	<div class="main-container">

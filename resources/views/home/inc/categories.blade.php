@@ -87,7 +87,7 @@ $topAdvertising ??= [];
 
 <div class="container{{ $hideOnMobile }}">
 	<div class="col-xl-14 content-box layout-section" style="background-color: transparent;border-radius: 0%">
-		<div class="row row-featured row-featured-category" style="margin-inline: 0px">
+		<div class="row row-featured row-featured-category" style="margin-inline: 0px;justify-content: center;">
 			{{-- <div class="col-xl-14 box-title no-border">
 				{{-- <div class="inner">
 					<h2>
@@ -111,9 +111,13 @@ $topAdvertising ??= [];
     .custom-col-lg {
         width: 11.111111% !important; /* 7 items per row for large screens */
     }
-        .f-category {
+    .f-category {
     	padding: 5px 5px 5px !important;
 		background-color:transparent;
+    }
+
+	.f-category img{
+    	height: 77.5px !important;
     }
 
 	.white-box {
@@ -139,13 +143,79 @@ $topAdvertising ??= [];
     }
 
 }
+
+@media (min-width: 320px) {
+    
+	.f-category img{
+	   height: 48.57px !important;
+   }
+
+}
+
+@media (min-width: 375px) {
+    
+	.f-category img{
+	   height: 66.94px !important;
+   }
+
+}
+
+@media (min-width: 425px) {
+    
+	.f-category img{
+	   height: 83.73px !important;
+   }
+
+}
+
+@media (min-width: 1024px) {
+    
+	.f-category img{
+	   height: 53.99px !important;
+   }
+
+   .f-category{
+	padding: 5px 5px 5px !important;
+    background-color: transparent;
+    margin-inline: 2vw !important;
+   }
+
+}
+
+@media (min-width: 1440px) {
+    
+	.f-category img{
+	   height: 80.66px !important;
+   }
+
+   
+
+}
+
+@media (min-width: 2560px) {
+    
+	.f-category img{
+	   height: 80.66px !important;
+   }
+
+   .f-category{
+	padding: 5px 5px 5px !important;
+    background-color: transparent;
+    margin-inline: 30px !important;
+   }
+
+}
+
+
+
+
  
 </style>
            
 @php
 // Split categories into first 8 and the rest
-$firstEight = array_slice($categories, 0, 8);
-$remaining = array_slice($categories, 8);
+$firstEight = array_slice($categories, 0, 5);
+$remaining = array_slice($categories, 5);
 @endphp
 
 <!-- Display the first 8 categories -->
@@ -153,8 +223,8 @@ $remaining = array_slice($categories, 8);
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" style="border: none">
 	<div class="white-box">
 		<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
-			<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}" style="height: max-content">
-			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+			<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}" >
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;line-height:10px !important;"><br>
 				{{ data_get($cat, 'name') }}
 				@if (config('settings.list.count_categories_listings'))
 					&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
@@ -170,8 +240,8 @@ $remaining = array_slice($categories, 8);
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-all-box" style="border: none">
 	<div class="white-box" >
 		<a href="#" id="see-all-link">
-			<img src="/images/categories/see-all.jpg" class="img-fluid" alt="See All" style="height: max-content">
-			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+			<img src="/images/categories/see-all.png" class="img-fluid" alt="See All" loading="lazy">
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;line-height:10px !important;"><br>
 				See All
 			</h4>
 		</a>
@@ -183,8 +253,8 @@ $remaining = array_slice($categories, 8);
 	<div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category hidden-category" style="border: none; display: none;">
 		<div class="white-box">
 			<a href="{{ \App\Helpers\UrlGen::category($cat) }}">
-				<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}"style="height: max-content">
-				<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+				<img src="{{ data_get($cat, 'picture_url') }}" class="lazyload img-fluid" alt="{{ data_get($cat, 'name') }}" loading="lazy">
+				<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;line-height:10px !important;"><br>
 					{{ data_get($cat, 'name') }}
 					@if (config('settings.list.count_categories_listings'))
 						&nbsp;({{ $countPostsPerCat[data_get($cat, 'id')]['total'] ?? 0 }})
@@ -200,8 +270,8 @@ $remaining = array_slice($categories, 8);
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
 	<div class="white-box" >
 		<a href="#" id="see-less-link">
-			<img src="/images/categories/see-less.jpg" class="img-fluid" alt="See Less" style="height: max-content">
-			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;"><br>
+			<img src="/images/categories/see-less.png" class="img-fluid" alt="See Less"  loading="lazy">
+			<h4 style="font-size: small; color: #666666;padding-top: 0%;padding-bottom: 0%;margin-block-start: 0rem !important;margin-block-end: 0rem !important;line-height:10px !important;"><br>
 				See Less
 			</h4>
 		</a>

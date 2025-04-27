@@ -147,7 +147,7 @@ if (config('settings.style.logo_aspect_ratio')) {
 		}
 		.navbar.navbar-site .navbar-identity .navbar-brand {
 		height: {{ $headerHeight }}px;
-		padding-top: {{ $padding }}px;
+		padding-top: {{ $padding + 0.5}}px;
 		padding-bottom: {{ $padding }}px;
 	}
 	}

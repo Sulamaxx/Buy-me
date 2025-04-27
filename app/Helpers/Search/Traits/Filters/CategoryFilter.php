@@ -20,55 +20,67 @@ use App\Models\Category;
 
 trait CategoryFilter
 {
-	protected function applyCategoryFilter(): void
-	{
-		if (!isset($this->posts)) {
-			return;
-		}
-		
-		if (empty($this->cat) || !($this->cat instanceof Category)) {
-			return;
-		}
-		
-		$catChildrenIds = $this->getCategoryChildrenIds($this->cat, $this->cat->id);
-		
-		if (empty($catChildrenIds)) {
-			return;
-		}
-		
-		$this->posts->whereIn('category_id', $catChildrenIds);
-	}
-	
-	/**
-	 * Get all the category's children IDs
-	 *
-	 * @param $cat
-	 * @param null $catId
-	 * @param array $idsArr
-	 * @return array
-	 */
-	private function getCategoryChildrenIds($cat, $catId = null, array &$idsArr = []): array
-	{
-		if (!empty($catId)) {
-			$idsArr[] = $catId;
-		}
-		
-		if (isset($cat->children) && $cat->children->count() > 0) {
-			$subIdsArr = [];
-			foreach ($cat->children as $subCat) {
-				if ($subCat->active != 1) {
-					continue;
-				}
-				
-				$idsArr[] = $subCat->id;
-				
-				if (isset($subCat->children) && $subCat->children->count() > 0) {
-					$subIdsArr = $this->getCategoryChildrenIds($subCat, null, $subIdsArr);
-				}
-			}
-			$idsArr = array_merge($idsArr, $subIdsArr);
-		}
-		
-		return $idsArr;
-	}
+    protected function applyCategoryFilter(): void
+    {
+        if (!isset($this->posts)) {
+            return;
+        }
+
+        
+        $selectedCategories = request()->input('c', []);
+
+        if (empty($selectedCategories)) {
+            return;
+        }
+
+        
+        $catChildrenIds = [];
+
+        
+        foreach ($selectedCategories as $catId) {
+            $cat = Category::find($catId);
+            if ($cat) {
+                $catChildrenIds = $this->getCategoryChildrenIds($cat, $catId, $catChildrenIds);
+            }
+        }
+
+      
+        $catChildrenIds = array_unique($catChildrenIds);
+        if (!empty($catChildrenIds)) {
+            $this->posts->whereIn('category_id', $catChildrenIds);
+        }
+    }
+
+    /**
+     * Get all the category's children IDs recursively
+     *
+     * @param $cat
+     * @param null $catId
+     * @param array $idsArr
+     * @return array
+     */
+    private function getCategoryChildrenIds($cat, $catId = null, array &$idsArr = []): array
+    {
+        if (!empty($catId)) {
+            $idsArr[] = (int)$catId; 
+        }
+
+        if (isset($cat->children) && $cat->children->count() > 0) {
+            $subIdsArr = [];
+            foreach ($cat->children as $subCat) {
+                if ($subCat->active != 1) {
+                    continue;
+                }
+
+                $idsArr[] = (int)$subCat->id;
+
+                if (isset($subCat->children) && $subCat->children->count() > 0) {
+                    $subIdsArr = $this->getCategoryChildrenIds($subCat, null, $subIdsArr);
+                }
+            }
+            $idsArr = array_merge($idsArr, $subIdsArr);
+        }
+
+        return $idsArr;
+    }
 }

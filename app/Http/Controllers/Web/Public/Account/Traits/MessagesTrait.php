@@ -31,7 +31,6 @@ trait MessagesTrait
 		if (!request()->ajax()) {
 			return;
 		}
-		
 		$countLimit = 20;
 		$countThreadsWithNewMessages = 0;
 		$oldValue = request()->input('oldValue');

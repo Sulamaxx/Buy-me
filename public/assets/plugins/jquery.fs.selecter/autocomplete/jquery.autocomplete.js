@@ -230,7 +230,7 @@
             $(that.suggestionsContainer).css({
                 'max-height': options.maxHeight + 'px',
                 'width': options.width + 'px',
-                'z-index': options.zIndex
+                'z-index': 9999
             });
         },
 

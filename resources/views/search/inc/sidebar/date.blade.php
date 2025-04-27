@@ -15,7 +15,7 @@ $clearFilterBtn = \App\Helpers\UrlGen::getDateFilterClearLink($cat ?? null, $cit
 		<ul>
 			@if (isset($periodList) && !empty($periodList))
 				@foreach($periodList as $key => $value)
-					<li>
+					<li style="display: flex; align-items: center; gap: 5px;">
 						<input type="radio"
 							   name="postedDate"
 							   value="{{ $key }}"

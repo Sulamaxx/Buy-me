@@ -26,6 +26,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log; 
 
 class ShowController extends FrontController
 {
@@ -66,9 +67,10 @@ class ShowController extends FrontController
 	{
 		// Get and Check the Controller's Method Parameters
 		$parameters = request()->route()->parameters();
-
+	
 		// Check if the Listing's ID key exists
 		$idKey = array_key_exists('hashableId', $parameters) ? 'hashableId' : 'id';
+		
 		$idKeyDoesNotExist = (
 			empty($parameters[$idKey])
 			|| (!isHashedId($parameters[$idKey]) && !is_numeric($parameters[$idKey]))
@@ -80,6 +82,7 @@ class ShowController extends FrontController
 		// Set the Parameters
 		$postId = $parameters[$idKey];
 		$slug = $parameters['slug'] ?? null;
+		
 
 		// Forcing redirection 301 for hashed (or non-hashed) ID to update links in search engine indexes
 		if (config('settings.seo.listing_hashed_id_seo_redirection')) {
@@ -103,7 +106,7 @@ class ShowController extends FrontController
 
 		// Decode Hashed ID
 		$postId = hashId($postId, true) ?? $postId;
-
+		
 		// Call API endpoint
 		$endpoint = '/posts/' . $postId;
 		$queryParams = [
@@ -115,15 +118,21 @@ class ShowController extends FrontController
 		$queryParams = array_merge(request()->all(), $queryParams);
 		$headers = session()->has('postIsVisited') ? ['X-VISITED-BY-SAME-SESSION' => $postId] : [];
 		$data = makeApiRequest('get', $endpoint, $queryParams, $headers);
-
+		
 		$message = $this->handleHttpError($data);
 		$post = data_get($data, 'result');
+	
 
 		// mark post view at and by
-		$post_data = Post::where('id', data_get($post, 'id'))->first();
-		$post_data->view_at = Carbon::now();
-		$post_data->view_by = $ipAddress = $ip = request()->header('X-Forwarded-For') ?? request()->ip();
-		$post_data->save();
+		//$post_data = Post::where('id', data_get($post, 'id'))->first();
+		
+		$post_data = Post::where('id', $post['id'])->first();
+		
+		if($post_data){
+			$post_data->view_at = Carbon::now();
+			$post_data->view_by = $ipAddress = $ip = request()->header('X-Forwarded-For') ?? request()->ip();
+			$post_data->save();
+		}
 
 		$customFields = data_get($data, 'extra.fieldsValues');
 

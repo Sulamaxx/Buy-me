@@ -27,14 +27,14 @@
 				<div class="">
                     
                     @if (empty(data_get($page, 'picture')))
-                        <h1 class="text-start title-1" style="color: {!! data_get($page, 'name_color') !!}; background: #2aa95212; padding-top: 10px;">
+                        <h1 class="text-start title-1" style="color: {!! data_get($page, 'name_color') !!}; background: #eee2bc;border-radius: 7.5px 7.5px 0px 0px; padding-top: 10px;font-size: 24px !important;">
 							<strong style="margin: 10px;">{{ data_get($page, 'name') }}</strong>
 						</h1>
                         <!-- <hr class="center-block small mt-0" style="background-color: {!! data_get($page, 'name_color') !!};"> -->
                     @endif
                     
 					<div class="col-md-12 page-content">
-						<div class="inner-box relative">
+						<div class="inner-box relative" style="border-radius: 0px 0px 7.5px 7.5px !important;">
 							<div class="row">
 								<div class="col-sm-12 page-content">
                                     @if (empty(data_get($page, 'picture')))

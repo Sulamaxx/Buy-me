@@ -166,6 +166,9 @@ Route::prefix('categories')
 			});
 	});
 
+
+Route::get('/api/cities', [CityController::class, 'search'])->name('api.cities');
+
 // countries
 Route::prefix('countries')
 	->group(function ($router) {
