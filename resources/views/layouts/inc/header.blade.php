@@ -67,7 +67,7 @@
 @endphp
 
 <div class="header">
-    <nav class="navbar fixed-top navbar-site navbar-light bg-light navbar-expand-md flex-nowrap" role="navigation">
+    <nav class="navbar fixed-top navbar-site navbar-light bg-light navbar-expand-md flex-nowrap" role="navigation" style="z-index:13000;">
         <div class="container">
             <div class="navbar-identity d-flex align-items-center justify-content-between p-sm-0">
                 {{-- Logo --}}

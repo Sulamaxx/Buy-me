@@ -34,7 +34,7 @@ $topAdvertising ??= [];
 
 <div class="container<?php echo e($hideOnMobile); ?>">
 	<div class="col-xl-14 content-box layout-section" style="background-color: transparent;border-radius: 0%">
-		<div class="row row-featured row-featured-category" style="margin-inline: 0px;justify-content: center;">
+		<div class="row row-featured row-featured-category" style="margin-inline: 0px;">
 			
 			
 			<?php if($catDisplayType == 'c_picture_list'): ?>
@@ -115,7 +115,6 @@ $topAdvertising ??= [];
    .f-category{
 	padding: 5px 5px 5px !important;
     background-color: transparent;
-    margin-inline: 2vw !important;
    }
 
 }
@@ -139,7 +138,6 @@ $topAdvertising ??= [];
    .f-category{
 	padding: 5px 5px 5px !important;
     background-color: transparent;
-    margin-inline: 30px !important;
    }
 
 }
@@ -152,8 +150,10 @@ $topAdvertising ??= [];
            
 <?php
 // Split categories into first 8 and the rest
-$firstEight = array_slice($categories, 0, 5);
-$remaining = array_slice($categories, 5);
+$firstEight = array_slice($categories, 0, 8);
+$remaining = array_slice($categories, 8);
+$firstSixMobile = array_slice($categories, 0, 5);
+$remainingMobile = array_slice($categories, 5);
 ?>
 
 <!-- Display the first 8 categories -->
@@ -206,7 +206,6 @@ $remaining = array_slice($categories, 5);
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
-<!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
 	<div class="white-box" >
 		<a href="#" id="see-less-link">
@@ -386,6 +385,7 @@ $remaining = array_slice($categories, 5);
                 });
             }
         });
+
     </script>
 <?php $__env->stopSection(); ?>
 <?php /**PATH F:\Work\Sulochana\Buyme.lk\Buy-me\resources\views/home/inc/categories.blade.php ENDPATH**/ ?>

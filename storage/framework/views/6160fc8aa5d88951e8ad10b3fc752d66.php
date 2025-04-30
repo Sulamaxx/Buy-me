@@ -427,10 +427,12 @@
                 <h5>Categories</h5>
                 <div class="category-options">
                     <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <label class="category-item">
-                            <input type="radio" name="c" <?php echo e(($qCategory == $cat['id']) ? 'checked' : ''); ?> value="<?php echo e($cat['id']); ?>"> <?php echo e($cat['name']); ?>
+                    <label class="category-item">
+                        <input type="checkbox" name="c[]" value="<?php echo e($cat['id']); ?>"
+                            <?php echo e(in_array($cat['id'], request()->query('c', [])) ? 'checked' : ''); ?>>
+                        <?php echo e($cat['name']); ?>
 
-                        </label>
+                    </label>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
@@ -591,35 +593,35 @@
 
     .ts-wrapper{
         padding: 0px !important;
-        z-index: 999999 !important;
+        z-index: 9999 !important;
     }
 
     .ts-dropdown{
         margin-top:0px !important;
         border: none !important;
         border-radius: 0px !important;
-        z-index: 999999 !important; 
+        z-index: 10000 !important; 
     }
 
     
 .search-container {
     position: relative;
-    z-index: 9000; 
+    z-index: 2000; 
 }
 
 .search-col.relative {
     position: relative;
-    z-index: 9010; 
+    z-index: 2010; 
 }
 
 .search-col-inner {
     position: relative;
-    z-index: 9020; 
+    z-index: 2020; 
 }
 
 .search-col-input {
     position: relative;
-    z-index: 9030; 
+    z-index: 2030; 
 }
 
 }
