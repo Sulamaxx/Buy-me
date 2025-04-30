@@ -87,7 +87,7 @@ $topAdvertising ??= [];
 
 <div class="container{{ $hideOnMobile }}">
 	<div class="col-xl-14 content-box layout-section" style="background-color: transparent;border-radius: 0%">
-		<div class="row row-featured row-featured-category" style="margin-inline: 0px;justify-content: center;">
+		<div class="row row-featured row-featured-category" style="margin-inline: 0px;">
 			{{-- <div class="col-xl-14 box-title no-border">
 				{{-- <div class="inner">
 					<h2>
@@ -177,7 +177,6 @@ $topAdvertising ??= [];
    .f-category{
 	padding: 5px 5px 5px !important;
     background-color: transparent;
-    margin-inline: 2vw !important;
    }
 
 }
@@ -201,7 +200,6 @@ $topAdvertising ??= [];
    .f-category{
 	padding: 5px 5px 5px !important;
     background-color: transparent;
-    margin-inline: 30px !important;
    }
 
 }
@@ -214,8 +212,10 @@ $topAdvertising ??= [];
            
 @php
 // Split categories into first 8 and the rest
-$firstEight = array_slice($categories, 0, 5);
-$remaining = array_slice($categories, 5);
+$firstEight = array_slice($categories, 0, 8);
+$remaining = array_slice($categories, 8);
+$firstSixMobile = array_slice($categories, 0, 5);
+$remainingMobile = array_slice($categories, 5);
 @endphp
 
 <!-- Display the first 8 categories -->
@@ -266,7 +266,6 @@ $remaining = array_slice($categories, 5);
 @endforeach
 
 
-<!-- Display "See All" box as the 9th item -->
 <div class="custom-col-lg custom-col-md custom-col-sm custom-col-xs f-category" id="see-less-box" style="border: none;display:none;">
 	<div class="white-box" >
 		<a href="#" id="see-less-link">
@@ -442,5 +441,6 @@ $remaining = array_slice($categories, 5);
                 });
             }
         });
+
     </script>
 @endsection

@@ -22,33 +22,46 @@ trait CategoryFilter
 {
     protected function applyCategoryFilter(): void
     {
+
         if (!isset($this->posts)) {
             return;
         }
-
-        
-        $selectedCategories = request()->input('c', []);
-
-        if (empty($selectedCategories)) {
-            return;
-        }
-
-        
-        $catChildrenIds = [];
-
-        
-        foreach ($selectedCategories as $catId) {
-            $cat = Category::find($catId);
-            if ($cat) {
-                $catChildrenIds = $this->getCategoryChildrenIds($cat, $catId, $catChildrenIds);
+    
+        $catChildrenIds = []; // Initialize the accumulator array
+    
+        if (request()->has('c')) {
+            $selectedCategories = request()->input('c', []);
+    
+            if (empty($selectedCategories)) {
+                return;
             }
+    
+            foreach ((array)$selectedCategories as $catId) {
+                // Find the selected category (assuming 'c' is ID or slug)
+                $cat = Category::where('id', $catId)->orWhere('slug', $catId)->first();
+                if ($cat) {
+                    // Call the corrected method, passing the main accumulator array by reference
+                    $this->getCategoryChildrenIds($cat, $catChildrenIds);
+                }
+            }
+    
+            $catChildrenIds = array_unique($catChildrenIds);
+    
+        } else {
+            // When 'c' is NOT present, filter by the current page's category and its children
+            if (empty($this->cat) || !($this->cat instanceof Category)) {
+                return;
+            }
+    
+            // Call the corrected method, passing the main accumulator array by reference
+            $this->getCategoryChildrenIds($this->cat, $catChildrenIds);
         }
-
-      
-        $catChildrenIds = array_unique($catChildrenIds);
+    
         if (!empty($catChildrenIds)) {
             $this->posts->whereIn('category_id', $catChildrenIds);
         }
+
+        
     }
 
     /**
@@ -61,26 +74,24 @@ trait CategoryFilter
      */
     private function getCategoryChildrenIds($cat, $catId = null, array &$idsArr = []): array
     {
-        if (!empty($catId)) {
-            $idsArr[] = (int)$catId; 
+
+        if (!empty($cat->id)) {
+            $idsArr[] = (int)$cat->id;
         }
-
+    
+      
         if (isset($cat->children) && $cat->children->count() > 0) {
-            $subIdsArr = [];
             foreach ($cat->children as $subCat) {
-                if ($subCat->active != 1) {
-                    continue;
-                }
-
-                $idsArr[] = (int)$subCat->id;
-
-                if (isset($subCat->children) && $subCat->children->count() > 0) {
-                    $subIdsArr = $this->getCategoryChildrenIds($subCat, null, $subIdsArr);
+                if ($subCat->active == 1) {
+                   
+                    $this->getCategoryChildrenIds($subCat, $idsArr);
                 }
             }
-            $idsArr = array_merge($idsArr, $subIdsArr);
         }
-
+    
+        
         return $idsArr;
+
+        
     }
 }
