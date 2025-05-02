@@ -49,7 +49,7 @@ class CouponCodesController extends PanelController
             // Parse the valid_period and compare to today's date
             if (Carbon::parse($data->valid_period)->lt(Carbon::today())) {
                 $data['status'] = 'Expired';
-                $data['is_active '] = 0;
+                $data['is_active'] = 0;
                 $data->save();
             }
         }
