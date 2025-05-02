@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\Admin\Panel\PanelController;
 use App\Models\Coupon;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class CouponCodesController extends PanelController
@@ -96,22 +99,77 @@ class CouponCodesController extends PanelController
     // Update coupon
     public function update(Request $request, $id)
     {
-        $coupon = Coupon::findOrFail($id);
-        $request->validate([
-            'code' => 'required|unique:coupons,code',
-            'value' => 'required|numeric',
-            'value_type' => 'required',
-            'name' => 'required',
-            'valid_period' => 'required|date|after:today',
-        ]);
-        $coupon->update($request->all());
+        try {
+            $coupon = Coupon::findOrFail($id);
+            $request->validate([
+                'code' => [
+                    'required',
+                    Rule::unique('coupons', 'code')->ignore($id),
+                ],
+                'value' => 'required|numeric',
+                'value_type' => 'required',
+                'name' => 'required',
+                'valid_period' => 'required|date|after:today',
+            ]);
+            $coupon->update($request->all());
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Coupon updated successfully.',
-            'data' => $coupon
-        ]);
+            return response()->json([
+                'success' => true,
+                'message' => 'Coupon updated successfully.',
+                'data' => $coupon
+            ]);
+        } catch (Exception $e) {
+            $allErrors = collect($e->errors())->flatten()->implode(' ');
+
+            Log::error('Validation failed: ' . $allErrors);
+            return response()->json([
+                'success' => false,
+                'message' => $allErrors,
+            ]);
+        }
     }
+
+    // public function update(Request $request, $id)
+    // {
+    //     try {
+    //         $coupon = Coupon::findOrFail($id);
+
+    //         // Validation
+    //         $validated = $request->validate([
+    //             'code' => [
+    //                 'required',
+    //                 Rule::unique('coupons', 'code')->ignore($id),
+    //             ],
+    //             'value' => 'required|numeric',
+    //             'value_type' => 'required',
+    //             'name' => 'required',
+    //             'valid_period' => 'required|date|after:today',
+    //         ]);
+
+    //         // Update
+    //         $coupon->update($validated);
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'Coupon updated successfully.',
+    //             'data' => $coupon
+    //         ]);
+    //     } catch (ValidationException $e) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Validation failed.',
+    //             'errors' => $e->errors()
+    //         ], 422);
+    //     } catch (Exception $e) {
+    //         Log::error('Coupon update failed: ' . $e->getMessage());
+
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'An unexpected error occurred.',
+    //             'error' => $e->getMessage()
+    //         ], 500);
+    //     }
+    // }
 
     // Change status separately
     public function changeStatus(Request $request, $id)

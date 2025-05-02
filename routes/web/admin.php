@@ -157,7 +157,7 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		Route::post('/coupons', [CouponCodesController::class, 'store'])->name('admin.coupons.store');
 
 		// Update coupon
-		Route::put('/coupons/{id}', [CouponCodesController::class, 'update'])->name('admin.coupons.update');
+		Route::post('/coupons/{id}', [CouponCodesController::class, 'update'])->name('admin.coupons.update');
 
 		// Change coupon status
 		Route::patch('/coupons/{id}/status', [CouponCodesController::class, 'changeStatus'])->name('admin.coupons.changeStatus');

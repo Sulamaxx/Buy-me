@@ -257,7 +257,6 @@
                     valid_period: $('#edit_valid_period').val(),
                     is_active: $('#edit_is_active').val(),
                     status: $('#edit_status').val(),
-                    _method: 'PUT',
                     _token: $('meta[name="csrf-token"]').attr('content')
                 };
                 let url = "{{ route('admin.coupons.update', ':id') }}".replace(':id', id);
@@ -267,11 +266,11 @@
                     data: data,
                     success: function(response) {
                         $('#editCouponModal').modal('hide');
-                        showAlert('Coupon updated successfully!', 'success');
+                        showAlert(response.message, response.success ? 'success' : 'danger');
                         loadCoupons();
                     },
                     error: function(err) {
-
+                        console.log(err);
                         alert('Failed to update coupon');
                     }
                 });
