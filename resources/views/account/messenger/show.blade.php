@@ -249,4 +249,56 @@
         {{-- fileinput (filename) --}}
         $('#addFile').fileinput(options);
     </script>
+    
+    <script>
+        var siteUrl = '{{ url('/') }}';
+        var userId = {{ auth()->user()->id }};
+        var threadId = {{ $thread->id }};
+    </script>
+    <script src="{{ url('assets/js/app/messenger-chat.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ url('assets/js/app/real-time-messenger.js') }}" type="text/javascript"></script>
+    
+    <script>
+        $(function () {
+            /* Initiating the chat scrolling */
+            var $chatHistory = $('#messageChatHistory');
+            $chatHistory.mCustomScrollbar({
+                theme: 'minimal-dark',
+                scrollInertia: 100,
+                mouseWheel: { preventDefault: true },
+                documentTouchScroll: false,
+                autoHideScrollbar: true,
+                /* Set the chat scrolling at the bottom */
+                callbacks: {
+                    onUpdate: function () {
+                        $chatHistory.mCustomScrollbar('scrollTo', 'bottom', {
+                            scrollInertia: 0
+                        });
+                    }
+                }
+            });
+            $chatHistory.mCustomScrollbar('scrollTo', 'bottom', {
+                scrollInertia: 0
+            });
+            
+            /* Populate the current thread ID in a hidden field */
+            if (!$('#currentThreadId').length) {
+                $('<input>').attr({
+                    type: 'hidden',
+                    id: 'currentThreadId',
+                    name: 'currentThreadId',
+                    value: '{{ $thread->id }}'
+                }).appendTo('#chatForm');
+            }
+            
+            /* Send message on Enter key */
+            $('#body').on('keyup', function (e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    $('#sendChat').click();
+                }
+            });
+        });
+    </script>
 @endsection

@@ -16,10 +16,13 @@
 
 namespace App\Http\Controllers\Web\Public\Account;
 
+use App\Events\NewMessageEvent;
 use App\Helpers\UrlGen;
 use App\Http\Controllers\Web\Public\Account\Traits\MessagesTrait;
 use App\Http\Requests\Front\ReplyMessageRequest;
 use App\Http\Requests\Front\SendMessageRequest;
+use App\Models\ThreadMessage;
+use App\Models\ThreadParticipant;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 
 class MessagesController extends AccountBaseController
@@ -209,6 +212,20 @@ class MessagesController extends AccountBaseController
 			'success' => (bool)data_get($data, 'success'),
 			'msg'     => $message,
 		];
+
+		// If message was sent successfully, broadcast event for real-time updates
+		if (data_get($data, 'success') && !empty(data_get($data, 'result'))) {
+			$threadMessage = data_get($data, 'result');
+			
+			// Get thread participants excluding the sender
+			$participants = ThreadParticipant::where('thread_id', $id)
+				->where('user_id', '!=', auth()->id())
+				->pluck('user_id')
+				->toArray();
+			
+			// Broadcast the new message event
+			broadcast(new NewMessageEvent($threadMessage, $participants))->toOthers();
+		}
 		
 		return ajaxResponse()->json($result, $status);
 	}
