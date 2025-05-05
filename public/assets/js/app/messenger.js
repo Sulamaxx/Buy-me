@@ -131,7 +131,7 @@ function getThreadsAjax(url) {
 		
 		/* Clear all alert message */
 		try {
-			sleep(6000).then(() => {
+			sleep(3000).then(() => {
 				$('#successMsg').empty().hide();
 				$('#errorMsg').empty().hide();
 			});
@@ -166,7 +166,7 @@ function getThreads(url) {
 		
 		/* Clear all alert message */
 		try {
-			sleep(6000).then(() => {
+			sleep(3000).then(() => {
 				$('#successMsg').empty().hide();
 				$('#errorMsg').empty().hide();
 			});

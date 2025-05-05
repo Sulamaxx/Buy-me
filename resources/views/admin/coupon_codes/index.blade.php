@@ -29,7 +29,7 @@
                                     <th>Validity</th>
                                     <th>Utilized</th>
                                     <th>Utilized At</th>
-                                    <th>Utilized By</th>
+                                    <th>User Id</th>
                                     <th>Active</th>
                                     <th>Status</th>
                                     <th>Created At</th>
@@ -324,7 +324,7 @@
                         <td class="coupon-value">${coupon.value ?? '-'}</td>
                         <td>${validFrom}</td>
                         <td class="coupon-utilized">
-                            ${coupon.utilized=="yes" ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-secondary">No</span>'}
+                            ${coupon.utilized=="Yes" ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-secondary">No</span>'}
                         </td>
                         <td class="coupon-utilized-at">${utilizedAt}</td>
                         <td class="coupon-utilized-by">${coupon.user?.id ?? '-'}</td>
