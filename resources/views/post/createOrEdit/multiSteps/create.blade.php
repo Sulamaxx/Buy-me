@@ -49,25 +49,28 @@
 						
 						<div class="row">
 							<div class="col-xl-12">
-								
+							
 								<form class="form-horizontal"
 								      id="payableForm"
 								      method="POST"
 								      action="{{ request()->fullUrl() }}"
 								      enctype="multipart/form-data"
-								>
-									{!! csrf_field() !!}
-									@honeypot
-									<fieldset>
-									    
-									    {{-- city_id --}}
+									  >
+									  {!! csrf_field() !!}
+									  @honeypot
+									  <fieldset>
+										 
+										 {{-- city_id --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
 										<div id="cityBox" class="row mb-3 required">
 											<label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">{{ t('city') }} <sup>*</sup></label>
 											<div class="col-md-8">
 												<select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
-													<option value="0" @selected(empty(old('city_id')))>
+													{{-- <option value="0" @selected(empty(old('city_id')))>
 														{{ t('select_a_city') }}
+													</option> --}}
+													<option value="{{ old('city_id', data_get($postInput, 'city_id', 0)) }}" @selected(empty(old('city_id')))>
+														{{ old('selected_city_name', data_get($postInput, 'selected_city_name', t('select_a_city'))) }}
 													</option>
 												</select>
 											</div>

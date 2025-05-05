@@ -109,7 +109,7 @@ class CouponCodesController extends PanelController
                 'value' => 'required|numeric',
                 'value_type' => 'required',
                 'name' => 'required',
-                'valid_period' => 'required|date|after:today',
+                'valid_period' => 'required|date',
             ]);
             $coupon->update($request->all());
 

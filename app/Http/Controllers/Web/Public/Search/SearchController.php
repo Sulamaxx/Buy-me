@@ -99,6 +99,27 @@ class SearchController extends BaseController
 			&& currentRouteActionContains('Search\\')
 			&& empty(data_get($apiResult, 'data'))
 		);
+
+		
+                if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+       
 		
 		return appView(
 			'search.results',

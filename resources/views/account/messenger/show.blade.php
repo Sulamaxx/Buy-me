@@ -66,9 +66,9 @@
                                                 </a>&nbsp;
                                                 @if (auth()->id() != data_get($thread, 'p_creator.id'))
                                                     <a href="#user">
-                                                        @if (isUserOnline(data_get($thread, 'p_creator')))
+                                                        {{-- @if (isUserOnline(data_get($thread, 'p_creator')))
                                                             <i class="fa fa-circle color-success"></i>&nbsp;
-                                                        @endif
+                                                        @endif --}}
                                                         <strong>
                                                             <a href="{{ \App\Helpers\UrlGen::user(data_get($thread, 'p_creator')) }}">
                                                                 {{ data_get($thread, 'p_creator.name') }}
@@ -170,8 +170,8 @@
                                                           style="{{ (config('lang.direction')=='rtl') ? 'padding-left' : 'padding-right' }}: 75px;"
                                                     ></textarea>
                                                     <div class="button-wrap">
-                                                        <input id="addFile" name="filename" type="file">
-                                                        <button id="sendChat" class="btn btn-primary" type="submit">
+                                                        <input id="addFile" name="filename" type="file" >
+                                                        <button id="sendChat" class="btn btn-primary btn-fixed-width" type="submit">
                                                             <i class="fas fa-paper-plane" aria-hidden="true"></i>
                                                         </button>
                                                     </div>
@@ -205,6 +205,31 @@
         .file-input {
             display: inline-block;
         }
+
+        .btn-fixed-width{
+            width:3vw !important;
+        }
+
+    
+        @media(max-width:1025px){
+            .btn-fixed-width{
+            width:4vw !important;
+        }
+    }
+     
+        @media(max-width:426px){
+            .btn-fixed-width{
+            width:9vw !important;
+        }
+    }
+    @media(max-width:321px){
+            .btn-fixed-width{
+            width:11vw !important;
+        }
+    }
+        
+         
+
     </style>
 @endsection
 
@@ -238,7 +263,7 @@
         options.allowedFileExtensions = {!! getUploadFileTypes('file', true) !!};
         options.minFileSize = {{ (int)config('settings.upload.min_file_size', 0) }};
         options.maxFileSize = {{ (int)config('settings.upload.max_file_size', 1000) }};
-        options.browseClass = 'btn btn-primary';
+        options.browseClass = 'btn btn-primary btn-fixed-width';
         options.browseIcon = '<i class="fas fa-paperclip" aria-hidden="true"></i>';
         options.layoutTemplates = {
             main1: '{browse}',
