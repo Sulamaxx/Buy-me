@@ -144,6 +144,25 @@ class LoginController extends FrontController
 	 */
 	public function logout(Request $request)
 	{
+		if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+
 		$userId = auth()->check() ? auth()->user()->id : null;
 		
 		// Call API endpoint

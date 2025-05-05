@@ -179,12 +179,13 @@
                             @endforeach
                             </div>
                         </div>
+                        <input type="hidden" id="nearLocation" name="location" value="">
                         <div class="filter-section">
                             <h5>Location</h5>
                             <select id="locationSelect" name="l[]" multiple placeholder="Select locations...">
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}"
-                                        {{ in_array($city->id, request()->query('l', [])) ? 'selected' : '' }}>
+                                        {{ in_array($city->id, (array)request()->query('l', [])) ? 'selected' : '' }}>
                                         {{ $city->name }}
                                     </option>
                                 @endforeach
@@ -276,11 +277,13 @@
                             </ul>
                         </li>
                         <li class="nav-item d-md-none d-sm-block d-block">
-                            @if (config('settings.security.login_open_in_modal'))
+                            {{-- @if (config('settings.security.login_open_in_modal'))
                                 <a href="#quickLogin" class="nav-link" data-bs-toggle="modal" style="color: white"><i class="fas fa-user"></i> {{ t('log_in') }}</a>
                             @else
                                 <a href="{{ \App\Helpers\UrlGen::login() }}" class="nav-link" style="color: white"><i class="fas fa-user"></i> {{ t('log_in') }}</a>
-                            @endif
+                            @endif --}}
+                            <a href="{{ \App\Helpers\UrlGen::login() }}" class="nav-link" style="color: white"><i class="fas fa-user"></i> {{ t('log_in') }}</a>
+                           
                         </li>
                         <li class="nav-item d-md-none d-sm-block d-block">
                             <a href="{{ \App\Helpers\UrlGen::register() }}" class="nav-link" style="color: white"><i class="far fa-user"></i> {{ t('sign_up') }}</a>
@@ -316,6 +319,9 @@
                                         <li class="dropdown-item{{ (isset($value['isActive']) && $value['isActive']) ? ' active' : '' }}">
                                             <a href="{{ $value['url'] }}">
                                                 <i class="{{ $value['icon'] }}"></i> {{ $value['name'] }}
+                                                @if ($value['name'] == 'Messenger')
+                                                <span class="badge badge-pill badge-important count-threads-with-new-messages d-lg-inline-block d-md-none">0</span>
+                                                @endif
                                                 @if (!empty($value['countVar']) && !empty($value['countCustomClass']))
                                                     <span class="badge badge-pill badge-important{{ $value['countCustomClass'] }}">0</span>
                                                 @endif
@@ -359,7 +365,7 @@
                 </div>
             </div>
             <input type="hidden" id="lSearch2" name="l" value="">
-
+            <input type="hidden" id="nearLocation2" name="location" value="">
             <div class="col-4 col-md-5 col-sm-12 search-col relative mb-xxl-0 mb-xl-0 mb-lg-0 mb-md-0 d-md-none">
                 <div class="search-col-inner">
                     <div class="search-col-input" style="margin-left: 0px; width: 100%;"
@@ -371,7 +377,7 @@
     <select class="form-control font-size-d" id="locSearch" name="l[]" multiple placeholder="{{ t('where') }}" style="border-radius:0% !important;padding-right:0% !important;font-size:13px">
         @foreach ($cities as $city)
             <option value="{{ $city->id }}"
-                {{ in_array($city->id, request()->query('l', [])) ? 'selected' : '' }}>
+                {{ in_array($city->id, (array)request()->query('l', [])) ? 'selected' : '' }}>
                 {{ $city->name }}
             </option>
         @endforeach
@@ -496,10 +502,10 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        new TomSelect('#locationSelect', {
+        let locationTomSelect = new TomSelect('#locationSelect', {
             plugins: ['remove_button'],
             maxItems: null,
-            valueField: 'id',
+            valueField: 'name',
             labelField: 'name',
             searchField: ['name'],
             placeholder: 'Select locations...',
@@ -513,10 +519,39 @@
             }
         });
 
-        new TomSelect('#locSearch', {
+        locationTomSelect.on('change', function(values) {
+        
+
+        let nearLocationInput = $('#nearLocation'); // Get the hidden input element
+
+        // Check if exactly one item is selected
+        if (values && values.length === 1) {
+            // If exactly one item is selected, set the hidden input value to that item's value
+            let selectedValue = values[0];
+            nearLocationInput.val(selectedValue);
+            console.log('Tom Select value changed. Exactly one item selected:', selectedValue);
+        } else {
+            // If zero or more than one item is selected, clear the hidden input
+            nearLocationInput.val('');
+            console.log('Tom Select selection changed. Zero or multiple items selected. Hidden input value cleared.');
+        }
+    });
+    
+    let initialSelectedValues = locationTomSelect.getValue(); // Get initial values from Tom Select
+
+    // Apply the same logic as the change event handler to the initial state
+    if (initialSelectedValues && initialSelectedValues.length === 1) {
+        $('#nearLocation').val(initialSelectedValues[0]);
+        console.log('Initial Tom Select value set. Exactly one item initially selected:', initialSelectedValues[0]);
+    } else {
+        $('#nearLocation').val('');
+        console.log('No initial Tom Select value or multiple items initially selected.');
+    }
+
+    let locationTomSelect2 = new TomSelect('#locSearch', {
         plugins: ['remove_button'],
         maxItems: null,
-        valueField: 'id',
+        valueField: 'name',
         labelField: 'name',
         searchField: ['name'],
         placeholder: '{{ t('where') }}',
@@ -539,6 +574,35 @@
             }
         }
     });
+
+    locationTomSelect2.on('change', function(values) {
+        
+
+        let nearLocationInput2 = $('#nearLocation2'); // Get the hidden input element
+
+        // Check if exactly one item is selected
+        if (values && values.length === 1) {
+            // If exactly one item is selected, set the hidden input value to that item's value
+            let selectedValue2 = values[0];
+            nearLocationInput2.val(selectedValue2);
+            console.log('Tom Select value changed. Exactly one item selected:', selectedValue2);
+        } else {
+            // If zero or more than one item is selected, clear the hidden input
+            nearLocationInput2.val('');
+            console.log('Tom Select selection changed. Zero or multiple items selected. Hidden input value cleared.');
+        }
+    });
+
+    let initialSelectedValues2 = locationTomSelect2.getValue(); // Get initial values from Tom Select
+
+    // Apply the same logic as the change event handler to the initial state
+    if (initialSelectedValues2 && initialSelectedValues2.length === 1) {
+        $('#nearLocation2').val(initialSelectedValues2[0]);
+        console.log('Initial Tom Select value set. Exactly one item initially selected:', initialSelectedValues2[0]);
+    } else {
+        $('#nearLocation2').val('');
+        console.log('No initial Tom Select value or multiple items initially selected.');
+    }
 
     });
 

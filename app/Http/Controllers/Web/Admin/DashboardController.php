@@ -152,6 +152,26 @@ class DashboardController extends PanelController
 	 */
 	public function redirect()
 	{
+
+		if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+
 		// The '/admin' route is not to be used as a page, because it breaks the menu's active state.
 		return redirect(admin_uri('dashboard'));
 	}

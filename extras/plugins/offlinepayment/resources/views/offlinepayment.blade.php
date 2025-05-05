@@ -3,7 +3,7 @@
 	$offlinepaymentPaymentMethod ??= [];
 @endphp
 <div class="row payment-plugin" id="offlinePayment" style="display: none;">
-	<div class="col-md-6 col-sm-6 box-center center mt-4 mb-0">
+	<div class="col-md-6 col-sm-6 box-center center mt-4 mb-0" style="width:100%">
 		<div class="row">
 			
 			<div class="col-xl-12 text-start">
@@ -14,7 +14,7 @@
 				>
 			</div>
 			
-			<div class="col-xl-4 mt-3">
+			<div class="col-xl-12 mt-3" >
 				<div id="offlinePaymentDescription">
 					<div class="card card-default">
 						

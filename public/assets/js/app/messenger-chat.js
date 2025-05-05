@@ -23,7 +23,7 @@ $(function () {
 	var chatTextField = $('#body');
 	var chatFileFiled = $('#addFile');
 	
-	setInterval(scrollChatHistoryToBottom, 2000);
+	setInterval(scrollChatHistoryToBottom, 1000);
 	$('#messageChatHistory').scroll(function() {
 		autoScrollEnabled = false;
 	});

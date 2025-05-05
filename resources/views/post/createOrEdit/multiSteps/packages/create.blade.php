@@ -71,6 +71,7 @@
                                 </div>
                             <div class="col-md-6"> {{-- Right side --}}
                                 <div class="well pb-0" style="padding-top: 10px">
+                                    <div id="pay-method-visibility">
                                     @includeFirst([
                                         config('larapen.core.customizedViewPath') . 'payment.payment-methods',
                                         'payment.payment-methods'
@@ -79,6 +80,7 @@
                                         config('larapen.core.customizedViewPath') . 'payment.payment-methods.plugins',
                                         'payment.payment-methods.plugins'
                                     ])
+                                    </div>
                                     <div id="selected-packages-list" style="margin-top: 10px;border-top: 1px solid #ddd; padding-top: 10px;"></div>
                                     <p class="mb-0" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #ddd; padding-top: 10px;">
                                         <strong>
@@ -93,7 +95,7 @@
                                         </strong>
                                     </p>
                                 </div>
-                                <div class="mb-3" style="padding-top: 20px">
+                                <div class="mb-3" style="padding-top: 20px" id="apply-coupon-container">
                 
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="coupon_code" name="coupon_code" placeholder="Enter your coupon code">
@@ -194,12 +196,44 @@
                     showPaymentSubmitButton(currentPackagePrice, totalAmount, paymentIsActive, selectedPaymentMethod, isCreationFormPage);
                 }
 
+                function updateCouponCodeVisibility(){
+                    var payableAmountElement = $('.payable-amount'); 
+    var currentPrice = parseFloat(payableAmountElement.text());
+
+    currentPrice = Math.round(currentPrice * 100) / 100;
+
+if(currentPrice<1){
+    $('#apply-coupon-container').css('display', 'none');
+}else{
+    $('#apply-coupon-container').css('display', 'block');
+}
+
+                }
+
+                function updatePayMethodVisibility(){
+                    var payableAmountElement = $('.payable-amount'); 
+    var currentPrice = parseFloat(payableAmountElement.text());
+
+    currentPrice = Math.round(currentPrice * 100) / 100;
+
+if(currentPrice<1){
+    $('#pay-method-visibility').css('display', 'none');
+}else{
+    $('#pay-method-visibility').css('display', 'block');
+}
+
+                }
+
                 // Initial call to set the amount if any package is pre-selected
                 updatePayableAmount();
+                updateCouponCodeVisibility();
+                updatePayMethodVisibility();
 
                 // Listen for changes on the package checkboxes
                 packageCheckboxes.on('change', function () {
                     updatePayableAmount();
+                    updateCouponCodeVisibility();
+                    updatePayMethodVisibility()
                 });
 
                 // Listen for changes on the payment method (though it might not directly affect the total)
@@ -284,9 +318,63 @@
         }
 
         $(document).ready(function() {
+            let packageCheckboxes = $('input[name="package_id[]"]');
+                let paymentMethodEl = $('#paymentMethodId');
+                let payableAmountContainer = $('.payable-amount');
+                let amountCurrencyLeft = $('.amount-currency.currency-in-left');
+                let amountCurrencyRight = $('.amount-currency.currency-in-right');
 
+            function updatePayableAmount() {
+                    let totalAmount = 0;
+                    let selectedPackagesInfo = [];
+                    let currencySymbol = '';
+                    let currencyInLeft = false;
+
+                    packageCheckboxes.filter(':checked').each(function () {
+                        let price = parseFloat($(this).data('price'));
+                        let name = $(this).data('name');
+                        let symbol = $(this).data('currencysymbol');
+                        let inLeft = $(this).data('currencyinleft') === 1;
+
+                        if (!isNaN(price)) {
+                            totalAmount += price;
+                        }
+                        selectedPackagesInfo.push({ name: name, price: price, symbol: symbol, inLeft: inLeft });
+                        currencySymbol = symbol;
+                        currencyInLeft = inLeft;
+                    });
+
+                    payableAmountContainer.text(totalAmount.toFixed(2));
+
+                    if (currencySymbol) {
+                        if (currencyInLeft) {
+                            amountCurrencyLeft.text(currencySymbol).show();
+                            amountCurrencyRight.hide();
+                        } else {
+                            amountCurrencyRight.text(currencySymbol).show();
+                            amountCurrencyLeft.hide();
+                        }
+                    } else {
+                        amountCurrencyLeft.hide();
+                        amountCurrencyRight.hide();
+                    }
+
+                     let selectedPackagesList = $('#selected-packages-list');
+                     selectedPackagesList.empty();
+                     selectedPackagesInfo.forEach(pkg => {
+                      selectedPackagesList.append(`<p style="display: flex; justify-content: space-between; align-items: center;"><strong><span>${pkg.name}: </span></strong><strong><span>${pkg.symbol} ${pkg.price.toFixed(2)}</span></strong></p>`);
+                     });
+
+                    showPaymentMethods(totalAmount, forceDisplayPaymentMethods);
+                    let selectedPaymentMethod = paymentMethodEl.find('option:selected').data('name');
+                    showPaymentSubmitButton(currentPackagePrice, totalAmount, paymentIsActive, selectedPaymentMethod, isCreationFormPage);
+                }
+         let couponCode;
             $('#apply_coupon').on('click', function() {
-        var couponCode = $('#coupon_code').val().toUpperCase();
+            if(couponCode !== $('#coupon_code').val().toUpperCase()){
+                updatePayableAmount();
+
+                couponCode = $('#coupon_code').val().toUpperCase();
         var payableAmountElement = $('.payable-amount');
         var currentPrice = parseFloat(payableAmountElement.text());
 
@@ -311,19 +399,26 @@
             success: function(response) {
                 if (response.success) {
 
-                    var discount = response.discount;
+                    var discount = parseFloat(response.discount);
                     var valueType = response.value_type;
                     
                     console.log(discount+' '+valueType);
+                    currentPrice = Math.round(currentPrice * 100) / 100;
                     
-                    var discountAmount = valueType === 'percentage' ? currentPrice * discount : discount;
+                    var discountAmount = valueType === 'percentage' ? currentPrice * discount : Math.round(discount * 100) / 100;
                     var discountedPrice = currentPrice - discountAmount;
+                    if (discountedPrice < 0) {
+                        discountedPrice = 0;
+                    }
+                    discountedPrice = Math.round(discountedPrice * 100) / 100;
 
+                    let finalPriceString = discountedPrice.toFixed(2);
+                    finalPriceString = finalPriceString.slice(0, -1) + '0';
                     // Update UI
-                    payableAmountElement.text(discountedPrice.toFixed(2));
+                    payableAmountElement.text(finalPriceString);
                     $('#discounted_amount').val(discountedPrice.toFixed(2));
                     $('#coupon_message').text('Coupon applied! You saved ' + 
-                        (valueType === 'percentage' ? (discount * 100) + '%' : '$' + discountAmount.toFixed(2)));
+                        (valueType === 'percentage' ? (discount * 100) + '%' : 'Rs.' + discountAmount.toFixed(2)));
                 } else {
                     $('#coupon_error').text(response.message);
                 }
@@ -332,6 +427,8 @@
                 $('#coupon_error').text('An error occurred while validating the coupon.');
             }
         });
+            }
+        
     });
         });
     </script>
