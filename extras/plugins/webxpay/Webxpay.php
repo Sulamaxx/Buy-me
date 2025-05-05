@@ -10,6 +10,7 @@ use extras\plugins\webxpay\app\Traits\InstallTrait;
 use Illuminate\Http\Request;
 use App\Helpers\Payment;
 use App\Models\Package;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class Webxpay extends Payment
@@ -116,6 +117,33 @@ class Webxpay extends Payment
 		openssl_public_encrypt($plaintext, $encrypt, $publickey);
 		$payment = base64_encode($encrypt);
 		$user = auth()->user();
+
+		$totalAmount = 0;
+        foreach ($request->input('package_id') as $pid) {
+            $package = Package::find($pid);
+            $totalAmount = $totalAmount + $package->price;
+        }
+        if ($totalAmount > 0) {
+            $couponCode = $request->input('coupon_code');
+
+            if ($couponCode) {
+                $coupon = Coupon::where('code', $couponCode)
+                    ->first();
+
+
+                if ($coupon) {
+                    $coupon->utilized = 'Yes';
+                    $coupon->user_id = Auth::user()->id;
+                    $coupon->utilized_date = now();
+                    $coupon->is_active = 0;
+					$coupon->status = 'Expired';
+
+                    // Save the updated coupon
+                    $coupon->save();
+                }
+            }
+        }
+
 		return view('payment::payment', ['user' => $user, 'custom_fields' => $custom_fields, 'secret_key' => $secret_key, 'payment' => $payment, 'url' => $url]);
 	}
 

@@ -24,6 +24,27 @@
 @endsection
 
 @section('content')
+@php
+                //  Log::info('sections - '.print_r($sections,true));
+                if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+            @endphp
     <div class="main-container {{-- .main-container-mobile --}}" id="homepage" style>
 
         @if (session()->has('flash_notification'))
@@ -41,9 +62,7 @@
         @endif
 
         @if (!empty($sections))
-            @php
-                //  Log::info('sections - '.print_r($sections,true));
-            @endphp
+            
             @foreach ($sections as $section)
                 @php
                     $section ??= [];

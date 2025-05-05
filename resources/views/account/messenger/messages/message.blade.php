@@ -84,7 +84,7 @@
 				@endphp
 				<span class="time-and-date ms-0">
 					@if ($userIsOnline)
-						<i class="fa fa-circle color-success"></i>&nbsp;
+						{{-- <i class="fa fa-circle color-success"></i>&nbsp; --}}
 					@endif
 					{{ data_get($message, 'created_at_formatted') }}
 				</span>

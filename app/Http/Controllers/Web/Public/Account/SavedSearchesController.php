@@ -46,6 +46,25 @@ class SavedSearchesController extends AccountBaseController
 		// Meta Tags
 		MetaTag::set('title', $title);
 		MetaTag::set('description', t('my_saved_search_on', ['appName' => config('settings.app.name')]));
+
+		if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
 		
 		return appView('account.saved-searches.index', compact('apiMessage', 'apiResult'));
 	}

@@ -176,7 +176,7 @@
 
         setInterval(function() {
             getThreadsAjax(window.location.href);
-        }, 3000);
+        }, 750);
 
         setInterval(function() {
             var paceActiveElement = document.querySelector('.pace-active');

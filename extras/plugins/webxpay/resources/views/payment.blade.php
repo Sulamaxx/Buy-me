@@ -6,7 +6,7 @@
     <meta name="author" content="Sasindu Jayampathi">
     <title>WebXPay | Redirecting</title>
   </head>
-  <body>     	  
+  <body>     
        <form action="{{$url}}" id="webxpayform" method="POST" style="display: none;">
 			First name: <input type="text" name="first_name" value="{{$user->name}}"><br>
 			Last name: <input type="text" name="last_name" value="{{{$user->name}}}"><br>

@@ -25,6 +25,7 @@ use App\Models\Scopes\ReviewedScope;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Log;
 
 trait MakePayment
 {
@@ -85,7 +86,7 @@ trait MakePayment
 						// Send the Payment
 						// return $plugin->class::{'sendPayment'}($request, $payable, $resData);
 						//return call_user_func($plugin->class . '::sendPayment', $request, $payable, $resData);
-
+						
 						if($isPromoting){
 							
 							return call_user_func($plugin->class . '::sendPaymentPost', $request, $payable, $resData);
@@ -97,7 +98,7 @@ trait MakePayment
 					} catch (\Throwable $e) {
 						$resData['extra']['payment']['message'] = $e->getMessage();
 						$resData['extra']['previousUrl'] = $this->apiUri['previousUrl'] . '?error=pluginLoading';
-						
+						Log::info('makepayment1'.print_r($resData,true));
 						return apiResponse()->json($resData, 400);
 					}
 				} else {
@@ -114,6 +115,7 @@ trait MakePayment
 		}
 		
 		if (isFromApi()) {
+			Log::info('makepayment2'.print_r($resData,true));
 			return apiResponse()->json($resData);
 		} else {
 			$errorMessage = data_get($resData, 'extra.payment.message', 'Unknown Error.');

@@ -27,6 +27,26 @@ class CmsController extends FrontController
 	 */
 	public function index($slug)
 	{
+
+		if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+
 		// Get Packages - Call API endpoint
 		$endpoint = '/pages/' . $slug;
 		$data = makeApiRequest('get', $endpoint);

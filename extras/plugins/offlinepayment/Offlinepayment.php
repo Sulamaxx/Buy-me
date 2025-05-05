@@ -13,8 +13,10 @@ use extras\plugins\offlinepayment\app\Notifications\PaymentSent;
 use extras\plugins\offlinepayment\app\Traits\InstallTrait;
 use Illuminate\Http\Request;
 use App\Helpers\Payment;
+use App\Models\Coupon;
 use App\Models\Package;
 use App\Models\Payment as PaymentModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 
@@ -93,6 +95,147 @@ class Offlinepayment extends Payment
 			$params['package']['description'] = trans('offlinepayment::messages.user') . $payInfo;
 		}
 		
+		// Save the Payment in database
+		$resData = self::register($payable, $params, $resData);
+		
+		if (isFromApi()) {
+			
+			return self::apiResponse($resData);
+			
+		} else {
+			
+			if (data_get($resData, 'extra.payment.success')) {
+				flash(data_get($resData, 'extra.payment.message'))->success();
+			} else {
+				flash(data_get($resData, 'extra.payment.message'))->error();
+			}
+			
+			if (data_get($resData, 'success')) {
+				session()->flash('message', data_get($resData, 'message'));
+				
+//				return redirect()->to(self::$uri['nextUrl']);
+                $dispname = str_replace(" ","-",$payable->title)."-".$payable->id;
+                return redirect()->to('/'.$dispname);
+			} else {
+				// Maybe never called
+				return redirect()->to(self::$uri['nextUrl'])->withErrors(['error' => data_get($resData, 'message')]);
+			}
+			
+		}
+	}
+
+	public static function sendPaymentPost(Request $request, Post|User $payable, array $resData = [])
+	{
+		// Messages
+		self::$msg['checkout']['success'] = trans('offlinepayment::messages.We have received your offline payment request.') . ' ' .
+			trans('offlinepayment::messages.We will wait to receive your payment to process your request.');
+		
+		// Set the right URLs
+		parent::setRightUrls($resData);
+		
+		// Get the Package
+		$package = null;
+		$totalAmount = 0;
+		foreach ($request->input('package_id') as $pid) {
+			$package = Package::find($pid);
+			$totalAmount = $totalAmount + $package->price;
+		}
+
+		$couponCode = $request->input('coupon_code');
+
+		if ($couponCode) {
+			$coupon = Coupon::where('code', $couponCode)
+				->where('is_active', true)
+				->where('valid_period', '>=', now())
+				->where('utilized', 'no')
+				->first();
+
+
+			if ($coupon) {
+				$discount = $coupon->value_type === 'percentage' ? $coupon->value / 100 : $coupon->value;
+				//$discount = $coupon->value;
+				$discountAmount = $coupon->value_type === 'percentage' ? $totalAmount * $discount : $discount;
+				$discountedPrice = $totalAmount - $discountAmount;
+				$totalAmount = $discountedPrice;
+			}
+		}
+		
+		// Don't make a payment if 'price' = 0 or null
+		if (empty($package)) {
+			$message = 'Package does not exist or its price is <= 0.';
+			
+			if (isFromApi()) {
+				$resData['extra']['payment']['message'] = $message;
+				$resData['extra']['payment']['result'] = null;
+				$resData['extra']['previousUrl'] = parent::$uri['previousUrl'];
+				$resData['extra']['nextUrl'] = parent::$uri['nextUrl'];
+				
+				return self::apiResponse($resData);
+			} else {
+				flash($message)->error();
+				
+				return redirect()->to(parent::$uri['previousUrl'] . '?error=package')->withInput();
+			}
+		}
+		
+		// Don't make payment if selected Package is not compatible with payable (Post|User)
+		if (!parent::isPayableCompatibleWithPackage($payable, $package)) {
+			$message = 'The selected package is not compatible with the payable.';
+			
+			if (isFromApi()) {
+				$resData['extra']['payment']['message'] = $message;
+				$resData['extra']['payment']['result'] = null;
+				$resData['extra']['previousUrl'] = parent::$uri['previousUrl'];
+				$resData['extra']['nextUrl'] = parent::$uri['nextUrl'];
+				
+				return self::apiResponse($resData);
+			} else {
+				flash($message)->error();
+				
+				return redirect()->to(parent::$uri['previousUrl'] . '?error=packageType')->withInput();
+			}
+		}
+		
+		$isPromoting = ($package->type == 'promotion');
+		$isSubscripting = ($package->type == 'subscription');
+		
+		$payInfo = ' #' . $payable->id . ' - ' . $package->name;
+		
+		// API Parameters
+		$params = parent::getLocalParameters($request, $payable, $package);
+		$params['package']['description'] = trim($payInfo);
+		if ($isPromoting) {
+			$params['package']['description'] = trans('offlinepayment::messages.listing') . $payInfo;
+		}
+		if ($isSubscripting) {
+			$params['package']['description'] = trans('offlinepayment::messages.user') . $payInfo;
+		}
+		
+		$totalAmount = 0;
+        foreach ($request->input('package_id') as $pid) {
+            $package = Package::find($pid);
+            $totalAmount = $totalAmount + $package->price;
+        }
+        if ($totalAmount > 0) {
+            $couponCode = $request->input('coupon_code');
+
+            if ($couponCode) {
+                $coupon = Coupon::where('code', $couponCode)
+                    ->first();
+
+
+                if ($coupon) {
+                    $coupon->utilized = 'Yes';
+                    $coupon->user_id = Auth::user()->id;
+                    $coupon->utilized_date = now();
+                    $coupon->is_active = 0;
+					$coupon->status = 'Expired';
+
+                    // Save the updated coupon
+                    $coupon->save();
+                }
+            }
+        }
 		// Save the Payment in database
 		$resData = self::register($payable, $params, $resData);
 		

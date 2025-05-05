@@ -369,6 +369,31 @@ trait SubmitTrait
         // Clear Temporary Inputs & Files
         $this->clearTemporaryInput();
 
+        $totalAmount = 0;
+        foreach ($request->input('package_id') as $pid) {
+            $package = Package::find($pid);
+            $totalAmount = $totalAmount + $package->price;
+        }
+        if ($totalAmount > 0) {
+            $couponCode = $request->input('coupon_code');
+
+            if ($couponCode) {
+                $coupon = Coupon::where('code', $couponCode)
+                    ->first();
+
+
+                if ($coupon) {
+                    $coupon->utilized = 'Yes';
+                    $coupon->user_id = Auth::user()->id;
+                    $coupon->utilized_date = now();
+                    $coupon->is_active = 0;
+
+                    // Save the updated coupon
+                    $coupon->save();
+                }
+            }
+        }
+
         return redirect()->to($nextUrl);
     }
 }

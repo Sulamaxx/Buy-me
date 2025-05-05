@@ -27,6 +27,26 @@ class PostsController extends AccountBaseController
 	 */
 	public function getPage($pagePath)
 	{
+
+		if (session()->has('postInput')) {
+			session()->forget('postInput');
+		}
+		
+		if (session()->has('picturesInput')) {
+			$picturesInput = (array)session('picturesInput');
+			if (!empty($picturesInput)) {
+				session()->forget('picturesInput');
+			}
+		}
+		
+		if (session()->has('paymentInput')) {
+			session()->forget('paymentInput');
+		}
+		
+		if (session()->has('uid')) {
+			session()->forget('uid');
+		}
+
 		switch ($pagePath) {
 			case 'list':
 				return $this->index();
@@ -47,6 +67,9 @@ class PostsController extends AccountBaseController
 	 */
 	public function index($postId = null)
 	{
+
+		
+
 		// If "offline" button is clicked
 		if (
 			is_numeric($postId)
