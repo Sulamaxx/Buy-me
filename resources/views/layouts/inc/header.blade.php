@@ -516,6 +516,10 @@
                 item: function(item, escape) {
                     return `<div>${escape(item.name)}</div>`;
                 }
+            },
+            onItemAdd: function() {
+                this.setTextboxValue('');
+                this.refreshOptions(false);
             }
         });
 
@@ -572,6 +576,10 @@
             item: function(item, escape) {
                 return `<div>${escape(item.name)}</div>`;
             }
+        },
+        onItemAdd: function() {
+            this.setTextboxValue('');
+            this.refreshOptions(false);
         }
     });
 
