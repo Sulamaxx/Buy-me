@@ -531,6 +531,20 @@ function custom_mb_ucfirst(?string $string, string $encoding = 'utf-8'): ?string
 	return mb_strtoupper($firstChar, $encoding) . $then;
 }
 
+// Alias mb_ucfirst to custom_mb_ucfirst if the function doesn't already exist
+// This prevents the function redeclaration error
+if (!function_exists('mb_ucfirst')) {
+    /**
+     * @param string|null $string
+     * @param string $encoding
+     * @return string|null
+     */
+    function mb_ucfirst(?string $string, string $encoding = 'utf-8'): ?string
+    {
+        return custom_mb_ucfirst($string, $encoding);
+    }
+}
+
 /**
  * ucwords() function for multibyte character encodings
  *
