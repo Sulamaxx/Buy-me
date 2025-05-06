@@ -7,7 +7,7 @@
 @endphp
 {{-- Modal Select Category --}}
 <div class="modal fade" id="browseCategories" tabindex="-1" aria-labelledby="categoriesModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-lg" style="margin-top: 7%;">
 		<div class="modal-content">
 			
 			<div class="modal-header px-3">
