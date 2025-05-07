@@ -1,6 +1,6 @@
 /vendor
 /node_modules
 vendor.zip
-.env
 /storage/logs
 /storage
+config.bat

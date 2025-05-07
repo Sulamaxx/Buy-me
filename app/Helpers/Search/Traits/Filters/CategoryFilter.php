@@ -22,7 +22,6 @@ trait CategoryFilter
 {
     protected function applyCategoryFilter(): void
     {
-
         if (!isset($this->posts)) {
             return;
         }
@@ -39,59 +38,55 @@ trait CategoryFilter
             foreach ((array)$selectedCategories as $catId) {
                 // Find the selected category (assuming 'c' is ID or slug)
                 $cat = Category::where('id', $catId)->orWhere('slug', $catId)->first();
-                if ($cat) {
-                    // Call the corrected method, passing the main accumulator array by reference
-                    $this->getCategoryChildrenIds($cat, $catChildrenIds);
+                if (!empty($cat)) {
+                    // Add the current category ID to the array
+                    $catChildrenIds[] = (int)$cat->id;
+                    
+                    // Get all children of this category
+                    if (isset($cat->children) && $cat->children->count() > 0) {
+                        $this->getAllChildrenIds($cat->children, $catChildrenIds);
+                    }
                 }
             }
-    
+
             $catChildrenIds = array_unique($catChildrenIds);
-    
         } else {
             // When 'c' is NOT present, filter by the current page's category and its children
             if (empty($this->cat) || !($this->cat instanceof Category)) {
                 return;
             }
     
-            // Call the corrected method, passing the main accumulator array by reference
-            $this->getCategoryChildrenIds($this->cat, $catChildrenIds);
+            // Add the current category ID to the array
+            $catChildrenIds[] = (int)$this->cat->id;
+            
+            // Get all children of this category
+            if (isset($this->cat->children) && $this->cat->children->count() > 0) {
+                $this->getAllChildrenIds($this->cat->children, $catChildrenIds);
+            }
         }
     
         if (!empty($catChildrenIds)) {
             $this->posts->whereIn('category_id', $catChildrenIds);
         }
-
-        
     }
 
     /**
-     * Get all the category's children IDs recursively
+     * Get all children IDs recursively
      *
-     * @param $cat
-     * @param null $catId
-     * @param array $idsArr
-     * @return array
+     * @param \Illuminate\Database\Eloquent\Collection $children
+     * @param array &$idsArr
+     * @return void
      */
-    private function getCategoryChildrenIds($cat, $catId = null, array &$idsArr = []): array
+    private function getAllChildrenIds($children, array &$idsArr): void
     {
-
-        if (!empty($cat->id)) {
-            $idsArr[] = (int)$cat->id;
-        }
-    
-      
-        if (isset($cat->children) && $cat->children->count() > 0) {
-            foreach ($cat->children as $subCat) {
-                if ($subCat->active == 1) {
-                   
-                    $this->getCategoryChildrenIds($subCat, $idsArr);
+        foreach ($children as $child) {
+            if ($child->active == 1) {
+                $idsArr[] = (int)$child->id;
+                
+                if (isset($child->children) && $child->children->count() > 0) {
+                    $this->getAllChildrenIds($child->children, $idsArr);
                 }
             }
         }
-    
-        
-        return $idsArr;
-
-        
     }
 }
