@@ -4,3 +4,4 @@ vendor.zip
 /storage/logs
 /storage
 config.bat
+.env
