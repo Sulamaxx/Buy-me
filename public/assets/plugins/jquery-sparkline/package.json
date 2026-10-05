@@ -53,7 +53,7 @@
     "url": "git+https://github.com/imsky/jquery.sparkline.git"
   },
   "scripts": {
-    "build": "node build",
+    "build": "node api.js && node build",
     "postbuild": "uglifyjs jquery.sparkline.js > jquery.sparkline.min.js"
   },
   "version": "2.4.0"
